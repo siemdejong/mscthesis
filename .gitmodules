@@ -1,0 +1,3 @@
+[submodule "texmf/tex/latex/kaobook"]
+	path = texmf/tex/latex/kaobook
+	url = https://github.com/siemdejong/kaobook.git
