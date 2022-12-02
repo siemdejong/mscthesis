@@ -1,0 +1,110 @@
+name: Build and release LaTeX output PDF
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.set_env.outputs.RELEASE_VERSION }}
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Set environment
+        id: set_env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          latexmk_shell_escape: true
+          pre_compile: "tlmgr update --self --all --reinstall-forcibly-removed"
+        env:
+          TEXINPUTS: ".:./texmf/tex/latex/kaobook//:"
+      
+      - name: Upload output pdf
+        uses: actions/upload-artifact@v3
+        with:
+          name: mscthesis
+          path: main.pdf
+
+  create_release:
+    runs-on: ubuntu-latest
+    needs: build_latex
+    steps:
+      - name: Download output pdf
+        uses: actions/download-artifact@v3
+        with:
+          name: mscthesis
+
+      - name: Create Latest Release
+        id: create_latest_release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Draft build"
+
+      - name: Upload Release Asset
+        id: upload-latest-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_latest_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./main.pdf
+          asset_name: mscthesis-${{needs.build_latex.outputs.version}}.pdf
+          asset_content_type: application/pdf
+
+      - name: Create Release
+        id: create_release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: true
+          title: "Draft build"
+
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./main.pdf
+          asset_name: mscthesis-${{needs.build_latex.outputs.version}}.pdf
+          asset_content_type: application/pdf
+
+  gh-pages:
+    runs-on: ubuntu-latest
+    needs: build_latex
+    steps:
+      - name: Download output pdf
+        uses: actions/download-artifact@v3
+        with:
+          name: mscthesis
+
+      - name: Commit build
+        run: |
+          mkdir output
+          mv main.pdf output/mscthesis.pdf
+          cd output
+          git init
+          git add mscthesis.pdf
+          git config --local user.email "action@github.com"
+          git config --local user.name "Github Action"
+          git commit -m 'Version ${{ env.RELEASE_VERSION }}'
+      
+      - name: Push changes to Pages
+        uses: ad-m/github-push-action@master
+        with:
+          directory: output
+          branch: gh-pages
+          force: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}

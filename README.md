@@ -94,7 +94,7 @@ Research is conducted in the context of deep learning on higher harmonics genera
 
 ### Built With
 
-* [![LaTeX][LaTeX]][LaTeX-url]
+[![LaTeX][LaTeX]][LaTeX-url]
 <!-- * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
 * [![Vue][Vue.js]][Vue-url]
