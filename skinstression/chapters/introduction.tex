@@ -1,0 +1,18 @@
+\chapter{Introduction}
+
+Human skin tissue is mostly built by collagen and elastin.
+Second harmonic generation (SHG) imaging allows to image collagen and two-photon excitation microscopy (2PEF).
+Setups have been built to collect SHG and 2PEF signals simultaneously, allowing for rich skin tissue imaging.
+Collagen fibers are clearly visible.
+Previous studies have shown that collagen and not elastin dictates the stretching ability of skin tissue.
+A recent study (Mengyao) aims to show the connection between collagen density and amount of stretching.
+To measure the stretch of skin tissue, mechanical measurements have to be performed.
+SHG images of the collagen networks in conjuction with the strain-stress curves suggest that the images already contain stretch information.
+Retrieving complex features from labelled images can be done using supervised deep learning.
+Supervised deep learning is considered a black-box technique that aims to learn a mapping from input to output.
+With the SHG images and corresponding stress-strain measurements at hand, \texttt{Skinstression} is developed with the ultimate goal to replace mechanical measurements on skin tissue to quantify skin stretch.
+Efforts to develop such a model have already been made by A.\ Soylu.
+However, those methods do not consider complete separation of training and test sets in both inference and label creation, possibly leading to biased results.
+Moreover, only one slice of larger image stacks have been used.
+Using more, if not all, images of a stack might lead to a more robust model.
+This study extends Soylu's model.

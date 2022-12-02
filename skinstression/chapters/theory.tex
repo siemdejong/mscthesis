@@ -1,0 +1,148 @@
+\chapter{Theory}
+
+% --------------------------------------------------
+% SEARCHING FOR A SIMPLE SKIN STRAIN-STRESS MODEL
+% --------------------------------------------------
+
+\section{Searching for a simple skin strain-stress model}
+
+Supervised learning requires targets for the model to train on.
+Ideally, individual targets allow for physical interpretation and can together describe all the available data.
+
+\subsection{Empirical strain-stress regions}
+Although skin tissue has a complex nature, measurements to quantify skin stretch show similar features.
+Measurements always show three domains: the toe, heel and leg domain (see fig.).
+The toe region is at the very start of the curve.
+This region is seems relatively flat as the fiber network consists of mostly unstretched fibers.
+Therefore, the fibers cannot exert force as a reaction to external stretching force.
+However, in the heel region where skin tissue is stretched more, fibers can exert more force.
+When enough force is exerted on the tissue, fibers stretch maximally and fibers react with maximum force in the leg region.
+This region is observed to be roughly linear.
+Overstretching the tissue then breaks the fiber network, decreasing the possibility to exert force.
+
+\subsection{Exponential}
+Strain-stress curves can be also be visualized by showing the log derivative of stress with respect to strain against the log of strain (fig).
+Typically, this figure has three regions.
+The first region indicates a linear relationship between small forces and small strain.
+Then, the derivative increases until it reaches a purely exponential part.
+If skin stretching follows this kind of behaviour, a simple mathematical model can be derived.
+Inspecting the figure, the linear part shows the ordinary differential equation
+\begin{equation}
+    \frac{\mathrm{d}\sigma}{\mathrm{d}\gamma} \propto \sigma,
+\end{equation}
+where $\gamma = \chi - 1$.
+Solving for $\sigma$, we get
+\begin{equation}
+    \sigma \propto e^{\lambda\gamma},
+\end{equation}
+where $\lambda$ is some factor dictating the speed with which the exponential increases.
+At no extension, i.\ e.\ $\gamma=0$, it can be assumed that there is no stress.
+Therefore,
+\begin{equation}
+    \sigma \propto e^{\lambda\gamma} - 1.
+\end{equation}
+At small extensions, i.\ e.\ $\lambda\gamma \ll 1$, $e^{\lambda\gamma} \approx (1 + \lambda\gamma + \ldots)$ using a Taylor expansion.
+So
+\begin{equation}
+    \sigma_{\lambda\gamma\ll 1} \propto 1 + \lambda\gamma + \ldots - 1 \approx G_0 \gamma,
+\end{equation}
+where $G_0$ is some linear coefficient at small extensions.
+The full expression then becomes
+\begin{equation}
+    \sigma = \frac{G_0}{\lambda}\left(e^{\lambda\gamma}-1\right).
+\end{equation}
+
+This model assumes that data follows the previously described curve where there is a small rise at small extensions and an indefinitely exponentially increasing stress for larger extensions.
+
+\subsection{Principal component analysis}
+In an earlier study (ref A.\ Soylu), principal component analysis (PCA) is used to reduce the dimensionality of the strain-stress data.
+In summary, after PCA, every measurement $Y$ can be approximated by
+\begin{equation}
+    Y \approx Y_\mathrm{PCA} = \mathbf{A} \mathbf{V} + \bar{Y},
+\end{equation}
+where $\mathbf{A}$ and $\mathbf{V}$ are matrices containing respectively the eigenvalues and -vectors of the the measurement data.
+$\bar{Y}$ is the measurement mean.
+Choosing the first $p$ principal components allows for dimensionality reduction.
+
+Using PCA to create eigenvalues to weight the eigenvectors has some caveats.
+First, the training and test sets must be treated separately.
+The test set has to be projected on the space spanned by the first $p$ eigenvectors of the training set.
+This may induce problems as the test set could contain information that does not come close to
+Second, PCA depends on interpolation, i.\ e.\ every strain-stress curve must be formed by either a set of strain or stress values.
+This reduces the domain of the data.
+
+\subsection{Logistic curve}
+The empirical observations where the force response of skin tissue changes states, suggests a logistic curve, which can be written as
+\begin{equation}\label{eq:logistic_curve}
+    \sigma = \frac{\sigma_\mathrm{max}}{1+e^{-E_\mathrm{max} (\gamma - \gamma_c)}},
+\end{equation}
+where $\sigma$ and $\gamma$ are the stress and engineering strain, $\sigma_\mathrm{max}$ is the maximum stress, $E_\mathrm{max}$ is the maximum Young's modulus and $\gamma_c$ the strain offset.
+This equation assumes that there is a maximum force that the tissue can exert, in contrary to the theoretical approach above (ref).
+
+% --------------------------------------------------
+% Loss functions
+% --------------------------------------------------
+
+\section{Loss functions}
+Backpropagation needs a loss to learn in which direction to update weights.
+There is a variety of loss functions available (ref review).
+
+\subsection{Mean absolute error}
+One of the most straightforward techniques of calculating the loss is the mean absolute error (MAE).
+It measures the average difference between every prediction and target, like
+\begin{equation}
+    \mathrm{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - y'_i|,
+\end{equation}
+where $n$ is the number of targets per sample, $y$ the prediction and $y'$ the target.
+
+The MAE loss is forgiving, i.\ e.\ outliers are weighted as much as predictions close to the target.
+In training a neural network, focusing on outliers is assumed to be beneficial, as those are the cases that the model has difficulty with (ref).
+
+\subsection{Mean square error}
+To overcome the forgiving nature of the MAE loss, the mean square error (MSE) can be used.
+It measures the average squared difference between every prediction and target, like
+\begin{equation}
+    \mathrm{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - y'_i)^2.
+\end{equation}
+
+\subsection{Focal MSE}
+To give even more focus on the hard targets, giving them more importance than easy targets can be done through the focal MSE loss (FL)~\cite{Lu2022}.
+To give less importance to the easier targets, FL follows
+\begin{equation}
+    FL = \left(\frac{2}{1 + e^{-\beta |y - y'|}} - 1 \right)^\gamma (y_i - y'_i)^2,
+\end{equation}
+where increasing $\gamma$ increases the number of targets regarded as easy and $\beta$ regulates the speed with which the first part of the curve increases (make fig).
+
+% --------------------------------------------------
+% Label density smoothing
+% --------------------------------------------------
+
+\section{Label density smoothing}
+The targets calculated with logistic curve fitting result in a non-uniform distribution.
+Data imbalance reduces the ability of a neural network to learn outliers.
+This may have significant impact on the test results.
+To deal with imbalanced data, various techniques have been developed.
+One of those techniques is label density smoothing (LDS)~\cite{yang2021delving}.
+It is specifically designed for deep neural networks to learn from imbalanced continuous targets.
+
+\newcommand{\edtl}{$\tilde{p}(y')$ }
+LDS computes the effective label density distribution,
+\begin{equation}
+    \tilde{p}(y') = \int_Y k(y, y')p(y)dy,
+\end{equation}
+where $k(y,y')$ is a symmetric kernel, $p(y)$ the number of label $y$ present in the training data and \edtl the effective density of target label $y'$.
+Reweighting the loss function with the inverse (square root) of \edtl addresses target imbalance.
+
+\subsection*{layout}
+\begin{enumerate}
+    \item deep neural network as regressor
+    \item image quality
+          \begin{enumerate}
+              \item entropy
+              \item ...
+          \end{enumerate}
+    \item noise2void
+    \item road to logistic curve
+    \item label density smoothing
+    \item loss functions
+\end{enumerate}

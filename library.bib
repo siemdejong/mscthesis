@@ -1,0 +1,985 @@
+ 
+@techreport{Loshchilov2017,
+  author      = {Loshchilov, Ilya and Hutter, Frank},
+  date        = {2017-05},
+  institution = {arXiv},
+  title       = {{SGDR}: {Stochastic} {Gradient} {Descent} with {Warm} {Restarts}},
+  note        = {arXiv:1608.03983 [cs, math] type: article},
+  url         = {http://arxiv.org/abs/1608.03983},
+  urldate     = {2022-11-09},
+  abstract    = {Restart techniques are common in gradient-free optimization to deal with multimodal functions. Partial warm restarts are also gaining popularity in gradient-based optimization to improve the rate of convergence in accelerated gradient schemes to deal with ill-conditioned functions. In this paper, we propose a simple warm restart technique for stochastic gradient descent to improve its anytime performance when training deep neural networks. We empirically study its performance on the CIFAR-10 and CIFAR-100 datasets, where we demonstrate new state-of-the-art results at 3.14\% and 16.21\%, respectively. We also demonstrate its advantages on a dataset of EEG recordings and on a downsampled version of the ImageNet dataset. Our source code is available at https://github.com/loshchil/SGDR},
+  annotation  = {Comment: ICLR 2017 conference paper},
+  file        = {:Loshchilov2017 - SGDR_ Stochastic Gradient Descent with Warm Restarts.pdf:PDF},
+  groups      = {Deep learning architectures},
+  keywords    = {Computer Science - Machine Learning, Computer Science - Neural and Evolutionary Computing, Mathematics - Optimization and Control},
+  shorttitle  = {{SGDR}}
+}
+
+ 
+@article{Koho2016,
+  author       = {Koho, Sami and Fazeli, Elnaz and Eriksson, John E. and Hänninen, Pekka E.},
+  date         = {2016-07},
+  journaltitle = {Scientific Reports},
+  title        = {Image {Quality} {Ranking} {Method} for {Microscopy}},
+  doi          = {10.1038/srep28962},
+  issn         = {2045-2322},
+  pages        = {28962},
+  url          = {https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4929473/},
+  urldate      = {2022-11-09},
+  volume       = {6},
+  abstract     = {Automated analysis of microscope images is necessitated by the increased need for high-resolution follow up of events in time. Manually finding the right images to be analyzed, or eliminated from data analysis are common day-to-day problems in microscopy research today, and the constantly growing size of image datasets does not help the matter. We propose a simple method and a software tool for sorting images within a dataset, according to their relative quality. We demonstrate the applicability of our method in finding good quality images in a STED microscope sample preparation optimization image dataset. The results are validated by comparisons to subjective opinion scores, as well as five state-of-the-art blind image quality assessment methods. We also show how our method can be applied to eliminate useless out-of-focus images in a High-Content-Screening experiment. We further evaluate the ability of our image quality ranking method to detect out-of-focus images, by extensive simulations, and by comparing its performance against previously published, well-established microscopy autofocus metrics.},
+  file         = {:koho_image_2016 - Image Quality Ranking Method for Microscopy.html:URL;:Koho2016 - Image Quality Ranking Method for Microscopy.pdf:PDF},
+  groups       = {Denoising},
+  pmcid        = {PMC4929473},
+  pmid         = {27364703}
+}
+
+ 
+@article{Ghassemi2021,
+  author       = {Ghassemi, Marzyeh and Oakden-Rayner, Luke and Beam, Andrew L},
+  date         = {2021-11},
+  journaltitle = {The Lancet Digital Health},
+  title        = {The false hope of current approaches to explainable artificial intelligence in health care},
+  doi          = {10.1016/S2589-7500(21)00208-9},
+  issn         = {2589-7500},
+  language     = {en},
+  number       = {11},
+  pages        = {e745--e750},
+  url          = {https://www.sciencedirect.com/science/article/pii/S2589750021002089},
+  urldate      = {2022-09-21},
+  volume       = {3},
+  abstract     = {The black-box nature of current artificial intelligence (AI) has caused some to question whether AI must be explainable to be used in high-stakes scenarios such as medicine. It has been argued that explainable AI will engender trust with the health-care workforce, provide transparency into the AI decision making process, and potentially mitigate various kinds of bias. In this Viewpoint, we argue that this argument represents a false hope for explainable AI and that current explainability methods are unlikely to achieve these goals for patient-level decision support. We provide an overview of current explainability techniques and highlight how various failure cases can cause problems for decision making for individual patients. In the absence of suitable explainability methods, we advocate for rigorous internal and external validation of AI models as a more direct means of achieving the goals often associated with explainability, and we caution against having explainability be a requirement for clinically deployed models.},
+  file         = {:Ghassemi2021 - The False Hope of Current Approaches to Explainable Artificial Intelligence in Health Care.pdf:PDF;:Ghassemi2021 - The False Hope of Current Approaches to Explainable Artificial Intelligence in Health Care.html:URL},
+  groups       = {THG-XAI, XAI},
+  publisher    = {Elsevier {BV}}
+}
+
+@article{Sundararajan2017,
+  author     = {Sundararajan, Mukund and Taly, Ankur and Yan, Qiqi},
+  date       = {2017},
+  title      = {Axiomatic Attribution for Deep Networks},
+  eprint     = {1703.01365},
+  eprinttype = {arxiv},
+  abstract   = {We study the problem of attributing the prediction of a deep network to its input features, a problem previously studied by several other works. We identify two fundamental axioms---Sensitivity and Implementation Invariance that attribution methods ought to satisfy. We show that they are not satisfied by most known attribution methods, which we consider to be a fundamental weakness of those methods. We use the axioms to guide the design of a new attribution method called Integrated Gradients. Our method requires no modification to the original network and is extremely simple to implement; it just needs a few calls to the standard gradient operator. We apply this method to a couple of image models, a couple of text models and a chemistry model, demonstrating its ability to debug networks, to extract rules from a network, and to enable users to engage with models better.},
+  file       = {:Sundararajan2017 - Axiomatic Attribution for Deep Networks.pdf:PDF},
+  groups     = {THG-XAI, XAI},
+  keywords   = {Computer Science - Machine Learning},
+  publisher  = {arXiv}
+}
+
+@inproceedings{Li2021,
+  author       = {Bin Li and Yin Li and Kevin W. Eliceiri},
+  booktitle    = {2021 {IEEE}/{CVF} Conference on Computer Vision and Pattern Recognition ({CVPR})},
+  date         = {2021-06},
+  title        = {Dual-stream Multiple Instance Learning Network for Whole Slide Image Classification with Self-supervised Contrastive Learning},
+  doi          = {10.1109/cvpr46437.2021.01409},
+  pages        = {14313--14323},
+  publisher    = {{IEEE}},
+  url          = {https://ieeexplore.ieee.org/document/9578683/},
+  abstract     = {We address the challenging problem of whole slide image (WSI) classification. WSIs have very high resolutions and usually lack localized annotations. WSI classification can be cast as a multiple instance learning (MIL) problem when only slide-level labels are available. We propose a MIL-based method for WSI classification and tumor detection that does not require localized annotations. Our method has three major components. First, we introduce a novel MIL aggregator that models the relations of the instances in a dual-stream architecture with trainable distance measurement. Second, since WSIs can produce large or unbalanced bags that hinder the training of MIL models, we propose to use self-supervised contrastive learning to extract good representations for MIL and alleviate the issue of prohibitive memory cost for large bags. Third, we adopt a pyramidal fusion mechanism for multiscale WSI features, and further improve the accuracy of classification and localization. Our model is evaluated on two representative WSI datasets. The classification accuracy of our model compares favorably to fully-supervised methods, with less than 2% accuracy gap across datasets. Our results also outperform all previous MIL-based methods. Additional benchmark results on standard MIL datasets further demonstrate the superior performance of our MIL aggregator on general MIL problems. GitHub repository: https://github.com/binli123/dsmil-wsi},
+  groups       = {THG-XAI, MIL: multi-scale attention},
+  journaltitle = {2021 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  keywords     = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Machine Learning}
+}
+
+@incollection{Zhu2017,
+  author    = {Zhu, Wentao and Lou, Qi and Vang, Yeeleng Scott and Xie, Xiaohui},
+  date      = {2017},
+  title     = {Deep Multi-instance Networks with Sparse Label Assignment for Whole Mammogram Classification},
+  doi       = {10.1007/978-3-319-66179-7_69},
+  editor    = {Descoteaux, Maxime and Maier-Hein, Lena and Franz, Alfred and Jannin, Pierre and Collins, D. Louis and Duchesne, Simon},
+  pages     = {603--611},
+  publisher = {Springer International Publishing},
+  abstract  = {Mammogram classification is directly related to computer-aided diagnosis of breast cancer. Traditional methods rely on regions of interest (ROIs) which require great efforts to annotate. Inspired by the success of using deep convolutional features for natural image analysis and multi-instance learning (MIL) for labeling a set of instances/patches, we propose end-to-end trained deep multi-instance networks for mass classification based on whole mammogram without the aforementioned ROIs. We explore three different schemes to construct deep multi-instance networks for whole mammogram classification. Experimental results on the INbreast dataset demonstrate the robustness of proposed networks compared to previous work using segmentation and detection annotations. (Code: https://github.com/wentaozhu/deep-mil-for-whole-mammogram-classification.git).},
+  file      = {:Zhu2017 - Deep Multi Instance Networks with Sparse Label Assignment for Whole Mammogram Classification.pdf:PDF},
+  groups    = {THG-XAI, MIL: other},
+  keywords  = {Deep multi-instance learning, Label assignment-based MIL, Max pooling-based MIL, Sparse MIL, Whole mammogram classification}
+}
+
+@article{Blokker2022,
+  author       = {Blokker, Max and Hamer, Philip C. de Witt and Wesseling, Pieter and Groot, Marie Louise and Veta, Mitko},
+  date         = {2022},
+  journaltitle = {Scientific Reports},
+  title        = {Fast intraoperative histology-based diagnosis of gliomas with third harmonic generation microscopy and deep learning},
+  doi          = {10.1038/s41598-022-15423-z},
+  number       = {1},
+  pages        = {11334--11334},
+  url          = {https://www.nature.com/articles/s41598-022-15423-z},
+  volume       = {12},
+  abstract     = {<p>Management of gliomas requires an invasive treatment strategy, including extensive surgical resection. The objective of the neurosurgeon is to maximize tumor removal while preserving healthy brain tissue. However, the lack of a clear tumor boundary hampers the neurosurgeon’s ability to accurately detect and resect infiltrating tumor tissue. Nonlinear multiphoton microscopy, in particular higher harmonic generation, enables label-free imaging of excised brain tissue, revealing histological hallmarks within seconds. Here, we demonstrate a real-time deep learning-based pipeline for automated glioma image analysis, matching video-rate image acquisition. We used a custom noise detection scheme, and a fully-convolutional classification network, to achieve on average 79% binary accuracy, 0.77 AUC and 0.83 mean average precision compared to the consensus of three pathologists, on a preliminary dataset. We conclude that the combination of real-time imaging and image analysis shows great potential for intraoperative assessment of brain tissue during tumor surgery.</p>},
+  file         = {:Blokker2022 - Fast Intraoperative Histology Based Diagnosis of Gliomas with Third Harmonic Generation Microscopy and Deep Learning.pdf:PDF},
+  groups       = {THG-XAI, MIL: other, THG, Denoising}
+}
+
+@article{Huizen2020,
+  author       = {Laura M. G. Huizen and Teodora Radonic and Frank Mourik and Danielle Seinstra and Chris Dickhoff and Johannes M. A. Daniels and Idris Bahce and Jouke T. Annema and Marie Louise Groot},
+  date         = {2020-08},
+  journaltitle = {Translational Biophotonics},
+  title        = {Compact portable multiphoton microscopy reveals histopathological hallmarks of unprocessed lung tumor tissue in real time},
+  doi          = {10.1002/tbio.202000009},
+  number       = {4},
+  volume       = {2},
+  groups       = {THG-XAI, THG},
+  publisher    = {Wiley}
+}
+
+@article{Kuzmin2016,
+  author       = {Kuzmin, N. V. and Wesseling, P. and Hamer, P. C. de Witt and Noske, D. P. and Galgano, G. D. and Mansvelder, H. D. and Baayen, J. C. and Groot, M. L.},
+  date         = {2016},
+  journaltitle = {Biomedical Optics Express},
+  title        = {Third harmonic generation imaging for fast, label-free pathology of human brain tumors},
+  doi          = {10.1364/BOE.7.001889},
+  number       = {5},
+  pages        = {1889--1889},
+  url          = {https://opg.optica.org/abstract.cfm?URI=boe-7-5-1889},
+  volume       = {7},
+  abstract     = {In brain tumor surgery, recognition of tumor boundaries is key. However, intraoperative assessment of tumor boundaries by the neurosurgeon is difficult. Therefore, there is an urgent need for tools that provide the neurosurgeon with pathological information during the operation. We show that third harmonic generation (THG) microscopy provides label-free, real-time images of histopathological quality; increased cellularity, nuclear pleomorphism, and rarefaction of neuropil in fresh, unstained human brain tissue could be clearly recognized. We further demonstrate THG images taken with a GRIN objective, as a step toward in situ THG microendoscopy of tumor boundaries. THG imaging is thus a promising tool for optical biopsies.},
+  groups       = {THG-XAI, THG}
+}
+
+@article{Zhang2019,
+  author       = {Zhang, Zhiqing and de Munck, Jan C. and Verburg, Niels and Rozemuller, Annemieke J. and Vreuls, Willem and Cakmak, Pinar and van Huizen, Laura M. G. and Idema, Sander and Aronica, Eleonora and de Witt Hamer, Philip C. and Wesseling, Pieter and Groot, Marie Louise},
+  date         = {2019},
+  journaltitle = {Advanced Science},
+  title        = {Quantitative Third Harmonic Generation Microscopy for Assessment of Glioma in Human Brain Tissue},
+  doi          = {10.1002/advs.201900163},
+  pages        = {1900163--1900163},
+  groups       = {THG-XAI, THG}
+}
+
+@article{Witte2011,
+  author       = {Witte, Stefan and Negrean, Adrian and Lodder, Johannes C. and de Kock, Christiaan P. J. and Testa Silva, Guilherme and Mansvelder, Huibert D. and Louise Groot, Marie},
+  date         = {2011},
+  journaltitle = {Proceedings of the National Academy of Sciences},
+  title        = {Label-free live brain imaging and targeted patching with third-harmonic generation microscopy},
+  doi          = {10.1073/pnas.1018743108},
+  number       = {15},
+  pages        = {5970--5975},
+  volume       = {108},
+  abstract     = {<p>The ability to visualize neurons inside living brain tissue is a fundamental requirement in neuroscience and neurosurgery. Especially the development of a noninvasive probe of brain morphology with micrometer-scale resolution is highly desirable, as it would provide a noninvasive approach to optical biopsies in diagnostic medicine. Two-photon laser-scanning microscopy (2PLSM) is a powerful tool in this regard, and has become the standard for minimally invasive high-resolution imaging of living biological samples. However, while 2PLSM-based optical methods provide sufficient resolution, they have been hampered by the requirement for fluorescent dyes to provide image contrast. Here we demonstrate high-contrast imaging of live brain tissue at cellular resolution, without the need for fluorescent probes, using optical third-harmonic generation (THG). We exploit the specific geometry and lipid content of brain tissue at the cellular level to achieve partial phase matching of THG, providing an alternative contrast mechanism to fluorescence. We find that THG brain imaging allows rapid, noninvasive label-free imaging of neurons, white-matter structures, and blood vessels simultaneously. Furthermore, we exploit THG-based imaging to guide micropipettes towards designated neurons inside live tissue. This work is a major step towards label-free microscopic live brain imaging, and opens up possibilities for the development of laser-guided microsurgery techniques in the living brain.</p>},
+  groups       = {THG-XAI, THG}
+}
+
+@article{Pinckaers2022,
+  author       = {Pinckaers, Hans and van Ginneken, Bram and Litjens, Geert},
+  date         = {2022},
+  journaltitle = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  title        = {Streaming Convolutional Neural Networks for End-to-End Learning With Multi-Megapixel Images},
+  doi          = {10.1109/TPAMI.2020.3019563},
+  eprint       = {1911.04432},
+  number       = {3},
+  pages        = {1581--1590},
+  url          = {https://ieeexplore.ieee.org/document/9178453/},
+  volume       = {44},
+  abstract     = {Due to memory constraints on current hardware, most convolution neural networks (CNN) are trained on sub-megapixel images. For example, most popular datasets in computer vision contain images much less than a megapixel in size (0.09MP for ImageNet and 0.001MP for CIFAR-10). In some domains such as medical imaging, multi-megapixel images are needed to identify the presence of disease accurately. We propose a novel method to directly train convolutional neural networks using any input image size end-to-end. This method exploits the locality of most operations in modern convolutional neural networks by performing the forward and backward pass on smaller tiles of the image. In this work, we show a proof of concept using images of up to 66-megapixels (8192×8192), saving approximately 50GB of memory per image. Using two public challenge datasets, we demonstrate that CNNs can learn to extract relevant information from these large images and benefit from increasing resolution. We improved the area under the receiver-operating characteristic curve from 0.580 (4MP) to 0.706 (66MP) for metastasis detection in breast cancer (CAMELYON17). We also obtained a Spearman correlation metric approaching state-of-the-art performance on the TUPAC16 dataset, from 0.485 (1MP) to 0.570 (16MP). Code to reproduce a subset of the experiments is available at https://github.com/DIAGNijmegen/StreamingCNN.},
+  file         = {:Pinckaers2022 - Streaming Convolutional Neural Networks for End to End Learning with Multi Megapixel Images.pdf:PDF},
+  groups       = {THG-XAI, Memory fixes},
+  keywords     = {Backpropagation, Convolution, Convolutional neural networks, Deep learning, Memory management, Streaming media, Task analysis, Training, convolutional neural networks, high-resolution images, image classification}
+}
+
+@article{Chen2021,
+  author       = {Chen, Chi-Long and Chen, Chi-Chung and Yu, Wei-Hsiang and Chen, Szu-Hua and Chang, Yu-Chan and Hsu, Tai-I. and Hsiao, Michael and Yeh, Chao-Yuan and Chen, Cheng-Yu},
+  date         = {2021},
+  journaltitle = {Nature Communications},
+  title        = {An annotation-free whole-slide training approach to pathological classification of lung cancer types using deep learning},
+  doi          = {10.1038/s41467-021-21467-y},
+  number       = {1},
+  pages        = {1193--1193},
+  url          = {http://www.nature.com/articles/s41467-021-21467-y},
+  volume       = {12},
+  abstract     = {<p>Deep learning for digital pathology is hindered by the extremely high spatial resolution of whole-slide images (WSIs). Most studies have employed patch-based methods, which often require detailed annotation of image patches. This typically involves laborious free-hand contouring on WSIs. To alleviate the burden of such contouring and obtain benefits from scaling up training with numerous WSIs, we develop a method for training neural networks on entire WSIs using only slide-level diagnoses. Our method leverages the unified memory mechanism to overcome the memory constraint of compute accelerators. Experiments conducted on a data set of 9662 lung cancer WSIs reveal that the proposed method achieves areas under the receiver operating characteristic curve of 0.9594 and 0.9414 for adenocarcinoma and squamous cell carcinoma classification on the testing set, respectively. Furthermore, the method demonstrates higher classification performance than multiple-instance learning as well as strong localization results for small lesions through class activation mapping.</p>},
+  file         = {:Chen2021 - An Annotation Free Whole Slide Training Approach to Pathological Classification of Lung Cancer Types Using Deep Learning.pdf:PDF},
+  groups       = {THG-XAI, Full slide},
+  keywords     = {Cancer imaging, Image processing, Machine learning}
+}
+
+@article{Tellez2021,
+  author       = {Tellez, David and Litjens, Geert and van der Laak, Jeroen and Ciompi, Francesco},
+  date         = {2021},
+  journaltitle = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  title        = {Neural Image Compression for Gigapixel Histopathology Image Analysis},
+  doi          = {10.1109/TPAMI.2019.2936841},
+  eprint       = {1811.02840},
+  number       = {2},
+  pages        = {567--578},
+  url          = {https://ieeexplore.ieee.org/document/8809829/},
+  volume       = {43},
+  abstract     = {We propose Neural Image Compression (NIC), a two-step method to build convolutional neural networks for gigapixel image analysis solely using weak image-level labels. First, gigapixel images are compressed using a neural network trained in an unsupervised fashion, retaining high-level information while suppressing pixel-level noise. Second, a convolutional neural network (CNN) is trained on these compressed image representations to predict image-level labels, avoiding the need for fine-grained manual annotations. We compared several encoding strategies, namely reconstruction error minimization, contrastive training and adversarial feature learning, and evaluated NIC on a synthetic task and two public histopathology datasets. We found that NIC can exploit visual cues associated with image-level labels successfully, integrating both global and local visual information. Furthermore, we visualized the regions of the input gigapixel images where the CNN attended to, and confirmed that they overlapped with annotations from human experts.},
+  file         = {:Tellez2021 - Neural Image Compression for Gigapixel Histopathology Image Analysis.pdf:PDF},
+  groups       = {THG-XAI, Deep learning architectures},
+  keywords     = {Gigapixel image analysis, Image analysis, Image coding, Image reconstruction, Neural networks, Task analysis, Training, Visualization, computational pathology, convolutional neural networks, representation learning}
+}
+
+@book{Bubitzky2007,
+  author    = {Bubitzky, Werner and Granzow, Martin and Berrar, Daniel P.},
+  date      = {2007},
+  title     = {Fundamentals of data mining in genomics and proteomics},
+  doi       = {10.1007/978-0-387-47509-7.pdf},
+  location  = {New York},
+  pages     = {281--281},
+  publisher = {Springer},
+  groups    = {THG-XAI, Books},
+  keywords  = {Data mining, Data processing, Genomics, Proteomics}
+}
+
+@article{Ronneberger2015,
+  author     = {Ronneberger, Olaf and Fischer, Philipp and Brox, Thomas},
+  date       = {2015},
+  title      = {U-Net: Convolutional Networks for Biomedical Image Segmentation},
+  eprint     = {1505.04597},
+  eprinttype = {arxiv},
+  abstract   = {There is large consent that successful training of deep networks requires many thousand annotated training samples. In this paper, we present a network and training strategy that relies on the strong use of data augmentation to use the available annotated samples more efficiently. The architecture consists of a contracting path to capture context and a symmetric expanding path that enables precise localization. We show that such a network can be trained end-to-end from very few images and outperforms the prior best method (a sliding-window convolutional network) on the ISBI challenge for segmentation of neuronal structures in electron microscopic stacks. Using the same network trained on transmitted light microscopy images (phase contrast and DIC) we won the ISBI cell tracking challenge 2015 in these categories by a large margin. Moreover, the network is fast. Segmentation of a 512x512 image takes less than a second on a recent GPU. The full implementation (based on Caffe) and the trained networks are available at http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net .},
+  file       = {:Ronneberger2015 - U Net_ Convolutional Networks for Biomedical Image Segmentation.pdf:PDF},
+  groups     = {THG-XAI, Deep learning architectures},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
+  publisher  = {arXiv}
+}
+
+@article{Chen2020a,
+  author     = {Chen, Yilin and Li, Ming and Wu, Yongfei and Liu, Xueyu and Hao, Fang and Zhou, Daoxiang and Zhou, Xiaoshuang and Wang, Chen},
+  date       = {2020},
+  title      = {MSA-MIL: A deep residual multiple instance learning model based on multi-scale annotation for classification and visualization of glomerular spikes},
+  eprint     = {2007.00858},
+  eprinttype = {arxiv},
+  abstract   = {Membranous nephropathy (MN) is a frequent type of adult nephrotic syndrome, which has a high clinical incidence and can cause various complications. In the biopsy microscope slide of membranous nephropathy, spikelike projections on the glomerular basement membrane is a prominent feature of the MN. However, due to the whole biopsy slide contains large number of glomeruli, and each glomerulus includes many spike lesions, the pathological feature of the spikes is not obvious. It thus is time-consuming for doctors to diagnose glomerulus one by one and is difficult for pathologists with less experience to diagnose. In this paper, we establish a visualized classification model based on the multi-scale annotation multi-instance learning (MSA-MIL) to achieve glomerular classification and spikes visualization. The MSA-MIL model mainly involves three parts. Firstly, U-Net is used to extract the region of the glomeruli to ensure that the features learned by the succeeding algorithm are focused inside the glomeruli itself. Secondly, we use MIL to train an instance-level classifier combined with MSA method to enhance the learning ability of the network by adding a location-level labeled reinforced dataset, thereby obtaining an example-level feature representation with rich semantics. Lastly, the predicted scores of each tile in the image are summarized to obtain glomerular classification and visualization of the classification results of the spikes via the usage of sliding window method. The experimental results confirm that the proposed MSA-MIL model can effectively and accurately classify normal glomeruli and spiked glomerulus and visualize the position of spikes in the glomerulus. Therefore, the proposed model can provide a good foundation for assisting the clinical doctors to diagnose the glomerular membranous nephropathy.},
+  file       = {:Chen2020a - MSA MIL_ a Deep Residual Multiple Instance Learning Model Based on Multi Scale Annotation for Classification and Visualization of Glomerular Spikes.pdf:PDF},
+  groups     = {THG-XAI, MIL: multi-scale attention},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition, Electrical Engineering and Systems Science - Image and Video Processing, Quantitative Biology - Quantitative Methods},
+  publisher  = {arXiv}
+}
+
+@article{Hou2015,
+  author     = {Hou, Le and Samaras, Dimitris and Kurc, Tahsin M. and Gao, Yi and Davis, James E. and Saltz, Joel H.},
+  date       = {2015},
+  title      = {Patch-based Convolutional Neural Network for Whole Slide Tissue Image Classification},
+  eprint     = {1504.07947},
+  eprinttype = {arxiv},
+  abstract   = {Convolutional Neural Networks (CNN) are state-of-the-art models for many image classification tasks. However, to recognize cancer subtypes automatically, training a CNN on gigapixel resolution Whole Slide Tissue Images (WSI) is currently computationally impossible. The differentiation of cancer subtypes is based on cellular-level visual features observed on image patch scale. Therefore, we argue that in this situation, training a patch-level classifier on image patches will perform better than or similar to an image-level classifier. The challenge becomes how to intelligently combine patch-level classification results and model the fact that not all patches will be discriminative. We propose to train a decision fusion model to aggregate patch-level predictions given by patch-level CNNs, which to the best of our knowledge has not been shown before. Furthermore, we formulate a novel Expectation-Maximization (EM) based method that automatically locates discriminative patches robustly by utilizing the spatial relationships of patches. We apply our method to the classification of glioma and non-small-cell lung carcinoma cases into subtypes. The classification accuracy of our method is similar to the inter-observer agreement between pathologists. Although it is impossible to train CNNs on WSIs, we experimentally demonstrate using a comparable non-cancer dataset of smaller images that a patch-based CNN can outperform an image-based CNN.},
+  file       = {:Hou2015 - Patch Based Convolutional Neural Network for Whole Slide Tissue Image Classification.pdf:PDF},
+  groups     = {THG-XAI, MIL: other},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition, I.4, I.5, J.3},
+  publisher  = {arXiv}
+}
+
+@article{He2015,
+  author     = {He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  date       = {2015},
+  title      = {Deep Residual Learning for Image Recognition},
+  eprint     = {1512.03385},
+  eprinttype = {arxiv},
+  abstract   = {Deeper neural networks are more difficult to train. We present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers---8x deeper than VGG nets but still having lower complexity. An ensemble of these residual nets achieves 3.57% error on the ImageNet test set. This result won the 1st place on the ILSVRC 2015 classification task. We also present analysis on CIFAR-10 with 100 and 1000 layers. The depth of representations is of central importance for many visual recognition tasks. Solely due to our extremely deep representations, we obtain a 28% relative improvement on the COCO object detection dataset. Deep residual nets are foundations of our submissions to ILSVRC \& COCO 2015 competitions, where we also won the 1st places on the tasks of ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation.},
+  file       = {:He2015 - Deep Residual Learning for Image Recognition.pdf:PDF},
+  groups     = {THG-XAI, Deep learning architectures},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
+  publisher  = {arXiv}
+}
+
+@article{Chen2020b,
+  author     = {Chen, Xinlei and He, Kaiming},
+  date       = {2020},
+  title      = {Exploring Simple Siamese Representation Learning},
+  eprint     = {2011.10566},
+  eprinttype = {arxiv},
+  abstract   = {Siamese networks have become a common structure in various recent models for unsupervised visual representation learning. These models maximize the similarity between two augmentations of one image, subject to certain conditions for avoiding collapsing solutions. In this paper, we report surprising empirical results that simple Siamese networks can learn meaningful representations even using none of the following: (i) negative sample pairs, (ii) large batches, (iii) momentum encoders. Our experiments show that collapsing solutions do exist for the loss and structure, but a stop-gradient operation plays an essential role in preventing collapsing. We provide a hypothesis on the implication of stop-gradient, and further show proof-of-concept experiments verifying it. Our "SimSiam" method achieves competitive results on ImageNet and downstream tasks. We hope this simple baseline will motivate people to rethink the roles of Siamese architectures for unsupervised representation learning. Code will be made available.},
+  file       = {:Chen2020b - Exploring Simple Siamese Representation Learning.pdf:PDF},
+  groups     = {THG-XAI, Feature extraction},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Machine Learning},
+  publisher  = {arXiv}
+}
+
+@article{Deng2022,
+  author     = {Deng, Ruining and Cui, Can and Remedios, Lucas W. and Bao, Shunxing and Womick, R. Michael and Chiron, Sophie and Li, Jia and Roland, Joseph T. and Lau, Ken S. and Liu, Qi and Wilson, Keith T. and Wang, Yaohong and Coburn, Lori A. and Landman, Bennett A. and Huo, Yuankai},
+  date       = {2022},
+  title      = {Cross-scale Attention Guided Multi-instance Learning for Crohn's Disease Diagnosis with Pathological Images},
+  eprint     = {2208.07322},
+  eprinttype = {arxiv},
+  abstract   = {Multi-instance learning (MIL) is widely used in the computer-aided interpretation of pathological Whole Slide Images (WSIs) to solve the lack of pixel-wise or patch-wise annotations. Often, this approach directly applies "natural image driven" MIL algorithms which overlook the multi-scale (i.e. pyramidal) nature of WSIs. Off-the-shelf MIL algorithms are typically deployed on a single-scale of WSIs (e.g., 20x magnification), while human pathologists usually aggregate the global and local patterns in a multi-scale manner (e.g., by zooming in and out between different magnifications). In this study, we propose a novel cross-scale attention mechanism to explicitly aggregate inter-scale interactions into a single MIL network for Crohn's Disease (CD), which is a form of inflammatory bowel disease. The contribution of this paper is two-fold: (1) a cross-scale attention mechanism is proposed to aggregate features from different resolutions with multi-scale interaction; and (2) differential multi-scale attention visualizations are generated to localize explainable lesion patterns. By training ~250,000 H\&E-stained Ascending Colon (AC) patches from 20 CD patient and 30 healthy control samples at different scales, our approach achieved a superior Area under the Curve (AUC) score of 0.8924 compared with baseline models. The official implementation is publicly available at https://github.com/hrlblab/CS-MIL.},
+  file       = {:Deng2022 - Cross Scale Attention Guided Multi Instance Learning for Crohn's Disease Diagnosis with Pathological Images.pdf:PDF},
+  groups     = {THG-XAI, MIL: Attention-based, MIL: multi-scale attention},
+  keywords   = {Computer Science - Artificial Intelligence, Computer Science - Computer Vision and Pattern Recognition},
+  publisher  = {arXiv}
+}
+
+@article{Wang2022,
+  author     = {Wang, Zhikang and Bi, Yue and Pan, Tong and Wang, Xiaoyu and Bain, Chris and Bassed, Richard and Imoto, Seiya and Yao, Jianhua and Song, Jiangning},
+  date       = {2022},
+  title      = {Multiplex-detection Based Multiple Instance Learning Network for Whole Slide Image Classification},
+  eprint     = {2208.03526},
+  eprinttype = {arxiv},
+  abstract   = {Multiple instance learning (MIL) is a powerful approach to classify whole slide images (WSIs) for diagnostic pathology. A fundamental challenge of MIL on WSI classification is to discover the \textit{critical instances} that trigger the bag label. However, previous methods are primarily designed under the independent and identical distribution hypothesis (\textit{i.i.d}), ignoring either the correlations between instances or heterogeneity of tumours. In this paper, we propose a novel multiplex-detection-based multiple instance learning (MDMIL) to tackle the issues above. Specifically, MDMIL is constructed by the internal query generation module (IQGM) and the multiplex detection module (MDM) and assisted by the memory-based contrastive loss during training. Firstly, IQGM gives the probability of instances and generates the internal query (IQ) for the subsequent MDM by aggregating highly reliable features after the distribution analysis. Secondly, the multiplex-detection cross-attention (MDCA) and multi-head self-attention (MHSA) in MDM cooperate to generate the final representations for the WSI. In this process, the IQ and trainable variational query (VQ) successfully build up the connections between instances and significantly improve the model's robustness toward heterogeneous tumours. At last, to further enforce constraints in the feature space and stabilize the training process, we adopt a memory-based contrastive loss, which is practicable for WSI classification even with a single sample as input in each iteration. We conduct experiments on three computational pathology datasets, e.g., CAMELYON16, TCGA-NSCLC, and TCGA-RCC datasets. The superior accuracy and AUC demonstrate the superiority of our proposed MDMIL over other state-of-the-art methods.},
+  file       = {:Wang2022 - Multiplex Detection Based Multiple Instance Learning Network for Whole Slide Image Classification.pdf:PDF},
+  groups     = {THG-XAI, MIL: Attention-based},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
+  publisher  = {arXiv}
+}
+
+@article{Shao2021,
+  author     = {Shao, Zhuchen and Bian, Hao and Chen, Yang and Wang, Yifeng and Zhang, Jian and Ji, Xiangyang and Zhang, Yongbing},
+  date       = {2021},
+  title      = {TransMIL: Transformer based Correlated Multiple Instance Learning for Whole Slide Image Classification},
+  eprint     = {2106.00908},
+  eprinttype = {arxiv},
+  abstract   = {Multiple instance learning (MIL) is a powerful tool to solve the weakly supervised classification in whole slide image (WSI) based pathology diagnosis. However, the current MIL methods are usually based on independent and identical distribution hypothesis, thus neglect the correlation among different instances. To address this problem, we proposed a new framework, called correlated MIL, and provided a proof for convergence. Based on this framework, we devised a Transformer based MIL (TransMIL), which explored both morphological and spatial information. The proposed TransMIL can effectively deal with unbalanced/balanced and binary/multiple classification with great visualization and interpretability. We conducted various experiments for three different computational pathology problems and achieved better performance and faster convergence compared with state-of-the-art methods. The test AUC for the binary tumor classification can be up to 93.09% over CAMELYON16 dataset. And the AUC over the cancer subtypes classification can be up to 96.03% and 98.82% over TCGA-NSCLC dataset and TCGA-RCC dataset, respectively. Implementation is available at: https://github.com/szc19990412/TransMIL.},
+  file       = {:Shao2021 - TransMIL_ Transformer Based Correlated Multiple Instance Learning for Whole Slide Image Classification.pdf:PDF},
+  groups     = {THG-XAI, MIL: Attention-based},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
+  publisher  = {arXiv}
+}
+
+@article{Ba2016,
+  author     = {Ba, Jimmy Lei and Kiros, Jamie Ryan and Hinton, Geoffrey E.},
+  date       = {2016},
+  title      = {Layer Normalization},
+  eprint     = {1607.06450},
+  eprinttype = {arxiv},
+  abstract   = {Training state-of-the-art, deep neural networks is computationally expensive. One way to reduce the training time is to normalize the activities of the neurons. A recently introduced technique called batch normalization uses the distribution of the summed input to a neuron over a mini-batch of training cases to compute a mean and variance which are then used to normalize the summed input to that neuron on each training case. This significantly reduces the training time in feed-forward neural networks. However, the effect of batch normalization is dependent on the mini-batch size and it is not obvious how to apply it to recurrent neural networks. In this paper, we transpose batch normalization into layer normalization by computing the mean and variance used for normalization from all of the summed inputs to the neurons in a layer on a single training case. Like batch normalization, we also give each neuron its own adaptive bias and gain which are applied after the normalization but before the non-linearity. Unlike batch normalization, layer normalization performs exactly the same computation at training and test times. It is also straightforward to apply to recurrent neural networks by computing the normalization statistics separately at each time step. Layer normalization is very effective at stabilizing the hidden state dynamics in recurrent networks. Empirically, we show that layer normalization can substantially reduce the training time compared with previously published techniques.},
+  file       = {:Ba2016 - Layer Normalization.pdf:PDF},
+  groups     = {THG-XAI, Deep learning architectures},
+  keywords   = {Computer Science - Machine Learning, Statistics - Machine Learning},
+  publisher  = {arXiv}
+}
+
+@article{Niu2019,
+  author     = {Niu, Sheng-Yong and Guo, Lun-Zhang and Li, Yue and Wang, Tzung-Dau and Tsao, Yu and Liu, Tzu-Ming},
+  date       = {2019},
+  title      = {Boundary-Preserved Deep Denoising of the Stochastic Resonance Enhanced Multiphoton Images},
+  eprint     = {1904.06329},
+  eprinttype = {arxiv},
+  abstract   = {As the rapid growth of high-speed and deep-tissue imaging in biomedical research, it is urgent to find a robust and effective denoising method to retain morphological features for further texture analysis and segmentation. Conventional denoising filters and models can easily suppress perturbative noises in high contrast images. However, for low photon budget multi-photon images, high detector gain will not only boost signals, but also bring huge background noises. In such stochastic resonance regime of imaging, sub-threshold signals may be detectable with the help of noises. Therefore, a denoising filter that can smartly remove noises without sacrificing the important cellular features such as cell boundaries is highly desired. In this paper, we propose a convolutional neural network based autoencoder method, Fully Convolutional Deep Denoising Autoencoder (DDAE), to improve the quality of Three-Photon Fluorescence (3PF) and Third Harmonic Generation (THG) microscopy images. The average of the acquired 200 images of a given location served as the low-noise answer for DDAE training. Compared with other widely used denoising methods, our DDAE model shows better signal-to-noise ratio (26.6 and 29.9 for 3PF and THG, respectively), structure similarity (0.86 and 0.87 for 3PF and THG, respectively), and preservation of nuclear or cellular boundaries.},
+  file       = {:Niu2019 - Boundary Preserved Deep Denoising of the Stochastic Resonance Enhanced Multiphoton Images.pdf:PDF},
+  groups     = {THG-XAI, Denoising},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition, Electrical Engineering and Systems Science - Image and Video Processing},
+  publisher  = {arXiv}
+}
+
+@article{Lehtinen2018,
+  author     = {Lehtinen, Jaakko and Munkberg, Jacob and Hasselgren, Jon and Laine, Samuli and Karras, Tero and Aittala, Miika and Aila, Timo},
+  date       = {2018},
+  title      = {Noise2Noise: Learning Image Restoration without Clean Data},
+  eprint     = {1803.04189},
+  eprinttype = {arxiv},
+  abstract   = {We apply basic statistical reasoning to signal reconstruction by machine learning -- learning to map corrupted observations to clean signals -- with a simple and powerful conclusion: it is possible to learn to restore images by only looking at corrupted examples, at performance at and sometimes exceeding training using clean data, without explicit image priors or likelihood models of the corruption. In practice, we show that a single model learns photographic noise removal, denoising synthetic Monte Carlo images, and reconstruction of undersampled MRI scans -- all corrupted by different processes -- based on noisy data only.},
+  file       = {:Lehtinen2018 - Noise2Noise_ Learning Image Restoration without Clean Data.pdf:PDF},
+  groups     = {THG-XAI, Denoising},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Machine Learning, Statistics - Machine Learning},
+  publisher  = {arXiv}
+}
+
+@inproceedings{Zhong2021,
+  author       = {Zhong, Liqun and Liu, Guole and Yang, Ge},
+  date         = {2021},
+  title        = {Blind Denoising of Fluorescence Microscopy Images Using GAN-Based Global Noise Modeling},
+  doi          = {10.1109/ISBI48211.2021.9434150},
+  pages        = {863--867},
+  publisher    = {IEEE},
+  url          = {https://ieeexplore.ieee.org/document/9434150/},
+  abstract     = {Fluorescence microscopy is a key driving force behind advances in modern life sciences. However, due to constraints in image formation and acquisition, to obtain high signal-to-noise ratio (SNR) fluorescence images remains difficult. Strong noise negatively affects not only visual observation but also downstream analysis. To address this problem, we propose a blind global noise modeling denoiser (GNMD) that simulates image noise globally using a generative adversarial network (GAN). No prior information on noise properties is required. And no clean training targets need to be provided for noisy inputs. Instead, by simulating real image noise using a GAN, our method synthesizes paired noisy and clean images for training a denoising deep learning network. Experiments on real fluorescence microscopy images show that our method substantially outperforms competing state-of-the-art methods, especially in suppressing background noise. Denoising using our method also facilitates downstream image segmentation.},
+  groups       = {THG-XAI, Denoising},
+  journaltitle = {2021 IEEE 18th International Symposium on Biomedical Imaging (ISBI)},
+  keywords     = {Fluorescence, Fluorescence microscopy, Generative adversarial networks, Image segmentation, Microscopy, Noise reduction, Training, Visualization, blind denoising, generative adversarial network, global noise modeling}
+}
+
+@article{Russakovsky2015,
+  author       = {Russakovsky, Olga and Deng, Jia and Su, Hao and Krause, Jonathan and Satheesh, Sanjeev and Ma, Sean and Huang, Zhiheng and Karpathy, Andrej and Khosla, Aditya and Bernstein, Michael and Berg, Alexander C. and Fei-Fei, Li},
+  date         = {2015},
+  journaltitle = {International Journal of Computer Vision},
+  title        = {ImageNet Large Scale Visual Recognition Challenge},
+  doi          = {10.1007/s11263-015-0816-y},
+  number       = {3},
+  pages        = {211--252},
+  volume       = {115},
+  abstract     = {The ImageNet Large Scale Visual Recognition Challenge is a benchmark in object category classification and detection on hundreds of object categories and millions of images. The challenge has been run annually from 2010 to present, attracting participation from more than fifty institutions. This paper describes the creation of this benchmark dataset and the advances in object recognition that have been possible as a result. We discuss the challenges of collecting large-scale ground truth annotation, highlight key breakthroughs in categorical object recognition, provide a detailed analysis of the current state of the field of large-scale image classification and object detection, and compare the state-of-the-art computer vision accuracy with human accuracy. We conclude with lessons learned in the 5 years of the challenge, and propose future directions and improvements.},
+  file         = {:Russakovsky2015 - ImageNet Large Scale Visual Recognition Challenge.pdf:PDF},
+  groups       = {THG-XAI, Deep learning architectures},
+  keywords     = {Benchmark, Dataset, Large-scale, Object detection, Object recognition}
+}
+
+@article{Qian2022,
+  author     = {Qian, Ziniu and Li, Kailu and Lai, Maode and Chang, Eric I.-Chao and Wei, Bingzheng and Fan, Yubo and Xu, Yan},
+  date       = {2022},
+  title      = {Transformer based multiple instance learning for weakly supervised histopathology image segmentation},
+  eprint     = {2205.08878},
+  eprinttype = {arxiv},
+  abstract   = {Hispathological image segmentation algorithms play a critical role in computer aided diagnosis technology. The development of weakly supervised segmentation algorithm alleviates the problem of medical image annotation that it is time-consuming and labor-intensive. As a subset of weakly supervised learning, Multiple Instance Learning (MIL) has been proven to be effective in segmentation. However, there is a lack of related information between instances in MIL, which limits the further improvement of segmentation performance. In this paper, we propose a novel weakly supervised method for pixel-level segmentation in histopathology images, which introduces Transformer into the MIL framework to capture global or long-range dependencies. The multi-head self-attention in the Transformer establishes the relationship between instances, which solves the shortcoming that instances are independent of each other in MIL. In addition, deep supervision is introduced to overcome the limitation of annotations in weakly supervised methods and make the better utilization of hierarchical information. The state-of-the-art results on the colon cancer dataset demonstrate the superiority of the proposed method compared with other weakly supervised methods. It is worth believing that there is a potential of our approach for various applications in medical images.},
+  file       = {:Qian2022 - Transformer Based Multiple Instance Learning for Weakly Supervised Histopathology Image Segmentation.pdf:PDF},
+  groups     = {THG-XAI, MIL: Attention-based},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
+  publisher  = {arXiv}
+}
+
+@article{Vaswani2017,
+  author     = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, Lukasz and Polosukhin, Illia},
+  date       = {2017},
+  title      = {Attention Is All You Need},
+  eprint     = {1706.03762},
+  eprinttype = {arxiv},
+  abstract   = {The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.},
+  file       = {:Vaswani2017 - Attention Is All You Need.pdf:PDF},
+  groups     = {THG-XAI, MIL: Attention-based},
+  keywords   = {Computer Science - Computation and Language, Computer Science - Machine Learning},
+  publisher  = {arXiv}
+}
+
+@article{He2019,
+  author     = {He, Kaiming and Fan, Haoqi and Wu, Yuxin and Xie, Saining and Girshick, Ross},
+  date       = {2019},
+  title      = {Momentum Contrast for Unsupervised Visual Representation Learning},
+  eprint     = {1911.05722},
+  eprinttype = {arxiv},
+  abstract   = {We present Momentum Contrast (MoCo) for unsupervised visual representation learning. From a perspective on contrastive learning as dictionary look-up, we build a dynamic dictionary with a queue and a moving-averaged encoder. This enables building a large and consistent dictionary on-the-fly that facilitates contrastive unsupervised learning. MoCo provides competitive results under the common linear protocol on ImageNet classification. More importantly, the representations learned by MoCo transfer well to downstream tasks. MoCo can outperform its supervised pre-training counterpart in 7 detection/segmentation tasks on PASCAL VOC, COCO, and other datasets, sometimes surpassing it by large margins. This suggests that the gap between unsupervised and supervised representation learning has been largely closed in many vision tasks.},
+  file       = {:He2019 - Momentum Contrast for Unsupervised Visual Representation Learning.pdf:PDF},
+  groups     = {THG-XAI, Feature extraction},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
+  publisher  = {arXiv}
+}
+
+@article{Chen2020c,
+  author     = {Chen, Xinlei and Fan, Haoqi and Girshick, Ross and He, Kaiming},
+  date       = {2020},
+  title      = {Improved Baselines with Momentum Contrastive Learning},
+  eprint     = {2003.04297},
+  eprinttype = {arxiv},
+  abstract   = {Contrastive unsupervised learning has recently shown encouraging progress, e.g., in Momentum Contrast (MoCo) and SimCLR. In this note, we verify the effectiveness of two of SimCLR's design improvements by implementing them in the MoCo framework. With simple modifications to MoCo---namely, using an MLP projection head and more data augmentation---we establish stronger baselines that outperform SimCLR and do not require large training batches. We hope this will make state-of-the-art unsupervised learning research more accessible. Code will be made public.},
+  file       = {:Chen2020c - Improved Baselines with Momentum Contrastive Learning.pdf:PDF},
+  groups     = {THG-XAI, Feature extraction},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
+  publisher  = {arXiv}
+}
+
+@article{Yang2022,
+  author     = {Yang, Jiawei and Chen, Hanbo and Zhao, Yu and Yang, Fan and Zhang, Yao and He, Lei and Yao, Jianhua},
+  date       = {2022},
+  title      = {ReMix: A General and Efficient Framework for Multiple Instance Learning based Whole Slide Image Classification},
+  eprint     = {2207.01805},
+  eprinttype = {arxiv},
+  abstract   = {Whole slide image (WSI) classification often relies on deep weakly supervised multiple instance learning (MIL) methods to handle gigapixel resolution images and slide-level labels. Yet the decent performance of deep learning comes from harnessing massive datasets and diverse samples, urging the need for efficient training pipelines for scaling to large datasets and data augmentation techniques for diversifying samples. However, current MIL-based WSI classification pipelines are memory-expensive and computation-inefficient since they usually assemble tens of thousands of patches as bags for computation. On the other hand, despite their popularity in other tasks, data augmentations are unexplored for WSI MIL frameworks. To address them, we propose ReMix, a general and efficient framework for MIL based WSI classification. It comprises two steps: reduce and mix. First, it reduces the number of instances in WSI bags by substituting instances with instance prototypes, i.e., patch cluster centroids. Then, we propose a ``Mix-the-bag'' augmentation that contains four online, stochastic and flexible latent space augmentations. It brings diverse and reliable class-identity-preserving semantic changes in the latent space while enforcing semantic-perturbation invariance. We evaluate ReMix on two public datasets with two state-of-the-art MIL methods. In our experiments, consistent improvements in precision, accuracy, and recall have been achieved but with orders of magnitude reduced training time and memory consumption, demonstrating ReMix's effectiveness and efficiency. Code is available.},
+  file       = {:Yang2022 - ReMix_ a General and Efficient Framework for Multiple Instance Learning Based Whole Slide Image Classification.pdf:PDF},
+  groups     = {THG-XAI, MIL: other},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
+  publisher  = {arXiv}
+}
+
+@article{Paschali2019,
+  author     = {Paschali, Magdalini and Naeem, Muhammad Ferjad and Simson, Walter and Steiger, Katja and Mollenhauer, Martin and Navab, Nassir},
+  date       = {2019},
+  title      = {Deep Learning Under the Microscope: Improving the Interpretability of Medical Imaging Neural Networks},
+  eprint     = {1904.03127},
+  eprinttype = {arxiv},
+  abstract   = {In this paper, we propose a novel interpretation method tailored to histological Whole Slide Image (WSI) processing. A Deep Neural Network (DNN), inspired by Bag-of-Features models is equipped with a Multiple Instance Learning (MIL) branch and trained with weak supervision for WSI classification. MIL avoids label ambiguity and enhances our model's expressive power without guiding its attention. We utilize a fine-grained logit heatmap of the models activations to interpret its decision-making process. The proposed method is quantitatively and qualitatively evaluated on two challenging histology datasets, outperforming a variety of baselines. In addition, two expert pathologists were consulted regarding the interpretability provided by our method and acknowledged its potential for integration into several clinical applications.},
+  file       = {:Paschali2019 - Deep Learning under the Microscope_ Improving the Interpretability of Medical Imaging Neural Networks.pdf:PDF},
+  groups     = {THG-XAI, MIL: Attention-based},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
+  publisher  = {arXiv}
+}
+
+@article{Amor2022,
+  author       = {del Amor, Rocío and Meseguer, Pablo and Parigi, Tommaso Lorenzo and Villanacci, Vincenzo and Colomer, Adrián and Launet, Laëtitia and Bazarova, Alina and Tontini, Gian Eugenio and Bisschops, Raf and de Hertogh, Gert and Ferraz, Jose G. and Götz, Martin and Gui, Xianyong and Hayee, Bu’Hussain and Lazarev, Mark and Panaccione, Remo and Parra-Blanco, Adolfo and Bhandari, Pradeep and Pastorelli, Luca and Rath, Timo and Røyset, Elin Synnøve and Vieth, Michael and Zardo, Davide and Grisan, Enrico and Ghosh, Subrata and Iacucci, Marietta and Naranjo, Valery},
+  date         = {2022},
+  journaltitle = {Computer Methods and Programs in Biomedicine},
+  title        = {Constrained multiple instance learning for ulcerative colitis prediction using histological images},
+  doi          = {10.1016/j.cmpb.2022.107012},
+  pages        = {107012--107012},
+  url          = {https://linkinghub.elsevier.com/retrieve/pii/S0169260722003947},
+  volume       = {224},
+  abstract     = {Background and Objective: Ulcerative colitis (UC) is an inflammatory bowel disease (IBD) affecting the colon and the rectum characterized by a remitting-relapsing course. To detect mucosal inflammation associated with UC, histology is considered the most stringent criteria. In turn, histologic remission (HR) correlates with improved clinical outcomes and has been recently recognized as a desirable treatment target. The leading biomarker for assessing histologic remission is the presence or absence of neutrophils. Therefore, the finding of this cell in specific colon structures indicates that the patient has UC activity. However, no previous studies based on deep learning have been developed to identify UC based on neutrophils detection using whole-slide images (WSI). Methods: The methodological core of this work is a novel multiple instance learning (MIL) framework with location constraints able to determine the presence of UC activity using WSI. In particular, we put forward an effective way to introduce constraints about positive instances to effectively explore additional weakly supervised information that is easy to obtain and enjoy a significant boost to the learning process. In addition, we propose a new weighted embedding to enlarge the relevance of the positive instances. Results: Extensive experiments on a multi-center dataset of colon and rectum WSIs, PICASSO-MIL, demonstrate that using the location information we can improve considerably the results at WSI-level. In comparison with prior MIL settings, our method allows for 10% improvements in bag-level accuracy. Conclusion: Our model, which introduces a new form of constraints, surpass the results achieved from current state-of-the-art methods that focus on the MIL paradigm. Our method can be applied to other histological concerns where the morphological features determining a positive WSI are tiny and similar to others in the image.},
+  groups       = {THG-XAI, MIL: Locally constrained},
+  keywords     = {Attention-embedding weights, Histologic remission, Location constraints, Neutrophils, Ulcerative colitis}
+}
+
+@article{Schirris2022,
+  author       = {Schirris, Yoni and Gavves, Efstratios and Nederlof, Iris and Horlings, Hugo Mark and Teuwen, Jonas},
+  date         = {2022},
+  journaltitle = {Medical Image Analysis},
+  title        = {DeepSMILE: Contrastive self-supervised pre-training benefits MSI and HRD classification directly from H\&E whole-slide images in colorectal and breast cancer},
+  doi          = {10.1016/j.media.2022.102464},
+  pages        = {102464--102464},
+  url          = {https://linkinghub.elsevier.com/retrieve/pii/S1361841522001116},
+  volume       = {79},
+  abstract     = {We propose a Deep learning-based weak label learning method for analyzing whole slide images (WSIs) of Hematoxylin and Eosin (H\&E) stained tumor tissue not requiring pixel-level or tile-level annotations using Self-supervised pre-training and heterogeneity-aware deep Multiple Instance LEarning (DeepSMILE). We apply DeepSMILE to the task of Homologous recombination deficiency (HRD) and microsatellite instability (MSI) prediction. We utilize contrastive self-supervised learning to pre-train a feature extractor on histopathology tiles of cancer tissue. Additionally, we use variability-aware deep multiple instance learning to learn the tile feature aggregation function while modeling tumor heterogeneity. For MSI prediction in a tumor-annotated and color normalized subset of TCGA-CRC (n=360 patients), contrastive self-supervised learning improves the tile supervision baseline from 0.77 to 0.87 AUROC, on par with our proposed DeepSMILE method. On TCGA-BC (n=1041 patients) without any manual annotations, DeepSMILE improves HRD classification performance from 0.77 to 0.81 AUROC compared to tile supervision with either a self-supervised or ImageNet pre-trained feature extractor. Our proposed methods reach the baseline performance using only 40% of the labeled data on both datasets. These improvements suggest we can use standard self-supervised learning techniques combined with multiple instance learning in the histopathology domain to improve genomic label classification performance with fewer labeled data.},
+  groups       = {THG-XAI, MIL: Attention-based},
+  keywords     = {Computational pathology, Histogenomics, Multiple instance learning, Self-supervised learning},
+  publisher    = {Elsevier}
+}
+
+@article{Weigelin2016,
+  author       = {Weigelin, Bettina and Bakker, Gert Jan and Friedl, Peter},
+  date         = {2016},
+  journaltitle = {Journal of Cell Science},
+  title        = {Third harmonic generation microscopy of cells and tissue organization},
+  doi          = {10.1242/JCS.152272/VIDEO-4},
+  number       = {2},
+  pages        = {245--255},
+  url          = {https://journals.biologists.com/jcs/article/129/2/245/55706/Third-harmonic-generation-microscopy-of-cells-and},
+  volume       = {129},
+  abstract     = {The interaction of cells within their microenvironmental niche is fundamental to cell migration, positioning, growth and differentiation in order to form and maintain complex tissue organization and function. Third harmonic generation (THG) microscopy is a label-free scatter process that is elicited by water-lipid and water-protein interfaces, including intra- and extracellular membranes, and extracellular matrix structures. In applied life sciences, THG delivers a versatile contrast modality to complement multi-parameter fluorescence, second harmonic generation and fluorescence lifetime microscopy, which allows detection of cellular and molecular cell functions in threedimensional tissue culture and small animals. In this Commentary, we review the physical and technical basis of THG, and provide considerations for optimal excitation, detection and interpretation of THG signals. We further provide an overview on how THG has versatile applications in cell and tissue research, with a particular focus on analyzing tissue morphogenesis and homeostasis, immune cell function and cancer research, as well as the emerging applicability of THG in clinical practice.},
+  groups       = {THG-XAI, THG},
+  keywords     = {Multiphoton microscopy, Nonlinear imaging, Third harmonic generation},
+  publisher    = {Company of Biologists Ltd}
+}
+
+@article{Li2021a,
+  author       = {Li, Jiayun and Li, Wenyuan and Sisk, Anthony and Ye, Huihui and Wallace, W. Dean and Speier, William and Arnold, Corey W.},
+  date         = {2021},
+  journaltitle = {Computers in Biology and Medicine},
+  title        = {A multi-resolution model for histopathology image classification and localization with multiple instance learning},
+  doi          = {10.1016/J.COMPBIOMED.2021.104253},
+  pages        = {104253--104253},
+  volume       = {131},
+  abstract     = {Large numbers of histopathological images have been digitized into high resolution whole slide images, opening opportunities in developing computational image analysis tools to reduce pathologists' workload and potentially improve inter- and intra-observer agreement. Most previous work on whole slide image analysis has focused on classification or segmentation of small pre-selected regions-of-interest, which requires fine-grained annotation and is non-trivial to extend for large-scale whole slide analysis. In this paper, we proposed a multi-resolution multiple instance learning model that leverages saliency maps to detect suspicious regions for fine-grained grade prediction. Instead of relying on expensive region- or pixel-level annotations, our model can be trained end-to-end with only slide-level labels. The model is developed on a large-scale prostate biopsy dataset containing 20,229 slides from 830 patients. The model achieved 92.7% accuracy, 81.8% Cohen's Kappa for benign, low grade (i.e. Grade group 1) and high grade (i.e. Grade group ≥ 2) prediction, an area under the receiver operating characteristic curve (AUROC) of 98.2% and an average precision (AP) of 97.4% for differentiating malignant and benign slides. The model obtained an AUROC of 99.4% and an AP of 99.8% for cancer detection on an external dataset.},
+  groups       = {THG-XAI, MIL: multi-scale attention, MIL: Attention-based},
+  keywords     = {Convolutional neural network, Image classification prostate cancer, Multiple instance learning, Whole slide images},
+  publisher    = {Pergamon}
+}
+
+@article{Oliveira2021,
+  author       = {Oliveira, Sara P. and Neto, Pedro C. and Fraga, João and Montezuma, Diana and Monteiro, Ana and Monteiro, João and Ribeiro, Liliana and Gonçalves, Sofia and Pinto, Isabel M. and Cardoso, Jaime S.},
+  date         = {2021},
+  journaltitle = {Scientific Reports 2021 11:1},
+  title        = {CAD systems for colorectal cancer from WSI are still not ready for clinical acceptance},
+  doi          = {10.1038/s41598-021-93746-z},
+  number       = {1},
+  pages        = {1--15},
+  url          = {https://www.nature.com/articles/s41598-021-93746-z},
+  volume       = {11},
+  abstract     = {Most oncological cases can be detected by imaging techniques, but diagnosis is based on pathological assessment of tissue samples. In recent years, the pathology field has evolved to a digital era where tissue samples are digitised and evaluated on screen. As a result, digital pathology opened up many research opportunities, allowing the development of more advanced image processing techniques, as well as artificial intelligence (AI) methodologies. Nevertheless, despite colorectal cancer (CRC) being the second deadliest cancer type worldwide, with increasing incidence rates, the application of AI for CRC diagnosis, particularly on whole-slide images (WSI), is still a young field. In this review, we analyse some relevant works published on this particular task and highlight the limitations that hinder the application of these works in clinical practice. We also empirically investigate the feasibility of using weakly annotated datasets to support the development of computer-aided diagnosis systems for CRC from WSI. Our study underscores the need for large datasets in this field and the use of an appropriate learning methodology to gain the most benefit from partially annotated datasets. The CRC WSI dataset used in this study, containing 1,133 colorectal biopsy and polypectomy samples, is available upon reasonable request.},
+  file         = {:Oliveira2021 - CAD Systems for Colorectal Cancer from WSI Are Still Not Ready for Clinical Acceptance.pdf:PDF},
+  groups       = {THG-XAI, Reviews},
+  keywords     = {Biomedical engineering, Colorectal cancer, Computational biology and bioinformatics, Data processing, Diagnosis, Gastrointestinal cancer, Image processing, Machine learning, Pathology},
+  publisher    = {Nature Publishing Group}
+}
+
+@article{Campanella2019,
+  author       = {Campanella, Gabriele and Hanna, Matthew G. and Geneslaw, Luke and Miraflor, Allen and Werneck Krauss Silva, Vitor and Busam, Klaus J. and Brogi, Edi and Reuter, Victor E. and Klimstra, David S. and Fuchs, Thomas J.},
+  date         = {2019},
+  journaltitle = {Nature Medicine 2019 25:8},
+  title        = {Clinical-grade computational pathology using weakly supervised deep learning on whole slide images},
+  doi          = {10.1038/s41591-019-0508-1},
+  number       = {8},
+  pages        = {1301--1309},
+  url          = {https://www.nature.com/articles/s41591-019-0508-1},
+  volume       = {25},
+  abstract     = {The development of decision support systems for pathology and their deployment in clinical practice have been hindered by the need for large manually annotated datasets. To overcome this problem, we present a multiple instance learning-based deep learning system that uses only the reported diagnoses as labels for training, thereby avoiding expensive and time-consuming pixel-wise manual annotations. We evaluated this framework at scale on a dataset of 44,732 whole slide images from 15,187 patients without any form of data curation. Tests on prostate cancer, basal cell carcinoma and breast cancer metastases to axillary lymph nodes resulted in areas under the curve above 0.98 for all cancer types. Its clinical application would allow pathologists to exclude 65-75% of slides while retaining 100% sensitivity. Our results show that this system has the ability to train accurate classification models at unprecedented scale, laying the foundation for the deployment of computational decision support systems in clinical practice. A deep learning model trained on real-world digital pathology data achieves clinical performance in cancer diagnosis.},
+  groups       = {THG-XAI, MIL: Top-k},
+  keywords     = {Computer modelling, Computer science, High, Pathology, throughput screening},
+  publisher    = {Nature Publishing Group}
+}
+
+@article{Kanavati2020,
+  author       = {Kanavati, Fahdi and Toyokawa, Gouji and Momosaki, Seiya and Rambeau, Michael and Kozuma, Yuka and Shoji, Fumihiro and Yamazaki, Koji and Takeo, Sadanori and Iizuka, Osamu and Tsuneki, Masayuki},
+  date         = {2020},
+  journaltitle = {Scientific Reports 2020 10:1},
+  title        = {Weakly-supervised learning for lung carcinoma classification using deep learning},
+  doi          = {10.1038/s41598-020-66333-x},
+  number       = {1},
+  pages        = {1--11},
+  url          = {https://www.nature.com/articles/s41598-020-66333-x},
+  volume       = {10},
+  abstract     = {Lung cancer is one of the major causes of cancer-related deaths in many countries around the world, and its histopathological diagnosis is crucial for deciding on optimum treatment strategies. Recently, Artificial Intelligence (AI) deep learning models have been widely shown to be useful in various medical fields, particularly image and pathological diagnoses; however, AI models for the pathological diagnosis of pulmonary lesions that have been validated on large-scale test sets are yet to be seen. We trained a Convolution Neural Network (CNN) based on the EfficientNet-B3 architecture, using transfer learning and weakly-supervised learning, to predict carcinoma in Whole Slide Images (WSIs) using a training dataset of 3,554 WSIs. We obtained highly promising results for differentiating between lung carcinoma and non-neoplastic with high Receiver Operator Curve (ROC) area under the curves (AUCs) on four independent test sets (ROC AUCs of 0.975, 0.974, 0.988, and 0.981, respectively). Development and validation of algorithms such as ours are important initial steps in the development of software suites that could be adopted in routine pathological practices and potentially help reduce the burden on pathologists.},
+  file         = {:Kanavati2020 - Weakly Supervised Learning for Lung Carcinoma Classification Using Deep Learning.pdf:PDF},
+  groups       = {THG-XAI, MIL: Top-k},
+  keywords     = {Cancer, Lung cancer, Machine learning},
+  publisher    = {Nature Publishing Group}
+}
+
+@article{Laak2019,
+  author       = {van der Laak, Jeroen and Ciompi, Francesco and Litjens, Geert},
+  date         = {2019},
+  journaltitle = {Nature Biomedical Engineering 2019 3:11},
+  title        = {No pixel-level annotations needed},
+  doi          = {10.1038/s41551-019-0472-6},
+  number       = {11},
+  pages        = {855--856},
+  url          = {https://www.nature.com/articles/s41551-019-0472-6},
+  volume       = {3},
+  abstract     = {A deep-learning model for cancer detection trained on a large number of scanned pathology slides and associated diagnosis labels enables model development without the need for pixel-level annotations.},
+  groups       = {THG-XAI},
+  keywords     = {Cancer, Computational models, Diagnostic markers, Medical imaging},
+  publisher    = {Nature Publishing Group}
+}
+
+@article{Cui2021,
+  author       = {Cui, Miao and Zhang, David Y.},
+  date         = {2021},
+  journaltitle = {Laboratory Investigation 2021 101:4},
+  title        = {Artificial intelligence and computational pathology},
+  doi          = {10.1038/s41374-020-00514-0},
+  number       = {4},
+  pages        = {412--422},
+  url          = {https://www.nature.com/articles/s41374-020-00514-0},
+  volume       = {101},
+  abstract     = {Data processing and learning has become a spearhead for the advancement of medicine, with pathology and laboratory medicine has no exception. The incorporation of scientific research through clinical informatics, including genomics, proteomics, bioinformatics, and biostatistics, into clinical practice unlocks innovative approaches for patient care. Computational pathology is burgeoning subspecialty in pathology that promises a better-integrated solution to whole-slide images, multi-omics data, and clinical informatics. However, computational pathology faces several challenges, including the ability to integrate raw data from different sources, limitation of hardware processing capacity, and a lack of specific training programs, as well as issues on ethics and larger societal acceptable practices that are still solidifying. The establishment of the entire industry of computational pathology requires far-reaching changes of the three essential elements connecting patients and doctors: the local laboratory, the scan center, and the central cloud hub/portal for data processing and retrieval. Computational pathology, unlocked through information integration and advanced digital communication networks, has the potential to improve clinical workflow efficiency, diagnostic quality, and ultimately create personalized diagnosis and treatment plans for patients. This review describes clinical perspectives and discusses the statistical methods, clinical applications, potential obstacles, and future directions of computational pathology. Data processing and learning has become a spearhead for the advancement of medicine. Computational pathology is burgeoning subspecialty that promises a better-integrated solution to whole-slide images, multi-omics data and clinical informatics as innovative approach for patient care. This review describes clinical perspectives and discusses the statistical methods, clinical applications, potential obstacles, and future directions of computational pathology.},
+  groups       = {THG-XAI, Reviews},
+  keywords     = {Bioinformatics, Preventive medicine},
+  publisher    = {Nature Publishing Group}
+}
+
+@misc{Ilse2018,
+  author      = {Maximilian Ilse and Jakub M. Tomczak and Max Welling},
+  date        = {2018-02-13},
+  title       = {Attention-based Deep Multiple Instance Learning},
+  eprint      = {1802.04712},
+  eprintclass = {cs.LG},
+  eprinttype  = {arXiv},
+  abstract    = {Multiple instance learning (MIL) is a variation of supervised learning where a single class label is assigned to a bag of instances. In this paper, we state the MIL problem as learning the Bernoulli distribution of the bag label where the bag label probability is fully parameterized by neural networks. Furthermore, we propose a neural network-based permutation-invariant aggregation operator that corresponds to the attention mechanism. Notably, an application of the proposed attention-based operator provides insight into the contribution of each instance to the bag label. We show empirically that our approach achieves comparable performance to the best MIL methods on benchmark MIL datasets and it outperforms other methods on a MNIST-based MIL dataset and two real-life histopathology datasets without sacrificing interpretability.},
+  file        = {:Ilse2018 - Attention Based Deep Multiple Instance Learning.pdf:PDF},
+  groups      = {THG-XAI, MIL: Attention-based},
+  keywords    = {cs.LG, stat.ML}
+}
+
+@misc{Lu2021,
+  author       = {Ming Y. Lu and Drew F. K. Williamson and Tiffany Y. Chen and Richard J. Chen and Matteo Barbieri and Faisal Mahmood},
+  date         = {2021-03},
+  title        = {Data-efficient and weakly supervised computational pathology on whole-slide images},
+  doi          = {10.1038/s41551-020-00682-w},
+  language     = {en},
+  abstract     = {Deep-learning methods for computational pathology require either manual annotation of gigapixel whole-slide images (WSIs) or large datasets of WSIs with slide-level labels and typically suffer from poor domain adaptation and interpretability. Here we report an interpretable weakly supervised deep-learning method for data-efficient WSI processing and learning that only requires slide-level labels. The method, which we named clustering-constrained-attention multiple-instance learning (CLAM), uses attention-based learning to identify subregions of high diagnostic value to accurately classify whole slides and instance-level clustering over the identified representative regions to constrain and refine the feature space. By applying CLAM to the subtyping of renal cell carcinoma and non-small-cell lung cancer as well as the detection of lymph node metastasis, we show that it can be used to localize well-known morphological features on WSIs without the need for spatial labels, that it overperforms standard weakly supervised classification algorithms and that it is adaptable to independent test cohorts, smartphone microscopy and varying tissue content.},
+  groups       = {THG-XAI, MIL: Attention-based},
+  journaltitle = {Nature Biomedical Engineering},
+  number       = {6},
+  pages        = {555--570},
+  publisher    = {Springer Science and Business Media {LLC}},
+  volume       = {5}
+}
+
+@misc{abc,
+  title  = {H^2-MIL: Exploring Hierarchical Representation with Heterogeneous Multiple Instance Learning for Whole Slide Image Analysis | Proceedings of the AAAI Conference on Artificial Intelligence},
+  groups = {THG-XAI, MIL: multi-scale attention}
+}
+
+@inproceedings{Chen2020,
+  author       = {Chen, Ting and Kornblith, Simon and Norouzi, Mohammad and Hinton, Geoffrey},
+  date         = {2020},
+  title        = {A Simple Framework for Contrastive Learning of Visual Representations},
+  eprint       = {2002.05709},
+  language     = {en},
+  pages        = {1597--1607},
+  publisher    = {PMLR},
+  url          = {http://proceedings.mlr.press/v119/chen20j/chen20j-supp.pdf},
+  abstract     = {This paper presents SimCLR: a simple framework for contrastive learning of visual representations. We simplify recently proposed contrastive self-supervised learning algorithms without requiring specialized architectures or a memory bank. In order to understand what enables the contrastive prediction tasks to learn useful representations, we systematically study the major components of our framework. We show that (1) composition of data augmentations plays a critical role in defining effective predictive tasks, (2) introducing a learnable nonlinear transformation between the representation and the contrastive loss substantially improves the quality of the learned representations, and (3) contrastive learning benefits from larger batch sizes and more training steps compared to supervised learning. By combining these findings, we are able to considerably outperform previous methods for self-supervised and semi-supervised learning on ImageNet. A linear classifier trained on self-supervised representations learned by SimCLR achieves 76.5% top-1 accuracy, which is a 7% relative improvement over previous state-of-the-art, matching the performance of a supervised ResNet-50. When fine-tuned on only 1% of the labels, we achieve 85.8% top-5 accuracy, outperforming AlexNet with 100X fewer labels.},
+  file         = {:Chen2020 - A Simple Framework for Contrastive Learning of Visual Representations.pdf:PDF},
+  groups       = {THG-XAI, Feature extraction},
+  journaltitle = {International Conference on Machine Learning}
+}
+
+@article{Saillard2021,
+  author     = {Saillard, Charlie and Dehaene, Olivier and Marchand, Tanguy and Moindrot, Olivier and Kamoun, Aurélie and Schmauch, Benoit and Jegou, Simon},
+  date       = {2021},
+  title      = {Self supervised learning improves dMMR/MSI detection from histology slides across multiple cancers},
+  eprint     = {2109.05819},
+  eprinttype = {arxiv},
+  abstract   = {Microsatellite instability (MSI) is a tumor phenotype whose diagnosis largely impacts patient care in colorectal cancers (CRC), and is associated with response to immunotherapy in all solid tumors. Deep learning models detecting MSI tumors directly from H\&E stained slides have shown promise in improving diagnosis of MSI patients. Prior deep learning models for MSI detection have relied on neural networks pretrained on ImageNet dataset, which does not contain any medical image. In this study, we leverage recent advances in self-supervised learning by training neural networks on histology images from the TCGA dataset using MoCo V2. We show that these networks consistently outperform their counterparts pretrained using ImageNet and obtain state-of-the-art results for MSI detection with AUCs of 0.92 and 0.83 for CRC and gastric tumors, respectively. These models generalize well on an external CRC cohort (0.97 AUC on PAIP) and improve transfer from one organ to another. Finally we show that predictive image regions exhibit meaningful histological patterns, and that the use of MoCo features highlighted more relevant patterns according to an expert pathologist.},
+  file       = {:Saillard2021 - Self Supervised Learning Improves DMMR_MSI Detection from Histology Slides across Multiple Cancers.pdf:PDF},
+  groups     = {THG-XAI, MIL: Attention-based},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Machine Learning, Electrical Engineering and Systems Science - Image and Video Processing},
+  publisher  = {arXiv}
+}
+
+ 
+@article{Linardatos2021,
+  author       = {Linardatos, Pantelis and Papastefanopoulos, Vasilis and Kotsiantis, Sotiris},
+  date         = {2021-01},
+  journaltitle = {Entropy},
+  title        = {Explainable {AI}: {A} {Review} of {Machine} {Learning} {Interpretability} {Methods}},
+  doi          = {10.3390/e23010018},
+  language     = {en},
+  number       = {1},
+  pages        = {18},
+  url          = {https://www.mdpi.com/1099-4300/23/1/18},
+  urldate      = {2022-09-19},
+  volume       = {23},
+  abstract     = {Recent advances in artificial intelligence (AI) have led to its widespread industrial adoption, with machine learning systems demonstrating superhuman performance in a significant number of tasks. However, this surge in performance, has often been achieved through increased model complexity, turning such systems into “black box” approaches and causing uncertainty regarding the way they operate and, ultimately, the way that they come to decisions. This ambiguity has made it problematic for machine learning systems to be adopted in sensitive yet critical domains, where their value could be immense, such as healthcare. As a result, scientific interest in the field of Explainable Artificial Intelligence (XAI), a field that is concerned with the development of new methods that explain and interpret machine learning models, has been tremendously reignited over recent years. This study focuses on machine learning interpretability methods; more specifically, a literature review and taxonomy of these methods are presented, as well as links to their programming implementations, in the hope that this survey would serve as a reference point for both theorists and practitioners.},
+  copyright    = {http://creativecommons.org/licenses/by/3.0/},
+  file         = {:Linardatos2021 - Explainable AI_ a Review of Machine Learning Interpretability Methods.pdf:PDF},
+  groups       = {Reviews, THG-XAI},
+  keywords     = {xai, machine learning, explainability, interpretability, fairness, sensitivity, black-box},
+  publisher    = {Multidisciplinary Digital Publishing Institute},
+  shorttitle   = {Explainable {AI}}
+}
+
+ 
+@techreport{Zhou2015,
+  author      = {Zhou, Bolei and Khosla, Aditya and Lapedriza, Agata and Oliva, Aude and Torralba, Antonio},
+  date        = {2015-12},
+  institution = {arXiv},
+  title       = {Learning {Deep} {Features} for {Discriminative} {Localization}},
+  doi         = {10.48550/arXiv.1512.04150},
+  note        = {arXiv:1512.04150 [cs] version: 1 type: article},
+  url         = {http://arxiv.org/abs/1512.04150},
+  urldate     = {2022-09-19},
+  abstract    = {In this work, we revisit the global average pooling layer proposed in [13], and shed light on how it explicitly enables the convolutional neural network to have remarkable localization ability despite being trained on image-level labels. While this technique was previously proposed as a means for regularizing training, we find that it actually builds a generic localizable deep representation that can be applied to a variety of tasks. Despite the apparent simplicity of global average pooling, we are able to achieve 37.1\% top-5 error for object localization on ILSVRC 2014, which is remarkably close to the 34.2\% top-5 error achieved by a fully supervised CNN approach. We demonstrate that our network is able to localize the discriminative image regions on a variety of tasks despite not being trained for them},
+  copyright   = {arXiv.org perpetual, non-exclusive license},
+  file        = {:Zhou2015 - Learning Deep Features for Discriminative Localization.pdf:PDF},
+  groups      = {Reviews, THG-XAI},
+  keywords    = {Computer Science - Computer Vision and Pattern Recognition},
+  publisher   = {arXiv}
+}
+
+ 
+@article{Selvaraju2020,
+  author       = {Selvaraju, Ramprasaath R. and Cogswell, Michael and Das, Abhishek and Vedantam, Ramakrishna and Parikh, Devi and Batra, Dhruv},
+  date         = {2020-02},
+  journaltitle = {International Journal of Computer Vision},
+  title        = {Grad-{CAM}: {Visual} {Explanations} from {Deep} {Networks} via {Gradient}-based {Localization}},
+  doi          = {10.1007/s11263-019-01228-7},
+  eprint       = {1610.02391},
+  eprintclass  = {cs},
+  eprinttype   = {arxiv},
+  issn         = {0920-5691, 1573-1405},
+  number       = {2},
+  pages        = {336--359},
+  volume       = {128},
+  abstract     = {We propose a technique for producing "visual explanations" for decisions from a large class of CNN-based models, making them more transparent. Our approach - Gradient-weighted Class Activation Mapping (Grad-CAM), uses the gradients of any target concept, flowing into the final convolutional layer to produce a coarse localization map highlighting important regions in the image for predicting the concept. Grad-CAM is applicable to a wide variety of CNN model-families: (1) CNNs with fully-connected layers, (2) CNNs used for structured outputs, (3) CNNs used in tasks with multimodal inputs or reinforcement learning, without any architectural changes or re-training. We combine Grad-CAM with fine-grained visualizations to create a high-resolution class-discriminative visualization and apply it to off-the-shelf image classification, captioning, and visual question answering (VQA) models, including ResNet-based architectures. In the context of image classification models, our visualizations (a) lend insights into their failure modes, (b) are robust to adversarial images, (c) outperform previous methods on localization, (d) are more faithful to the underlying model and (e) help achieve generalization by identifying dataset bias. For captioning and VQA, we show that even non-attention based models can localize inputs. We devise a way to identify important neurons through Grad-CAM and combine it with neuron names to provide textual explanations for model decisions. Finally, we design and conduct human studies to measure if Grad-CAM helps users establish appropriate trust in predictions from models and show that Grad-CAM helps untrained users successfully discern a 'stronger' nodel from a 'weaker' one even when both make identical predictions. Our code is available at https://github.com/ramprs/grad-cam/, along with a demo at http://gradcam.cloudcv.org, and a video at youtu.be/COjUB9Izk6E.},
+  annotation   = {Comment: This version was published in International Journal of Computer Vision (IJCV) in 2019; A previous version of the paper was published at International Conference on Computer Vision (ICCV'17)},
+  file         = {:Selvaraju2020 - Grad CAM_ Visual Explanations from Deep Networks Via Gradient Based Localization (1).pdf:PDF;:Selvaraju2020 - Grad CAM_ Visual Explanations from Deep Networks Via Gradient Based Localization.pdf:PDF},
+  groups       = {Reviews, THG-XAI},
+  keywords     = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Artificial Intelligence, Computer Science - Machine Learning},
+  publisher    = {Springer Science and Business Media {LLC}},
+  shorttitle   = {Grad-{CAM}}
+}
+
+ 
+@inproceedings{Chattopadhyay2018,
+  author      = {Chattopadhyay, Aditya and Sarkar, Anirban and Howlader, Prantik and Balasubramanian, Vineeth N.},
+  booktitle   = {2018 {IEEE} {Winter} {Conference} on {Applications} of {Computer} {Vision} ({WACV})},
+  date        = {2018-03},
+  title       = {Grad-{CAM}++: {Improved} {Visual} {Explanations} for {Deep} {Convolutional} {Networks}},
+  doi         = {10.1109/WACV.2018.00097},
+  eprint      = {1710.11063},
+  eprintclass = {cs},
+  eprinttype  = {arxiv},
+  pages       = {839--847},
+  publisher   = {{IEEE}},
+  abstract    = {Over the last decade, Convolutional Neural Network (CNN) models have been highly successful in solving complex vision problems. However, these deep models are perceived as "black box" methods considering the lack of understanding of their internal functioning. There has been a significant recent interest in developing explainable deep learning models, and this paper is an effort in this direction. Building on a recently proposed method called Grad-CAM, we propose a generalized method called Grad-CAM++ that can provide better visual explanations of CNN model predictions, in terms of better object localization as well as explaining occurrences of multiple object instances in a single image, when compared to state-of-the-art. We provide a mathematical derivation for the proposed method, which uses a weighted combination of the positive partial derivatives of the last convolutional layer feature maps with respect to a specific class score as weights to generate a visual explanation for the corresponding class label. Our extensive experiments and evaluations, both subjective and objective, on standard datasets showed that Grad-CAM++ provides promising human-interpretable visual explanations for a given CNN architecture across multiple tasks including classification, image caption generation and 3D action recognition; as well as in new settings such as knowledge distillation.},
+  annotation  = {Comment: 17 Pages, 15 Figures, 11 Tables. Accepted in the proceedings of IEEE Winter Conf. on Applications of Computer Vision (WACV2018). Extended version is under review at IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  file        = {:Chattopadhyay2018 - Grad CAM++_ Improved Visual Explanations for Deep Convolutional Networks.pdf:PDF},
+  groups      = {Reviews, THG-XAI},
+  keywords    = {Computer Science - Computer Vision and Pattern Recognition},
+  shorttitle  = {Grad-{CAM}++}
+}
+
+ 
+@inproceedings{Song2019,
+  author    = {Song, Wei and Dai, Shuyuan and Wang, Jian and Huang, Dongmei and Liotta, Antonio and Di Fatta, Giusepppe},
+  booktitle = {2019 {International} {Conference} on {Data} {Mining} {Workshops} ({ICDMW})},
+  date      = {2019-11},
+  title     = {Bi-gradient {Verification} for {Grad}-{CAM} {Towards} {Accurate} {Visual} {Explanation} for {Remote} {Sensing} {Images}},
+  doi       = {10.1109/ICDMW.2019.00074},
+  note      = {ISSN: 2375-9259},
+  pages     = {473--479},
+  abstract  = {Gradient-weighted Class Activation Mapping (Grad-CAM) has been a successful technique to produce visual explanation for CNN-based models. In this paper, we verify its applicability in the task of remote sensing image classification. The results show Grad-CAM gives contradictory localization of the important regions for some remote sensing images. To solve this problem, we propose a new strategy, bidirectional gradient verification (BiGradV), to rectify the visual explanation produced by Grad-CAM. The BiGradV is based on the fact both positive and negative gradients can be sensitive to class discrimination of remote sensing images. It designs an internal feature map occlusion with confidence drop decision to verifying which directional gradients works for certain class. The verified gradients are then used to gain the correct visual explanation. Experiments on both remote sensing image dataset and general image datasets demonstrate our proposed strategy is effective and generalized. It could provide a good complement to the Grad-CAM based methods.},
+  groups    = {Reviews, THG-XAI},
+  issn      = {2375-9259},
+  keywords  = {Visualization, Remote sensing, Airplanes, Image classification, Feature extraction, Computational modeling, Task analysis, Bi-gradient verification, Grad-CAM, Convolutional Neural Networks, Remote sensing images}
+}
+
+ 
+@report{Omeiza2019,
+  author      = {Omeiza, Daniel and Speakman, Skyler and Cintas, Celia and Weldermariam, Komminist},
+  date        = {2019-08-03},
+  institution = {{arXiv}},
+  title       = {Smooth Grad-{CAM}++: An Enhanced Inference Level Visualization Technique for Deep Convolutional Neural Network Models},
+  doi         = {10.48550/arXiv.1908.01224},
+  eprint      = {1908.01224 [cs]},
+  eprinttype  = {arxiv},
+  note        = {version: 1 type: article},
+  number      = {{arXiv}:1908.01224},
+  url         = {http://arxiv.org/abs/1908.01224},
+  urldate     = {2022-09-19},
+  abstract    = {Gaining insight into how deep convolutional neural network models perform image classification and how to explain their outputs have been a concern to computer vision researchers and decision makers. These deep models are often referred to as black box due to low comprehension of their internal workings. As an effort to developing explainable deep learning models, several methods have been proposed such as finding gradients of class output with respect to input image (sensitivity maps), class activation map ({CAM}), and Gradient based Class Activation Maps (Grad-{CAM}). These methods under perform when localizing multiple occurrences of the same class and do not work for all {CNNs}. In addition, Grad-{CAM} does not capture the entire object in completeness when used on single object images, this affect performance on recognition tasks. With the intention to create an enhanced visual explanation in terms of visual sharpness, object localization and explaining multiple occurrences of objects in a single image, we present Smooth Grad-{CAM}++ {\textbackslash}footnote\{Simple demo: http://35.238.22.135:5000/\}, a technique that combines methods from two other recent techniques---{SMOOTHGRAD} and Grad-{CAM}++. Our Smooth Grad-{CAM}++ technique provides the capability of either visualizing a layer, subset of feature maps, or subset of neurons within a feature map at each instance at the inference level (model prediction process). After experimenting with few images, Smooth Grad-{CAM}++ produced more visually sharp maps with better localization of objects in the given input images when compared with other methods.},
+  file        = {:Omeiza2019 - Smooth Grad CAM++_ an Enhanced Inference Level Visualization Technique for Deep Convolutional Neural Network Models.pdf:PDF},
+  groups      = {Reviews, THG-XAI},
+  keywords    = {Computer Science - Computer Vision and Pattern Recognition},
+  shorttitle  = {Smooth Grad-{CAM}++}
+}
+
+ 
+@report{Smilkov2017,
+  author      = {Smilkov, Daniel and Thorat, Nikhil and Kim, Been and Viégas, Fernanda and Wattenberg, Martin},
+  date        = {2017-06-12},
+  institution = {{arXiv}},
+  title       = {{SmoothGrad}: removing noise by adding noise},
+  doi         = {10.48550/arXiv.1706.03825},
+  eprint      = {1706.03825 [cs, stat]},
+  eprinttype  = {arxiv},
+  note        = {version: 1 type: article},
+  number      = {{arXiv}:1706.03825},
+  url         = {http://arxiv.org/abs/1706.03825},
+  urldate     = {2022-09-19},
+  abstract    = {Explaining the output of a deep network remains a challenge. In the case of an image classifier, one type of explanation is to identify pixels that strongly influence the final decision. A starting point for this strategy is the gradient of the class score function with respect to the input image. This gradient can be interpreted as a sensitivity map, and there are several techniques that elaborate on this basic idea. This paper makes two contributions: it introduces {SmoothGrad}, a simple method that can help visually sharpen gradient-based sensitivity maps, and it discusses lessons in the visualization of these maps. We publish the code for our experiments and a website with our results.},
+  file        = {:Smilkov2017 - SmoothGrad_ Removing Noise by Adding Noise.pdf:PDF},
+  groups      = {Reviews, Denoising, THG-XAI},
+  keywords    = {Computer Science - Machine Learning, Computer Science - Computer Vision and Pattern Recognition, Statistics - Machine Learning},
+  shorttitle  = {{SmoothGrad}}
+}
+
+ 
+@inproceedings{Song2021,
+  author     = {Song, Wei and Dai, Shuyuan and Huang, Dongmei and Song, Jinling and Antonio, Liotta},
+  booktitle  = {{MultiMedia} Modeling},
+  date       = {2021},
+  title      = {Median-Pooling Grad-{CAM}: An Efficient Inference Level Visual Explanation for {CNN} Networks in Remote Sensing Image Classification},
+  doi        = {10.1007/978-3-030-67835-7_12},
+  editor     = {Lokoč, Jakub and Skopal, Tomáš and Schoeffmann, Klaus and Mezaris, Vasileios and Li, Xirong and Vrochidis, Stefanos and Patras, Ioannis},
+  isbn       = {9783030678357},
+  location   = {Cham},
+  pages      = {134--146},
+  publisher  = {Springer International Publishing},
+  series     = {Lecture Notes in Computer Science},
+  abstract   = {Gradient-based visual explanation techniques, such as Grad-{CAM} and Grad-{CAM}++ have been used to interpret how convolutional neural networks make decisions. But not all techniques can work properly in the task of remote sensing ({RS}) image classification. In this paper, after analyzing why Grad-{CAM} performs worse than Grad-{CAM}++ for {RS} images classification from the perspective of weight matrix of gradients, we propose an efficient visual explanation approach dubbed median-pooling Grad-{CAM}. It uses median pooling to capture the main trend of gradients and approximates the contributions of feature maps with respect to a specific class. We further propose a new evaluation index, confidence drop \%, to express the degree of drop of classification accuracy when occluding the important regions that are captured by the visual saliency. Experiments on two {RS} image datasets and for two {CNN} models of {VGG} and {ResNet}, show our proposed method offers a good tradeoff between interpretability and efficiency of visual explanation for {CNN}-based models in {RS} image classification. The low time-complexity median-pooling Grad-{CAM} could provide a good complement to the gradient-based visual explanation techniques in practice.},
+  file       = {:Song2021 - Median Pooling Grad CAM_ an Efficient Inference Level Visual Explanation for CNN Networks in Remote Sensing Image Classification.pdf:PDF},
+  groups     = {Reviews, THG-XAI},
+  keywords   = {Visual explanation, Median pooling, {CNN} networks, Remote sensing images},
+  langid     = {english},
+  shorttitle = {Median-Pooling Grad-{CAM}}
+}
+
+ 
+@article{Volovici2022,
+  author       = {Volovici, Victor and Syn, Nicholas L. and Ercole, Ari and Zhao, Joseph J. and Liu, Nan},
+  date         = {2022-09},
+  journaltitle = {Nature Medicine},
+  title        = {Steps to avoid overuse and misuse of machine learning in clinical research},
+  doi          = {10.1038/s41591-022-01961-6},
+  issn         = {1546-170X},
+  language     = {en},
+  pages        = {1--4},
+  url          = {https://www.nature.com/articles/s41591-022-01961-6},
+  urldate      = {2022-09-19},
+  abstract     = {Machine learning algorithms are a powerful tool in healthcare, but sometimes perform no better than traditional statistical techniques. Steps should be taken to ensure that algorithms are not overused or misused, in order to provide genuine benefit for patients.},
+  copyright    = {2022 Springer Nature America, Inc.},
+  file         = {Full Text PDF:https\://www.nature.com/articles/s41591-022-01961-6.pdf:application/pdf},
+  groups       = {THG-XAI, AI Critique},
+  keywords     = {Epidemiology, Outcomes research, Policy},
+  publisher    = {Nature Publishing Group}
+}
+
+ 
+@article{Vasey2022,
+  author       = {Vasey, Baptiste and Nagendran, Myura and Campbell, Bruce and Clifton, David A and Collins, Gary S and Denaxas, Spiros and Denniston, Alastair K and Faes, Livia and Geerts, Bart and Ibrahim, Mudathir and Liu, Xiaoxuan and Mateen, Bilal A and Mathur, Piyush and McCradden, Melissa D and Morgan, Lauren and Ordish, Johan and Rogers, Campbell and Saria, Suchi and Ting, Daniel S W and Watkinson, Peter and Weber, Wim and Wheatstone, Peter and McCulloch, Peter and Lee, Aaron Y and Fraser, Alan G and Connell, Ali and Vira, Alykhan and Esteva, Andre and Althouse, Andrew D and Beam, Andrew L and de Hond, Anne and Boulesteix, Anne-Laure and Bradlow, Anthony and Ercole, Ari and Paez, Arsenio and Tsanas, Athanasios and Kirby, Barry and Glocker, Ben and Velardo, Carmelo and Park, Chang Min and Hehakaya, Charisma and Baber, Chris and Paton, Chris and Johner, Christian and Kelly, Christopher J and Vincent, Christopher J and Yau, Christopher and McGenity, Clare and Gatsonis, Constantine and Faivre-Finn, Corinne and Simon, Crispin and Sent, Danielle and Bzdok, Danilo and Treanor, Darren and Wong, David C and Steiner, David F and Higgins, David and Benson, Dawn and O’Regan, Declan P and Gunasekaran, Dinesh V and Danks, Dominic and Neri, Emanuele and Kyrimi, Evangelia and Schwendicke, Falk and Magrabi, Farah and Ives, Frances and Rademakers, Frank E and Fowler, George E and Frau, Giuseppe and Hogg, H D Jeffry and Marcus, Hani J and Chan, Heang-Ping and Xiang, Henry and McIntyre, Hugh F and Harvey, Hugh and Kim, Hyungjin and Habli, Ibrahim and Fackler, James C and Shaw, James and Higham, Janet and Wohlgemut, Jared M and Chong, Jaron and Bibault, Jean-Emmanuel and Cohen, Jérémie F and Kers, Jesper and Morley, Jessica and Krois, Joachim and Monteiro, Joao and Horovitz, Joel and Fletcher, John and Taylor, Jonathan and Yoon, Jung Hyun and Singh, Karandeep and Moons, Karel G M and Karpathakis, Kassandra and Catchpole, Ken and Hood, Kerenza and Balaskas, Konstantinos and Kamnitsas, Konstantinos and Militello, Laura and Wynants, Laure and Oakden-Rayner, Lauren and Lovat, Laurence B and Smits, Luc J M and Hinske, Ludwig C and ElZarrad, M Khair and van Smeden, Maarten and Giavina-Bianchi, Mara and Daley, Mark and Sendak, Mark P and Sujan, Mark and Rovers, Maroeska and DeCamp, Matthew and Woodward, Matthew and Komorowski, Matthieu and Marsden, Max and Mackintosh, Maxine and Abramoff, Michael D and Armengol de la Hoz, Miguel Ángel and Hambidge, Neale and Daly, Neil and Peek, Niels and Redfern, Oliver and Ahmad, Omer F and Bossuyt, Patrick M and Keane, Pearse A and Ferreira, Pedro N P and Schnell-Inderst, Petra and Mascagni, Pietro and Dasgupta, Prokar and Guan, Pujun and Barnett, Rachel and Kader, Rawen and Chopra, Reena and Mann, Ritse M and Sarkar, Rupa and Mäenpää, Saana M and Finlayson, Samuel G and Vollam, Sarah and Vollmer, Sebastian J and Park, Seong Ho and Laher, Shakir and Joshi, Shalmali and van der Meijden, Siri L and Shelmerdine, Susan C and Tan, Tien-En and Stocker, Tom JW and Giannini, Valentina and Madai, Vince I and Newcombe, Virginia and Ng, Wei Yan and Rogers, Wendy A and Ogallo, William and Park, Yoonyoung and Perkins, Zane B},
+  date         = {2022-05},
+  journaltitle = {The BMJ},
+  title        = {Reporting guideline for the early stage clinical evaluation of decision support systems driven by artificial intelligence: {DECIDE}-{AI}},
+  doi          = {10.1136/bmj-2022-070904},
+  issn         = {0959-8138},
+  pages        = {e070904},
+  url          = {https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9116198/},
+  urldate      = {2022-09-19},
+  volume       = {377},
+  abstract     = {A growing number of artificial intelligence (AI)-based clinical decision support systems are showing promising performance in preclinical, in silico, evaluation, but few have yet demonstrated real benefit to patient care. Early stage clinical evaluation is important to assess an AI system’s actual clinical performance at small scale, ensure its safety, evaluate the human factors surrounding its use, and pave the way to further large scale trials. However, the reporting of these early studies remains inadequate. The present statement provides a multistakeholder, consensus-based reporting guideline for the Developmental and Exploratory Clinical Investigations of DEcision support systems driven by Artificial Intelligence (DECIDE-AI). We conducted a two round, modified Delphi process to collect and analyse expert opinion on the reporting of early clinical evaluation of AI systems. Experts were recruited from 20 predefined stakeholder categories. The final composition and wording of the guideline was determined at a virtual consensus meeting. The checklist and the Explanation \\& Elaboration (E\\&E) sections were refined based on feedback from a qualitative evaluation process. 123 experts participated in the first round of Delphi, 138 in the second, 16 in the consensus meeting, and 16 in the qualitative evaluation. The DECIDE-AI reporting guideline comprises 17 AI specific reporting items (made of 28 subitems) and 10 generic reporting items, with an E\\&E paragraph provided for each. Through consultation and consensus with a range of stakeholders, we have developed a guideline comprising key items that should be reported in early stage clinical studies of AI-based decision support systems in healthcare. By providing an actionable checklist of minimal reporting items, the DECIDE-AI guideline will facilitate the appraisal of these studies and replicability of their findings.},
+  file         = {:Vasey2022 - Reporting Guideline for the Early Stage Clinical Evaluation of Decision Support Systems Driven by Artificial Intelligence_ DECIDE AI.html:URL},
+  groups       = {AI reporting guidelines, THG-XAI},
+  pmcid        = {PMC9116198},
+  pmid         = {35584845},
+  shorttitle   = {Reporting guideline for the early stage clinical evaluation of decision support systems driven by artificial intelligence}
+}
+
+ 
+@article{Collins2015,
+  author       = {Collins, Gary S. and Reitsma, Johannes B. and Altman, Douglas G. and Moons, Karel G.M.},
+  date         = {2015-01},
+  journaltitle = {Annals of Internal Medicine},
+  title        = {Transparent {Reporting} of a multivariable prediction model for {Individual} {Prognosis} {Or} {Diagnosis} ({TRIPOD}): {The} {TRIPOD} {Statement}},
+  doi          = {10.7326/M14-0697},
+  issn         = {0003-4819},
+  number       = {1},
+  pages        = {55--63},
+  url          = {https://www.acpjournals.org/doi/10.7326/M14-0697},
+  urldate      = {2022-09-19},
+  volume       = {162},
+  file         = {:Collins2015 - Transparent Reporting of a Multivariable Prediction Model for Individual Prognosis or Diagnosis (TRIPOD)_ the TRIPOD Statement.pdf:PDF},
+  groups       = {THG-XAI, AI reporting guidelines},
+  publisher    = {American College of Physicians},
+  shorttitle   = {Transparent {Reporting} of a multivariable prediction model for {Individual} {Prognosis} {Or} {Diagnosis} ({TRIPOD})}
+}
+
+ 
+@techreport{Kim2018,
+  author      = {Kim, Been and Wattenberg, Martin and Gilmer, Justin and Cai, Carrie and Wexler, James and Viegas, Fernanda and Sayres, Rory},
+  date        = {2018-06},
+  institution = {arXiv},
+  title       = {Interpretability {Beyond} {Feature} {Attribution}: {Quantitative} {Testing} with {Concept} {Activation} {Vectors} ({TCAV})},
+  doi         = {10.48550/arXiv.1711.11279},
+  note        = {arXiv:1711.11279 [stat] type: article},
+  url         = {http://arxiv.org/abs/1711.11279},
+  urldate     = {2022-09-19},
+  abstract    = {The interpretation of deep learning models is a challenge due to their size, complexity, and often opaque internal state. In addition, many systems, such as image classifiers, operate on low-level features rather than high-level concepts. To address these challenges, we introduce Concept Activation Vectors (CAVs), which provide an interpretation of a neural net's internal state in terms of human-friendly concepts. The key idea is to view the high-dimensional internal state of a neural net as an aid, not an obstacle. We show how to use CAVs as part of a technique, Testing with CAVs (TCAV), that uses directional derivatives to quantify the degree to which a user-defined concept is important to a classification result--for example, how sensitive a prediction of "zebra" is to the presence of stripes. Using the domain of image classification as a testing ground, we describe how CAVs may be used to explore hypotheses and generate insights for a standard image classification network as well as a medical application.},
+  file        = {arXiv Fulltext PDF:https\://arxiv.org/pdf/1711.11279.pdf:application/pdf},
+  groups      = {THG-XAI, XAI},
+  keywords    = {Statistics - Machine Learning},
+  shorttitle  = {Interpretability {Beyond} {Feature} {Attribution}}
+}
+
+ 
+@techreport{Huang2017,
+  author      = {Huang, Gao and Li, Yixuan and Pleiss, Geoff and Liu, Zhuang and Hopcroft, John E. and Weinberger, Kilian Q.},
+  date        = {2017-03},
+  institution = {arXiv},
+  title       = {Snapshot {Ensembles}: {Train} 1, get {M} for free},
+  note        = {arXiv:1704.00109 [cs] type: article},
+  url         = {http://arxiv.org/abs/1704.00109},
+  urldate     = {2022-11-09},
+  abstract    = {Ensembles of neural networks are known to be much more robust and accurate than individual networks. However, training multiple deep networks for model averaging is computationally expensive. In this paper, we propose a method to obtain the seemingly contradictory goal of ensembling multiple neural networks at no additional training cost. We achieve this goal by training a single neural network, converging to several local minima along its optimization path and saving the model parameters. To obtain repeated rapid convergence, we leverage recent work on cyclic learning rate schedules. The resulting technique, which we refer to as Snapshot Ensembling, is simple, yet surprisingly effective. We show in a series of experiments that our approach is compatible with diverse network architectures and learning tasks. It consistently yields lower error rates than state-of-the-art single models at no additional training cost, and compares favorably with traditional network ensembles. On CIFAR-10 and CIFAR-100 our DenseNet Snapshot Ensembles obtain error rates of 3.4\% and 17.4\% respectively.},
+  file        = {:Huang2017 - Snapshot Ensembles_ Train 1, Get M for Free.pdf:PDF},
+  groups      = {Denoising, Deep learning architectures},
+  keywords    = {Computer Science - Machine Learning},
+  shorttitle  = {Snapshot {Ensembles}}
+}
+
+ 
+@article{Lu2022,
+  author       = {Lu, Xiankai and Ma, Chao and Shen, Jianbing and Yang, Xiaokang and Reid, Ian and Yang, Ming-Hsuan},
+  date         = {2022-05},
+  journaltitle = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  title        = {Deep {Object} {Tracking} {With} {Shrinkage} {Loss}},
+  doi          = {10.1109/TPAMI.2020.3041332},
+  issn         = {1939-3539},
+  number       = {5},
+  pages        = {2386--2401},
+  volume       = {44},
+  abstract     = {In this paper, we address the issue of data imbalance in learning deep models for visual object tracking. Although it is well known that data distribution plays a crucial role in learning and inference models, considerably less attention has been paid to data imbalance in visual tracking. For the deep regression trackers that directly learn a dense mapping from input images of target objects to soft response maps, we identify their performance is limited by the extremely imbalanced pixel-to-pixel differences when computing regression loss. This prevents existing end-to-end learnable deep regression trackers from performing as well as discriminative correlation filters (DCFs) trackers. For the deep classification trackers that draw positive and negative samples to learn discriminative classifiers, there exists heavy class imbalance due to a limited number of positive samples when compared to the number of negative samples. To balance training data, we propose a novel shrinkage loss to penalize the importance of easy training data mostly coming from the background, which facilitates both deep regression and classification trackers to better distinguish target objects from the background. We extensively validate the proposed shrinkage loss function on six benchmark datasets, including the OTB-2013, OTB-2015, UAV-123, VOT-2016, VOT-2018 and LaSOT. Equipped with our shrinkage loss, the proposed one-stage deep regression tracker achieves favorable results against state-of-the-art methods, especially in comparison with DCFs trackers. Meanwhile, our shrinkage loss generalizes well to deep classification trackers. When replacing the original binary cross entropy loss with our shrinkage loss, three representative baseline trackers achieve large performance gains, even setting new state-of-the-art results.},
+  groups       = {Loss functions},
+  keywords     = {Target tracking, Visualization, Training, Benchmark testing, Object tracking, Data models, Correlation, Data imbalance, shrinkage loss, regression tracking, classification tracking, Siamese tracking}
+}
+
+@inproceedings{anonymous2022nv,
+  author    = {Anonymous},
+  booktitle = {Submitted to ECCV 2022 Workshop on BioImage Computing},
+  title     = {N2V2 - Fixing Noise2Void Checkerboard Artifacts with Modified Sampling Strategies and a Tweaked Network Architecture},
+  note      = {under review},
+  url       = {https://openreview.net/forum?id=IZfQYb4lHVq},
+  groups    = {Denoising},
+  year      = {2022}
+}
+
+@inproceedings{yang2021delving,
+  author    = {Yang, Yuzhe and Zha, Kaiwen and Chen, Ying-Cong and Wang, Hao and Katabi, Dina},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  title     = {Delving into Deep Imbalanced Regression},
+  groups    = {imbalance},
+  year      = {2021}
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}
+
+@Comment{jabref-meta: grouping:
+0 AllEntriesGroup:;
+1 StaticGroup:THG-XAI\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:THG\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Denoising\;0\;0\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Feature extraction\;0\;0\;0x8a8a8aff\;\;\;;
+2 StaticGroup:MIL: multi-scale attention\;0\;0\;0x8a8a8aff\;\;\;;
+2 StaticGroup:MIL: Locally constrained\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:MIL: Attention-based\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:MIL: Top-k\;0\;0\;0x8a8a8aff\;\;\;;
+2 StaticGroup:MIL: other\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Full slide\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:XAI\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Reviews\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Deep learning architectures\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Books\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Memory fixes\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:AI Critique\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:AI reporting guidelines\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:Loss functions\;0\;1\;0x8a8a8aff\;\;\;;
+2 StaticGroup:imbalance\;0\;1\;0x8a8a8aff\;\;\;;
+}
