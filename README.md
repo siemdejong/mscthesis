@@ -214,8 +214,8 @@ Yet to be adapted to this study.
 - [ ] Discussion and conclusion
     - [ ] Discussion
     - [ ] Conclusion
-    - [ ] Acknowledgments
-    - [ ] All references
+- [ ] All references
+- [ ] Acknowledgments
 
 See the [open issues](https://github.com/siemdejong/mscthesis/issues) for a list of proposed texts (and known issues).
 
