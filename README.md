@@ -34,12 +34,12 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
-<h3 align="center">Deep learning on higher harmonic generationimages for regression and pathology</h3>
+<h3 align="center">Deep learning on higher harmonic generation images for regression and pathology</h3>
 
   <p align="center">
     MSc thesis
     <br />
-    <a href="https://github.com/siemdejong/mscthesis"><strong>View latest build »</strong></a>
+    <a href="https://siemdejong.github.io/mscthesis/mscthesis.pdf"><strong>View latest build »</strong></a>
     <br />
     <br />
     <!-- <a href="https://github.com/siemdejong/mscthesis">View Demo</a>
@@ -116,20 +116,24 @@ To get a local copy and build the output pdf, follow these simple example steps.
 ### Prerequisites
 
 A LaTeX preprocessor is required to build pdfs from source.
-The author uses MiKTeX on a Windows 11 machine.
+Tested with MiKTeX and TeX Live.
 
 ### Installation
 
 1. Clone the repo
-   ```sh
-   git clone --recurse-submodules https://github.com/siemdejong/mscthesis.git
-   ```
-   The `recurse-submodules` flag is needed to download the [custom kaobook](https://github.com/siemdejong/kaobook) style.
-1. Install the local TEXMF directory as a TEXMF root directory
-   ```sh
-   ./install_local_texmf.sh
-   ```
-   to install kaobook.
+    ```sh
+    git clone --recurse-submodules https://github.com/siemdejong/mscthesis.git
+    ```
+    The `recurse-submodules` flag is needed to download the [custom kaobook](https://github.com/siemdejong/kaobook) style.
+1. Install the local TEXMF directory as a TEXMF root directory to install kaobook.
+    For MiKTeX, run
+    ```sh
+    ./install_local_texmf.sh
+    ```
+    For TeX Live, run
+    ```sh
+    export TEXINPUTS=.:./texmf//:
+    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -138,7 +142,14 @@ The author uses MiKTeX on a Windows 11 machine.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-To compile the output, run `pdflatex`, `biber`, and two times `pdflatex`.
+To compile the output, run
+```sh
+pdflatex
+pdflatex
+biber
+pdflatex
+```
+with your preferred optional arguments.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -147,7 +158,7 @@ To compile the output, run `pdflatex`, `biber`, and two times `pdflatex`.
 <!-- LAYOUT -->
 ## Planned layout
 
-As the thesis aims to report on two diagnostic prediction models, a [TRIPOD](https://www.tripod-statement.org/)-like structure is followed.
+As the thesis aims to report on two diagnostic prediction models for development and validation, a [TRIPOD](https://www.tripod-statement.org/)-like structure is followed.
 See below.
 Yet to be adapted to this study.
 
