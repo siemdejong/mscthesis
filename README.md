@@ -126,14 +126,13 @@ Tested with MiKTeX and TeX Live.
     ```
     The `recurse-submodules` flag is needed to download the [custom kaobook](https://github.com/siemdejong/kaobook) style.
 1. Install the local TEXMF directory as a TEXMF root directory to install kaobook.
-    For MiKTeX on Windows, run
+    For MiKTeX on Windows, in the project directory, run
     ```sh
-    ./install_local_texmf.sh
+    install_windows.bat
     ```
-    For TeX Live, run
+    For TeX Live on a UNIX system, run
     ```sh
-    export TEXINPUTS=.:./texmf//:
-    before compiling.
+    ./install_linux.sh
     ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
