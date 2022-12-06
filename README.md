@@ -126,13 +126,14 @@ Tested with MiKTeX and TeX Live.
     ```
     The `recurse-submodules` flag is needed to download the [custom kaobook](https://github.com/siemdejong/kaobook) style.
 1. Install the local TEXMF directory as a TEXMF root directory to install kaobook.
-    For MiKTeX, run
+    For MiKTeX on Windows, run
     ```sh
     ./install_local_texmf.sh
     ```
     For TeX Live, run
     ```sh
     export TEXINPUTS=.:./texmf//:
+    before compiling.
     ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -158,7 +159,7 @@ with your preferred optional arguments.
 <!-- LAYOUT -->
 ## Planned layout
 
-As the thesis aims to report on two diagnostic prediction models for development and validation, a [TRIPOD](https://www.tripod-statement.org/)-like structure is followed.
+As the thesis aims to report on two diagnostic prediction models for development and validation, a [TRIPOD-AI](https://www.tripod-statement.org/)-like structure is followed.
 See below.
 Yet to be adapted to this study.
 
@@ -167,7 +168,7 @@ Yet to be adapted to this study.
 - [ ] Theoretical background of convolutional neural networks
 - [ ] Skinstression
     - [ ] Introduction
-        - [ ] Context (diagnostic + rationale)
+        - [ ] Background (diagnostic + rationale)
         - [ ] Objectives (development + validation)
     - [ ] Theory
         - [ ] Searching for a simple skin strain-stress model
@@ -181,7 +182,7 @@ Yet to be adapted to this study.
             - [ ] Focal MSE
         - [ ] LDS
     - [ ] Methods
-        - [ ] Source of data (where does it come from + training/test/validation splits + study dates)
+        - [ ] Sources of data (where does it come from + training/test/validation splits + study dates)
         - [ ] Participants (study setting + eligibility + no specific treatment)
         - [ ] Outcome of model (how en when assessed + blind assessment?)
         - [ ] Predictors (definition and when/how measured + blind assessment?)

@@ -23,7 +23,7 @@ jobs:
         with:
           root_file: main.tex
           latexmk_shell_escape: true
-          pre_compile: "tlmgr update --self --all --reinstall-forcibly-removed"
+          pre_compile: "tlmgr update --self --all --reinstall-forcibly-removed && mkdir -p texmf/tex/latex/kaobook && cp kaobook texmf/tex/latex/kaobook"
         env:
           TEXINPUTS: ".:./texmf/tex/latex/kaobook//:"
       
