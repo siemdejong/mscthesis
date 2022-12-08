@@ -25,6 +25,9 @@
 % Load the package for hyperreferences
 \usepackage{kaorefs}
 
+% To be able to include Tikz files
+% \usepackage{standalone}
+
 \graphicspath{{images/}{./}} % Paths where images are looked for
 
 \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
@@ -133,12 +136,15 @@
 \setchapterstyle{kao} % Choose the default chapter heading style
 
 \pagelayout{wide} % No margins
-\addpart[Skinstression]{Strain-stress regression on \\ second harmonic generation images \\ using {\normalfont\texttt{Skinstression}}}
+% \addpart[Skinstression]{Strain-stress regression on \\ second harmonic generation images \\ using {\normalfont\texttt{Skinstression}}}
+\addpart[Skinstression]{Development and validation of a strain-stress regression model on second harmonic generation images from old adult skin tissue}
 \pagelayout{margin} % Restore margins
 
 \input{skinstression/chapters/introduction.tex}
 \input{skinstression/chapters/theory.tex}
 \input{skinstression/chapters/methods.tex}
+\input{skinstression/chapters/results.tex}
+\input{skinstression/chapters/discussion.tex}
 
 % \defbibnote{bibnote}{Here are the references in citation order.\par\bigskip} % Prepend this text to the bibliography
 % \printbibliography[heading=bibintoc, title=Bibliography, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note

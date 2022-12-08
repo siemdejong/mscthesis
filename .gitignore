@@ -1,5 +1,7 @@
 ## Custom exclusions
+notes
 main.pdf
+texmf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

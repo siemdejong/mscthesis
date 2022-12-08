@@ -134,6 +134,7 @@ Tested with MiKTeX and TeX Live.
     ```sh
     ./install_linux.sh
     ```
+    Kaobook can also be installed manually by following the instructions for the installed TeX distribution.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -163,13 +164,15 @@ See below.
 Yet to be adapted to this study.
 
 - [ ] Title page
+- [ ] Abstract
 - [ ] General introduction
 - [ ] Theoretical background of convolutional neural networks
 - [ ] Skinstression
+    - [ ] Abstract
     - [ ] Introduction
-        - [ ] Background (diagnostic + rationale)
+        - [ ] Background (diagnostic + rationale for dev/val + purpose)
         - [ ] Objectives (development + validation)
-    - [ ] Theory
+    <!-- - [ ] Theory
         - [ ] Searching for a simple skin strain-stress model
             - [ ] Measurements
             - [ ] Exponential
@@ -179,35 +182,73 @@ Yet to be adapted to this study.
             - [ ] MAE
             - [ ] MSE
             - [ ] Focal MSE
-        - [ ] LDS
+        - [ ] LDS -->
     - [ ] Methods
-        - [ ] Sources of data (where does it come from + training/test/validation splits + study dates)
+        - [x] Sources of data
+            - [x] source of data of training/val/test
+            - [x] origin of data
+            - [x] dates of data collection
         - [ ] Participants (study setting + eligibility + no specific treatment)
-        - [ ] Outcome of model (how en when assessed + blind assessment?)
-        - [ ] Predictors (definition and when/how measured + blind assessment?)
-        - [ ] Sample size
-        - [ ] Missing data?
+            - [x] study setting: tertiary care, VUmc
+            - [x] eligibility for participants or data sources
+            - [x] treatment received
+        - [x] Data preparation
+            - [x] stress-strain curves
+            - [x] images
+            - [x] data augmentation
+        - [ ] Outcome of model
+            - [x] What is predicted?
+            - [ ] How is prediction assessed?
+            - [ ] (Why choosing this outcome measurement if alternatives exist?)
+        - [ ] Predictors
+            - [x] Alternatives for predictors
+            - [x] three parameters + how they are measured
+            - [ ] source of predictors + known biases
+        - [x] Sample size
+        - [x] Missing data
+            - [x] sex and age
         - [ ] Statistical analysis methods
+            - [ ] Diagram of analytical process
             - [ ] handling of predictors
-            - [ ] type of model, building model + predictor selection, internal validation
-            - [ ] calculation of predictions
-            - [ ] measure of model performance + model comparison
+            - [ ] Pre-selection of predictors prior to model building (results for exp/pca/logistic)
+            - [ ] rescaling/transformation on predictors (LDS + reweighting)
+            - [ ] type of model, building model + predictor selection + internal validation
+            - [ ] model ensembling techniques (if used)
+            - [ ] detailed model description
+            - [ ] initialization of model parameters
+            - [ ] training approaches (hyperparameters, number of models trained, used datasets)
+            - [ ] Measures to assess model performance + model comparison
             - [ ] model updating arising from validation
-        - [ ] risk groups?
-        - [ ] dev vs val (differences in dev and val data, eligibility, outcome, and predictors)
+            - [ ] how final model is selected
+            - [ ] explainability and interpretability
+            - [ ] software used
     - [ ] Results
-        - [ ] Participants (flow, demographics, comparison train/val/test)
-        - [ ] Model dev (participant number and outcome + unadjusted association between candidate predictor and outcome)
+        - [ ] Participants (flow, demographics, comparison train/val/test (predictor distributions and images))
+        - [ ] Model dev and per participant outcome in
+            - [ ] Hyperparameter tuning
+            - [ ] Training
+            - [ ] Testing
         - [ ] Model specification (present model + explain how it must be used)
         - [ ] Model performance
+            - [ ] accuracy WITH confidence interval
+            - [ ] results of analysis on performance errors
         - [ ] Model updating (performance per update)
+        - [ ] Usability
+            - [ ] how and when in the clinical pathway to use the prediction AI
+            - [ ] how will the AI be integrated into the target setting + requirements (on-/offsite)
+            - [ ] how will poor data be assessed when implementing AI model
+            - [ ] any human interaction needed for data to be used with the model + expertise of users
+        - [ ] Sensitivity analysis?
     - [ ] Discussion
         - [ ] Limitations
         - [ ] Interpretation (dev/val data performance + overall interpretation considering objectives/limitations/similar study results/other evidence)
-        - [ ] Implications (clinical use?)
+        - [ ] Implications
+            - [ ] potential use (also in a general way)
+            - [ ] how will clinical practice be different if using the AI and how will it be used
     - [ ] Supplementary information
         - [ ] Data?
         - [ ] Code
+    - [ ] Funding?
     - [ ] References
 - [ ] Pediatric brain tumour
     - [ ] TBD, but probably also with a TRIPOD-like structure.

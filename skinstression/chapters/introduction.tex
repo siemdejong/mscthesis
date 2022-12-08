@@ -1,18 +1,35 @@
 \chapter{Introduction}
 
-Human skin tissue is mostly built by collagen and elastin.
-Second harmonic generation (SHG) imaging allows to image collagen and two-photon excitation microscopy (2PEF).
+Human skin tissue is built by a series of layers, one of which is the dermis layer.
+The dermis contains a network of collagen fibrils, dictating the stretch of skin tissue.
+Measuring the strain-stress response of skin tissue gives insight into the skin's strength and elasticity that protects the body from external forces.
+A recent study (Mengyao) aims to show the connection between collagen density and stretch.
+To measure the strain-stress response of skin tissue, mechanical measurements have to be performed.
+
+Second harmonic generation (SHG) imaging allows to image collagen and two-photon excitation microscopy (2PEF) elastin.
 Setups have been built to collect SHG and 2PEF signals simultaneously, allowing for rich skin tissue imaging.
 Collagen fibers are clearly visible.
-Previous studies have shown that collagen and not elastin dictates the stretching ability of skin tissue.
-A recent study (Mengyao) aims to show the connection between collagen density and amount of stretching.
-To measure the stretch of skin tissue, mechanical measurements have to be performed.
+% Previous studies have shown that collagen and not elastin dictates the stretching ability of skin tissue.
 SHG images of the collagen networks in conjuction with the strain-stress curves suggest that the images already contain stretch information.
 Retrieving complex features from labelled images can be done using supervised deep learning.
 Supervised deep learning is considered a black-box technique that aims to learn a mapping from input to output.
 With the SHG images and corresponding stress-strain measurements at hand, \texttt{Skinstression} is developed with the ultimate goal to replace mechanical measurements on skin tissue to quantify skin stretch.
-Efforts to develop such a model have already been made by A.\ Soylu.
+Efforts to develop such a model have already been made by Soylu~\cite{Soylu2022}.
 However, those methods do not consider complete separation of training and test sets in both inference and label creation, possibly leading to biased results.
 Moreover, only one slice of larger image stacks have been used.
-Using more, if not all, images of a stack might lead to a more robust model.
-This study extends Soylu's model.
+The original model does not incorporate physical properties of the strain-stress curves but relies on principal component analysis.
+
+Frequently, machine learning models and neural networks in particular lack the ability to explain how the model comes to its conclusions.
+Meanwhile, explainable artificial intelligence (XAI) techniques exist to shed light on the inner workings of algorithms, but are used sparingly (ref).
+In the context of skin tissue, XAI could give insight into where the strength and elasticity comes from.
+E.\ g.\ a human expert might recognize straight collagen fibrils as a stiff network (ref), but it is interesting to see if an AI explains stiffness in the same manner.
+
+The objective of this study is to extend Soylu's model.
+To this end, an application, \texttt{Skinstression}, will be developed and validated with separate training and validation data.
+A new, physics informed neural network will be implemented for explainability.
+The data will not only consist of single slices from depth scans, but of subsets considering multiple slices per depth scan.
+Moreover, explainable artificial intelligence procedures will be adopted to better explain the black box output.
+
+The purpose of the product is to accompany or possibly replace mechanical strain-stress measurements on skin tissue.
+The explanainability of the model might be used to explain the strength and elasticity that collagen provides to the skin.
+Unintentionally, the project may be used more generally to train other convolutional neural networks for regression.

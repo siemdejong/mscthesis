@@ -1,83 +1,50 @@
 \chapter{Theory}
 
-% --------------------------------------------------
-% SEARCHING FOR A SIMPLE SKIN STRAIN-STRESS MODEL
-% --------------------------------------------------
+\section{Dropout}\label{sec:dropout}
 
-\section{Searching for a simple skin strain-stress model}
 
-Supervised learning requires targets for the model to train on.
-Ideally, individual targets allow for physical interpretation and can together describe all the available data.
-
-\subsection{Empirical strain-stress regions}
-Although skin tissue has a complex nature, measurements to quantify skin stretch show similar features.
-Measurements always show three domains: the toe, heel and leg domain (see fig.).
-The toe region is at the very start of the curve.
-This region is seems relatively flat as the fiber network consists of mostly unstretched fibers.
-Therefore, the fibers cannot exert force as a reaction to external stretching force.
-However, in the heel region where skin tissue is stretched more, fibers can exert more force.
-When enough force is exerted on the tissue, fibers stretch maximally and fibers react with maximum force in the leg region.
-This region is observed to be roughly linear.
-Overstretching the tissue then breaks the fiber network, decreasing the possibility to exert force.
-
-\subsection{Exponential}
-Strain-stress curves can be also be visualized by showing the log derivative of stress with respect to strain against the log of strain (fig).
-Typically, this figure has three regions.
-The first region indicates a linear relationship between small forces and small strain.
-Then, the derivative increases until it reaches a purely exponential part.
-If skin stretching follows this kind of behaviour, a simple mathematical model can be derived.
-Inspecting the figure, the linear part shows the ordinary differential equation
+\section{Batch normalization}\label{sec:bn}
+Batch normalization (BN)~\cite{Ioffe2015} is a technique to shift and scale batches akin to standardization.
+It can be implemented as a layer in any neural network.
+Per minibatch and per dimension, the mean and standard deviation of the input are calculated.
+Then, the input is standardized with
 \begin{equation}
-    \frac{\mathrm{d}\sigma}{\mathrm{d}\gamma} \propto \sigma,
+    \hat{x}_i = \frac{x_i - \mu_\mathcal{B}}{\sqrt{\sigma_\mathcal{B}^2 + \epsilon}},
 \end{equation}
-where $\gamma = \chi - 1$.
-Solving for $\sigma$, we get
+where $\mu_\mathcal{B}$ and $\sigma_\mathcal{B}$ are the mean and unbiased standard deviation of the batch, and $\epsilon$ is a small number for numerical stability when the variance is small.
+The standardized input is then mapped through
 \begin{equation}
-    \sigma \propto e^{\lambda\gamma},
+    y_i = \gamma \hat{x}_i + \beta,
 \end{equation}
-where $\lambda$ is some factor dictating the speed with which the exponential increases.
-At no extension, i.\ e.\ $\gamma=0$, it can be assumed that there is no stress.
-Therefore,
-\begin{equation}
-    \sigma \propto e^{\lambda\gamma} - 1.
-\end{equation}
-At small extensions, i.\ e.\ $\lambda\gamma \ll 1$, $e^{\lambda\gamma} \approx (1 + \lambda\gamma + \ldots)$ using a Taylor expansion.
-So
-\begin{equation}
-    \sigma_{\lambda\gamma\ll 1} \propto 1 + \lambda\gamma + \ldots - 1 \approx G_0 \gamma,
-\end{equation}
-where $G_0$ is some linear coefficient at small extensions.
-The full expression then becomes
-\begin{equation}
-    \sigma = \frac{G_0}{\lambda}\left(e^{\lambda\gamma}-1\right).
-\end{equation}
+where $\gamma$ and $\beta$ are learnable parameters learned in a sub-network.
 
-This model assumes that data follows the previously described curve where there is a small rise at small extensions and an indefinitely exponentially increasing stress for larger extensions.
+\section{Activation functions}\label{sec:activations}
 
-\subsection{Principal component analysis}
-In an earlier study (ref A.\ Soylu), principal component analysis (PCA) is used to reduce the dimensionality of the strain-stress data.
-In summary, after PCA, every measurement $Y$ can be approximated by
+\begin{enumerate}
+    \item heaviside
+    \item logistic curves
+    \item vanishing gradient problem -> relu
+\end{enumerate}
+
+\subsection{Rectified linear unit}\label{subsec:relu}
+To overcome the vanishing gradient problem, non-saturating activation functions can be used.
+One such function is the rectified linear unit (ReLU).
+It is defined as
 \begin{equation}
-    Y \approx Y_\mathrm{PCA} = \mathbf{A} \mathbf{V} + \bar{Y},
+    f(x) = x^+ = \max(0, x),
 \end{equation}
-where $\mathbf{A}$ and $\mathbf{V}$ are matrices containing respectively the eigenvalues and -vectors of the the measurement data.
-$\bar{Y}$ is the measurement mean.
-Choosing the first $p$ principal components allows for dimensionality reduction.
+such that only the positive arguments keep their value.
 
-Using PCA to create eigenvalues to weight the eigenvectors has some caveats.
-First, the training and test sets must be treated separately.
-The test set has to be projected on the space spanned by the first $p$ eigenvectors of the training set.
-This may induce problems as the test set could contain information that does not come close to
-Second, PCA depends on interpolation, i.\ e.\ every strain-stress curve must be formed by either a set of strain or stress values.
-This reduces the domain of the data.
+\section{Pooling}\label{sec:pooling}
+Pooling is a form of nonlinear downsampling.
+Typically, a convolution kernel is moved over the input with a stride as big as the kernel itself.
+This ensures that the downsampling considers measures of input sub-regions.
 
-\subsection{Logistic curve}
-The empirical observations where the force response of skin tissue changes states, suggests a logistic curve, which can be written as
-\begin{equation}\label{eq:logistic_curve}
-    \sigma = \frac{\sigma_\mathrm{max}}{1+e^{-E_\mathrm{max} (\gamma - \gamma_c)}},
-\end{equation}
-where $\sigma$ and $\gamma$ are the stress and engineering strain, $\sigma_\mathrm{max}$ is the maximum stress, $E_\mathrm{max}$ is the maximum Young's modulus and $\gamma_c$ the strain offset.
-This equation assumes that there is a maximum force that the tissue can exert, in contrary to the theoretical approach above (ref).
+\subsection{Maxpool}\label{subsec:maxpool}
+The most common form of pooling is maxpooling (ref).
+The kernel finds the maximum value in sub-regions and maps these maximum values per sub-region to a new image.\marginpar{TODO: function}
+For example, a $\SI{2}{px}\times\SI{2}{px}$ maxpool kernel on a $\SI{10}{px}\times\SI{10}{px}$ image outputs a $\SI{5}{px}\times\SI{5}{px}$ image.
+
 
 % --------------------------------------------------
 % Loss functions

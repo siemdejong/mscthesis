@@ -1,12 +1,198 @@
 \chapter{Methods}
+\begin{enumerate}
+    \item TODO: SQUASH SECTION BELOW INTO FEWER SECTIONS AND MAKE IT FLOW
+    \item TODO: DETAIL
+\end{enumerate}
 
-\section{Data}
+\section{Sources of data}
 
-\section{Participants}
+Data is obtained in previous studies by A.\ Soylu, M.\ Zhou, and Ludo X\marginnote{What is Ludo's name? And ref to paper?} at the Medical Imaging center of the VUmc, Amsterdam.
+\marginnote{Agreement?}
+Human thigh and abdomen skin tissue were excised.
+Pieces of these tissues were imaged with multiphoton microscopy and their stress-strain response curves were measured mechanically.
+Data is acquired in batches from April 2021 until July 2022.
+Development and testing data come from the same source.
+
+Cadavers were eligible for thigh skin excision and abdomen skin is cut during plastic surgery.\marginnote{is this true?}
+It is unknown if individuals received treatment relevant for this study.
+
+
+\section{Data preparation}
+
+\subsection{Preprocessing}
+
+Depth stack images with a size of $\SI{1000}{px}\times\SI{1000}{px}$of all skin tissues were kindly provided by M.\ Zhou.
+All stacks were separated into slices.
+
+Images consist of three channels: third and second harmonic generation, and autofluorescence.
+The SHG channel is chosen as it is assumed to only contain collagen information.
+
+The SHG images are enhanced with contrast limited adaptive histogram equalization (CLAHE) \cite{Zuiderveld1994ContrastLA} using scikit-image \cite{scikit-image} to equalize importance of dark and bright regions.
+
+The enhanced images are then transformed with a Yeo-Johnson transform such that the histogram of all images is as normal as possible.
+
+The transformed images are standardized by subtracting the total mean and total standard deviation of the complete transformed image set, like
+\begin{equation}
+    X_\mathrm{out} = \frac{X_\mathrm{in} - \mu}{\sigma},
+\end{equation}
+where
+\begin{equation}
+    \mu = \frac{1}{N} \sum_i \sum_j \sum_k X_{i,j,k},
+\end{equation}
+and
+\begin{equation}
+    % \sigma = \sqrt{\frac{1}{N} \sum_{i,j,k} X_{i,j,k}^2 - \left(\frac{1}{N} \sum_{i,j,k} X_{i,j,k}\right)^2},
+    \sigma = \sqrt{\frac{1}{N} \sum_i \sum_j \sum_k \left(X_{i,j,k} - \mu\right)^2},
+\end{equation}
+with $N$ the total number of pixels, $k$ an individual image and $i,j$ the pixel in the horizontal and vertical dimension, respectively.
+
+The images are downsampled to $\SI{258}{px}\times \SI{258}{px}$ to fit into the neural network.
+
+\subsection{Data augmentation}
+
+To make the model more robust, data augmentation is applied.
+Before the downsampling, the preprocessed images are cropped randomly from $\SI{1000}{px}\times \SI{1000}{px}$ to $\SI{700}{px}\times \SI{700}{px}$ preserving the aspect ratio.
+The global brightness is adjusted randomly with $\pm \SI{30}{\percent}$.
+The images are then randomly mirrored horizontally and vertically with a probability of \SI{50}{\percent}.
 
 \section{Outcome}
+The strain-stress response curves of individual skin tissue pieces were the outcome of interest.
+The prediction is assessed by comparing it with measured strain-stress curves.\marginnote{Describe this comparison}
+The measurement is done mechanically by an experimentalist.
+The mechanical measurement itself is blind to clinical information.
 
 \section{Predictors}
 
-\section{Sample size}
+% --------------------------------------------------
+% SEARCHING FOR A SIMPLE SKIN STRAIN-STRESS MODEL
+% --------------------------------------------------
 
+\subsection{Searching for a simple skin strain-stress model}
+
+Supervised learning requires targets for the model to train on.
+Ideally, individual targets allow for physical interpretation and can together describe all the available data.
+
+\subsubsection{Empirical strain-stress regions}
+Although skin tissue has a complex nature, measurements to quantify skin stretch show similar features.
+Measurements always show three domains: the toe, heel and leg domain (see fig.).
+The toe region is at the very start of the curve.
+This region is seems relatively flat as the fiber network consists of mostly unstretched fibers.
+Therefore, the fibers cannot exert force as a reaction to external stretching force.
+However, in the heel region where skin tissue is stretched more, fibers can exert more force.
+When enough force is exerted on the tissue, fibers stretch maximally and fibers react with maximum force in the leg region.
+This region is observed to be roughly linear.
+Overstretching the tissue then breaks the fiber network, decreasing the possibility to exert force.
+
+\subsubsection{Exponential}
+Strain-stress curves can be also be visualized by showing the log derivative of stress with respect to strain against the log of strain (fig).
+Typically, this figure has three regions.
+The first region indicates a linear relationship between small forces and small strain.
+Then, the derivative increases until it reaches a purely exponential part.
+If skin stretching follows this kind of behaviour, a simple mathematical model can be derived.
+Inspecting the figure, the linear part shows the ordinary differential equation
+\begin{equation}
+    \frac{\mathrm{d}\sigma}{\mathrm{d}\gamma} \propto \sigma,
+\end{equation}
+where $\gamma = \chi - 1$.
+Solving for $\sigma$, we get
+\begin{equation}
+    \sigma \propto e^{\lambda\gamma},
+\end{equation}
+where $\lambda$ is some factor dictating the speed with which the exponential increases.
+At no extension, i.\ e.\ $\gamma=0$, it can be assumed that there is no stress.
+Therefore,
+\begin{equation}
+    \sigma \propto e^{\lambda\gamma} - 1.
+\end{equation}
+At small extensions, i.\ e.\ $\lambda\gamma \ll 1$, $e^{\lambda\gamma} \approx (1 + \lambda\gamma + \ldots)$ using a Taylor expansion.
+So
+\begin{equation}
+    \sigma_{\lambda\gamma\ll 1} \propto 1 + \lambda\gamma + \ldots - 1 \approx G_0 \gamma,
+\end{equation}
+where $G_0$ is some linear coefficient at small extensions.
+The full expression then becomes
+\begin{equation}
+    \sigma = \frac{G_0}{\lambda}\left(e^{\lambda\gamma}-1\right).
+\end{equation}
+
+This model assumes that data follows the previously described curve where there is a small rise at small extensions and an indefinitely exponentially increasing stress for larger extensions.
+
+\subsubsection{Principal component analysis}
+In an earlier study (ref A.\ Soylu), principal component analysis (PCA) is used to reduce the dimensionality of the strain-stress data.
+In summary, after PCA, every measurement $Y$ can be approximated by
+\begin{equation}
+    Y \approx Y_\mathrm{PCA} = \mathbf{A} \mathbf{V} + \bar{Y},
+\end{equation}
+where $\mathbf{A}$ and $\mathbf{V}$ are matrices containing respectively the eigenvalues and -vectors of the the measurement data.
+$\bar{Y}$ is the measurement mean.
+Choosing the first $p$ principal components allows for dimensionality reduction.
+
+Using PCA to create eigenvalues to weight the eigenvectors has some caveats.
+First, the training and test sets must be treated separately.
+The test set has to be projected on the space spanned by the first $p$ eigenvectors of the training set.
+This may induce problems as the test set could contain information that does not come close to
+Second, PCA depends on interpolation, i.\ e.\ every strain-stress curve must be formed by either a set of strain or stress values.
+This reduces the domain of the data.
+
+\subsubsection{Logistic curve}
+The empirical observations where the force response of skin tissue changes states, suggests a logistic curve, which can be written as
+\begin{equation}\label{eq:logistic_curve}
+    \sigma = \frac{\sigma_\mathrm{max}}{1+e^{-E_\mathrm{max} (\gamma - \gamma_c)}},
+\end{equation}
+where $\sigma$ and $\gamma$ are the stress and engineering strain, $\sigma_\mathrm{max}$ is the maximum stress, $E_\mathrm{max}$ is the maximum Young's modulus and $\gamma_c$ the strain offset.
+This equation assumes that there is a maximum force that the tissue can exert, in contrary to the theoretical approach above (ref).
+
+Using the logistic curve as an alternative to PCA has two major advantages.
+Every curve can be treated separately and measurements can contain data across arbitrary domains and with arbitrary intervals as no interpolation is necessary.
+
+Strain-stress curves for all individuals were kindly provided by M.\ Zhou.
+The curves only include datapoints where the skin extension larger than zero and the force positive.
+
+To every strain-stress curve, eq.~\ref{eq:logistic_curve} is fitted with Scipy \cite{2020SciPy-NMeth}.
+The optimal parameters were be used for training the model.
+
+BIAS\marginnote{Include density/thickness analysis of Mengyao}
+
+\section{Sample size}
+The sample size is arrived at taking into account all previously included subjects (ref ludo, ref mengyao, ref alperen) and excluding abdomen data.
+This amounts to a total of 1649 SHG images to train on.
+For a detailed summary of the number of samples, see fig. (graph with nodes and edges explaining number of images/curves).
+
+\section{Missing data}
+Due to the limited amount of participants, individuals with unknown gender or age were included.
+
+\section{Statistical analysis methods}
+
+\subsection{Convolutional neural network}
+The basis of the model originates from Liang \emph{et al.} \cite{Liang2017} and is adapted by Soylu \cite{Soylu2022}.
+The model, a convolutional neural network, consists of five blocks.
+The first block consists of a convolutional layer with a $\SI{3}{px}\times\SI{3}{px}$ kernel, taking in one channel and have 64 channels as output.
+The output is then normalized per batch using BN (\cref{sec:bn}).
+The normalized batch is passed through a ReLU (\cref{subsec:relu}) layer.
+After activation, three $\SI{2}{px}\times\SI{2}{px}$ maxpool (\cref{subsec:maxpool}) layers are applied.
+The next second block is like the first block, but with a $\SI{5}{px}\times\SI{5}{px}$ convolution kernel en just one maxpool layer.
+The third block is like the second block, but with a $\SI{3}{px}\times\SI{3}{px}$ convolution kernel.
+The fourth block is like the second and third block, but with a $\SI{6}{px}\times\SI{6}{px}$ and without a maxpool layer.
+
+The fifth block flattens the input and consists of a two linear layers.
+The first linear layer maps 64 nodes to $N_\mathrm{nodes}$ nodes.
+After the first linear layer, BN and ReLU activation is applied.
+The second linear layer maps $N_\mathrm{nodes}$ nodes to 3 nodes.
+A linear activation function ensures the output is continuous and unaltered.
+The model is shown in \cref{fig:model}
+\marginnote{Fix textsize in figure.}
+
+\begin{figure*}
+    \includegraphics{skinstression/images/model.pdf}
+    % \input{PlotNeuralNet/examples/Skinstression/skinstression-new.tex}
+    \caption[Network architecture]{
+        The convolutional neural network consists of five blocks.
+        The first four blocks contain convolution, maxpooling, and batch normalization layers.
+        The last block contains a fully connected network.
+        It requires an input of $\SI{258}{px}\times\SI{258}{px}$ to get a vector of length 3 as output.
+    }
+    \label{fig:model}
+\end{figure*}
+
+The dropout\marginnote{theory sec schrijven} layers in \cite{Soylu2022} are replaced by BN layers.
+Bias of all layers preceding BN layers have been set to zero.
