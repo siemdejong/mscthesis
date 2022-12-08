@@ -1,3 +1,6 @@
 [submodule "kaobook"]
 	path = kaobook
 	url = https://www.github.com/siemdejong/kaobook
+[submodule "PlotNeuralNet"]
+	path = PlotNeuralNet
+	url = https://github.com/siemdejong/PlotNeuralNet
