@@ -48,6 +48,38 @@ with $N$ the total number of pixels, $k$ an individual image and $i,j$ the pixel
 
 The images are downsampled to $\SI{258}{px}\times \SI{258}{px}$ to fit into the neural network.
 
+\subsubsection{Image selection}
+SHG microscopy images from skin tissue suffer from optical phenomena.
+The most evident problem is that imaging deeper into the tissue, photons are detected with less spatial accuracy thanks to scattering.
+The deeper photons travel into tissue, the more possible paths photons can take to return to the detector.
+Moreover, the chance of photons getting absorbed by the tissue increases with penetration depth.
+Therefore, less photons get reflected from deeper tissue.
+
+To counter these optical effects, inspired by \textcite{Koho2016} and \textcite{Blokker2022}, measures to quantify image quality can be obtained.
+With this, images can be sorted to this measure and the top $k$ images with best quality can be used to train the network, thus excluding noise.
+
+Candidates for this measure are Shannon entropy, kurtosis, and skew for reasons explained in \ref{subsec:imq}
+These quality measures are calculated per image, such that the quality measure can be validated by observing manually.
+
+\subsubsection{Image denoising}
+Another optical disadvantage of multiphoton microscopy is the occurrence of noise.\marginnote{Look up sources of noise.}
+
+Unfortunately, obtaining clearer images is hard.
+Given the experimental setup as in (ref\marginnote{Actually refer to the paper describing the setup, which is written by whom?!}), one way to reduce noise in the image is to use more photons.
+Either by averaging more images or increasing the amount of photons per image.
+Increasing the amount of photons penetrating the tissue increase the risk of damaging the tissue.
+
+Another way to deal with noisy images is to process the images.
+Promising denoising neural networks have been developed.
+The difficulty with this is that clean target data for supervised training is often not available in a biomedical setting.
+To counteract this, Noise2Noise (N2N) \cite{Lehtinen2018} was developed.
+Noise2Void N2V \cite{Krull2019}, a successor of N2N, does not rely on pairs of noisy images.
+Instead it only needs one image and corrupts it to use as target and learns a mapping between the noisy image and the newly created noisy image.
+This is useful if only one biomedical image is available.
+
+The original N2V model produces a checkerboard pattern.
+Noise2Void2 (N2V2) \cite{Hock2022} is an extension to N2V and reduces this artifact.\marginnote{Actually didn't do denoising, but if done, describe how here :)}
+
 \subsection{Data augmentation}
 
 To make the model more robust, data augmentation is applied.
@@ -180,7 +212,7 @@ After the first linear layer, BN and ReLU activation is applied.
 The second linear layer maps $N_\mathrm{nodes}$ nodes to 3 nodes.
 A linear activation function ensures the output is continuous and unaltered.
 The model is shown in \cref{fig:model}
-\marginnote{Fix textsize in figure.}
+\marginnote{Fix textsize in figure. And use logsize of the blocks maybe? Bound blocks by `superblocks' for clarity?}
 
 \begin{figure*}
     \includegraphics{skinstression/images/model.pdf}
