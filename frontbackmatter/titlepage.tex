@@ -1,0 +1,65 @@
+%*******************************************************
+% Titlepage
+%*******************************************************
+\begin{titlepage}
+    \pdfbookmark[1]{Titlepage}{titlepage}
+    % if you want the titlepage to be centered, uncomment and fine-tune the line below (KOMA classes environment)
+    % \begin{addmargin}[-1.8cm]{-4.4cm}
+    \begin{center}
+
+        \vfill
+
+        % \begin{addmargin}[-2cm]{-2cm}
+        \begingroup
+        \centering
+        % \color{CTtitle}\spacedallcaps{\myTitle}
+        \usekomafont{title}{\huge Deep learning on higher harmonic generation images for regression and pathology \par}
+        \endgroup
+        % \end{addmargin}
+
+        % \spacedlowsmallcaps{\mySubtitle} \bigskip
+
+        % \spacedlowsmallcaps{\myName \\ UvA: \myStudentNumberOne \\ VU: \myStudentNumberTwo} \bigskip
+        \usekomafont{author}{Siem de Jong \par} \bigskip
+
+        Faculty of Science, University of Amsterdam \\
+        Faculty of Science, Vrije Universiteit Amsterdam \\ \smallskip
+        LaserLaB Amsterdam, \emph{Biophotonics and Biomedical Imaging}
+
+        \vfill
+
+        % Name and logo of institute
+        \includegraphics[width=6cm]{frontbackmatter/images/laserlab-logo.pdf}
+
+        \vfill
+
+        Report Master Project Physics and Astronomy \\
+        \emph{track Biophysics and Biophotonics} \\
+        60 EC \\
+        % Conducted between 05--09--2022 and xx--xx--2023
+        Conducted between \DTMdisplaydate{2022}{09}{05}{-1} and DD-MM-YYYY%\DTMdisplaydate{2023}{07}{01}{-1}
+
+        \vfill
+
+        \begin{tabular}{rl}
+            Daily supervisor & Dr.\ rer.\ nat.\ P.\ J.\ González     \\
+            Examiner         & Prof.\ dr.\ M.\ L.\ Groot             \\
+            Second reviewer  & Dr.\ rer.\ nat.\ D.\ W.\ A.\ Hillmann
+        \end{tabular}
+
+        \vfill
+
+        % Change this date upon submission to fix the date.
+        \today
+
+        \vfill
+
+        \begin{tabularx}{\textwidth}{vu}
+            % \raisebox{-.5\dimexpr\totalheight-\ht\strutbox}{...} % bring down images so they align. [https://tex.stackexchange.com/questions/314821/vertically-and-horizontally-align-image-inside-table]
+            \raisebox{-.5\dimexpr\totalheight-\ht\strutbox}{\includegraphics[width=\hsize]{frontbackmatter/images/vu-logo.pdf}} &
+            \raisebox{-.5\dimexpr\totalheight-\ht\strutbox}{\includegraphics[width=\hsize]{frontbackmatter/images/uva-logo.pdf}}
+        \end{tabularx}
+
+    \end{center}
+    % \end{addmargin}
+\end{titlepage}

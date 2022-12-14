@@ -28,6 +28,27 @@
 % To be able to include Tikz files
 % \usepackage{standalone}
 
+% To typeset date and time
+\usepackage{datetime2}
+\DTMsetstyle{ddmmyyyy}
+
+% For logos on titlepage.
+\usepackage{tabularx}
+
+% \newcommand{\ie}{i.\,e.\,}
+% \newcommand{\Ie}{I.\,e.\,}
+% \newcommand{\eg}{e.\,g.\,}
+% \newcommand{\Eg}{E.\,g.\,}
+
+% For logos on title page
+\newcolumntype{u}{>{\hsize=0.56\hsize}X}
+\newcolumntype{v}{>{\hsize=0.44\hsize}X}
+
+% For check/x-marks
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
 \graphicspath{{images/}{./}} % Paths where images are looked for
 
 \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
@@ -93,7 +114,8 @@
 %----------------------------------------------------------------------------------------
 
 % Note that \maketitle outputs the pages before here
-\maketitle
+% \maketitle
+\input{frontbackmatter/titlepage.tex}
 
 %----------------------------------------------------------------------------------------
 %	PREFACE
