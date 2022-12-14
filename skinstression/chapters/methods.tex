@@ -17,7 +17,7 @@ Cadavers were eligible for thigh skin excision and abdomen skin is cut during pl
 It is unknown if individuals received treatment relevant for this study.
 
 
-\section{Data preparation}
+\section{Data preparation}\label{sec:skin_data_prep}
 
 \subsection{Preprocessing}
 
@@ -75,7 +75,7 @@ The difficulty with this is that clean target data for supervised training is of
 To counteract this, Noise2Noise (N2N) \cite{Lehtinen2018} was developed.
 Noise2Void N2V \cite{Krull2019}, a successor of N2N, does not rely on pairs of noisy images.
 Instead it only needs one image and corrupts it to use as target and learns a mapping between the noisy image and the newly created noisy image.
-This is useful if only one biomedical image is available.
+This is useful if only one biomedical image is available.\marginpar{If denoised is used, move parts of this section to a theory section and refer to it here.}
 
 The original N2V model produces a checkerboard pattern.
 Noise2Void2 (N2V2) \cite{Hock2022} is an extension to N2V and reduces this artifact.\marginnote{Actually didn't do denoising, but if done, describe how here :)}
@@ -228,3 +228,22 @@ The model is shown in \cref{fig:model}
 
 The dropout\marginnote{theory sec schrijven} layers in \cite{Soylu2022} are replaced by BN layers.
 Bias of all layers preceding BN layers have been set to zero.
+
+The neural network weights are initialized according to the method described by \textcite{He2015}, using a uniform transform.
+
+\subsection{Hyperparameter optimization}
+To find the optimal set of hyperparameters, the Hyperband algorithm with 300 trials was used.
+To allow trials to warmup, a minimum of 100 epochs were allowed.
+To limit the trial duration, a maximum of 3000 epochs were allowed.
+The number of trials were reduced with a reduction factor of $\eta=4$.
+Trial parameters were sampled using the TPE algorithm.
+See \cref{subsec:conf_skin} for a summary of configuration search space $\mathcal{C}$.
+Every trial used the complete dataset after data preparation (\cref{sec:skin_data_prep}).
+
+\subsection{Training}
+Using the best configuration for hyperparameter optimization, a model is trained further for a total of $N$\marginnote{How many exactly?} epochs.
+The learning rate scheduler was cosine annealing with warm restarts to allow for model ensembling later during inference (\cref{subsec:model_ensembling}).
+
+\subsection{Model selection}
+MISSCHIEN MODEL ENSEMBLING EN VALIDATION SET GEBRUIKEN VOOR VINDEN VAN BESTE AANTAL MODELS?
+The last $N$\marginnote{How many again?} models are ensembled together

@@ -1053,6 +1053,171 @@
   series    = {ICML'15}
 }
 
+@article{He2015,
+  author     = {Kaiming He and
+                Xiangyu Zhang and
+                Shaoqing Ren and
+                Jian Sun},
+  title      = {Delving Deep into Rectifiers: Surpassing Human-Level Performance on
+                ImageNet Classification},
+  journal    = {CoRR},
+  volume     = {abs/1502.01852},
+  year       = {2015},
+  url        = {http://arxiv.org/abs/1502.01852},
+  eprinttype = {arXiv},
+  eprint     = {1502.01852},
+  timestamp  = {Wed, 17 Apr 2019 17:23:45 +0200},
+  biburl     = {https://dblp.org/rec/journals/corr/HeZR015.bib},
+  bibsource  = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{Bergstra2012,
+  author     = {Bergstra, James and Bengio, Yoshua},
+  title      = {Random Search for Hyper-Parameter Optimization},
+  year       = {2012},
+  issue_date = {3/1/2012},
+  publisher  = {JMLR.org},
+  volume     = {13},
+  number     = {},
+  issn       = {1532-4435},
+  abstract   = {Grid search and manual search are the most widely used strategies for hyper-parameter optimization. This paper shows empirically and theoretically that randomly chosen trials are more efficient for hyper-parameter optimization than trials on a grid. Empirical evidence comes from a comparison with a large previous study that used grid search and manual search to configure neural networks and deep belief networks. Compared with neural networks configured by a pure grid search, we find that random search over the same domain is able to find models that are as good or better within a small fraction of the computation time. Granting random search the same computational budget, random search finds better models by effectively searching a larger, less promising configuration space. Compared with deep belief networks configured by a thoughtful combination of manual search and grid search, purely random search over the same 32-dimensional configuration space found statistically equal performance on four of seven data sets, and superior performance on one of seven. A Gaussian process analysis of the function from hyper-parameters to validation set performance reveals that for most data sets only a few of the hyper-parameters really matter, but that different hyper-parameters are important on different data sets. This phenomenon makes grid search a poor choice for configuring algorithms for new data sets. Our analysis casts some light on why recent "High Throughput" methods achieve surprising success--they appear to search through a large number of hyper-parameters because most hyper-parameters do not matter much. We anticipate that growing interest in large hierarchical models will place an increasing burden on techniques for hyper-parameter optimization; this work shows that random search is a natural baseline against which to judge progress in the development of adaptive (sequential) hyper-parameter optimization algorithms.},
+  journal    = {J. Mach. Learn. Res.},
+  month      = {feb},
+  pages      = {281–305},
+  numpages   = {25},
+  keywords   = {model selection, global optimization, deep learning, response surface modeling, neural networks}
+}
+
+@inproceedings{Bergstra2011,
+  author    = {Bergstra, James and Bardenet, R\'{e}mi and Bengio, Yoshua and K\'{e}gl, Bal\'{a}zs},
+  title     = {Algorithms for Hyper-Parameter Optimization},
+  year      = {2011},
+  isbn      = {9781618395993},
+  publisher = {Curran Associates Inc.},
+  address   = {Red Hook, NY, USA},
+  abstract  = {Several recent advances to the state of the art in image classification benchmarks have come from better configurations of existing techniques rather than novel approaches to feature learning. Traditionally, hyper-parameter optimization has been the job of humans because they can be very efficient in regimes where only a few trials are possible. Presently, computer clusters and GPU processors make it possible to run more trials and we show that algorithmic approaches can find better results. We present hyper-parameter optimization results on tasks of training neural networks and deep belief networks (DBNs). We optimize hyper-parameters using random search and two new greedy sequential methods based on the expected improvement criterion. Random search has been shown to be sufficiently efficient for learning neural networks for several datasets, but we show it is unreliable for training DBNs. The sequential algorithms are applied to the most difficult DBN learning problems from [1] and find significantly better results than the best previously reported. This work contributes novel techniques for making response surface models P(y|x) in which many elements of hyper-parameter assignment (x) are known to be irrelevant given particular values of other elements.},
+  booktitle = {Proceedings of the 24th International Conference on Neural Information Processing Systems},
+  pages     = {2546–2554},
+  numpages  = {9},
+  location  = {Granada, Spain},
+  series    = {NIPS'11}
+}
+
+@article{Jones2001,
+  author     = {Jones, Donald R.},
+  title      = {A Taxonomy of Global Optimization Methods Based on Response Surfaces},
+  year       = {2001},
+  issue_date = {December 2001},
+  publisher  = {Kluwer Academic Publishers},
+  address    = {USA},
+  volume     = {21},
+  number     = {4},
+  issn       = {0925-5001},
+  url        = {https://doi.org/10.1023/A:1012771025575},
+  doi        = {10.1023/A:1012771025575},
+  abstract   = {This paper presents a taxonomy of existing approaches for using response surfaces for global optimization. Each method is illustrated with a simple numerical example that brings out its advantages and disadvantages. The central theme is that methods that seem quite reasonable often have non-obvious failure modes. Understanding these failure modes is essential for the development of practical algorithms that fulfill the intuitive promise of the response surface approach.},
+  journal    = {J. of Global Optimization},
+  month      = {dec},
+  pages      = {345–383},
+  numpages   = {39},
+  keywords   = {response surface, global optimization, kriging, splines}
+}
+
+
+@inproceedings{Jamieson2016,
+  title     = {Non-stochastic Best Arm Identification and Hyperparameter Optimization},
+  author    = {Jamieson, Kevin and Talwalkar, Ameet},
+  booktitle = {Proceedings of the 19th International Conference on Artificial Intelligence and Statistics},
+  pages     = {240--248},
+  year      = {2016},
+  editor    = {Gretton, Arthur and Robert, Christian C.},
+  volume    = {51},
+  series    = {Proceedings of Machine Learning Research},
+  address   = {Cadiz, Spain},
+  month     = {09--11 May},
+  publisher = {PMLR},
+  pdf       = {http://proceedings.mlr.press/v51/jamieson16.pdf},
+  url       = {https://proceedings.mlr.press/v51/jamieson16.html},
+  abstract  = {Motivated by the task of hyperparameter optimization, we introduce the \em non-stochastic best-arm identification problem. We identify an attractive algorithm  for this setting that makes no assumptions on the convergence behavior of the arms’ losses, has no free-parameters to adjust, provably outperforms the uniform allocation baseline in favorable conditions, and performs comparably (up to \log factors) otherwise. Next, by leveraging the iterative nature of many  learning algorithms, we cast hyperparameter optimization as an instance of non-stochastic best-arm identification. Our empirical results show that, by allocating more resources to promising hyperparameter settings, our approach achieves comparable test accuracies an order of magnitude faster than the uniform strategy. The robustness and simplicity of our approach makes it well-suited to ultimately replace the uniform strategy currently used in most machine learning software packages.}
+}
+
+@article{Li2018,
+  author     = {Li, Liam and
+                Jamieson, Kevin G. and
+                Rostamizadeh, Afshin and
+                Gonina, Ekaterina and
+                Hardt, Moritz and
+                Recht, Benjamin and
+                Talwalkar, Ameet},
+  title      = {Massively Parallel Hyperparameter Tuning},
+  journal    = {CoRR},
+  volume     = {abs/1810.05934},
+  year       = {2018},
+  url        = {http://arxiv.org/abs/1810.05934},
+  eprinttype = {arXiv},
+  eprint     = {1810.05934},
+  timestamp  = {Tue, 30 Oct 2018 20:39:56 +0100},
+  biburl     = {https://dblp.org/rec/journals/corr/abs-1810-05934.bib},
+  bibsource  = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{Li2016,
+  author     = {Li, Lisha and
+                Jamieson, Kevin G. and
+                DeSalvo, Giulia and
+                Rostamizadeh, Afshin and
+                Talwalkar, Ameet},
+  title      = {Efficient Hyperparameter Optimization and Infinitely Many Armed Bandits},
+  journal    = {CoRR},
+  volume     = {abs/1603.06560},
+  year       = {2016},
+  url        = {http://arxiv.org/abs/1603.06560},
+  eprinttype = {arXiv},
+  eprint     = {1603.06560},
+  timestamp  = {Mon, 13 Aug 2018 16:48:11 +0200},
+  biburl     = {https://dblp.org/rec/journals/corr/LiJDRT16.bib},
+  bibsource  = {dblp computer science bibliography, https://dblp.org}
+}
+
+ @article{Fukushima1980,
+  title   = {Neocognitron: A self-organizing neural network model for a mechanism of pattern recognition unaffected by shift in position},
+  volume  = {36},
+  doi     = {10.1007/bf00344251},
+  number  = {4},
+  journal = {Biological Cybernetics},
+  author  = {Fukushima, Kunihiko},
+  year    = {1980},
+  pages   = {193–202}
+} 
+
+ @article{Rumelhart1986,
+  title   = {Learning representations by back-propagating errors},
+  volume  = {323},
+  doi     = {10.1038/323533a0},
+  number  = {6088},
+  journal = {Nature},
+  author  = {Rumelhart, David E. and Hinton, Geoffrey E. and Williams, Ronald J.},
+  year    = {1986},
+  pages   = {533–536}
+}
+
+@inproceedings{LeCun1990,
+  title     = {Handwritten digit recognition with a back-propagation network},
+  author    = {Le Cun, Yann and Boser, B. and Denker, {J. S.} and Henderson, D. and Howard, {R. E.} and Hubbard, W. and Jackel, {L. D.}},
+  year      = {1990},
+  language  = {English (US)},
+  volume    = {2},
+  editor    = {David Touretzky},
+  booktitle = {Advances in Neural Information Processing Systems (NIPS 1989), Denver, CO},
+  publisher = {Morgan Kaufmann}
+}
+
+ @misc{NP1981,
+  title   = {The nobel prize in physiology or medicine 1981},
+  url     = {https://www.nobelprize.org/prizes/medicine/1981/press-release/},
+  journal = {NobelPrize.org}
+} 
+
 @Comment{jabref-meta: databaseType:biblatex;}
 
 @Comment{jabref-meta: grouping:

@@ -1,0 +1,24 @@
+\chapter{Appendix}\label{app}
+
+\section{Configuration spaces}\label{app:conf_search_spaces}
+
+\subsection{\textsc{Skinstression}}\label{subsec:conf_skin}
+The configuration search space for \textsc{Skinstression} is summarized in \cref{tab:conf_skin}.
+
+\begin{table}
+    \centering
+    \caption[\textsc{Skinstression} configuration search space]{\textsc{Skinstression} configuration search space.}
+    \label{tab:conf_skin}
+    \begin{tabular}{cccccc}
+        \toprule                                                             \\
+        parameter          & type    & min       & max       & step & log    \\
+        \midrule                                                             \\
+        weight decay       & float   & $10^{-5}$ & $10^{-4}$ & -    & \cmark \\
+        learning rate      & float   & $10^{-6}$ & $10^{-2}$ & -    & \cmark \\
+        $T_0$              & integer & 100       & 300       & 1    & \xmark \\
+        $T_\mathrm{mult}$  & integer & 1         & 5         & 1    & \xmark \\
+        $n_\mathrm{nodes}$ & integer & 64        & 128       & 64   & \xmark \\
+        batch size         & integer & 8         & 64        & 8    & \xmark \\
+        \bottomrule
+    \end{tabular}
+\end{table}

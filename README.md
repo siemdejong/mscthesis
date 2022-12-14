@@ -156,10 +156,10 @@ with your preferred optional arguments.
 
 
 
-<!-- LAYOUT -->
-## Planned layout
+<!-- Checklist -->
+## Checklist
 
-As the thesis aims to report on two diagnostic prediction models for development and validation, a [TRIPOD-AI](https://www.tripod-statement.org/)-like structure is followed.
+As the thesis aims to report on two diagnostic prediction models for development and validation, a [TRIPOD-AI](https://www.tripod-statement.org/)-like checklist is followed.
 See below.
 Yet to be adapted to this study.
 
@@ -213,9 +213,9 @@ Yet to be adapted to this study.
             - [ ] Pre-selection of predictors prior to model building (results for exp/pca/logistic)
             - [ ] rescaling/transformation on predictors (LDS + reweighting)
             - [ ] type of model, building model + predictor selection + internal validation
-            - [ ] model ensembling techniques (if used)
+            - [x] model ensembling techniques (if used)
             - [ ] detailed model description
-            - [ ] initialization of model parameters
+            - [x] initialization of model parameters
             - [ ] training approaches (hyperparameters, number of models trained, used datasets)
             - [ ] Measures to assess model performance + model comparison
             - [ ] model updating arising from validation
@@ -258,7 +258,7 @@ Yet to be adapted to this study.
 - [ ] All references
 - [ ] Acknowledgments
 
-See the [open issues](https://github.com/siemdejong/mscthesis/issues) for a list of proposed texts (and known issues).
+See the [open issues](https://github.com/siemdejong/mscthesis/issues) for a list of discussions (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
