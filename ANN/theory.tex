@@ -32,21 +32,21 @@ It can be implemented as a layer in any neural network.
 Per minibatch and per dimension, the mean and standard deviation of the input are calculated.
 Then, the input is standardized with
 \begin{equation}
-    \hat{x}_i = \frac{x_i - \mu_\mathcal{B}}{\sqrt{\sigma_\mathcal{B}^2 + \epsilon}},
+  \hat{x}_i = \frac{x_i - \mu_\mathcal{B}}{\sqrt{\sigma_\mathcal{B}^2 + \epsilon}},
 \end{equation}
 where $\mu_\mathcal{B}$ and $\sigma_\mathcal{B}$ are the mean and unbiased standard deviation of the batch, and $\epsilon$ is a small number for numerical stability when the variance is small.
 The standardized input is then mapped through
 \begin{equation}
-    y_i = \gamma \hat{x}_i + \beta,
+  y_i = \gamma \hat{x}_i + \beta,
 \end{equation}
 where $\gamma$ and $\beta$ are learnable parameters learned in a sub-network.
 
 \section{Activation functions}\label{sec:activations}
 
 \begin{enumerate}
-    \item heaviside
-    \item logistic curves
-    \item vanishing gradient problem -> relu
+  \item heaviside
+  \item logistic curves
+  \item vanishing gradient problem -> relu
 \end{enumerate}
 
 \subsection{Rectified linear unit}\label{subsec:relu}
@@ -54,7 +54,7 @@ To overcome the vanishing gradient problem, non-saturating activation functions 
 One such function is the rectified linear unit (ReLU).
 It is defined as
 \begin{equation}
-    f(x) = x^+ = \max(0, x),
+  f(x) = x^+ = \max(0, x),
 \end{equation}
 such that only the positive arguments keep their value.
 
@@ -66,7 +66,7 @@ This ensures that the downsampling considers measures of input sub-regions.
 \subsection{Maxpool}\label{subsec:maxpool}
 The most common form of pooling is maxpooling (ref).
 The kernel finds the maximum value in sub-regions and maps these maximum values per sub-region to a new image.\marginpar{TODO: function}
-For example, a $\SI{2}{px}\times\SI{2}{px}$ maxpool kernel on a $\SI{10}{px}\times\SI{10}{px}$ image outputs a $\SI{5}{px}\times\SI{5}{px}$ image.
+For example, a $\qty{2}{px}\times\qty{2}{px}$ maxpool kernel on a $\qty{10}{px}\times\qty{10}{px}$ image outputs a $\qty{5}{px}\times\qty{5}{px}$ image.
 
 
 
@@ -82,7 +82,7 @@ There is a variety of loss functions available (ref review).
 One of the most straightforward techniques of calculating the loss is the mean absolute error (MAE).
 It measures the average difference between every prediction and target, like
 \begin{equation}
-    \mathrm{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - y'_i|,
+  \mathrm{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - y'_i|,
 \end{equation}
 where $n$ is the number of targets per sample, $y$ the prediction and $y'$ the target.
 
@@ -93,14 +93,14 @@ In training a neural network, focusing on outliers is assumed to be beneficial, 
 To overcome the forgiving nature of the MAE loss, the mean square error (MSE) can be used.
 It measures the average squared difference between every prediction and target, like
 \begin{equation}
-    \mathrm{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - y'_i)^2.
+  \mathrm{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - y'_i)^2.
 \end{equation}
 
 \subsection{Focal MSE}
 To give even more focus on the hard targets, giving them more importance than easy targets can be done through the focal MSE loss (FL)~\cite{Lu2022}.
 To give less importance to the easier targets, FL follows
 \begin{equation}
-    FL = \left(\frac{2}{1 + e^{-\beta |y - y'|}} - 1 \right)^\gamma (y_i - y'_i)^2,
+  FL = \left(\frac{2}{1 + e^{-\beta |y - y'|}} - 1 \right)^\gamma (y_i - y'_i)^2,
 \end{equation}
 where increasing $\gamma$ increases the number of targets regarded as easy and $\beta$ regulates the speed with which the first part of the curve increases (make fig).
 
@@ -139,13 +139,13 @@ This is because trials explore the whole distribution as opposed to just a few p
 \Cref{fig:gridrandsearch} shows the differences between grid search and random search and advocates the use of the latter.
 
 \begin{figure}
-    \includegraphics[width=\linewidth]{images/gridrandsearch.png}
-    \caption[Grid and random search]{
-        Grid and random search of nine trials for optimizing a function $f(x, y) = g(x) + h(y) \approx g(x)$ with low effective dimensionality.
-        Above each square $g(x)$ is shown in green, and left of each square $h(y)$ is shown in yellow.
-        Reproduced from \fullcite{Bergstra2012} (Ref.~\cite{Bergstra2012}).
-    }
-    \label{fig:gridrandsearch}
+  \includegraphics[width=\linewidth]{images/gridrandsearch.png}
+  \caption[Grid and random search]{
+    Grid and random search of nine trials for optimizing a function $f(x, y) = g(x) + h(y) \approx g(x)$ with low effective dimensionality.
+    Above each square $g(x)$ is shown in green, and left of each square $h(y)$ is shown in yellow.
+    Reproduced from \fullcite{Bergstra2012} (Ref.~\cite{Bergstra2012}).
+  }
+  \label{fig:gridrandsearch}
 \end{figure}
 
 \subsection{Tree Parzen estimator}
@@ -154,11 +154,11 @@ This is inefficient.
 A tree-structured Parzen estimator (TPE)~\cite{Bergstra2011} approach aims to model the probability of a hyperparameter, given a loss value.
 That probability consists of two distributions, describing the good and bad values:
 \begin{equation}
-    p(c|L) =
-    \begin{cases}
-        p(c|L > L^*) = p(c|\mathrm{bad}) \\
-        p(c|L \leq L^*) = p(c|\mathrm{good}),
-    \end{cases}
+  p(c|L) =
+  \begin{cases}
+    p(c|L > L^*) = p(c|\mathrm{bad}) \\
+    p(c|L \leq L^*) = p(c|\mathrm{good}),
+  \end{cases}
 \end{equation}
 where $c$ is drawn from $\mathcal{C}$ and $L$ is the loss.
 $L^*$ a loss above which losses are considered bad.
@@ -166,7 +166,7 @@ TPE chooses $L^*$ to be a fraction of observed $L$ values, such that $p(\mathrm{
 A promising candidate has low probability under $p(c|\mathrm{bad})$ and high probability under $p(c|\mathrm{good})$.
 Therefore, $c$ is promising if
 \begin{equation}
-    \mathrm{promisingness}(c) \propto p(c|\mathrm{good}) / p(c|\mathrm{bad})
+  \mathrm{promisingness}(c) \propto p(c|\mathrm{good}) / p(c|\mathrm{bad})
 \end{equation}
 is high.
 Ref.~\cite{Bergstra2011} shows that this ratio is proportional to the expected improvement~\cite{Jones2001}.
@@ -179,7 +179,7 @@ Early terminating (or pruning) these underperforming trials speeds up hyperparam
 Pruning trials can be done using Successive Halving (SH)~\cite{Jamieson2016}.
 Given a computational budget $B$, \eg number of epochs, the number of trials $T$, and the halving rate $\gamma$, SH performs $\log_\gamma(T)$ rounds.
 The budget is distributed uniformly over the trials.
-Every round, $\SI{100}{\percent} \times 1/\gamma$ of the trials are discarded based on their performance.
+Every round, $\qty{100}{\percent} \times 1/\gamma$ of the trials are discarded based on their performance.
 Surviving trials are allowed twice the budget and are again discarded when they have used up their budget.
 This iterative process continues until one trial remains.
 
@@ -203,7 +203,7 @@ The effectiveness of ensembling models of multiple cycles is first described by 
 During model training, a model can be checkpointed at the best performing epoch for every cycle.
 The checkpointed models can be ensembled by choosing the last $m$\marginnote{how many models chosen and how many models checkpointed then?!} out of $n$ models and averaging the output, as
 \begin{equation}
-    \mathrm{output} = \frac{1}{M} \sum_{i=0}^{m-1} \mathrm{model}_{n-i}(\mathrm{input}).
+  \mathrm{output} = \frac{1}{M} \sum_{i=0}^{m-1} \mathrm{model}_{n-i}(\mathrm{input}).
 \end{equation}
 
 
@@ -225,14 +225,14 @@ The information can be quantified by how surprising it is to contain specific co
 For instance, knowledge that a rare event will occur has high informational value, while knowledge that a probable event will happen has low informational value.
 Given a random variable $X$, the information, or entropy, is defined as
 \begin{equation}\label{eq:entropy}
-    H = \mathbb{E}[-\log p(X)] = -\sum p(x) \log p(x),
+  H = \mathbb{E}[-\log p(X)] = -\sum p(x) \log p(x),
 \end{equation}
 where $\mathbb{E}[\ldots]$ is the expectation operator, and $p(x)$ is the probability of $x$ occurring.
 The logarithm satisfies the boundary condition that an event is not surprising if its probability of occurring is one.
 
 For images, \cref{eq:entropy} can be rewritten as
 \begin{equation}
-    H_I = -\sum_{i}^n P_i \log_2 P_i,
+  H_I = -\sum_{i}^n P_i \log_2 P_i,
 \end{equation}
 where $P_i$ is the normalized image histogram at bin index $i$ \cite{Koho2016}.
 The base of the logarithm is chosen to be two, such that the entropy is in units of bits.
@@ -246,12 +246,12 @@ This may be most apparent in dark regions, which would benefit from more illumin
 Another measure for image quality is kurtosis of the power spectrum.
 Kurtosis measures the outliers of a distribution and is given by
 \begin{equation}
-    \kappa = \frac{\mu_4}{\sigma^4},
+  \kappa = \frac{\mu_4}{\sigma^4},
 \end{equation}
 where $\sigma$ is the standard deviation and $\mu_4$ is the fourth moment about the mean.
 The $n$th moment about the mean is defined as
 \begin{equation}
-    \mu_n = \mathbb{E}[(X-\mathbb{E}[X])^n] = \int_{-\infty}^\infty (x-\mu)^n p(x)\,\mathrm{d}x.
+  \mu_n = \mathbb{E}[(X-\mathbb{E}[X])^n] = \int_{-\infty}^\infty (x-\mu)^n p(x)\,\mathrm{d}x.
 \end{equation}
 Distributions having a kurtosis of zero are mesokurtic, meaning they resemble a normal distribution.
 Posivite kurtosis means that the distribution is leptokurtic.

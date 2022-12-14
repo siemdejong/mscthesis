@@ -1,7 +1,7 @@
 \chapter{Methods}
 \begin{enumerate}
-    \item TODO: SQUASH SECTION BELOW INTO FEWER SECTIONS AND MAKE IT FLOW
-    \item TODO: DETAIL
+  \item TODO: SQUASH SECTION BELOW INTO FEWER SECTIONS AND MAKE IT FLOW
+  \item TODO: DETAIL
 \end{enumerate}
 
 \section{Sources of data}
@@ -21,7 +21,7 @@ It is unknown if individuals received treatment relevant for this study.
 
 \subsection{Preprocessing}
 
-Depth stack images with a size of $\SI{1000}{px}\times\SI{1000}{px}$of all skin tissues were kindly provided by M.\ Zhou.
+Depth stack images with a size of $\qty{1000}{px}\times\qty{1000}{px}$of all skin tissues were kindly provided by M.\ Zhou.
 All stacks were separated into slices.
 
 Images consist of three channels: third and second harmonic generation, and autofluorescence.
@@ -33,20 +33,20 @@ The enhanced images are then transformed with a Yeo-Johnson transform such that 
 
 The transformed images are standardized by subtracting the total mean and total standard deviation of the complete transformed image set, like
 \begin{equation}
-    X_\mathrm{out} = \frac{X_\mathrm{in} - \mu}{\sigma},
+  X_\mathrm{out} = \frac{X_\mathrm{in} - \mu}{\sigma},
 \end{equation}
 where
 \begin{equation}
-    \mu = \frac{1}{N} \sum_i \sum_j \sum_k X_{i,j,k},
+  \mu = \frac{1}{N} \sum_i \sum_j \sum_k X_{i,j,k},
 \end{equation}
 and
 \begin{equation}
-    % \sigma = \sqrt{\frac{1}{N} \sum_{i,j,k} X_{i,j,k}^2 - \left(\frac{1}{N} \sum_{i,j,k} X_{i,j,k}\right)^2},
-    \sigma = \sqrt{\frac{1}{N} \sum_i \sum_j \sum_k \left(X_{i,j,k} - \mu\right)^2},
+  % \sigma = \sqrt{\frac{1}{N} \sum_{i,j,k} X_{i,j,k}^2 - \left(\frac{1}{N} \sum_{i,j,k} X_{i,j,k}\right)^2},
+  \sigma = \sqrt{\frac{1}{N} \sum_i \sum_j \sum_k \left(X_{i,j,k} - \mu\right)^2},
 \end{equation}
 with $N$ the total number of pixels, $k$ an individual image and $i,j$ the pixel in the horizontal and vertical dimension, respectively.
 
-The images are downsampled to $\SI{258}{px}\times \SI{258}{px}$ to fit into the neural network.
+The images are downsampled to $\qty{258}{px}\times \qty{258}{px}$ to fit into the neural network.
 
 \subsubsection{Image selection}
 SHG microscopy images from skin tissue suffer from optical phenomena.
@@ -83,9 +83,9 @@ Noise2Void2 (N2V2) \cite{Hock2022} is an extension to N2V and reduces this artif
 \subsection{Data augmentation}
 
 To make the model more robust, data augmentation is applied.
-Before the downsampling, the preprocessed images are cropped randomly from $\SI{1000}{px}\times \SI{1000}{px}$ to $\SI{700}{px}\times \SI{700}{px}$ preserving the aspect ratio.
-The global brightness is adjusted randomly with $\pm \SI{30}{\percent}$.
-The images are then randomly mirrored horizontally and vertically with a probability of \SI{50}{\percent}.
+Before the downsampling, the preprocessed images are cropped randomly from $\qty{1000}{px}\times \qty{1000}{px}$ to $\qty{700}{px}\times \qty{700}{px}$ preserving the aspect ratio.
+The global brightness is adjusted randomly with $\pm \qty{30}{\percent}$.
+The images are then randomly mirrored horizontally and vertically with a probability of \qty{50}{\percent}.
 
 \section{Outcome}
 The strain-stress response curves of individual skin tissue pieces were the outcome of interest.
@@ -123,28 +123,28 @@ Then, the derivative increases until it reaches a purely exponential part.
 If skin stretching follows this kind of behaviour, a simple mathematical model can be derived.
 Inspecting the figure, the linear part shows the ordinary differential equation
 \begin{equation}
-    \frac{\mathrm{d}\sigma}{\mathrm{d}\gamma} \propto \sigma,
+  \frac{\mathrm{d}\sigma}{\mathrm{d}\gamma} \propto \sigma,
 \end{equation}
 where $\gamma = \chi - 1$.
 Solving for $\sigma$, we get
 \begin{equation}
-    \sigma \propto e^{\lambda\gamma},
+  \sigma \propto e^{\lambda\gamma},
 \end{equation}
 where $\lambda$ is some factor dictating the speed with which the exponential increases.
 At no extension, i.\ e.\ $\gamma=0$, it can be assumed that there is no stress.
 Therefore,
 \begin{equation}
-    \sigma \propto e^{\lambda\gamma} - 1.
+  \sigma \propto e^{\lambda\gamma} - 1.
 \end{equation}
 At small extensions, i.\ e.\ $\lambda\gamma \ll 1$, $e^{\lambda\gamma} \approx (1 + \lambda\gamma + \ldots)$ using a Taylor expansion.
 So
 \begin{equation}
-    \sigma_{\lambda\gamma\ll 1} \propto 1 + \lambda\gamma + \ldots - 1 \approx G_0 \gamma,
+  \sigma_{\lambda\gamma\ll 1} \propto 1 + \lambda\gamma + \ldots - 1 \approx G_0 \gamma,
 \end{equation}
 where $G_0$ is some linear coefficient at small extensions.
 The full expression then becomes
 \begin{equation}
-    \sigma = \frac{G_0}{\lambda}\left(e^{\lambda\gamma}-1\right).
+  \sigma = \frac{G_0}{\lambda}\left(e^{\lambda\gamma}-1\right).
 \end{equation}
 
 This model assumes that data follows the previously described curve where there is a small rise at small extensions and an indefinitely exponentially increasing stress for larger extensions.
@@ -153,7 +153,7 @@ This model assumes that data follows the previously described curve where there 
 In an earlier study (ref A.\ Soylu), principal component analysis (PCA) is used to reduce the dimensionality of the strain-stress data.
 In summary, after PCA, every measurement $Y$ can be approximated by
 \begin{equation}
-    Y \approx Y_\mathrm{PCA} = \mathbf{A} \mathbf{V} + \bar{Y},
+  Y \approx Y_\mathrm{PCA} = \mathbf{A} \mathbf{V} + \bar{Y},
 \end{equation}
 where $\mathbf{A}$ and $\mathbf{V}$ are matrices containing respectively the eigenvalues and -vectors of the the measurement data.
 $\bar{Y}$ is the measurement mean.
@@ -169,7 +169,7 @@ This reduces the domain of the data.
 \subsubsection{Logistic curve}
 The empirical observations where the force response of skin tissue changes states, suggests a logistic curve, which can be written as
 \begin{equation}\label{eq:logistic_curve}
-    \sigma = \frac{\sigma_\mathrm{max}}{1+e^{-E_\mathrm{max} (\gamma - \gamma_c)}},
+  \sigma = \frac{\sigma_\mathrm{max}}{1+e^{-E_\mathrm{max} (\gamma - \gamma_c)}},
 \end{equation}
 where $\sigma$ and $\gamma$ are the stress and engineering strain, $\sigma_\mathrm{max}$ is the maximum stress, $E_\mathrm{max}$ is the maximum Young's modulus and $\gamma_c$ the strain offset.
 This equation assumes that there is a maximum force that the tissue can exert, in contrary to the theoretical approach above (ref).
@@ -198,13 +198,13 @@ Due to the limited amount of participants, individuals with unknown gender or ag
 \subsection{Convolutional neural network}
 The basis of the model originates from Liang \emph{et al.} \cite{Liang2017} and is adapted by Soylu \cite{Soylu2022}.
 The model, a convolutional neural network, consists of five blocks.
-The first block consists of a convolutional layer with a $\SI{3}{px}\times\SI{3}{px}$ kernel, taking in one channel and have 64 channels as output.
+The first block consists of a convolutional layer with a $\qty{3}{px}\times\qty{3}{px}$ kernel, taking in one channel and have 64 channels as output.
 The output is then normalized per batch using BN (\cref{sec:bn}).
 The normalized batch is passed through a ReLU (\cref{subsec:relu}) layer.
-After activation, three $\SI{2}{px}\times\SI{2}{px}$ maxpool (\cref{subsec:maxpool}) layers are applied.
-The next second block is like the first block, but with a $\SI{5}{px}\times\SI{5}{px}$ convolution kernel en just one maxpool layer.
-The third block is like the second block, but with a $\SI{3}{px}\times\SI{3}{px}$ convolution kernel.
-The fourth block is like the second and third block, but with a $\SI{6}{px}\times\SI{6}{px}$ and without a maxpool layer.
+After activation, three $\qty{2}{px}\times\qty{2}{px}$ maxpool (\cref{subsec:maxpool}) layers are applied.
+The next second block is like the first block, but with a $\qty{5}{px}\times\qty{5}{px}$ convolution kernel en just one maxpool layer.
+The third block is like the second block, but with a $\qty{3}{px}\times\qty{3}{px}$ convolution kernel.
+The fourth block is like the second and third block, but with a $\qty{6}{px}\times\qty{6}{px}$ and without a maxpool layer.
 
 The fifth block flattens the input and consists of a two linear layers.
 The first linear layer maps 64 nodes to $N_\mathrm{nodes}$ nodes.
@@ -215,15 +215,15 @@ The model is shown in \cref{fig:model}
 \marginnote{Fix textsize in figure. And use logsize of the blocks maybe? Bound blocks by `superblocks' for clarity?}
 
 \begin{figure*}
-    \includegraphics{skinstression/images/model.pdf}
-    % \input{PlotNeuralNet/examples/Skinstression/skinstression-new.tex}
-    \caption[Network architecture]{
-        The convolutional neural network consists of five blocks.
-        The first four blocks contain convolution, maxpooling, and batch normalization layers.
-        The last block contains a fully connected network.
-        It requires an input of $\SI{258}{px}\times\SI{258}{px}$ to get a vector of length 3 as output.
-    }
-    \label{fig:model}
+  \includegraphics{skinstression/images/model.pdf}
+  % \input{PlotNeuralNet/examples/Skinstression/skinstression-new.tex}
+  \caption[Network architecture]{
+    The convolutional neural network consists of five blocks.
+    The first four blocks contain convolution, maxpooling, and batch normalization layers.
+    The last block contains a fully connected network.
+    It requires an input of $\qty{258}{px}\times\qty{258}{px}$ to get a vector of length 3 as output.
+  }
+  \label{fig:model}
 \end{figure*}
 
 The dropout\marginnote{theory sec schrijven} layers in \cite{Soylu2022} are replaced by BN layers.
