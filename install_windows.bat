@@ -1,4 +1,4 @@
-@REM @ECHO OFF
+@ECHO OFF
 
 setlocal
 cd /d %~dp0
