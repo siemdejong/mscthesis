@@ -1,7 +1,7 @@
 ## Custom exclusions
 notes
 main.pdf
-texmf
+texmf/tex/latex/kaobook
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
