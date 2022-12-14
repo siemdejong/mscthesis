@@ -49,6 +49,8 @@
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
 
+\usepackage{fontawesome5}
+
 \graphicspath{{images/}{./}} % Paths where images are looked for
 
 \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
@@ -71,51 +73,11 @@
 \frontmatter % Denotes the start of the pre-document content, uses roman numerals
 
 %----------------------------------------------------------------------------------------
-%	COPYRIGHT PAGE
+%	OUTPUT TITLE PAGE AND FRONTMATTER
 %----------------------------------------------------------------------------------------
 
-\makeatletter
-\uppertitleback{\@titlehead} % Header
-
-\lowertitleback{
-    \textbf{Disclaimer} \\
-    You can edit this page to suit your needs. For instance, here we have a no copyright statement, a colophon and some other information. This page is based on the corresponding page of Ken Arroyo Ohori's thesis, with minimal changes.
-
-    \medskip
-
-    \textbf{No copyright} \\
-    \cczero\ This book is released into the public domain using the CC0 code. To the extent possible under law, I waive all copyright and related or neighbouring rights to this work.
-
-    To view a copy of the CC0 code, visit: \\\url{http://creativecommons.org/publicdomain/zero/1.0/}
-
-    \medskip
-
-    \textbf{Colophon} \\
-    This document was typeset with the help of \href{https://sourceforge.net/projects/koma-script/}{\KOMAScript} and \href{https://www.latex-project.org/}{\LaTeX} using the \href{https://github.com/fmarotta/kaobook/}{kaobook} class.
-
-    \medskip
-
-    \textbf{Publisher} \\
-    First printed in May 2019 by \@publishers
-}
-\makeatother
-
-%----------------------------------------------------------------------------------------
-%	DEDICATION
-%----------------------------------------------------------------------------------------
-
-\dedication{
-    The harmony of the world is made manifest in Form and Number, and the heart and soul and all the poetry of Natural Philosophy are embodied in the concept of mathematical beauty.\\
-    \flushright -- D'Arcy Wentworth Thompson
-}
-
-%----------------------------------------------------------------------------------------
-%	OUTPUT TITLE PAGE AND PREVIOUS
-%----------------------------------------------------------------------------------------
-
-% Note that \maketitle outputs the pages before here
-% \maketitle
 \input{frontbackmatter/titlepage.tex}
+\input{frontbackmatter/titleback.tex}
 
 %----------------------------------------------------------------------------------------
 %	PREFACE
