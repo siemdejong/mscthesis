@@ -70,8 +70,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#checklist">Checklist</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -166,6 +165,8 @@ Yet to be adapted to this study.
 - [ ] Title page
 - [ ] Abstract
 - [ ] General introduction
+    - [ ] Link skin and brain project
+    - [ ] Mention TRIPOD-AI
 - [ ] Theoretical background of convolutional neural networks
 - [ ] Skinstression
     - [ ] Abstract

@@ -4,6 +4,7 @@
 	twoside=false, % Use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
 	%open=any, % If twoside=true, uncomment this to force new chapters to start on any page, not only on right (odd) pages
 	secnumdepth=1, % How deep to number headings. Defaults to 1 (sections)
+	numbers=noenddot,
 ]{kaobook}
 
 % Choose the language
@@ -141,11 +142,6 @@
 \input{skinstression/chapters/results.tex}
 \input{skinstression/chapters/discussion.tex}
 
-% \defbibnote{bibnote}{Here are the references in citation order.\par\bigskip} % Prepend this text to the bibliography
-% \printbibliography[heading=bibintoc, title=Bibliography, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
-\printbibliography[heading=bibintoc, title=References] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
-
-
 \pagelayout{wide} % No margins
 \addpart{Pediatric brain tumours}
 \pagelayout{margin} % Restore margins
@@ -153,6 +149,10 @@
 \chapter{A chapter}
 
 \blindtext
+
+% \defbibnote{bibnote}{Here are the references in citation order.\par\bigskip} % Prepend this text to the bibliography
+% \printbibliography[heading=bibintoc, title=Bibliography, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
+\printbibliography[heading=bibintoc, title=References] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
 
 \appendix % From here onwards, chapters are numbered with letters, as is the appendix convention
 
