@@ -75,7 +75,7 @@ The difficulty with this is that clean target data for supervised training is of
 To counteract this, Noise2Noise (N2N) \cite{Lehtinen2018} was developed.
 Noise2Void N2V \cite{Krull2019}, a successor of N2N, does not rely on pairs of noisy images.
 Instead it only needs one image and corrupts it to use as target and learns a mapping between the noisy image and the newly created noisy image.
-This is useful if only one biomedical image is available.\marginpar{If denoised is used, move parts of this section to a theory section and refer to it here.}
+This is useful if only one biomedical image is available.\marginnote{If denoised is used, move parts of this section to a theory section and refer to it here.}
 
 The original N2V model produces a checkerboard pattern.
 Noise2Void2 (N2V2) \cite{Hock2022} is an extension to N2V and reduces this artifact.\marginnote{Actually didn't do denoising, but if done, describe how here :)}
@@ -238,7 +238,6 @@ After the first linear layer, BN and ReLU activation is applied.
 The second linear layer maps $N_\mathrm{nodes}$ nodes to 3 nodes.
 A linear activation function ensures the output is continuous and unaltered.
 The model is shown in \cref{fig:model}
-\marginnote{Fix textsize in figure. And use logsize of the blocks maybe? Bound blocks by `superblocks' for clarity?}
 
 \begin{figure*}
   \includegraphics{skinstression/images/skinstression.pdf}
@@ -252,7 +251,7 @@ The model is shown in \cref{fig:model}
   \label{fig:model}
 \end{figure*}
 
-The dropout\marginnote{theory sec schrijven} layers in \cite{Soylu2022} are replaced by BN layers.
+The dropout layers in \cite{Soylu2022} are replaced by BN layers.
 Bias of all layers preceding BN layers have been set to zero.
 
 The neural network weights are initialized according to the method described by \textcite{He2015a}, using a uniform transform.

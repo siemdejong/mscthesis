@@ -288,13 +288,24 @@ More often than not, using both BN and dropout leads to worse results on the tes
 
 \subsection{Model ensembling}\label{subsec:model_ensembling}
 A benefit of having a cyclic learning rate is generating multiple models across cycles.
-The effectiveness of ensembling models of multiple cycles is first described by \textcite{Huang2017}.\marginnote{Maybe steal their nice image with the flags?}
-% Training the best performing model for more\marginnote{How much did you do?!} epochs, the model is checkpointed at the best performing epoch for every cycle.
-During model training, a model can be checkpointed at the best performing epoch for every cycle.
+The effectiveness of ensembling models from multiple cycles, Snapshot Ensembling, is first described by \textcite{Huang2017}.
+During model training, a model can be checkpointed at the best performing epoch for every cycle, see \.
 The checkpointed models can be ensembled by choosing the last $m$\marginnote{how many models chosen and how many models checkpointed then?!} out of $n$ models and averaging the output, as
 \begin{equation}
     \mathrm{output} = \frac{1}{M} \sum_{i=0}^{m-1} \mathrm{model}_{n-i}(\mathrm{input}).
 \end{equation}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.48\linewidth]{ANN/images/ensembling_huang_left.png}
+    \includegraphics[width=0.48\linewidth]{ANN/images/ensembling_huang_right.png}
+    \caption[Snapshot ensembling]{
+        Left: Illustration of model optimization The model converges to a local minimum.
+        Right: Illustration of Snapshot Ensembling.
+        The learning rate is cyclic and annealing, allowing to converge to and escaping from local minima.
+        Snapshots are taken at every minimum which can be used for ensembling for inference.
+        Reproduced from \fullcite{Huang2017} (Ref.~\cite{Huang2017}).
+    }
+\end{figure}
 
 
 % --------------------------------------------------
