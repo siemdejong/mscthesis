@@ -211,7 +211,7 @@ Yet to be adapted to this study.
         - [ ] Statistical analysis methods
             - [ ] Diagram of analytical process
             - [ ] handling of predictors
-            - [ ] Pre-selection of predictors prior to model building (results for exp/pca/logistic)
+            - [x] Pre-selection of predictors prior to model building (results for exp/pca/logistic)
             - [ ] rescaling/transformation on predictors (LDS + reweighting)
             - [ ] type of model, building model + predictor selection + internal validation
             - [x] model ensembling techniques (if used)
