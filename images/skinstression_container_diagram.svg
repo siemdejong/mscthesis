@@ -1,0 +1,1249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="816px" preserveAspectRatio="none" style="width:1797px;height:816px;background:#FFFFFF;" version="1.1" viewBox="0 0 1797 816" width="1797px" zoomAndPan="magnify"><defs/><g><!--MD5=[87a3302cd2ebc3aef77927ecd9b3e334]
+cluster Skinstression--><g id="cluster_Skinstression"><a href="https://github.com/siemdejong/shg-strain-stress" target="_top" title="https://github.com/siemdejong/shg-strain-stress" xlink:actuate="onRequest" xlink:href="https://github.com/siemdejong/shg-strain-stress" xlink:show="new" xlink:title="https://github.com/siemdejong/shg-strain-stress" xlink:type="simple"><rect fill="none" height="803.5" rx="2.5" ry="2.5" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="1459" x="7" y="7"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="105" x="684" y="25.6094">Skinstression</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="51" x="711" y="41.582">[System]</text></a></g><!--MD5=[f664e647b4f5d1b126d3814f056294b3]
+cluster Optuna--><g id="cluster_Optuna"><a href="https://optuna.org/" target="_top" title="https://optuna.org/" xlink:actuate="onRequest" xlink:href="https://optuna.org/" xlink:show="new" xlink:title="https://optuna.org/" xlink:type="simple"><rect fill="none" height="361.5" rx="2.5" ry="2.5" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="238" x="949" y="239.5"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="56" x="1040" y="258.1094">Optuna</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="51" x="1042.5" y="274.082">[System]</text></a></g><!--MD5=[3ea4b8c7ad0f0c20457b7819347ef8da]
+entity notebooks--><g id="elem_notebooks"><rect fill="#438DD5" height="108.0469" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="220" x="248" y="284.5"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="84" x="316" y="311.1094">Notebooks</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="48" x="334" y="327.082">[IPython]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="356" y="344.252"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="179" x="266.5" y="361.8613">Explore data, create targets,</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="200" x="258" y="379.4707">apply noise2void, prepare data.</text></g><!--MD5=[37c33c71ce9550fe283f62c54b59719b]
+entity application--><g id="elem_application"><rect fill="#438DD5" height="108.0469" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="201" x="590.5" y="284.5"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="86" x="648" y="311.1094">Application</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="44" x="669" y="327.082">[Python]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="689" y="344.252"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="600.5" y="361.8613">Tune hyperparameters, and</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="656" y="379.4707">train model</text></g><!--MD5=[3fb20ac13e33a89a8c0c0d19efae6cfe]
+entity model_zoo--><g id="elem_model_zoo"><path d="M297.5,496 C297.5,486 375,486 375,486 C375,486 452.5,486 452.5,496 L452.5,575.4375 C452.5,585.4375 375,585.4375 375,585.4375 C375,585.4375 297.5,585.4375 297.5,575.4375 L297.5,496 " fill="#438DD5" style="stroke:#3C7FC0;stroke-width:0.5;"/><path d="M297.5,496 C297.5,506 375,506 375,506 C375,506 452.5,506 452.5,496 " fill="none" style="stroke:#3C7FC0;stroke-width:0.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="79" x="335.5" y="526.6094">Model zoo</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="47" x="351.5" y="542.582">[Pytorch]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="373" y="559.752"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="307.5" y="577.3613">Training checkpoints.</text></g><!--MD5=[caf660ac2a54b55a5c31b5515889e628]
+entity config--><g id="elem_config"><path d="M517.5,687.5 C517.5,677.5 620,677.5 620,677.5 C620,677.5 722.5,677.5 722.5,687.5 L722.5,784.5469 C722.5,794.5469 620,794.5469 620,794.5469 C620,794.5469 517.5,794.5469 517.5,784.5469 L517.5,687.5 " fill="#438DD5" style="stroke:#3C7FC0;stroke-width:0.5;"/><path d="M517.5,687.5 C517.5,697.5 620,697.5 620,697.5 C620,697.5 722.5,697.5 722.5,687.5 " fill="none" style="stroke:#3C7FC0;stroke-width:0.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="114" x="563" y="718.1094">Configurations</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="38" x="601" y="734.082">[YAML]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="618" y="751.252"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="527.5" y="768.8613">Hyperparameter and training</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="573.5" y="786.4707">configurations.</text></g><!--MD5=[5939ead6c52284c5685e8f12707b4421]
+entity logs--><g id="elem_logs"><rect fill="#438DD5" height="55.2188" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="59" x="1203.5" y="508"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="39" x="1213.5" y="534.6094">Logs</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="18" x="1224" y="550.582">[txt]</text></g><!--MD5=[d5a0f20b4b51c19b848d20b2ff76db59]
+entity PyIQ--><g id="elem_PyIQ"><a href="https://github.com/sakoho81/pyimagequalityranking" target="_top" title="https://github.com/sakoho81/pyimagequalityranking" xlink:actuate="onRequest" xlink:href="https://github.com/sakoho81/pyimagequalityranking" xlink:show="new" xlink:title="https://github.com/sakoho81/pyimagequalityranking" xlink:type="simple"><rect fill="#B3B3B3" height="90.4375" rx="2.5" ry="2.5" style="stroke:#A6A6A6;stroke-width:0.5;" width="164" x="376" y="61"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="36" x="440" y="87.6094">PyIQ</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="44" x="436" y="103.582">[Python]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="456" y="120.752"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="386" y="138.3613">Quantify image quality.</text></a></g><!--MD5=[defc49588414f6f49b78f6081e6cefe3]
+entity tensorboard--><g id="elem_tensorboard"><a href="https://www.tensorflow.org/tensorboard" target="_top" title="https://www.tensorflow.org/tensorboard" xlink:actuate="onRequest" xlink:href="https://www.tensorflow.org/tensorboard" xlink:show="new" xlink:title="https://www.tensorflow.org/tensorboard" xlink:type="simple"><rect fill="#B3B3B3" height="90.4375" rx="2.5" ry="2.5" style="stroke:#A6A6A6;stroke-width:0.5;" width="152" x="1298" y="490.5"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="99" x="1324.5" y="517.1094">Tensorboard</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="109" x="1319.5" y="533.082">[Pytorch/Tensorflow]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1372" y="550.252"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="1308" y="567.8613">Training visualization</text></a></g><!--MD5=[3a4e55e7d7bf6b9826d86df373913832]
+entity img_db--><g id="elem_img_db"><path d="M23,487 C23,477 119,477 119,477 C119,477 215,477 215,487 L215,584.0469 C215,594.0469 119,594.0469 119,594.0469 C119,594.0469 23,594.0469 23,584.0469 L23,487 " fill="#B3B3B3" style="stroke:#A6A6A6;stroke-width:0.5;"/><path d="M23,487 C23,497 119,497 119,497 C119,497 215,497 215,487 " fill="none" style="stroke:#A6A6A6;stroke-width:0.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="55" x="91.5" y="517.6094">Images</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="52" x="93" y="533.582">[BMP/TIF]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="117" y="550.752"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="168" x="33" y="568.3613">Microscope output to learn</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="103" y="585.9707">from.</text></g><!--MD5=[152eb3b1d4b7d8800e47bf00fe61142d]
+entity hydra--><g id="elem_hydra"><a href="https://hydra.cc/docs/intro/" target="_top" title="https://hydra.cc/docs/intro/" xlink:actuate="onRequest" xlink:href="https://hydra.cc/docs/intro/" xlink:show="new" xlink:title="https://hydra.cc/docs/intro/" xlink:type="simple"><rect fill="#B3B3B3" height="90.4375" rx="2.5" ry="2.5" style="stroke:#A6A6A6;stroke-width:0.5;" width="170" x="535" y="490.5"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="46" x="597" y="517.1094">Hydra</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="44" x="598" y="533.082">[Python]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="618" y="550.252"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="545" y="567.8613">Interpret configurations.</text></a></g><!--MD5=[b0c374bc3bbbc7d7357c4afc05255d64]
+entity optuna_dashboard--><g id="elem_optuna_dashboard"><a href="https://github.com/optuna/optuna-dashboard" target="_top" title="https://github.com/optuna/optuna-dashboard" xlink:actuate="onRequest" xlink:href="https://github.com/optuna/optuna-dashboard" xlink:show="new" xlink:title="https://github.com/optuna/optuna-dashboard" xlink:type="simple"><rect fill="#B3B3B3" height="90.4375" rx="2.5" ry="2.5" style="stroke:#A6A6A6;stroke-width:0.5;" width="206" x="965" y="293.5"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="134" x="1001" y="320.1094">Optuna-dasboard</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="35" x="1050.5" y="336.082">[sqlite]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1066" y="353.252"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="186" x="975" y="370.8613">Hyperparameter visualization.</text></a></g><!--MD5=[1d3408a5c320ba190044ad6f0cd217da]
+entity optuna_db--><g id="elem_optuna_db"><path d="M966.5,496 C966.5,486 1067,486 1067,486 C1067,486 1167.5,486 1167.5,496 L1167.5,575.4375 C1167.5,585.4375 1067,585.4375 1067,585.4375 C1067,585.4375 966.5,585.4375 966.5,575.4375 L966.5,496 " fill="#B3B3B3" style="stroke:#A6A6A6;stroke-width:0.5;"/><path d="M966.5,496 C966.5,506 1067,506 1067,506 C1067,506 1167.5,506 1167.5,496 " fill="none" style="stroke:#A6A6A6;stroke-width:0.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="85" x="1024.5" y="526.6094">Optuna-DB</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="35" x="1049.5" y="542.582">[sqlite]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1065" y="559.752"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="976.5" y="577.3613">Hyperparameter trial storage</text></g><!--MD5=[e788312d0609078278b2b6b8736bbf8c]
+entity experimentalist--><g id="elem_experimentalist"><rect fill="#08427B" height="140.9531" rx="2.5" ry="2.5" style="stroke:#073B6F;stroke-width:0.5;" width="174" x="1482" y="35.5"/><image height="48" width="48" x="1545" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAABuUlEQVR42u2Yv0oEMRDGp/QRfIR7BVs7Gx9AH0CwtrtKLNXSRsRSG8HCxkbQVrSykoOrzlILC9v4gwMRNptMMsnu3nHDFMcSLh/f/PsmsrY5HpTLUgHaOri8uHt+eJm8vs/wm8e38fn9aPekB0D7p7df3z+uxYC4sXfWEaD17SPIcAqDreqAQBMgpmnHV091ASm5+W8EtxYgQuCyDF7LA+JPXa5RieUBwbwzWHlAVLIFEB2rMKCk4rK0AC0gZzN9/S8soOnHpwWQvhtpATE4h5XUlrKnIKp06uxCS5poCzs6stvjzuF1XfmRVG4ZkihHMSp5SuXGJGG5LEAVPSIpb4qJfIQzQeF6OMORGXSHbCjLuAb1CYhti7whQHQ5PLrlcHh+kiAyN/RxFE0/9OYvH+dJw33gw/nB4bYa5Ltmokl4MTXqMi+sMFtSfFBEDWoD67bUkPSa+d/Gk3i7i6tvxE4LyLhgGOeu9ELPXzLFAVHJrkNrZreUFfN28S9l1x27upVSLwp5hlIYFqBm8a8ADRxQJIfszy72ZxrpeKxGR6xnltEbupkbXtkpbQsh6ozhV8kDCni1dcT8F2bsoAKLcdt7AAAAAElFTkSuQmCC" y="45.5"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="118" x="1510" y="110.1094">Experimentalist</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1567" y="128.1582"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="1499.5" y="145.7676">Wants to know stretch</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154" x="1492" y="163.377">properties of skin tissue.</text></g><!--MD5=[24a836efaf40eefd3414e13e6742a0ec]
+entity SHG_microscope--><g id="elem_SHG_microscope"><rect fill="#1168BD" height="123.3438" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="215" x="1574.5" y="277"/><image height="48" width="48" x="1658" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAABwElEQVR42u2ZO0oEQRCG+wrewCN4BI/gEQwNxdjAyFRjY2NNTUQMTEQ0EDTYwE0VRAQxMBk/EJqmaqan51W1K1s0y7I7M/tRj7+qe8PazuVCrbD0QOd3ry9v32JtHd/7AG2fPFZ1dvX07gO0e/pcC/Qw/7QG2ti/ITRV1sC1A8IHVYFtHt4aAVVlNtxJIwMdnM1WQCugfwr0J1q80moovfW964UAEu2lpOXZAUWsvLesgbCPr5+MqxyA8po+FRCDCu/JaPzRdDHX+JQ9AWpyGEOEmw7xVckgZSqMuKo1mayVWs+cJJlz60CKMtntAEQii7soRufmKpyURs1nhNWZFPuJz5DPZeLG2EzG3AaVD0P4oymvu20UeZD2Ns7TgmsEVCtuPfbRutBirPucfkAw8KRBnxFEH/scxyA8Asj5fEjMJGnQQ2t9UjtdV16Nji7mGfUKXftOoTXVnVagVBWtgfhhPUDisA7dnkdQRF1XrV7zoabhE7EJMUpqnTeiY7QAQT18ETX0JjPni2BJIB6h5WFqQ1fF3iNEmtbeOZ2lXTnkY2xmch4qHHemMzkP9dabsaym25NcXivVreX/82Xq9QvQCpKTOh879gAAAABJRU5ErkJggg==" y="287"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="129" x="1617.5" y="351.6094">SHG microscope</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1680" y="369.6582"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="191" x="1588.5" y="387.2676">Images collagen in skin tissue.</text></g><!--MD5=[11ff2ea793bd75af96815953118f4d1f]
+entity floating_legend_alias--><g id="elem_floating_legend_alias"><rect height="129.6563" rx="2.5" ry="2.5" style="stroke:#00000000;stroke-width:0.5;fill:none;" width="219" x="1572.5" y="671"/><rect height="17.6094" style="stroke:none;stroke-width:0.5;fill:none;" width="199" x="1582.5" y="683"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="53" x="1582.5" y="697.5332">Legend</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1635.5" y="697.5332"> </text><rect fill="#08427B" height="17.6094" style="stroke:none;stroke-width:0.5;" width="199" x="1582.5" y="700.6094"/><text fill="#073B6F" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14" x="1586.5" y="715.1426">▯</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1600.5" y="715.1426"> </text><image height="12" width="12" x="1604.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAhklEQVR42mPgcKpGRtGNy/0qFqIJMiBz/iMB7IpOXXuErGjK2mNYFH3/+RtZ0d6zd7Aoim9ZiaxIN64fu5s6luyHqIhvXYndTaqR3WapkyFsu+wZskFt6Ir+YwNAVyIUbT124z8O0LJwL1TRf9zg1uPXUEW///zFpejUtccINxkmTcSKILIAOyD343qYpikAAAAASUVORK5CYII=" y="706.2188"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="44" x="1624.5" y="715.1426">person</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1672.5" y="715.1426"> </text><rect fill="#1168BD" height="17.6094" style="stroke:none;stroke-width:0.5;" width="199" x="1582.5" y="718.2188"/><text fill="#3C7FC0" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14" x="1586.5" y="732.752">▯</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1600.5" y="732.752"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="44" x="1608.5" y="732.752">system</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1656.5" y="732.752"> </text><rect fill="#438DD5" height="17.6094" style="stroke:none;stroke-width:0.5;" width="199" x="1582.5" y="735.8281"/><text fill="#3C7FC0" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14" x="1586.5" y="750.3613">▯</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1600.5" y="750.3613"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="1608.5" y="750.3613">container</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1671.5" y="750.3613"> </text><rect fill="#B3B3B3" height="17.6094" style="stroke:none;stroke-width:0.5;" width="199" x="1582.5" y="753.4375"/><text fill="#A6A6A6" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14" x="1586.5" y="767.9707">▯</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1600.5" y="767.9707"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="1608.5" y="767.9707">external container</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1725.5" y="767.9707"> </text><rect height="17.6094" style="stroke:none;stroke-width:0.5;fill:none;" width="199" x="1582.5" y="771.0469"/><text fill="#444444" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14" x="1586.5" y="785.5801">▯</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1600.5" y="785.5801"> </text><text fill="#444444" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="1608.5" y="785.5801">system boundary</text><text fill="#444444" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="1720.5" y="785.5801">(dashed)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1777.5" y="785.5801"> </text><line style="stroke:#00000000;stroke-width:0.5;" x1="1582.5" x2="1781.5" y1="683" y2="683"/><line style="stroke:#00000000;stroke-width:0.5;" x1="1582.5" x2="1781.5" y1="700.6094" y2="700.6094"/><line style="stroke:#00000000;stroke-width:0.5;" x1="1582.5" x2="1781.5" y1="718.2188" y2="718.2188"/><line style="stroke:#00000000;stroke-width:0.5;" x1="1582.5" x2="1781.5" y1="735.8281" y2="735.8281"/><line style="stroke:#00000000;stroke-width:0.5;" x1="1582.5" x2="1781.5" y1="753.4375" y2="753.4375"/><line style="stroke:#00000000;stroke-width:0.5;" x1="1582.5" x2="1781.5" y1="771.0469" y2="771.0469"/><line style="stroke:#00000000;stroke-width:0.5;" x1="1582.5" x2="1781.5" y1="788.6563" y2="788.6563"/><line style="stroke:#00000000;stroke-width:0.5;" x1="1582.5" x2="1582.5" y1="683" y2="788.6563"/><line style="stroke:#00000000;stroke-width:0.5;" x1="1781.5" x2="1781.5" y1="683" y2="788.6563"/></g><!--MD5=[d8b04edec13e97f436d92c0cf3d6c856]
+link experimentalist to SHG_microscope--><g id="link_experimentalist_SHG_microscope"><path d="M1603.21,176.78 C1617.64,206.22 1634.39,240.37 1648.72,269.61 " fill="none" id="experimentalist-to-SHG_microscope" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1652.3,276.93,1651.4666,268.4267,1646.0809,271.0714,1652.3,276.93" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="29" x="1626" y="219.957">Uses</text></g><!--MD5=[c01ba44b3fba3ac7a1cc7fda832ade5a]
+link experimentalist to notebooks--><g id="link_experimentalist_notebooks"><path d="M1481.84,170.16 C1476.61,172.57 1471.32,174.71 1466,176.5 C1353.36,214.43 1050.62,199.04 932,206.5 C852.19,211.52 650.2,210.65 573,231.5 C531.94,242.59 489.41,261.71 453.11,280.69 " fill="none" id="experimentalist-to-notebooks" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="445.94,284.49,454.4158,283.4124,451.6173,278.105,445.94,284.49" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="29" x="933" y="219.957">Uses</text></g><!--MD5=[56500c06451bdcbcae83432f44083918]
+link notebooks to img_db--><g id="link_notebooks_img_db"><path d="M247.94,362.99 C182.8,379.38 109.33,403.07 90,430 C81.79,441.44 80.85,455.12 83.64,468.76 " fill="none" id="notebooks-to-img_db" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="85.69,476.76,86.6271,468.2675,80.8119,469.7454,85.69,476.76" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="143" x="91" y="443.457">Reads from and writes to</text></g><!--MD5=[694800b3e6ce00c56dcd3df7470806b2]
+link notebooks to model_zoo--><g id="link_notebooks_model_zoo"><path d="M261.05,392.6 C244.92,408.43 236.42,426.95 247,447 C256.93,465.81 272.92,481.34 290.29,493.83 " fill="none" id="notebooks-to-model_zoo" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="297.26,498.65,292.3782,491.638,288.9713,496.5769,297.26,498.65" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="143" x="248" y="443.457">Reads from and writes to</text></g><!--MD5=[69bc6303d212bea682b4428b9c050d11]
+link experimentalist to PyIQ--><g id="link_experimentalist_PyIQ"><path d="M1481.94,106 C1275.54,106 758.09,106 548.38,106 " fill="none" id="experimentalist-to-PyIQ" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="540.15,106,548.15,109,548.15,103,540.15,106" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="29" x="996.5" y="99.457">Uses</text></g><!--MD5=[601e8b0ae4fd5e9a45c9df38cce08048]
+link PyIQ to img_db--><g id="link_PyIQ_img_db"><path d="M375.72,123.79 C310.42,140.93 220.65,173.47 162,231.5 C93.65,299.12 95.52,335.86 76,430 C73.31,442.97 75.03,456.36 79.02,469.05 " fill="none" id="PyIQ-to-img_db" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="81.78,476.85,81.9515,468.3077,76.2924,470.3013,81.78,476.85" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="66" x="163" y="343.457">Reads from</text></g><!--MD5=[6a0f1558fae04c6cda41514e2bb264a3]
+link experimentalist to application--><g id="link_experimentalist_application"><path d="M1481.82,170.08 C1476.59,172.51 1471.3,174.68 1466,176.5 C1281.89,239.78 1220.33,170.55 1029,206.5 C992.39,213.38 984.04,218.85 949,231.5 C899.27,249.45 845.04,271.36 799.18,290.6 " fill="none" id="experimentalist-to-application" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="791.6,293.79,800.1374,293.4541,797.8115,287.9233,791.6,293.79" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="29" x="1030" y="219.957">Uses</text></g><!--MD5=[a4eabce1170181411dd2c24a7450471a]
+link application to model_zoo--><g id="link_application_model_zoo"><path d="M590.43,366.01 C547.33,380.46 498.05,401.36 459,430 C440.7,443.43 424.15,461.79 410.67,479.38 " fill="none" id="application-to-model_zoo" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="405.85,485.81,413.05,481.21,408.25,477.61,405.85,485.81" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="143" x="460" y="443.457">Reads from and writes to</text></g><!--MD5=[ba816bd87a62c313b1907635aa904e00]
+link SHG_microscope to img_db--><g id="link_SHG_microscope_img_db"><path d="M1574.35,372.08 C1539.93,381.84 1501.53,392.05 1466,400 C1343.28,427.44 1312.12,434.45 1187,447 C986.34,467.13 478.11,439.3 280,477 C261.25,480.57 241.76,485.97 223.08,492.07 " fill="none" id="SHG_microscope-to-img_db" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="215.13,494.72,223.6681,495.0362,221.7708,489.3441,215.13,494.72" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="52" x="1319" y="443.457">Writes to</text></g><!--MD5=[49f2e561df355d3fa794498697b7a2c0]
+link PyIQ to application--><g id="link_PyIQ_application"><path d="M502.65,151.17 C539.17,187.3 591.16,238.73 631.26,278.4 " fill="none" id="PyIQ-to-application" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="637.09,284.17,633.5152,276.4098,629.2941,280.6738,637.09,284.17" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="29" x="575" y="219.957">Uses</text></g><!--MD5=[f7dbbc4df4470d7316fd476771c205e3]
+link PyIQ to notebooks--><g id="link_PyIQ_notebooks"><path d="M438.84,151.17 C423.42,186.71 401.58,237.05 384.49,276.44 " fill="none" id="PyIQ-to-notebooks" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="381.14,284.17,387.0762,278.025,381.5719,275.6369,381.14,284.17" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="29" x="415" y="219.957">Uses</text></g><!--MD5=[54894faff19fa4b874080628aba54ac0]
+link application to tensorboard--><g id="link_application_tensorboard"><path d="M773.09,392.58 C809.08,413.2 852.7,434.77 895,447 C1059.88,494.66 1116.73,424.09 1280,477 C1287.78,479.52 1295.58,482.8 1303.18,486.52 " fill="none" id="application-to-tensorboard" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1310.71,490.38,1304.9565,484.0635,1302.2219,489.4041,1310.71,490.38" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="52" x="896" y="443.457">Writes to</text></g><!--MD5=[26252a6b7c0aa4b59b83834b7e83e941]
+link tensorboard to experimentalist--><g id="link_tensorboard_experimentalist"><path d="M1378.39,490.33 C1385.99,428.97 1405.51,315.97 1452,231.5 C1461.32,214.56 1473.48,198.18 1486.43,183.16 " fill="none" id="tensorboard-to-experimentalist" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1492.03,176.81,1484.4853,180.8197,1488.9821,184.7919,1492.03,176.81" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="100" x="1453" y="335.957">Provides network</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="65" x="1472" y="351.0508">information</text></g><!--MD5=[e4f80079147fb08ec96cb23841f8833d]
+link logs to experimentalist--><g id="link_logs_experimentalist"><path d="M1226.49,507.64 C1214.16,449.67 1194.31,311.63 1262,231.5 C1322.6,159.77 1380.58,215.51 1466,176.5 C1468.81,175.21 1471.64,173.85 1474.46,172.43 " fill="none" id="logs-to-experimentalist" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1481.91,168.53,1473.43,169.5737,1476.2072,174.8922,1481.91,168.53" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="121" x="1263" y="343.457">Shows information to</text></g><!--MD5=[11505ff413b02d95eddd3a624b90cead]
+link optuna_dashboard to experimentalist--><g id="link_optuna_dashboard_experimentalist"><path d="M1059.34,293.41 C1056.46,264.64 1058.55,228.48 1081,206.5 C1142.32,146.46 1384.97,204.77 1466,176.5 C1468.81,175.52 1471.62,174.44 1474.42,173.28 " fill="none" id="optuna_dashboard-to-experimentalist" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1481.8,170.02,1473.2695,170.4999,1475.6884,175.9906,1481.8,170.02" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="121" x="1082" y="219.957">Shows information to</text></g><!--MD5=[40f308fc080e2920a1de834b66909d51]
+link optuna_dashboard to optuna_db--><g id="link_optuna_dashboard_optuna_db"><path d="M1067.41,383.69 C1067.24,398.42 1067.08,414.92 1067,430 C1066.92,445.38 1066.89,462.04 1066.89,477.44 " fill="none" id="optuna_dashboard-to-optuna_db" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1066.89,485.85,1069.89,477.85,1063.89,477.85,1066.89,485.85" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="66" x="1068" y="443.457">Reads from</text></g><!--MD5=[d61763e17ab53d828d5c34e0b94d6c14]
+link application to optuna_db--><g id="link_application_optuna_db"><path d="M675.4,392.63 C673.08,411.9 674.97,432.48 688,447 C729.04,492.76 904.4,458.43 963,477 C968.22,478.65 973.47,480.58 978.7,482.71 " fill="none" id="application-to-optuna_db" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="986.33,485.97,980.142,480.0786,977.794,485.6001,986.33,485.97" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="52" x="689" y="443.457">Writes to</text></g><!--MD5=[e0fca273c18ee5f8d3e7b79b7d7f6d37]
+link application to hydra--><g id="link_application_hydra"><path d="M637.76,392.71 C629.25,404.16 621.71,416.81 617,430 C611.16,446.38 610.11,465.14 611.08,482.2 " fill="none" id="application-to-hydra" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="611.71,490.42,614.0865,482.2131,608.1042,482.6741,611.71,490.42" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="29" x="618" y="443.457">Uses</text></g><!--MD5=[f5d5218d273f7a39852b8b81a6f1aa60]
+link hydra to config--><g id="link_hydra_config"><path d="M620,580.55 C620,606.65 620,640.22 620,669.39 " fill="none" id="hydra-to-config" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="620,677.49,623,669.49,617,669.49,620,677.49" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="66" x="621" y="637.457">Reads from</text></g><!--MD5=[0ca7ad4078dcc08c8c04d4127a0cbeab]
+link application to logs--><g id="link_application_logs"><path d="M722.65,392.6 C737.86,413.23 758.03,434.79 782,447 C942.83,528.93 1027.32,392.85 1187,477 C1197.66,482.62 1206.71,491.89 1213.88,501.37 " fill="none" id="application-to-logs" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1218.55,507.92,1216.3584,499.6619,1211.4688,503.1392,1218.55,507.92" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="52" x="783" y="443.457">Writes to</text></g><!--MD5=[f68ad5951357388a2fc74cc3bff3d4d0]
+link SHG_microscope to floating_legend_alias--><!--MD5=[f68ad5951357388a2fc74cc3bff3d4d0]
+link SHG_microscope to floating_legend_alias--><!--MD5=[6fd050010867d7c48c83ee9286288300]
+@startuml Container diagram
+' https://github.com/plantuml-stdlib/C4-PlantUML#c4-plantuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include FONTAWESOME/user.puml
+!include FONTAWESOME/microscope.puml
+!include FONTAWESOME/cube.puml
+
+UpdateElementStyle(external_container, $legendText="external container")
+
+Person(experimentalist, "Experimentalist", "Wants to know stretch properties of skin tissue.", $sprite="user")
+System(SHG_microscope, "SHG microscope", "Images collagen in skin tissue.", $sprite="microscope")
+System_Boundary(Skinstression, "Skinstression", $link=https://github.com/siemdejong/shg-strain-stress) {
+    Container(notebooks, "Notebooks", "IPython", "Explore data, create targets, apply noise2void, prepare data.")
+    Container(application, "Application", "Python", "Tune hyperparameters, and train model")
+    ContainerDb(model_zoo, "Model zoo", "Pytorch", "Training checkpoints.")
+    ContainerDb(config, "Configurations", "YAML", "Hyperparameter and training configurations.")
+    Container(logs, "Logs", "txt")
+    System_Boundary(Optuna, "Optuna", $link="https://optuna.org/") {
+        Container_Ext(optuna_dashboard, "Optuna-dasboard", "sqlite" ,"Hyperparameter visualization.", $link="https://github.com/optuna/optuna-dashboard")
+        ContainerDb_Ext(optuna_db, "Optuna-DB", "sqlite", "Hyperparameter trial storage")
+    }
+    Container_Ext(PyIQ, "PyIQ", "Python", "Quantify image quality.", $link="https://github.com/sakoho81/pyimagequalityranking")
+    Container_Ext(tensorboard, "Tensorboard", "Pytorch/Tensorflow", "Training visualization", $link="https://www.tensorflow.org/tensorboard")
+    ContainerDb_Ext(img_db, "Images", "BMP/TIF", "Microscope output to learn from.")
+    Container_Ext(hydra, "Hydra", "Python", "Interpret configurations.", $link="https://hydra.cc/docs/intro/")
+}
+
+Rel(experimentalist, SHG_microscope, "Uses")
+Rel(experimentalist, notebooks, "Uses")
+Rel(notebooks, img_db, "Reads from and writes to")
+Rel(notebooks, model_zoo, "Reads from and writes to")
+Rel(experimentalist, PyIQ, "Uses")
+Rel(PyIQ, img_db, "Reads from")
+Rel(experimentalist, application, "Uses")
+Rel(application, model_zoo, "Reads from and writes to")
+Rel(SHG_microscope, img_db, "Writes to")
+Rel(PyIQ, application, "Uses")
+Rel(PyIQ, notebooks, "Uses")
+Rel(application, tensorboard, "Writes to")
+Rel(tensorboard, experimentalist, "Provides network information")
+Rel(logs, experimentalist, "Shows information to")
+Rel(optuna_dashboard, experimentalist, "Shows information to")
+Rel(optuna_dashboard, optuna_db, "Reads from")
+Rel(application, optuna_db, "Writes to")
+Rel(application, hydra, "Uses")
+Rel(hydra, config, "Reads from")
+Rel(application, logs, "Writes to")
+
+' Lay_D(notebooks, application)
+
+SHOW_FLOATING_LEGEND()
+Lay_Distance(SHG_microscope, LEGEND(), 1)
+Lay_D(SHG_microscope, LEGEND())
+@enduml
+
+@startuml Container diagram
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam LegendBorderColor transparent
+skinparam LegendBackgroundColor transparent
+skinparam LegendFontColor #FFFFFF
+
+skinparam shadowing<<legendArea>> false
+skinparam rectangle<<legendArea>> {
+    backgroundcolor #00000000
+    bordercolor #00000000
+}
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam queue {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam person {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam actor {
+    StereotypeFontSize 12
+    shadowing false
+    style awesome
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 6
+    StereotypeFontColor transparent
+    BorderStyle dashed
+}
+
+skinparam package {
+    StereotypeFontSize 6
+    StereotypeFontColor transparent
+    FontStyle plain
+    BackgroundColor transparent
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam database<<boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam queue<<boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam person<<boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam actor<<boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam package<<boundary>>StereotypeFontColor transparent
+skinparam rectangle<<boundary>>StereotypeFontColor transparent
+
+skinparam rectangle<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam database<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam queue<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam person<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam actor<<enterprise_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam package<<enterprise_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<enterprise_boundary>>StereotypeFontColor transparent
+
+
+skinparam rectangle<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam database<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam queue<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam person<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam actor<<system_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam package<<system_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<system_boundary>>StereotypeFontColor transparent
+
+
+skinparam rectangle<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam database<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam queue<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam person<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam actor<<container_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam package<<container_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<container_boundary>>StereotypeFontColor transparent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam database<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam queue<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam person<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam actor<<person>> {
+    StereotypeFontColor #08427B
+    FontColor #08427B
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam database<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam person<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_person>> {
+    StereotypeFontColor #686868
+    FontColor #686868
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam queue<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam person<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam actor<<system>> {
+    StereotypeFontColor #1168BD
+    FontColor #1168BD
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam person<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_system>> {
+    StereotypeFontColor #999999
+    FontColor #999999
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+skinparam rectangle<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam database<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam queue<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam person<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam actor<<enterprise_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam package<<enterprise_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<enterprise_boundary>>StereotypeFontColor transparent
+
+
+skinparam rectangle<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam database<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam queue<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam person<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam actor<<system_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam package<<system_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<system_boundary>>StereotypeFontColor transparent
+
+
+
+
+
+
+sprite $person [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000025788300000000005886410000000000000
+000000000007DFFFFFFD9643347BFFFFFFFB400000000000
+0000000004EFFFFFFFFFFFFFFFFFFFFFFFFFFB1000000000
+000000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFD200000000
+00000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE10000000
+0000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0000000
+000000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5000000
+000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD000000
+000009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF200000
+00000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF600000
+00000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF800000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00000EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF700000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+0000008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD3000000
+000000014555555555555555555555555555555300000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+sprite $person2 [48x48/16] {
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000002578888300000000005888864100000000000
+0000000007DFFFFFFFFD9643347BFFFFFFFFFB4000000000
+00000004EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB10000000
+0000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD2000000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+00003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+0000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF50000
+0003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD0000
+0009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2000
+000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000
+000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA000
+000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000
+0009FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF2000
+0003FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFD0000
+0000BFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFF50000
+00003FFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFB00000
+000006FFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFE100000
+0000007FFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFD2000000
+00000004EFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFB10000000
+0000000007DF8FFFFFFFFFFFFFFFFFFFFFF8FB4000000000
+000000000002578888888888888888888864100000000000
+}
+
+sprite $robot [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000005BFFFFFFFFFFFFFFFFFFFFFE9100000000000
+0000000000AFFFFFFFFFFFFFFFFFFFFFFFFFE30000000000
+0000000007FFFFFFFFFFFFFFFFFFFFFFFFFFFE1000000000
+000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000000000
+000000004FFFFFFFFFFFFFFFFFFFFFFFFFFFFFC000000000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFD000000000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE000000000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE000000000
+000699405FFFFFFC427FFFFFFFFFC427FFFFFFE009982000
+008FFF705FFFFFE10006FFFFFFFE00007FFFFFE00FFFF100
+00CFFF705FFFFFA00001FFFFFFF900002FFFFFE00FFFF500
+00DFFF705FFFFFB00002FFFFFFFA00003FFFFFE00FFFF500
+00DFFF705FFFFFF4000AFFFFFFFF3000BFFFFFE00FFFF500
+00DFFF705FFFFFFFA8DFFFFFFFFFFA8DFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00CFFF705FFFFFF87777777777777777CFFFFFE00FFFF500
+008FFF705FFFFFF100000000000000009FFFFFE00FFFF100
+000699405FFFFFF76666666666666666CFFFFFE009982000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE000000000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE000000000
+000000004FFFFFFFFFFFFFFFFFFFFFFFFFFFFFC000000000
+000000000EFFFFFFFFFFFFFFFFFFFFFFFFFFFF7000000000
+0000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFD0000000000
+00000000004CFFFFFFFFFFFFFFFFFFFFFFFF910000000000
+000000000000011111111111111111111110000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+sprite $robot2 [48x48/16] {
+000000000000000088888888888888880000000000000000
+000000000000000AFFFFFFFFFFFFFFFFA000000000000000
+00000000000000CFFFFFFFFFFFFFFFFFFC00000000000000
+00000000000004EFFFFFFFFFFFFFFFFFFE40000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFFA0000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000888FFFFFFFFFFFFFFFFFFFF88800000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000000888FFFFFFFFFFFFFFFFFFFF88800000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000004CFFFFFFFFFFFFFFFFFFC40000000000000
+000000488888848CFFFFFFFFFFFFFFFFC848888884000000
+00000CFFFFFFFFC888888888888888888CFFFFFFFFC00000
+00008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF80000
+0000CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC0000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF8000
+0008FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF8000
+0008FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF8000
+0008FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF8000
+0000CFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFC0000
+00008FFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFF80000
+00000CFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFC00000
+000000488887578888888888888888888864688884000000
+000000000000000000000000000000000000000000000000
+}
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam database<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam queue<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam person<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam actor<<person>> {
+    StereotypeFontColor #08427B
+    FontColor #08427B
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam database<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam person<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_person>> {
+    StereotypeFontColor #686868
+    FontColor #686868
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam database<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam queue<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam person<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam actor<<container>> {
+    StereotypeFontColor #438DD5
+    FontColor #438DD5
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam database<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam queue<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam person<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam actor<<external_container>> {
+    StereotypeFontColor #B3B3B3
+    FontColor #B3B3B3
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+
+
+skinparam rectangle<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam database<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam queue<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam person<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam actor<<container_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam package<<container_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<container_boundary>>StereotypeFontColor transparent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sprite $user [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000025788300000000005886410000000000000
+000000000007DFFFFFFD9643347BFFFFFFFB400000000000
+0000000004EFFFFFFFFFFFFFFFFFFFFFFFFFFB1000000000
+000000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFD200000000
+00000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE10000000
+0000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0000000
+000000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5000000
+000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD000000
+000009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF200000
+00000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF600000
+00000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF800000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00000EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF700000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+0000008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD3000000
+000000014555555555555555555555555555555300000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+
+skinparam folderBackgroundColor<<FA5 USER>> White
+sprite $microscope [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000ADDDDDD4000000000000000000000000
+0000000000000005FFFFFFFB000000000000000000000000
+0000000000000006FFFFFFFC000000000000000000000000
+00000000000002DFFFFFFFFFF60000000000000000000000
+0000000000000CFFFFFFFFFFFF3000000000000000000000
+0000000000000FFFFFFFFFFFFF6000000000000000000000
+0000000000000FFFFFFFFFFFFF7000000000000000000000
+0000000000000FFFFFFFFFFFFF7000000000000000000000
+0000000000000FFFFFFFFFFFFF7000000000000000000000
+0000000000000FFFFFFFFFFFFF7000000000000000000000
+0000000000000FFFFFFFFFFFFF7000000000000000000000
+0000000000000FFFFFFFFFFFFF700DFDA610000000000000
+0000000000000FFFFFFFFFFFFF700DFFFFFB400000000000
+0000000000000FFFFFFFFFFFFF700DFFFFFFFB1000000000
+0000000000000FFFFFFFFFFFFF700DFFFFFFFFE400000000
+0000000000000FFFFFFFFFFFFF700DFFFFFFFFFF60000000
+0000000000000FFFFFFFFFFFFF70057AEFFFFFFFF5000000
+0000000000000FFFFFFFFFFFFF70000004DFFFFFFF200000
+0000000000000FFFFFFFFFFFFF7000000007FFFFFFC00000
+0000000000000FFFFFFFFFFFFF70000000004FFFFFF60000
+0000000000000FFFFFFFFFFFFF700000000006FFFFFE0000
+0000000000000FFFFFFFFFFFFF700000000000BFFFFF5000
+0000000000000FFFFFFFFFFFFF7000000000002FFFFFA000
+0000000000000FFFFFFFFFFFFF7000000000000BFFFFE000
+0000000000000FFFFFFFFFFFFF60000000000006FFFFF100
+0000000000000CFFFFFFFFFFFF30000000000003FFFFF400
+00000000000002DFFFFFFFFFF700000000000001FFFFF500
+00000000000000016FFFFFC20000000000000001FFFFF500
+00000000000000004FFFFFB00000000000000002FFFFF300
+00000000000000000BDDDD400000000000000005FFFFF200
+000000000000000000000000000000000000000AFFFFF000
+000000000000000000000000000000000000000EFFFFB000
+000000000037777777777777777760000000008FFFFF6000
+0000000000BFFFFFFFFFFFFFFFFFF200000003FFFFFF1000
+0000000000BFFFFFFFFFFFFFFFFFF20000001EFFFFF80000
+000000000014444444444444444430000003EFFFFFE10000
+00000000000000000000000000000000008FFFFFFF400000
+00000001111111111111111111111125AEFFFFFFF8000000
+0001AFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD50000
+001DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7000
+008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF100
+00CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF400
+00BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF300
+000555555555555555555555555555555555555555553000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+
+skinparam folderBackgroundColor<<FA5 MICROSCOPE>> White
+sprite $cube [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000058620000000000000000000000
+000000000000000000039FFFFFD710000000000000000000
+000000000000000017DFFFFFFFFFFB500000000000000000
+000000000000005BFFFFFFFFFFFFFFFE9300000000000000
+0000000000039FFFFFFFFFFFFFFFFFFFFFD7100000000000
+0000000027DFFFFFFFFFFFFFFFFFFFFFFFFFFA4000000000
+0000005BFFFFFFFFFFFFFC6128EFFFFFFFFFFFFE93000000
+00019FFFFFFFFFFFFFE820000005BFFFFFFFFFFFFFC40000
+000DFFFFFFFFFFFFA40000000000017DFFFFFFFFFFFF6000
+007FFFFFFFFFFC61000000000000000039EFFFFFFFFFE000
+00CFFFFFFFE9200000000000000000000004AFFFFFFFF400
+00DFFFFFA400000000000000000000000000017DFFFFF500
+00DFFFFE8200000000000000000000000000004BFFFFF500
+00DFFFFFFFB50000000000000000000000017EFFFFFFF500
+00DFFFFFFFFFE810000000000000000004AFFFFFFFFFF500
+00DFFFFFFFFFFFFB5000000000000016DFFFFFFFFFFFF500
+00DFFFFFFFFFFFFFFD710000000039FFFFFFFFFFFFFFF500
+00DFFFFFFFFFFFFFFFFFA300016DFFFFFFFFFFFFFFFFF500
+00DFFFFFFFFFFFFFFFFFFFD79FFFFFFFFFFFFE82FFFFF500
+00DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC5000FFFFF500
+00DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9200000FFFFF500
+00DFFFFFFFFFFFFFFFFFFFFFFFFFFFC600000000FFFFF500
+00DFFFFFFFFFFFFFFFFFFFFFFFFF920000000000FFFFF500
+00DFFFFFFFFFFFFFFFFFFFFFFF90000000000000FFFFF500
+00DFFFFFFFFFFFFFFFFFFFFFFF70000000000000FFFFF500
+00DFFFFFFFFFFFFFFFFFFFFFFF70000000000000FFFFF500
+00DFFFFFFFFFFFFFFFFFFFFFFF70000000000000FFFFF500
+00DFFFFFFFFFFFFFFFFFFFFFFF70000000000000FFFFF500
+00DFFFFFFFFFFFFFFFFFFFFFFF70000000000000FFFFF500
+00DFFFFFFFFFFFFFFFFFFFFFFF70000000000018FFFFF500
+00CFFFFFFFFFFFFFFFFFFFFFFF700000000018FFFFFFF400
+008FFFFFFFFFFFFFFFFFFFFFFF7000000018FFFFFFFFF100
+001EFFFFFFFFFFFFFFFFFFFFFF70000018FFFFFFFFFF7000
+0001BFFFFFFFFFFFFFFFFFFFFF700018FFFFFFFFFFE60000
+000003BFFFFFFFFFFFFFFFFFFF7018FFFFFFFFFFF8100000
+00000003BFFFFFFFFFFFFFFFFF88FFFFFFFFFFE700000000
+0000000003BFFFFFFFFFFFFFFFFFFFFFFFFFF81000000000
+000000000003BFFFFFFFFFFFFFFFFFFFFFF8100000000000
+00000000000003BFFFFFFFFFFFFFFFFFF810000000000000
+0000000000000003BFFFFFFFFFFFFFF81000000000000000
+000000000000000003BFFFFFFFFFF8100000000000000000
+00000000000000000003BFFFFFF810000000000000000000
+0000000000000000000003ADC70000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+
+skinparam folderBackgroundColor<<FA5 CUBE>> White
+
+skinparam rectangle<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam database<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam queue<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam person<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam actor<<external_container>> {
+    StereotypeFontColor #B3B3B3
+    FontColor #B3B3B3
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+
+
+rectangle "<$user>\n== Experimentalist\n\n Wants to know stretch properties of skin tissue." <<person>> as experimentalist 
+rectangle "<$microscope>\n== SHG microscope\n\n Images collagen in skin tissue." <<system>> as SHG_microscope 
+  rectangle "== Skinstression\n<size:12>[System]</size>" <<system_boundary>><<boundary>> as Skinstression [[https://github.com/siemdejong/shg-strain-stress]] {
+    rectangle "== Notebooks\n//<size:12>[IPython]</size>//\n\nExplore data, create targets, apply noise2void, prepare data." <<container>> as notebooks 
+    rectangle "== Application\n//<size:12>[Python]</size>//\n\nTune hyperparameters, and train model" <<container>> as application 
+    database "== Model zoo\n//<size:12>[Pytorch]</size>//\n\nTraining checkpoints." <<container>> as model_zoo 
+    database "== Configurations\n//<size:12>[YAML]</size>//\n\nHyperparameter and training configurations." <<container>> as config 
+    rectangle "== Logs\n//<size:12>[txt]</size>//" <<container>> as logs 
+  rectangle "== Optuna\n<size:12>[System]</size>" <<system_boundary>><<boundary>> as Optuna [[https://optuna.org/]] {
+        rectangle "== Optuna-dasboard\n//<size:12>[sqlite]</size>//\n\nHyperparameter visualization." <<external_container>> as optuna_dashboard [[https://github.com/optuna/optuna-dashboard]]
+        database "== Optuna-DB\n//<size:12>[sqlite]</size>//\n\nHyperparameter trial storage" <<external_container>> as optuna_db 
+    }
+    rectangle "== PyIQ\n//<size:12>[Python]</size>//\n\nQuantify image quality." <<external_container>> as PyIQ [[https://github.com/sakoho81/pyimagequalityranking]]
+    rectangle "== Tensorboard\n//<size:12>[Pytorch/Tensorflow]</size>//\n\nTraining visualization" <<external_container>> as tensorboard [[https://www.tensorflow.org/tensorboard]]
+    database "== Images\n//<size:12>[BMP/TIF]</size>//\n\nMicroscope output to learn from." <<external_container>> as img_db 
+    rectangle "== Hydra\n//<size:12>[Python]</size>//\n\nInterpret configurations." <<external_container>> as hydra [[https://hydra.cc/docs/intro/]]
+}
+
+experimentalist - ->> SHG_microscope : **Uses**
+experimentalist - ->> notebooks : **Uses**
+notebooks - ->> img_db : **Reads from and writes to**
+notebooks - ->> model_zoo : **Reads from and writes to**
+experimentalist - ->> PyIQ : **Uses**
+PyIQ - ->> img_db : **Reads from**
+experimentalist - ->> application : **Uses**
+application - ->> model_zoo : **Reads from and writes to**
+SHG_microscope - ->> img_db : **Writes to**
+PyIQ - ->> application : **Uses**
+PyIQ - ->> notebooks : **Uses**
+application - ->> tensorboard : **Writes to**
+tensorboard - ->> experimentalist : **Provides network information**
+logs - ->> experimentalist : **Shows information to**
+optuna_dashboard - ->> experimentalist : **Shows information to**
+optuna_dashboard - ->> optuna_db : **Reads from**
+application - ->> optuna_db : **Writes to**
+application - ->> hydra : **Uses**
+hydra - ->> config : **Reads from**
+application - ->> logs : **Writes to**
+
+
+hide stereotype
+rectangle floating_legend_alias<<legendArea>> [
+<#00000000,#00000000>|<color:#000000>**Legend**</color> |
+|<#08427B><color:#073B6F> <U+25AF></color> <color:#FFFFFF><$person,scale=0.25>  person <size:14></size></color> |
+|<#1168BD><color:#3C7FC0> <U+25AF></color> <color:#FFFFFF> system <size:14></size></color> |
+|<#438DD5><color:#3C7FC0> <U+25AF></color> <color:#FFFFFF> container <size:14></size></color> |
+|<#B3B3B3><color:#A6A6A6> <U+25AF></color> <color:#FFFFFF> external container <size:14></size></color> |
+|<#transparent><color:#444444> <U+25AF></color> <color:#444444> system boundary <size:14>(dashed)</size></color> |
+]
+SHG_microscope -[hidden]- - floating_legend_alias
+SHG_microscope -[hidden]D- floating_legend_alias
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

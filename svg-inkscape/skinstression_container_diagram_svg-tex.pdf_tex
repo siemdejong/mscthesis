@@ -1,0 +1,200 @@
+%% Creator: Inkscape 1.2.1 (9c6d41e410, 2022-07-14), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'skinstression_container_diagram_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1338.75bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.45070524)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.37955182,0.43999969){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Skinstression}\end{tabular}}}}%
+    \put(0.39467787,0.43105145){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{[System]}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.5789916,0.30974759){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Optuna}\end{tabular}}}}%
+    \put(0.58039216,0.30079935){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{[System]}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.17338936,0.28005571){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Notebooks}\end{tabular}}}}%
+    \put(0.18347339,0.27110748){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{[IPython]}\end{tabular}}}}%
+    \put(0.19579832,0.26148842){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.14565826,0.25162328){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Explore data, create targets,\end{tabular}}}}%
+    \put(0.14089636,0.24175806){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}apply noise2void, prepare data.\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.35938375,0.28005571){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Application}\end{tabular}}}}%
+    \put(0.37114846,0.27110748){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{[Python]}\end{tabular}}}}%
+    \put(0.38235294,0.26148842){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.33277311,0.25162328){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Tune hyperparameters, and\end{tabular}}}}%
+    \put(0.36386555,0.24175806){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}train model\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.18431373,0.15932744){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Model zoo}\end{tabular}}}}%
+    \put(0.19327731,0.1503792){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{[Pytorch]}\end{tabular}}}}%
+    \put(0.20532213,0.14076013){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.16862745,0.13089497){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Training checkpoints.\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.31176471,0.05204452){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Configurations}\end{tabular}}}}%
+    \put(0.33305322,0.04309629){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{[YAML]}\end{tabular}}}}%
+    \put(0.34257703,0.03347722){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.29187675,0.02361206){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Hyperparameter and training\end{tabular}}}}%
+    \put(0.31764706,0.01374686){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}configurations.\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.67619048,0.15484564){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Logs}\end{tabular}}}}%
+    \put(0.68207283,0.14589741){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{[txt]}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.24285714,0.4052658){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{PyIQ}\end{tabular}}}}%
+    \put(0.24061625,0.39631756){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{[Python]}\end{tabular}}}}%
+    \put(0.25182073,0.38669851){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.21260504,0.37683336){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Quantify image quality.\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.73837535,0.16464956){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Tensorboard}\end{tabular}}}}%
+    \put(0.73557423,0.15570133){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{[Pytorch/Tensorflow]}\end{tabular}}}}%
+    \put(0.76498599,0.14608226){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.72913165,0.1362171){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Training visualization\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.04761905,0.16436945){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Images}\end{tabular}}}}%
+    \put(0.04845938,0.15542122){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{[BMP/TIF]}\end{tabular}}}}%
+    \put(0.06190476,0.14580215){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.01484594,0.13593699){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Microscope output to learn\end{tabular}}}}%
+    \put(0.05406162,0.12607179){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}from.\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.33081232,0.16464956){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Hydra}\end{tabular}}}}%
+    \put(0.33137255,0.15570133){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{[Python]}\end{tabular}}}}%
+    \put(0.34257703,0.14608226){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.30168067,0.1362171){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Interpret configurations.\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.55714286,0.27501369){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Optuna-dasboard}\end{tabular}}}}%
+    \put(0.58487395,0.26606546){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{[sqlite]}\end{tabular}}}}%
+    \put(0.59355742,0.25644641){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.54257703,0.24658126){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Hyperparameter visualization.\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.57030812,0.15932744){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Optuna-DB}\end{tabular}}}}%
+    \put(0.58431373,0.1503792){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{[sqlite]}\end{tabular}}}}%
+    \put(0.5929972,0.14076013){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.54341737,0.13089497){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Hyperparameter trial storage\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.84229692,0.39266076){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Experimentalist}\end{tabular}}}}%
+    \put(0.87422969,0.38254938){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.83641457,0.37268418){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Wants to know stretch\end{tabular}}}}%
+    \put(0.83221289,0.36281896){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}properties of skin tissue.\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.90252101,0.25736663){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{SHG microscope}\end{tabular}}}}%
+    \put(0.93753501,0.24725526){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.88627451,0.23739005){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Images collagen in skin tissue.\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.88291317,0.06357179){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Legend}\end{tabular}}}}%
+    \put(0.91260504,0.06357179){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.88515406,0.05370659){\color[rgb]{0.02745098,0.23137255,0.43529412}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}▯\end{tabular}}}}%
+    \put(0.8929972,0.05370659){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.90644258,0.05370659){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}person\end{tabular}}}}%
+    \put(0.93333333,0.05370659){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.88515406,0.04384136){\color[rgb]{0.23529412,0.49803922,0.75294118}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}▯\end{tabular}}}}%
+    \put(0.8929972,0.04384136){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.89747899,0.04384136){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}system\end{tabular}}}}%
+    \put(0.92436975,0.04384136){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.88515406,0.0339762){\color[rgb]{0.23529412,0.49803922,0.75294118}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}▯\end{tabular}}}}%
+    \put(0.8929972,0.0339762){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.89747899,0.0339762){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}container\end{tabular}}}}%
+    \put(0.93277311,0.0339762){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.88515406,0.02411101){\color[rgb]{0.65098039,0.65098039,0.65098039}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}▯\end{tabular}}}}%
+    \put(0.8929972,0.02411101){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.89747899,0.02411101){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}external container\end{tabular}}}}%
+    \put(0.96302521,0.02411101){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.88515406,0.01424581){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}▯\end{tabular}}}}%
+    \put(0.8929972,0.01424581){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.89747899,0.01424581){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}system boundary\end{tabular}}}}%
+    \put(0.96022409,0.01424581){\color[rgb]{0.26666667,0.26666667,0.26666667}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(dashed)\end{tabular}}}}%
+    \put(0.99215686,0.01424581){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.90728291,0.33112148){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Uses}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.51904762,0.33112148){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Uses}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=25]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.04733894,0.2059114){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Reads from and writes to}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=26]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.13529412,0.2059114){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Reads from and writes to}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=27]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.55462185,0.39862849){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Uses}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=28]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.08767507,0.26193381){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Reads from}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=29]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.57338936,0.33112148){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Uses}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=30]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.25406162,0.2059114){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Reads from and writes to}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=31]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.73529412,0.2059114){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Writes to}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=32]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.31848739,0.33112148){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Uses}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=33]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.22885154,0.33112148){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Uses}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=34]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.49831933,0.2059114){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Writes to}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=35]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.81036415,0.26613549){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Provides network}\end{tabular}}}}%
+    \put(0.8210084,0.25767957){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{information}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=36]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.70392157,0.26193381){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Shows information to}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=37]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.60252101,0.33112148){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Shows information to}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=38]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.59467787,0.2059114){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Reads from}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=39]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.38235294,0.2059114){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Writes to}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=40]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.34257703,0.2059114){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Uses}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=41]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.3442577,0.09722794){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Reads from}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=42]{skinstression_container_diagram_svg-tex.pdf}}%
+    \put(0.43501401,0.2059114){\color[rgb]{0.4,0.4,0.4}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Writes to}\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

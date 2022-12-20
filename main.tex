@@ -39,6 +39,21 @@
 % To typeset units
 \usepackage[]{siunitx}
 
+% To rotate big images sideways
+\usepackage{rotating}
+% \usepackage{pdflscape}
+
+% To display svg images.
+\usepackage[inkscapelatex=false]{svg}
+% \newcommand{\kutblokje}[1]{%
+% 	\begin{tikzpicture}
+	
+% 		\node[rectangle,draw] (r) at (0,0) {};
+	
+% 	\end{tikzpicture}
+% }
+% \DeclareUnicodeCharacter{25AF}{\kutblokje{}}
+
 % \newcommand{\ie}{i.\,e.\,}
 % \newcommand{\Ie}{I.\,e.\,}
 % \newcommand{\eg}{e.\,g.\,}
@@ -54,6 +69,9 @@
 \newcommand{\xmark}{\ding{55}}%
 
 \usepackage{fontawesome5}
+
+% For iterating on images in a directory, using foreach.
+\usepackage{pgffor}%
 
 \graphicspath{{images/}{./}} % Paths where images are looked for
 
