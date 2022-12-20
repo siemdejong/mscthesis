@@ -21,3 +21,24 @@ LDS computes the effective label density distribution,
 \end{equation}
 where $k(y,y')$ is a symmetric kernel, $p(y)$ the number of label $y$ present in the training data and \edtl the effective density of target label $y'$.
 Reweighting the loss function with the inverse (square root) of \edtl addresses target imbalance.
+
+\section{Goodness of fit}
+
+\subsection{Coefficient of determination}\label{subsec:coef_det}
+One possible way to quantify how good a fit is, is to calculate the coefficient of determination.
+The coefficient of determination of a dataset $y$ and its prediction $f$, is calculated with
+\begin{equation}
+    R^2 = 1 - \frac{SS_\mathrm{tot}}{SS_\mathrm{res}},
+\end{equation}
+where
+\begin{equation}
+    SS_\mathrm{tot} = \sum_i (y_i - \bar{y})^2,
+\end{equation}
+with $\bar{y}$ the mean of $y$, and
+\begin{equation}
+    SS_\mathrm{res} = \sum_i (y_i - f_i)^2.
+\end{equation}
+
+If $R^2 = 1$, the prediction perfectly fits the data.
+There are some caveats to using $R^2$ to determine the goodness of fit.
+Most notably, $R^2$ does not indicate whether the model is the correct model or whether there are enough data points to draw a conclusion.

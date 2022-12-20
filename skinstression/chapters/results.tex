@@ -50,3 +50,49 @@ The source of data is summarized in table~\ref{tab:source_of_data}
         \bottomrule
     \end{tabular}
 \end{table}
+
+\section{Predictor pre-selection}
+\subsection{PCA}
+The PCA fit for every truncated and interpolated strain-stress curve is depicted in \cref{fig:pca_fits}.
+For every fit, $R^2$ is calculated with respect to the interpolated and truncated data.
+On average, $\overline{R^2} \approx \num{0.9927} \pm \num{0.0022}$.
+Due to the nature of PCA, the exponential part of the slower curves is not included in the making of the fit.
+
+\begin{figure*}
+    \centering
+    \foreach \c in {1,2,...,61}{%
+            \IfFileExists{skinstression/images/pca-fits/sample_\c.pdf} {%
+                \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_\c.pdf}
+            }{%
+                % files do not exist, so nothing to do
+            }
+        }
+    \caption[PCA fits]{
+        PCA fits for every truncated and interpolated strain-stress curve.
+        The interpolated measurements (blue) are estimated by the PCA curve (red) along with their $R^2$.
+        PCA is done on all available thigh data.
+        Note that the vertical axes are not equal.
+    }
+    \label{fig:pca_fits}
+\end{figure*}
+
+\subsection{Logistic curve}
+The logistic curve fit for every strain-stress curve is shown in \cref{fig:logistic_fits}.
+For every fit, $R^2$ is calculated.
+On average, $\overline{R^2} \approx \num{0.9979} \pm \num{0.0039}$.
+
+\begin{figure*}
+    \centering
+    \foreach \c in {1,2,...,61}{%
+            \IfFileExists{skinstression/images/logistic-fits/sample_\c.pdf} {%
+                \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_\c.pdf}
+            }{%
+                % files do not exist, so nothing to do
+            }
+        }
+    \caption[Logistic fits]{
+        Logistic fits (red) and their $R^2$ for every strain-stress curve (black).
+        Note that the vertical axes are not equal.
+    }
+    \label{fig:logistic_fits}
+\end{figure*}
