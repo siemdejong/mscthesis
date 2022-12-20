@@ -232,7 +232,7 @@ Therefore, $c$ is promising if
 is high.
 Ref.~\cite{Bergstra2011} shows that this ratio is proportional to the expected improvement~\cite{Jones2001}.
 The configuration responsible for the maximum of $\mathrm{promisingness}(c)$ is used as the next trial.
-Results of that trial are now categorized as good or bad, and the iterative process continues.
+Results of that trial are now categorized as good or bad, and the iterative process continues.\marginnote{add multivariate note \cite{Falkner2018}}
 
 \subsection{Successive Halving and Hyperband}
 Although $\mathcal{C}$ can be sampled more efficiently with TPE, trials still use the full computational budget, even if it is apparent that the trial is unpromising early on.
@@ -257,10 +257,27 @@ Every invocation of SH is called a bracket.
 In the end, HB returns the best configuration possible just like SH, but diminishing the dependence on manually choosing a good $T$.
 
 \section{Training}\label{Training}
-What is training? What is the goal and how to get there?
+At the start of training, a neural network has its weights and biases initialized.
+Most probably, the model is not capable of mapping input to output in a robust manner.
+To achieve this, repeatedly using backpropagation to update the model parameters aims to shape the model in the direction of minimizing the loss between target and model output.
+The neural network is presented with the input data in batches.
+Every batch, the model is updated with the backpropagation algorithm.
+One cycle of using all the batches is called an epoch.
+A training consists of multiple epochs.
 
-\subsection{Overfitting}
-Overfitting? Other signals that show bad training?
+For every $\mathcal{B}$th batch, a loss $\mathcal{L}_\mathcal{B}$ can be defined that is used by backpropagation to penalize the model performance.
+Taking the average of all batch losses is the epoch loss,
+\begin{equation}
+    \mathcal{L}_\mathrm{epoch} = \frac{1}{N_\mathcal{B}}\sum_{i=0}^{N_\mathcal{B}}\mathcal{L}_\mathcal{B},
+\end{equation}
+Tracking $\mathcal{L}_\mathrm{epoch}$ shows how quickly the model is learning.
+
+To see if the model generalizes, it is standard practice to have a hold-out set, that the model does not learn from, but only uses to calculate the validation loss.
+Ideally, this validation loss follows a similar trajectory as the training loss.
+If the validation loss diverges upwards from the training loss, the model is overfitting.
+It fails to generalize to unseen, but similar data.
+To remedy this, there are multiple possible solutions.
+Solutions include dropout, batch normalization, or more complex models (\ie deeper or wider networks).
 
 \subsection{Dropout}\label{sec:dropout}
 Overfitting can be reduced by applying methods of regularization.
