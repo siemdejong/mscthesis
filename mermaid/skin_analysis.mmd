@@ -1,0 +1,53 @@
+%%{init: {'theme':'default', flowchart: {'htmlLabels': false}}}%%
+
+flowchart TB
+    %% nodes
+
+    curves[(Stress-stretch curves)]
+
+    subgraph predictor_pre_selection[Predictor pre-selection]
+        exp(Exponential)
+        pca(PCA)
+        logistic(Logistic)
+        best_fit{Best fit}
+    end
+
+
+    images[(Images)]
+
+    subgraph hparam_search[Hyperparameter search]
+        study1[Hyperband 1]
+        study2[Hyperband 2]
+        study3[Hyperband 3]
+        study4[Hyperband 4]
+        best_config{Best configuration}
+    end
+
+    subgraph training[Training]
+        train[Train model]
+        ensemble[Snapshot ensembling]
+    end
+
+    test[Test model]
+
+    subgraph xai[XAI]
+        ig[Integrated gradients]
+        occ[Occlusion]
+        why{Why?}
+    end
+
+    %% Connections
+
+    %% curves --> exp & pca & logistic
+    curves --> predictor_pre_selection
+    exp & pca & logistic --> best_fit
+    %% best_fit --> study1 & study2 & study3 & study4
+    best_fit --> hparam_search
+    %% images --> study1 & study2 & study3 & study4
+    images --> hparam_search
+    study1 & study2 & study3 & study4 --> best_config
+    best_config --> training
+    train --> ensemble
+    ensemble --> test
+    test --> xai
+    ig & occ --> why

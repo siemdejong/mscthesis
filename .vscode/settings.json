@@ -3,4 +3,5 @@
     // "plantuml.exportOutDir": "C:/Users/siemd/OneDrive - UvA/Master Research Project/mscthesis/plantuml/out",
     "plantuml.diagramsRoot": "plantuml/src",
     "plantuml.exportOutDir": "plantuml/out",
+    "svg.preview.background": "white",
 }

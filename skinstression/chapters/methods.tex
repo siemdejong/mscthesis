@@ -1,7 +1,7 @@
 \chapter{Methods}
 \begin{enumerate}
-  \item TODO: SQUASH SECTION BELOW INTO FEWER SECTIONS AND MAKE IT FLOW
-  \item TODO: DETAIL
+    \item TODO: SQUASH SECTION BELOW INTO FEWER SECTIONS AND MAKE IT FLOW
+    \item TODO: DETAIL
 \end{enumerate}
 
 \section{Sources of data}
@@ -33,16 +33,16 @@ The enhanced images are then transformed with a Yeo-Johnson transform such that 
 
 The transformed images are standardized by subtracting the total mean and total standard deviation of the complete transformed image set, like
 \begin{equation}
-  X_\mathrm{out} = \frac{X_\mathrm{in} - \mu}{\sigma},
+    X_\mathrm{out} = \frac{X_\mathrm{in} - \mu}{\sigma},
 \end{equation}
 where
 \begin{equation}
-  \mu = \frac{1}{N} \sum_i \sum_j \sum_k X_{i,j,k},
+    \mu = \frac{1}{N} \sum_i \sum_j \sum_k X_{i,j,k},
 \end{equation}
 and
 \begin{equation}
-  % \sigma = \sqrt{\frac{1}{N} \sum_{i,j,k} X_{i,j,k}^2 - \left(\frac{1}{N} \sum_{i,j,k} X_{i,j,k}\right)^2},
-  \sigma = \sqrt{\frac{1}{N} \sum_i \sum_j \sum_k \left(X_{i,j,k} - \mu\right)^2},
+    % \sigma = \sqrt{\frac{1}{N} \sum_{i,j,k} X_{i,j,k}^2 - \left(\frac{1}{N} \sum_{i,j,k} X_{i,j,k}\right)^2},
+    \sigma = \sqrt{\frac{1}{N} \sum_i \sum_j \sum_k \left(X_{i,j,k} - \mu\right)^2},
 \end{equation}
 with $N$ the total number of pixels, $k$ an individual image and $i,j$ the pixel in the horizontal and vertical dimension, respectively.
 
@@ -123,28 +123,28 @@ Then, the derivative increases until it reaches a purely exponential part.
 If skin stretching follows this kind of behaviour, a simple mathematical model can be derived.
 Inspecting the figure, the linear part shows the ordinary differential equation
 \begin{equation}
-  \frac{\mathrm{d}\sigma}{\mathrm{d}\gamma} \propto \sigma,
+    \frac{\mathrm{d}\sigma}{\mathrm{d}\gamma} \propto \sigma,
 \end{equation}
 where $\gamma = \chi - 1$.
 Solving for $\sigma$, we get
 \begin{equation}
-  \sigma \propto e^{\lambda\gamma},
+    \sigma \propto e^{\lambda\gamma},
 \end{equation}
 where $\lambda$ is some factor dictating the speed with which the exponential increases.
 At no extension, i.\ e.\ $\gamma=0$, it can be assumed that there is no stress.
 Therefore,
 \begin{equation}
-  \sigma \propto e^{\lambda\gamma} - 1.
+    \sigma \propto e^{\lambda\gamma} - 1.
 \end{equation}
 At small extensions, i.\ e.\ $\lambda\gamma \ll 1$, $e^{\lambda\gamma} \approx (1 + \lambda\gamma + \ldots)$ using a Taylor expansion.
 So
 \begin{equation}
-  \sigma_{\lambda\gamma\ll 1} \propto 1 + \lambda\gamma + \ldots - 1 \approx G_0 \gamma,
+    \sigma_{\lambda\gamma\ll 1} \propto 1 + \lambda\gamma + \ldots - 1 \approx G_0 \gamma,
 \end{equation}
 where $G_0$ is some linear coefficient at small extensions.
 The full expression then becomes
 \begin{equation}
-  \sigma = \frac{G_0}{\lambda}\left(e^{\lambda\gamma}-1\right).
+    \sigma = \frac{G_0}{\lambda}\left(e^{\lambda\gamma}-1\right).
 \end{equation}
 
 This model assumes that data follows the previously described curve where there is a small rise at small extensions and an indefinitely exponentially increasing stress for larger extensions.
@@ -153,7 +153,7 @@ This model assumes that data follows the previously described curve where there 
 In an earlier study (ref A.\ Soylu), principal component analysis (PCA) is used to reduce the dimensionality of the strain-stress data.
 In summary, after PCA, every measurement $Y$ can be approximated by
 \begin{equation}\label{eq:pca}
-  Y \approx Y_\mathrm{PCA} = \mathbf{A} \mathbf{V} + \bar{Y},
+    Y \approx Y_\mathrm{PCA} = \mathbf{A} \mathbf{V} + \bar{Y},
 \end{equation}
 where $\mathbf{A}$ and $\mathbf{V}$ are matrices containing respectively the eigenvalues and -vectors of the the measurement data.
 $\bar{Y}$ is the measurement mean.
@@ -169,7 +169,7 @@ This reduces the domain of the data.
 \subsubsection{Logistic curve}
 The empirical observations where the force response of skin tissue changes states, suggests a logistic curve, which can be written as
 \begin{equation}\label{eq:logistic_curve}
-  \sigma = \frac{\sigma_\mathrm{max}}{1+e^{-E_\mathrm{max} (\gamma - \gamma_c)}},
+    \sigma = \frac{\sigma_\mathrm{max}}{1+e^{-E_\mathrm{max} (\gamma - \gamma_c)}},
 \end{equation}
 where $\sigma$ and $\gamma$ are the stress and engineering strain, $\sigma_\mathrm{max}$ is the maximum stress, $E_\mathrm{max}$ is the maximum Young's modulus and $\gamma_c$ the strain offset.
 This equation assumes that there is a maximum force that the tissue can exert, in contrary to the theoretical approach above (ref).
@@ -194,6 +194,24 @@ For a detailed summary of the number of samples, see fig. (graph with nodes and 
 Due to the limited amount of participants, individuals with unknown gender or age were included.
 
 \section{Statistical analysis methods}
+
+This section shows the methods obtain a trained model from stress-strain curves and images to use it for inference and interrogate it with XAI techniques.
+The statistical methods are summarized in \cref{fig:skin_stat_methods}.
+
+\begin{figure*}[p]
+    \centering
+    \includegraphics[height=\dimexpr\textheight-55.89pt\relax]{mermaid/skin_analysis.pdf}
+    \caption[Flowchart of statistical analysis methods for \textsc{Skinstression}]{
+        Flowchart of statistical analysis methods for \textsc{Skinstression}.
+        Exponentials, principal component analysis (PCA) reconstructions, and logistic curves were fit to the stress-strain curves.
+        The best-fitted model was used to create training targets.
+        The targets and images were used as input for further training.
+        The hyperparameter search was performed by four Hyperband studies and the best configuration was used for further training.
+        After training, Snapshot Ensembling was used to build a final model.
+        The final model is tested and interrogated using the XAI techniques integrated gradients and occlusion.
+    }
+    \label{fig:skin_stat_methods}
+\end{figure*}
 
 \subsection{Predictor pre-selection}
 As discussed in \cref{sec:skin_predictors}, there are three candidates to be used as neural network predictors.
@@ -241,15 +259,15 @@ A linear activation function ensures the output is continuous and unaltered.
 The model is shown in \cref{fig:model}
 
 \begin{figure*}
-  \includegraphics{skinstression/images/skinstression.pdf}
-  % \input{PlotNeuralNet/examples/Skinstression/skinstression-new.tex}
-  \caption[Network architecture]{
-    The convolutional neural network consists of five blocks.
-    The first four blocks contain convolution, maxpooling, and batch normalization layers.
-    The last block contains a fully connected network.
-    It requires an input of $\qty{258}{px}\times\qty{258}{px}$ to get a vector of length 3 as output.
-  }
-  \label{fig:model}
+    \includegraphics{skinstression/images/skinstression.pdf}
+    % \input{PlotNeuralNet/examples/Skinstression/skinstression-new.tex}
+    \caption[Network architecture]{
+        The convolutional neural network consists of five blocks.
+        The first four blocks contain convolution, maxpooling, and batch normalization layers.
+        The last block contains a fully connected network.
+        It requires an input of $\qty{258}{px}\times\qty{258}{px}$ to get a vector of length 3 as output.
+    }
+    \label{fig:model}
 \end{figure*}
 
 The dropout layers in \cite{Soylu2022} are replaced by BN layers.
