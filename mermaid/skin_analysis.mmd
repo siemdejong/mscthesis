@@ -44,7 +44,7 @@ flowchart TB
     %% best_fit --> study1 & study2 & study3 & study4
     best_fit --> hparam_search
     %% images --> study1 & study2 & study3 & study4
-    images --> hparam_search
+    images ----> hparam_search
     study1 & study2 & study3 & study4 --> best_config
     best_config --> training
     train --> ensemble
