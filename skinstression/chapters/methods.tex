@@ -280,9 +280,53 @@ To find the optimal set of hyperparameters, the Hyperband algorithm with 300 tri
 To allow trials to warmup, a minimum of 100 epochs were allowed.
 To limit the trial duration, a maximum of 3000 epochs were allowed.
 The number of trials were reduced with a reduction factor of $\eta=4$.
-Trial parameters were sampled using the TPE algorithm.
+Trial parameters were sampled using the multivariate TPE algorithm.
 See \cref{subsec:conf_skin} for a summary of configuration search space $\mathcal{C}$.
 Every trial used the complete dataset after data preparation (\cref{sec:skin_data_prep}).
+
+Four different Hyperband searches were performed, see \cref{tab:skin_studies}.
+Search 1 will serve as a benchmark study.
+It contains a few data augmentations that are assumed to not alter the physical context of the image.
+That is, force is exerted on the tissue in the horizontal direction in the image.
+Therefore, flipping the image either vertically or horizontally is assumed to not change the stretch behaviour.
+Both flipping operations occur with a probability of $0.5$.
+Moreover, the images' intensity is randomly changed between x\% and x\%.\marginpar{By what fraction is the intensity changed?}
+Search 2 includes CLAHE to enhance the image.
+Moreover, random $700\times700$ cropping is added to further artificially increase the number of available images to train on.
+Also included is the ability to weight the loss per target variable, to penalize hard variables more than easy variables.
+Search 3 includes the Yeo-Johnson transformation to see how input normalization affects the training outcome.
+Search 4 adds random sharpness and gaussian blurring to increase the training set variability.
+It also includes random rotation from \ang{0} to \ang{90}.
+The random rotation along with flipping in two directions ensures all possible rotations.
+The Yeo-Johnson transform from search 3 was excluded in search 4.
+
+\begin{table}
+    \caption[\textsc{Skinstression} hyperparameter search studies]{
+        The hyperparameter searches performed.
+        Data augmentations were performed in the order given here.
+        Every study, more is added, except for search 4 where the Yeo-Johnson transform was removed.
+        Note this table does not describe the full search space.
+        Every search is done with the search space described in \cref{tab:conf_skin}.
+    }
+    \label{tab:skin_studies}
+    \begin{tabular}{rcccc}
+        \toprule                                                           \\
+        Search                         & 1      & 2      & 3      & 4      \\
+        \midrule
+        Random $700\times700$ cropping & \xmark & \cmark & \cmark & \cmark \\
+        Intensity jitter               & \cmark & \cmark & \cmark & \cmark \\
+        Random horizontal flip         & \cmark & \cmark & \cmark & \cmark \\
+        Random vertical flip           & \cmark & \cmark & \cmark & \cmark \\
+        Random sharpness               & \xmark & \xmark & \xmark & \cmark \\
+        Random gaussian blur           & \xmark & \xmark & \xmark & \cmark \\
+        Random rotation                & \xmark & \xmark & \xmark & \cmark \\
+        \midrule
+        CLAHE                          & \xmark & \cmark & \cmark & \cmark \\
+        Yeo-Johnson transform          & \xmark & \xmark & \cmark & \xmark \\
+        Target variable weighting      & \xmark & \cmark & \cmark & \cmark \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \subsection{Training}
 Using the best configuration for hyperparameter optimization, a model is trained further for a total of $N$\marginnote{How many exactly?} epochs.
