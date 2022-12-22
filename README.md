@@ -37,6 +37,8 @@
 <h3 align="center">Deep learning on higher harmonic generation images for regression and pathology</h3>
 
   <p align="center">
+    Siem de Jong
+    <br />
     MSc thesis
     <br />
     <a href="https://siemdejong.github.io/mscthesis/mscthesis.pdf"><strong>View latest build »</strong></a>
@@ -110,12 +112,10 @@ Research is conducted in the context of deep learning on higher harmonics genera
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy and build the output pdf, follow these simple example steps.
-
 ### Prerequisites
 
 A LaTeX preprocessor is required to build pdfs from source.
-Tested with MiKTeX and TeX Live.
+This repo is tested with on Windows with MiKTeX and Linux with TeX Live.
 
 ### Installation
 
@@ -260,6 +260,25 @@ Yet to be adapted to this study.
 - [ ] Acknowledgments
 
 See the [open issues](https://github.com/siemdejong/mscthesis/issues) for a list of discussions (and known issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- Diagrams -->
+## Diagrams
+Diagrams are made with Mermaid (mermaid.cli) and PlantUML.
+Their outputs are already compiled.
+
+Run
+```bash
+mmdc -i mermaid/input.mmd -o mermaid/output.pdf -f
+```
+to compile Mermaid diagrams, and run
+```bash
+java -jar plantuml.jar input.puml
+```
+to compile PlantUML diagrams.
+Move the diagrams to the `mermaid` or `plantuml` folder and import the pdf/svg with `includegraphics`/`includesvg`.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
