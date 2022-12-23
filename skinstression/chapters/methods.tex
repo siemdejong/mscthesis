@@ -150,6 +150,8 @@ The full expression then becomes
 
 This model assumes that data follows the previously described curve where there is a small rise at small extensions and an indefinitely exponentially increasing stress for larger extensions.
 
+The exponential model is fit to some stress-strain curves using OriginPro~\cite{OriginPro}.
+
 \subsubsection{Principal component analysis}
 In an earlier study (ref A.\ Soylu), principal component analysis (PCA) is used to reduce the dimensionality of the strain-stress data.
 In summary, after PCA, every measurement $Y$ can be approximated by
@@ -179,12 +181,15 @@ Using the logistic curve as an alternative to PCA has two major advantages.
 Every curve can be treated separately and measurements can contain data across arbitrary domains and with arbitrary intervals as no interpolation is necessary.
 
 Strain-stress curves for all individuals were kindly provided by M.\ Zhou.
-The curves only include datapoints where the skin extension larger than zero and the force positive.
+The curves only include datapoints where the skin extension is larger than zero and the force positive.
 
 To every strain-stress curve, eq.~\ref{eq:logistic_curve} is fitted with Scipy \cite{2020SciPy-NMeth}.
 The optimal parameters were be used for training the model.
 
-BIAS\marginnote{Include density/thickness analysis of Mengyao}
+BIAS\marginnote{Include density/thickness analysis of Mengyao and the gender/age analysis of myself}
+
+The AI was trained on a with LDS smoothed target variable distribution.
+The targets were weighted with the inverse square root, to limit the impact of LDS.
 
 \section{Sample size}
 The sample size is arrived at taking into account all previously included subjects (ref ludo, ref mengyao, ref alperen) and excluding abdomen data.
@@ -270,7 +275,7 @@ The model is shown in \cref{fig:model}
     \label{fig:model}
 \end{figure*}
 
-The dropout layers in \cite{Soylu2022} are replaced by BN layers.
+The dropout layers in \cite{Soylu2022} are replaced by BN layers, as the input is unnormalized and studies report better performance with BN.
 Bias of all layers preceding BN layers have been set to zero.
 
 The neural network weights are initialized according to the method described by \textcite{He2015a}, using a uniform transform.
@@ -313,7 +318,7 @@ The Yeo-Johnson transform from search 3 was excluded in search 4.
         \toprule
         Search                         & 1      & 2      & 3      & 4      \\
         \midrule
-        CLAHE                          & \xmark & \cmark & \cmark & \cmark \\
+        CLAHE                          & \cmark & \cmark & \cmark & \cmark \\
         Yeo-Johnson transform          & \xmark & \xmark & \cmark & \xmark \\
         \midrule
         Random $700\times700$ cropping & \xmark & \cmark & \cmark & \cmark \\
@@ -333,11 +338,12 @@ The Yeo-Johnson transform from search 3 was excluded in search 4.
 Using the best configuration for hyperparameter optimization, a model is trained further for a total of $N$\marginnote{How many exactly?} epochs.
 The learning rate scheduler was cosine annealing with warm restarts to allow for model ensembling later during inference (\cref{subsec:model_ensembling}).
 
+\subsection{Dataset}
+The thigh dataset is split into a training (\qty{64}{\percent}), validation (\qty{16}{\percent}), and test (\qty{20}{\percent}).
+The AI learns from the training set.
+Every iteration, it is validated against the validation set.
+During inference, the AI is applied to the test set as external validation.
+
 \subsection{Model selection}
 MISSCHIEN MODEL ENSEMBLING EN VALIDATION SET GEBRUIKEN VOOR VINDEN VAN BESTE AANTAL MODELS?
 The last $N$\marginnote{How many again?} models are ensembled together
-
-\section{Supplementary materials}
-\subsection{Code}
-The implementation of \textsc{Skinstression} can be found at \href{https://github.io/siemdejong/shg-strain-stress}{\faIcon{github} siemdejong/shg-strain-stress}.
-The context and container diagram are depicted in \cref{app:skin_c4}.

@@ -209,13 +209,13 @@ Yet to be adapted to this study.
         - [x] Missing data
             - [x] sex and age
         - [ ] Statistical analysis methods
-            - [ ] Diagram of analytical process
+            - [x] Diagram of analytical process
             - [ ] handling of predictors
             - [x] Pre-selection of predictors prior to model building (results for exp/pca/logistic)
-            - [ ] rescaling/transformation on predictors (LDS + reweighting)
-            - [ ] type of model, building model + predictor selection + internal validation
+            - [x] rescaling/transformation on predictors (LDS + reweighting)
+            - [x] type of model, building model + predictor selection + internal validation
             - [x] model ensembling techniques (if used)
-            - [ ] detailed model description
+            - [x] detailed model description
             - [x] initialization of model parameters
             - [ ] training approaches (hyperparameters, number of models trained, used datasets)
             - [ ] Measures to assess model performance + model comparison
@@ -248,7 +248,7 @@ Yet to be adapted to this study.
             - [ ] how will clinical practice be different if using the AI and how will it be used
     - [ ] Supplementary information
         - [ ] Data?
-        - [ ] Code
+        - [x] Code
     - [ ] Funding?
     - [ ] References
 - [ ] Pediatric brain tumour
