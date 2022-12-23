@@ -303,15 +303,18 @@ The Yeo-Johnson transform from search 3 was excluded in search 4.
 \begin{table}
     \caption[\textsc{Skinstression} hyperparameter search studies]{
         The hyperparameter searches performed.
-        Data augmentations were performed in the order given here.
+        Hyperparameters are grouped by operation type (image preprocessing, image augmenting, target weighting) and in applied order.
         Every study, more is added, except for search 4 where the Yeo-Johnson transform was removed.
         Note this table does not describe the full search space.
         Every search is done with the search space described in \cref{tab:conf_skin}.
     }
     \label{tab:skin_studies}
     \begin{tabular}{rcccc}
-        \toprule                                                           \\
+        \toprule
         Search                         & 1      & 2      & 3      & 4      \\
+        \midrule
+        CLAHE                          & \xmark & \cmark & \cmark & \cmark \\
+        Yeo-Johnson transform          & \xmark & \xmark & \cmark & \xmark \\
         \midrule
         Random $700\times700$ cropping & \xmark & \cmark & \cmark & \cmark \\
         Intensity jitter               & \cmark & \cmark & \cmark & \cmark \\
@@ -321,8 +324,6 @@ The Yeo-Johnson transform from search 3 was excluded in search 4.
         Random gaussian blur           & \xmark & \xmark & \xmark & \cmark \\
         Random rotation                & \xmark & \xmark & \xmark & \cmark \\
         \midrule
-        CLAHE                          & \xmark & \cmark & \cmark & \cmark \\
-        Yeo-Johnson transform          & \xmark & \xmark & \cmark & \xmark \\
         Target variable weighting      & \xmark & \cmark & \cmark & \cmark \\
         \bottomrule
     \end{tabular}

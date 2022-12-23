@@ -6,10 +6,21 @@
 
 In 1981, Hubel and Wiesel were awarded the Nobel Prize of Medicine for their discovery of visual perception \cite{NP1981}.
 They built and tested a model that describes the path of a message from eye to brain.
-Simply put, the message is passed on from neuron to neuron, with each neuron compiling the full message from message components.
+Simply put, the message is passed on from neuron to neuron (\cref{fig:synapse}), with each neuron compiling the full message from message components.
 Lastly, the message is stored into the brain.
 
-Inspired by this biological process, neural networks have been developed.
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{ANN/images/neural-network.png}
+    \caption[Two neurons exchanging information]{
+        Information is passed from one neuron to another.
+        The message enters the dendrites, passes through the axon, and propagates through the synaptic terminal to another neuron.
+        Adapted from \fullcite{Gerstner2002} (Ref.~\cite{Gerstner2002}).
+    }
+    \label{fig:synapse}
+\end{figure}
+
+Inspired by this biological process, artificial neural networks have been developed.
 Later, \textcite{Fukushima1980} mimicked this neural network for two dimensional information, using convolution operations.
 The approach of \citeauthor{Fukushima1980} was inefficient.
 It could not learn to identify reoccurring features.
@@ -23,7 +34,7 @@ They combined convolutions and backpropagation into a convolutional neural netwo
 
 \chapter[CNN building blocks]{The building blocks of convolutional neural networks}
 
-\section{Neural network}
+\section{Artificial neural network}
 Neural network
 
 \section{Convolutional layers}

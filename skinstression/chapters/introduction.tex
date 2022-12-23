@@ -14,6 +14,9 @@ SHG images of the collagen networks in conjuction with the strain-stress curves 
 Retrieving complex features from labelled images can be done using supervised deep learning.
 Supervised deep learning is considered a black-box technique that aims to learn a mapping from input to output.
 With the SHG images and corresponding stress-strain measurements at hand, \textsc{Skinstression} is developed with the ultimate goal to replace mechanical measurements on skin tissue to quantify skin stretch.
+Possibly, the model can be used to non-invasively investigate physical parameters to aid plastic surgery.
+For example, the prior flexibility of skin tissue determines the amount of manual stretching needed to close a gap after excision.\marginnote{Ref for the manual stretching of tissue part.}
+
 Efforts to develop such a model have already been made by Soylu~\cite{Soylu2022}.
 However, those methods do not consider complete separation of training and test sets in both inference and label creation, possibly leading to biased results.
 Moreover, only one slice of larger image stacks have been used.
@@ -28,8 +31,8 @@ The objective of this study is to extend Soylu's model.
 To this end, an application, \textsc{Skinstression}, will be developed and validated with separate training and validation data.
 A new, physics informed neural network will be implemented for explainability.
 The data will not only consist of single slices from depth scans, but of subsets considering multiple slices per depth scan.
-Moreover, explainable artificial intelligence procedures will be adopted to better explain the black box output.
+Moreover, XAI procedures will be adopted to better explain the black box output.
 
 The purpose of the product is to accompany or possibly replace mechanical strain-stress measurements on skin tissue.
-The explanainability of the model might be used to explain the strength and elasticity that collagen provides to the skin.
+Explainability techniques might shed light on how top level collagen structures provide strength and elasticity to skin.
 Unintentionally, the project may be used more generally to train other convolutional neural networks for regression.
