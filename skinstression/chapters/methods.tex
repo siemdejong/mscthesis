@@ -142,9 +142,10 @@ So
     \sigma_{\lambda\gamma\ll 1} \propto 1 + \lambda\gamma + \ldots - 1 \approx G_0 \gamma,
 \end{equation}
 where $G_0$ is some linear coefficient at small extensions.
+In this work, $\gamma = \chi - 1$, where $\chi$ is the stretch.
 The full expression then becomes
-\begin{equation}
-    \sigma = \frac{G_0}{\lambda}\left(e^{\lambda\gamma}-1\right).
+\begin{equation}\label{eq:exp}
+    \sigma = \frac{G_0}{\lambda}\left(e^{\lambda(\chi - 1)}-1\right).
 \end{equation}
 
 This model assumes that data follows the previously described curve where there is a small rise at small extensions and an indefinitely exponentially increasing stress for larger extensions.
@@ -214,13 +215,12 @@ The statistical methods are summarized in \cref{fig:skin_stat_methods}.
 \end{figure*}
 
 \subsection{Predictor pre-selection}
-As discussed in \cref{sec:skin_predictors}, there are three candidates to be used as neural network predictors.
-These candidates are tested against the raw strain-stress curves.
+As discussed in \cref{sec:skin_predictors}, there are three predictor candidates.
+These candidates are tested against the original strain-stress curves.
 
 \subsubsection{Exponential and logistic curve}
 The exponential and logistic models are fitted to all raw strain-stress curves.
-The goodness of fit is determined by the coefficient of determination (\cref{subsec:coef_det}).
-Moreover, the goodness of fit is assessed by eye.
+The goodness of fit is determined by the coefficient of determination (\cref{subsec:coef_det}) and by eye.
 A fit is considered good if it passes reasonably through all data points.
 In particular, the exponential regime of the fit should describe the leg part of the curve.
 
@@ -233,7 +233,7 @@ Moreover, results of \citeauthor{Soylu2022} show knicks in the PCA reconstructio
 Therefore, in this study, a non-uniform, univariate, interpolating spline was fitted to all points and the stress was calculated from the spline at the stetch values of the curve with the lowest maximum stretch.
 After PCA on the complete dataset, the explained variance per component was calculated and used as a method to find an appropriate number of principal components.
 From these principal components, the curves where reconstructed using \cref{eq:pca}.
-The goodness of fit was determined by eye.
+The goodness of fit is determined by the coefficient of determination (\cref{subsec:coef_det}) and by eye.
 A fit is considered good if it passes reasonably through all data points and has few inflection points.
 
 Only if PCA on the full dataset works reasonably well, it is possible to use PCA on a subset and use it to reconstruct another subset.

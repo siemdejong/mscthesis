@@ -52,10 +52,26 @@ The source of data is summarized in table~\ref{tab:source_of_data}
 \end{table}
 
 \section{Predictor pre-selection}
+\subsection{Exponential}
+An exponential fit to \cref{eq:exp} is shown in \cref{fig:exp_fits}.
+$R^2 = \num{0.9497}$.
+The exponent is not able to fit the plateau that is often exhibited near maximum stretch.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{skinstression/images/exp-fits/exponential.png}
+    \caption[Exponential fit]{
+        Exponential fit with \cref{eq:exp} (red) for one stress-strain curve (black).
+        Fit parameters were $G_0=\qty{23.8\pm4.0}{\mega\pascal\per\stretch}$, and $\lambda=\qty{4.1\pm 1.0}{\stretch}$.
+        $R^2=\num{0.9497}$.
+    }
+    \label{fig:exp_fits}
+\end{figure}
+
 \subsection{PCA}
 The PCA fit for every truncated and interpolated strain-stress curve is depicted in \cref{fig:pca_fits}.
 For every fit, $R^2$ is calculated with respect to the interpolated and truncated data.
-On average, $\overline{R^2} \approx \num{0.9927} \pm \num{0.0022}$.
+On average, $\overline{R^2} \approx \num{0.9927 \pm 0.0022}$.
 Due to the nature of PCA, the exponential part of the slower curves is not included in the making of the fit.
 
 \begin{figure*}
@@ -79,7 +95,7 @@ Due to the nature of PCA, the exponential part of the slower curves is not inclu
 \subsection{Logistic curve}
 The logistic curve fit for every strain-stress curve is shown in \cref{fig:logistic_fits}.
 For every fit, $R^2$ is calculated.
-On average, $\overline{R^2} \approx \num{0.9979} \pm \num{0.0039}$.
+On average, $\overline{R^2} \approx \num{0.9979 \pm 0.0039}$.
 
 \begin{figure*}
     \centering
