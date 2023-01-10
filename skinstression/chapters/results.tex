@@ -112,3 +112,95 @@ On average, $\overline{R^2} \approx \num{0.9979 \pm 0.0039}$.
     }
     \label{fig:logistic_fits}
 \end{figure*}
+
+Because the logistic curve describes the stress-strain data more accurate than PCA or the exponential, it will be used from now on.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HYPERPARAMETER SEARCH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Hyperparameter optimization}
+
+\subsection{Search 1, without Yeo-Johnson transform}
+The contour plot is shown in \cref{fig:skinstression-search1-contour}.
+Only the loss curves of the best trial (71) is shown in \cref{fig:skinstression-search1-best-loss}.
+Both training and validation loss show an increase at the learning rate restarts.
+
+\begin{figure}
+    \includegraphics[]{skinstression/images/hyperparameter-search/search-1/best-trial-loss.pdf}
+    \caption[Best loss curve of search 1]{
+        Successive halving trial 71 of 100 has shown the best loss for search 1.
+        The training loss (black) is followed by the validation loss (light green).
+        The learning rate (orange) restarts explain sudden increase in loss.
+    }
+    \label{fig:skinstression-search1-best-loss}
+\end{figure}
+
+\begin{figure*}
+    \includegraphics[angle=90,width=0.9\textheight, height=\linewidth,keepaspectratio]{skinstression/images/hyperparameter-search/search-1/contour.pdf}
+    \caption[Search 1 contour plot]{
+        Contour plot of search 1.
+        Darker regions denote better results.
+        This contour plot is only constructed from trials which have not been pruned.
+    }
+    \label{fig:skinstression-search1-contour}
+\end{figure*}
+
+\subsection{Search 2, without Yeo-Johnson transform}
+The contour plot is shown in \cref{fig:skinstression-search2-contour}.
+Only the loss curves of the best trial (184) is shown in \cref{fig:skinstression-search2-best-loss}.
+Both training and validation loss show an increase at the learning rate restarts.
+
+\begin{figure}
+    \includegraphics[]{skinstression/images/hyperparameter-search/search-2/best-trial-loss.pdf}
+    \caption[Best loss curve of search 2]{
+        Hyperband trial 184 of 300 has shown the best loss for search 2.
+        The training loss (black) is followed by the validation loss (light green).
+        The learning rate (orange) restarts explain sudden increase in loss.
+    }
+    \label{fig:skinstression-search2-best-loss}
+\end{figure}
+
+\begin{figure*}
+    \includegraphics[angle=90,width=0.9\textheight, height=\linewidth,keepaspectratio]{skinstression/images/hyperparameter-search/search-2/contour.pdf}
+    \caption[Search 2 contour plot]{
+        Contour plot of search 2.
+        Darker regions denote better results.
+        This contour plot is only constructed from trials which have not been pruned.
+    }
+    \label{fig:skinstression-search2-contour}
+\end{figure*}
+
+\subsection{Search 3, with Yeo-Johnson transform}
+The contour plot is shown in \cref{fig:skinstression-search3-contour}.
+Only the loss curves of the best trial (73) is shown in \cref{fig:skinstression-search3-best-loss}.
+The training and validation losses diverge, showing the model overfits.
+
+\begin{figure}
+    \includegraphics[]{skinstression/images/hyperparameter-search/search-3/best-trial-loss.pdf}
+    \caption[Best loss curve of search 3]{
+        Hyperband trial 73 of 300 has shown the best loss for search 3.
+        The training loss (black) and the validation loss (light green) diverge.
+        The learning rate (orange).
+        The trial was pruned at epoch 100.
+    }
+    \label{fig:skinstression-search3-best-loss}
+\end{figure}
+
+\begin{figure*}
+    \includegraphics[angle=90,width=0.9\textheight, height=\linewidth,keepaspectratio]{skinstression/images/hyperparameter-search/search-3/contour.pdf}
+    \caption[Search 3 contour plot]{
+        Contour plot of search 3.
+        Darker regions denote better results.
+        This contour plot is only constructed from trials which have not been pruned.
+    }
+    \label{fig:skinstression-search3-contour}
+\end{figure*}
+
+%%%%%%%%%%%%%%%%%%
+% TRAINING
+%%%%%%%%%%%%%%%%%%
+\section{Training}
+Search 1 without the Yeo-Johnson transform yields a lower loss.
+The corresponding hyperparameters are used for further training.
+
