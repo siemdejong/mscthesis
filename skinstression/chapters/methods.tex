@@ -281,29 +281,31 @@ Bias of all layers preceding BN layers have been set to zero.
 The neural network weights are initialized according to the method described by \textcite{He2015a}, using a uniform transform.
 
 \subsection{Hyperparameter optimization}
-To find the optimal set of hyperparameters, the Hyperband algorithm with 300 trials was used.
+First, benchmark search 1 was done using Successive Halving with 100 trials.
+See \cref{subsec:conf_skin} for a summary of configuration search space $\mathcal{C}$.
 To allow trials to warmup, a minimum of 100 epochs were allowed.
 To limit the trial duration, a maximum of 3000 epochs were allowed.
 The number of trials were reduced with a reduction factor of $\eta=4$.
-Trial parameters were sampled using the multivariate TPE algorithm.
-See \cref{subsec:conf_skin} for a summary of configuration search space $\mathcal{C}$.
+Trial parameters were sampled using the non-multivariate TPE algorithm.
+
+The optimization was performed with the Adam optimizer ($\beta_1=0.9$, $\beta_2=0.999$), weighted focal MSE loss, and a cosine annealing with warm restarts learning rate scheduler.
 Every trial used the complete dataset after data preparation (\cref{sec:skin_data_prep}).
 
-Four different Hyperband searches were performed, see \cref{tab:skin_studies}.
-Search 1 will serve as a benchmark study.
-It contains a few data augmentations that are assumed to not alter the physical context of the image.
+The search uses a few data augmentations that are assumed to not alter the physical context of the image.
 That is, force is exerted on the tissue in the horizontal direction in the image.
 Therefore, flipping the image either vertically or horizontally is assumed to not change the stretch behaviour.
 Both flipping operations occur with a probability of $0.5$.
 Moreover, the images' intensity is randomly changed between x\% and x\%.\marginpar{By what fraction is the intensity changed?}
-Search 2 includes CLAHE to enhance the image.
-Moreover, random $700\times700$ cropping is added to further artificially increase the number of available images to train on.
+
+To possibly find a more optimal set of hyperparameters, two searches with the Hyperband algorithm with 300 trials was performed.
+Trial parameters were sampled using the multivariate TPE algorithm.
+The learning rate was warmed up linearly for the first 20 epochs.
+
+Search 2 introduces random $700\times700$ cropping to further artificially increase the number of available images to train on.
 Also included is the ability to weight the loss per target variable, to penalize hard variables more than easy variables.
 Search 3 includes the Yeo-Johnson transformation to see how input normalization affects the training outcome.
-Search 4 adds random sharpness and gaussian blurring to increase the training set variability.
-It also includes random rotation from \ang{0} to \ang{90}.
-The random rotation along with flipping in two directions ensures all possible rotations.
-The Yeo-Johnson transform from search 3 was excluded in search 4.
+
+For a summary of the hyperparameter searches, see \cref{tab:skin_studies}.
 
 \begin{table}
     \caption[\textsc{Skinstression} hyperparameter search studies]{
@@ -315,28 +317,52 @@ The Yeo-Johnson transform from search 3 was excluded in search 4.
     }
     \label{tab:skin_studies}
     \begin{tabular}{rcccc}
+        % \toprule
+        % Search                         & 1      & 2      & 3      & 4      \\
+        % \midrule
+        % CLAHE                          & \cmark & \cmark & \cmark & \cmark \\
+        % Yeo-Johnson transform          & \xmark & \xmark & \cmark & \xmark \\
+        % \midrule
+        % Random $700\times700$ cropping & \xmark & \cmark & \cmark & \cmark \\
+        % Intensity jitter               & \cmark & \cmark & \cmark & \cmark \\
+        % Random horizontal flip         & \cmark & \cmark & \cmark & \cmark \\
+        % Random vertical flip           & \cmark & \cmark & \cmark & \cmark \\
+        % Random sharpness               & \xmark & \xmark & \xmark & \cmark \\
+        % Random gaussian blur           & \xmark & \xmark & \xmark & \cmark \\
+        % Random rotation                & \xmark & \xmark & \xmark & \cmark \\
+        % \midrule
+        % Target variable weighting      & \xmark & \cmark & \cmark & \cmark \\
+        % \bottomrule
+
         \toprule
-        Search                         & 1      & 2      & 3      & 4      \\
+        Search                         & 1      & 2      & 3      \\
         \midrule
-        CLAHE                          & \cmark & \cmark & \cmark & \cmark \\
-        Yeo-Johnson transform          & \xmark & \xmark & \cmark & \xmark \\
+        CLAHE                          & \cmark & \cmark & \cmark \\
+        Yeo-Johnson transform          & \xmark & \xmark & \cmark \\
         \midrule
-        Random $700\times700$ cropping & \xmark & \cmark & \cmark & \cmark \\
-        Intensity jitter               & \cmark & \cmark & \cmark & \cmark \\
-        Random horizontal flip         & \cmark & \cmark & \cmark & \cmark \\
-        Random vertical flip           & \cmark & \cmark & \cmark & \cmark \\
-        Random sharpness               & \xmark & \xmark & \xmark & \cmark \\
-        Random gaussian blur           & \xmark & \xmark & \xmark & \cmark \\
-        Random rotation                & \xmark & \xmark & \xmark & \cmark \\
+        Random $700\times700$ cropping & \xmark & \cmark & \cmark \\
+        Intensity jitter               & \cmark & \cmark & \cmark \\
+        Random horizontal flip         & \cmark & \cmark & \cmark \\
+        Random vertical flip           & \cmark & \cmark & \cmark \\
+        Random sharpness               & \xmark & \xmark & \xmark \\
+        Random gaussian blur           & \xmark & \xmark & \xmark \\
+        Random rotation                & \xmark & \xmark & \xmark \\
         \midrule
-        Target variable weighting      & \xmark & \cmark & \cmark & \cmark \\
+        Target variable weighting      & \xmark & \cmark & \cmark \\
+        \midrule
+        Search algorithm               & SH     & HB     & HB     \\
+        trials                         & 100    & 300    & 300    \\
+        learning rate warmup           & \xmark & \cmark & \cmark \\
         \bottomrule
     \end{tabular}
 \end{table}
 
 \subsection{Training}
-Using the best configuration for hyperparameter optimization, a model is trained further for a total of $N$\marginnote{How many exactly?} epochs.
+Using the best configuration for hyperparameter optimization, a model is trained further for a total of 10000 epochs.
 The learning rate scheduler was cosine annealing with warm restarts to allow for model ensembling later during inference (\cref{subsec:model_ensembling}).
+The learning rate was warmed up linearly for the first 20 epochs.
+To see the influence of image quality, the model is trained using an ordered set of images.
+The images are ordered with maximum entropy first and the model is trained on all images and the top 5, 10, 15, and 20 images.
 
 \subsection{Dataset}
 The thigh dataset is split into a training (\qty{64}{\percent}), validation (\qty{16}{\percent}), and test (\qty{20}{\percent}).

@@ -16,19 +16,25 @@ flowchart TB
     images[(Images)]
 
     subgraph hparam_search[Hyperparameter search]
-        study1[Hyperband 1]
-        study2[Hyperband 2]
-        study3[Hyperband 3]
-        study4[Hyperband 4]
+        study1["Successive halving Search 1"]
+        study2["Hyperband search 2"]
+        study3["Hyperband search 3"]
         best_config{Best configuration}
     end
 
-    subgraph training[Training]
-        train[Train model]
-        ensemble[Snapshot ensembling]
+    subgraph training["Model training (on top k images)"]
+        train5[Model 5]
+        train10[Model 10]
+        train15[Model 15]
+        train20[Model 20]
+        trainall[Model all]
+        best_val{Best validation}
     end
 
-    test[Test model]
+    subgraph testing[Testing]
+        ensemble[Snapshot ensembling]
+        test[Test model]
+    end
 
     subgraph xai[XAI]
         ig[Integrated gradients]
@@ -38,16 +44,14 @@ flowchart TB
 
     %% Connections
 
-    %% curves --> exp & pca & logistic
     curves --> predictor_pre_selection
     exp & pca & logistic --> best_fit
-    %% best_fit --> study1 & study2 & study3 & study4
     best_fit --> hparam_search
-    %% images --> study1 & study2 & study3 & study4
     images ----> hparam_search
-    study1 & study2 & study3 & study4 --> best_config
+    study1 & study2 & study3 --> best_config
     best_config --> training
-    train --> ensemble
+    train5 & train10 & train15 & train20 & trainall --> best_val
+    best_val --> testing
     ensemble --> test
     test --> xai
     ig & occ --> why
