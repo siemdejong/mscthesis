@@ -20,36 +20,18 @@ Ages range from 61 to 94.
 Skin tissue is cut from the thigh and cut in multiple pieces of roughly the same shape.\marginpar{protocol?}
 From every skin tissue piece, strain-stress curves are measured.
 The number of measured strain-stress curves range from 1 to 13.
-The source of data is summarized in table~\ref{tab:source_of_data}
-\begin{table}
+The source of data is summarized in \cref{fig:source_of_data}.
+
+\begin{figure*}
     \centering
+    \includegraphics[width=\linewidth]{skinstression/images/age_distribution.pdf}
     \caption[Source of data]{
         The selected individuals and their sex, age and number of strain-stress curves.
-        - denotes unknown data.
+        Top panel: shows the age and sex distribution. Blue, pink and black denote male, female and unknown sex.
+        Bottom panel: shows the number of curves per person.
     }
-    \label{tab:source_of_data}
-    \begin{tabular}{lllr}
-        \toprule
-        person & sex    & age & \# curves \\
-        \midrule
-        4      & -      & -   & 1         \\
-        5      & male   & 61  & 1         \\
-        6      & male   & 66  & 2         \\
-        7      & male   & 79  & 1         \\
-        8      & male   & 77  & 1         \\
-        9      & male   & 75  & 1         \\
-        10     & female & 94  & 1         \\
-        11     & -      & -   & 1         \\
-        12     & -      & -   & 1         \\
-        13     & male   & 82  & 3         \\
-        14     & female & 90  & 4         \\
-        15     & female & 87  & 5         \\
-        16     & male   & 95  & 12        \\
-        17     & male   & 83  & 13        \\
-        18     & female & 88  & 9         \\
-        \bottomrule
-    \end{tabular}
-\end{table}
+    \label{fig:source_of_data}
+\end{figure*}
 
 \section{Predictor pre-selection}
 \subsection{Exponential}
@@ -115,18 +97,79 @@ On average, $\overline{R^2} \approx \num{0.9979 \pm 0.0039}$.
 
 Because the logistic curve describes the stress-strain data more accurate than PCA or the exponential, it will be used from now on.
 
+\subsection{Label density smoothing}
+The labels were smoothed using LDS using gaussian kernels.
+All kernels had a size of 30 and a standard deviation of 3.
+The distribution bins were manually set to $(\sigma_{\mathrm{max},\mathrm{min}}, \sigma_{\mathrm{max},\mathrm{max}}, s_{\sigma_\mathrm{max}}) = (0, 15, 0.01) \unit{\mega\pascal}$,
+$(E_{\mathrm{max},\mathrm{min}}, E_{\mathrm{max},\mathrm{max}}, s_{E_\mathrm{max}}) = (0, 50, 0.1) \unit{\mega\pascal\per\stretch}$, and
+$(\gamma_{c,\mathrm{min}}, \gamma_{\mathrm{max},\mathrm{max}}, s_{\gamma_\mathrm{max}}) = (1, 1.5, 0.001) \unit{\stretch}$,
+where $s$ is the bin width.
+The smoothed distribution is shown in [figure].\marginnote{SHOW LDS BINS!}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IMAGE QUALITY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Image quality}
+Presumably, the model will yield erroneous predictions if images of bad quality are provided.
+Moreover, the measurement was not always done in the same order, \ie from the lowest to the highest tissue or vice versa.
+Therefore, two image quality measurements were explored: Shannon entropy and kurtosis.
+
+The kurtosis of some image stacks were used to validate the image quality by eye, see \cref{fig:skin_kurtosis_depth}.
+The entropy of the same image stacks as for kurtosis were used to validate the image quality by eye, see \cref{fig:skin_entropy_depth}.
+
+For rather homogeneous images like stack 8, kurtosis is able to characterize the fogginess, while entropy finds images of equal quality.
+However, for well-structured tissue like stack 11, 12, 13 and 4, entropy recognizes faint images and qualifies them as bad.
+This is particularly useful for images that did not include any useful information (like stack 37).
+Kurtosis does not succeed to distinguish dark images from bright ones.
+Kurtosis also has the tendency to fluctuate, which is unexpected between subsequent slices.
+For these reasons, entropy is further used to choose the top quality images from every stack.
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=\linewidth]{skinstression/images/kurtosis/8.pdf} \\
+    % \includegraphics[width=\linewidth]{skinstression/images/kurtosis/9.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/kurtosis/11.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/kurtosis/22.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/kurtosis/27.pdf} \\
+    % \includegraphics[width=\linewidth]{skinstression/images/kurtosis/28.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/kurtosis/37.pdf}
+    \caption[Kurtosis vs image stack depth]{
+        Kurtosis as a function of image stack depth for a representing subset.
+        Four images which are equally spaced in physical units are inset.
+    }
+    \label{fig:skin_kurtosis_depth}
+\end{figure*}
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=\linewidth]{skinstression/images/entropy/8.pdf} \\
+    % \includegraphics[width=\linewidth]{skinstression/images/entropy/9.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/entropy/11.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/entropy/22.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/entropy/27.pdf} \\
+    % \includegraphics[width=\linewidth]{skinstression/images/entropy/28.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/entropy/37.pdf}
+    \caption[Shannon entropy vs image stack depth]{
+        Normalized Shannon entropy as a function of image stack depth for a representing subset.
+        Four images which are equally spaced in physical units are inset.
+    }
+    \label{fig:skin_entropy_depth}
+\end{figure*}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % HYPERPARAMETER SEARCH
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Hyperparameter optimization}
 
-\subsection{Search 1, without Yeo-Johnson transform}
+\subsection{Search 1}
 The contour plot is shown in \cref{fig:skinstression-search1-contour}.
 Only the loss curves of the best trial (71) is shown in \cref{fig:skinstression-search1-best-loss}.
 Both training and validation loss show an increase at the learning rate restarts.
 
 \begin{figure}
+    \centering
     \includegraphics[]{skinstression/images/hyperparameter-search/search-1/best-trial-loss.pdf}
     \caption[Best loss curve of search 1]{
         Successive halving trial 71 of 100 has shown the best loss for search 1.
@@ -137,6 +180,7 @@ Both training and validation loss show an increase at the learning rate restarts
 \end{figure}
 
 \begin{figure*}
+    \centering
     \includegraphics[angle=90,width=0.9\textheight, height=\linewidth,keepaspectratio]{skinstression/images/hyperparameter-search/search-1/contour.pdf}
     \caption[Search 1 contour plot]{
         Contour plot of search 1.
@@ -146,12 +190,13 @@ Both training and validation loss show an increase at the learning rate restarts
     \label{fig:skinstression-search1-contour}
 \end{figure*}
 
-\subsection{Search 2, without Yeo-Johnson transform}
+\subsection{Search 2}
 The contour plot is shown in \cref{fig:skinstression-search2-contour}.
 Only the loss curves of the best trial (184) is shown in \cref{fig:skinstression-search2-best-loss}.
 Both training and validation loss show an increase at the learning rate restarts.
 
 \begin{figure}
+    \centering
     \includegraphics[]{skinstression/images/hyperparameter-search/search-2/best-trial-loss.pdf}
     \caption[Best loss curve of search 2]{
         Hyperband trial 184 of 300 has shown the best loss for search 2.
@@ -171,12 +216,13 @@ Both training and validation loss show an increase at the learning rate restarts
     \label{fig:skinstression-search2-contour}
 \end{figure*}
 
-\subsection{Search 3, with Yeo-Johnson transform}
+\subsection{Search 3}
 The contour plot is shown in \cref{fig:skinstression-search3-contour}.
 Only the loss curves of the best trial (73) is shown in \cref{fig:skinstression-search3-best-loss}.
 The training and validation losses diverge, showing the model overfits.
 
 \begin{figure}
+    \centering
     \includegraphics[]{skinstression/images/hyperparameter-search/search-3/best-trial-loss.pdf}
     \caption[Best loss curve of search 3]{
         Hyperband trial 73 of 300 has shown the best loss for search 3.
@@ -188,6 +234,7 @@ The training and validation losses diverge, showing the model overfits.
 \end{figure}
 
 \begin{figure*}
+    \centering
     \includegraphics[angle=90,width=0.9\textheight, height=\linewidth,keepaspectratio]{skinstression/images/hyperparameter-search/search-3/contour.pdf}
     \caption[Search 3 contour plot]{
         Contour plot of search 3.
@@ -201,6 +248,115 @@ The training and validation losses diverge, showing the model overfits.
 % TRAINING
 %%%%%%%%%%%%%%%%%%
 \section{Training}
-Search 1 without the Yeo-Johnson transform yields a lower loss.
-The corresponding hyperparameters are used for further training.
+Training was done on the best performing set of hyperparameters, which was found by search 1.
+Search 1 yielded the lowest validation loss.
+The corresponding hyperparameters in \cref{tab:conf_skin_final} were used for further training.
 
+\begin{margintable}
+    \centering
+    \caption[\textsc{Skinstression} configuration]{
+        \textsc{Skinstression} configuration used during training.
+        Parameters are ordered by their importance, calculated with fANOVA.
+        LR, WD, and BS are learning rate, weight decay and batch size, respectively.
+    }
+    \label{tab:conf_skin_final}
+    \begin{tabular}{l c c c c c c}
+        \toprule
+        Param.               & Value         & Imp. \\
+        \midrule
+        {LR}                 & 0.00747       & 0.41 \\
+        {$T_0$}              & 145           & 0.24 \\
+        {WD}                 & \num{2.97e-5} & 0.22 \\
+        {$n_\mathrm{nodes}$} & 64            & 0.08 \\
+        {$T_\mathrm{mult}$}  & 2             & 0.05 \\
+        {BS}                 & 16            & 0.00 \\
+        \bottomrule
+    \end{tabular}
+\end{margintable}
+
+Three trainings were performed.
+For every training, the 10, 20, and 30 images with highest entropy were selected to exclude any noisy images
+\footnote{In fact, these were again divided in train, validation and test sets in the same manner as in \cref{subsec:skin_dataset}.}
+The loss curves are shown in \cref{fig:skinstression-training}.
+The lowest validation losses are shown in \cref{tab:skin_train_102030}.
+Overall, the model trained with 20 images shows the lowest total loss.
+This model will be used during testing.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[]{skinstression/images/training/Training_10_images.pdf} \\
+    \includegraphics[]{skinstression/images/training/Training_20_images.pdf} \\
+    \includegraphics[]{skinstression/images/training/Training_30_images.pdf}
+    \caption[Training with 10 images]{
+        Training using 10, 20, and 30 images respectively.
+        The training loss (black) is followed by the validation loss (light green).
+        The learning rate (orange) restarts explain sudden increase in loss.
+    }
+    \label{fig:skinstression-training}
+\end{figure}
+
+\begin{margintable}
+    \centering
+    \caption[Lowest validation loss per $N_\mathrm{best}$ images]{
+        Lowest validation loss per $N_\mathrm{best}$ images.
+        The training using 20 images has the lowest validation loss.
+    }
+    \label{tab:skin_train_102030}
+    \begin{tabular}{c c}
+        \toprule
+        \# Images   & Validation loss \\
+        \midrule
+        10          & 0.0097          \\
+        \textbf{20} & \textbf{0.0035} \\
+        30          & 0.0040          \\
+        \bottomrule
+    \end{tabular}
+\end{margintable}
+
+\section{Testing}
+The results of the best performing images in the test set are shown in \cref{fig:skinstression-test}.
+The higher $R^2$, the better the performance.
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_51_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_52_2.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_53_1.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_54_0.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_55_1.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_56_4.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_57_3.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_58_2.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_59_1.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_60_2.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_61_0.pdf}
+    \caption[Test results]{
+        Results of the best performing image per sample are shown.
+        Performance is quantified by $R^2$.
+    }
+    \label{fig:skinstression-test}
+\end{figure*}
+
+\section{Model specification}
+The foundational neural network is described in \cref{fig:model}.
+x neural networks combined make up the final model.
+The output of the model is the average of the outputs of the individual models.
+It accepts a batch of images as input and outputs a vector $(i, \sigma_\mathrm{max}, E_\mathrm{max}, \gamma_c)$,
+where $i$ denotes the $i$th image of the batch.
+
+
+\section{Usability}
+The prediction AI may be used for three purposes.
+One purpose is to skip the mechanical measurement on skin tissue and immediately get an estimation of stretch properties.
+Another is to match stretch information to physical features present in the collagen fiber networks.
+The model should not be used as validation for the mechanical measurement, as it is trained and tested on a dataset with small variance.
+
+Input data should be assessed on quality.
+A measure of quality is Shannon entropy, which is used in this study.
+However, the model may benefit from other quality measures.
+The user should experiment what measure works best.
+The application does allow to only select the top $N_\mathrm{best}$ images.
+
+The model only accepts batches of two-dimensional $500x500\,\unit{px}$ images.
+The user should separate any higher-dimensional data and crop the images to fit the model.

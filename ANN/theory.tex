@@ -272,6 +272,11 @@ HB invokes SH multiple times.
 Every invocation of SH is called a bracket.
 In the end, HB returns the best configuration possible just like SH, but diminishing the dependence on manually choosing a good $T$.
 
+\subsection{Parameter importances}
+Not every hyperparameter is as important as others.
+\textcite{Hutter2014} describe the fANOVA algorithm to quantitatively assess the importance of every hyperparameter.
+Knowing the importance of a variable gives more insight into interactions and relative importance between hyperparameters.
+
 \section{Training}\label{Training}
 At the start of training, a neural network has its weights and biases initialized.
 Most probably, the model is not capable of mapping input to output in a robust manner.

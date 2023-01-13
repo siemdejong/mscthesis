@@ -23,11 +23,11 @@ flowchart TB
     end
 
     subgraph training["Model training (on top k images)"]
-        train5[Model 5]
+        %% train5[Model 5]
         train10[Model 10]
-        train15[Model 15]
+        %% train15[Model 15]
         train20[Model 20]
-        trainall[Model all]
+        train30[Model 30]
         best_val{Best validation}
     end
 
@@ -50,7 +50,7 @@ flowchart TB
     images ----> hparam_search
     study1 & study2 & study3 --> best_config
     best_config --> training
-    train5 & train10 & train15 & train20 & trainall --> best_val
+    train10 & train20 & train30 --> best_val
     best_val --> testing
     ensemble --> test
     test --> xai

@@ -210,7 +210,7 @@ Yet to be adapted to this study.
             - [x] sex and age
         - [ ] Statistical analysis methods
             - [x] Diagram of analytical process
-            - [ ] handling of predictors
+            - [x] handling of predictors
             - [x] Pre-selection of predictors prior to model building (results for exp/pca/logistic)
             - [x] rescaling/transformation on predictors (LDS + reweighting)
             - [x] type of model, building model + predictor selection + internal validation
@@ -224,21 +224,21 @@ Yet to be adapted to this study.
             - [ ] explainability and interpretability
             - [ ] software used
     - [ ] Results
-        - [ ] Participants (flow, demographics, comparison train/val/test (predictor distributions and images))
+        - [x] Participants (flow, demographics, comparison train/val/test (predictor distributions and images))
         - [ ] Model dev and per participant outcome in
             - [ ] Hyperparameter tuning
             - [ ] Training
             - [ ] Testing
-        - [ ] Model specification (present model + explain how it must be used)
+        - [x] Model specification (present model + explain how it must be used)
         - [ ] Model performance
             - [ ] accuracy WITH confidence interval
             - [ ] results of analysis on performance errors
         - [ ] Model updating (performance per update)
         - [ ] Usability
-            - [ ] how and when in the clinical pathway to use the prediction AI
+            - [x] how and when in the clinical pathway to use the prediction AI
             - [ ] how will the AI be integrated into the target setting + requirements (on-/offsite)
-            - [ ] how will poor data be assessed when implementing AI model
-            - [ ] any human interaction needed for data to be used with the model + expertise of users
+            - [x] how will poor data be assessed when implementing AI model
+            - [x] any human interaction needed for data to be used with the model + expertise of users
         - [ ] Sensitivity analysis?
     - [ ] Discussion
         - [ ] Limitations
