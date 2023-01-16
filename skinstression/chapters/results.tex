@@ -104,7 +104,22 @@ The distribution bins were manually set to $(\sigma_{\mathrm{max},\mathrm{min}},
 $(E_{\mathrm{max},\mathrm{min}}, E_{\mathrm{max},\mathrm{max}}, s_{E_\mathrm{max}}) = (0, 50, 0.1) \unit{\mega\pascal\per\stretch}$, and
 $(\gamma_{c,\mathrm{min}}, \gamma_{\mathrm{max},\mathrm{max}}, s_{\gamma_\mathrm{max}}) = (1, 1.5, 0.001) \unit{\stretch}$,
 where $s$ is the bin width.
-The smoothed distribution is shown in [figure].\marginnote{SHOW LDS BINS!}
+The smoothed distribution is shown in \cref{fig:skin_lds}.
+
+\begin{figure*}
+    \centering
+    \includegraphics{skinstression/images/lds/a.pdf} \\
+    \includegraphics{skinstression/images/lds/k.pdf} \\
+    \includegraphics{skinstression/images/lds/xc.pdf}
+    \caption[Original target and LDS distrutions]{
+        Empirical target distribution (red) and LDS distribution (blue) for $\sigma_\mathrm{max}$, $E_\mathrm{max}$, and $\gamma_c$.
+        LDS aims to fill the gaps between the actual measurements.
+        LDS also extrapolates target distributions.
+        For all targets, the kernel size was 30 units, and the standard deviation 3 units.
+        The bin width were \num{0.01}, \num{0.1}, and \num{0.001} units for $\sigma_\mathrm{max}$, $E_\mathrm{max}$, and $\gamma_c$, respectively.
+    }
+    \label{fig:skin_lds}
+\end{figure*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % IMAGE QUALITY
