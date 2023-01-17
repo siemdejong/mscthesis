@@ -406,14 +406,20 @@ The user should separate any higher-dimensional data and crop the images to fit 
 Algorithmically occluded images have been presented to the model to obtain attributions at the pixel level.
 These are shown in blended heatmaps in \cref{fig:skin_occlusion}.
 
-\begin{figure}
+\begin{figure*}
+    \ContinuedFloat
     \centering
-    % \includegraphics{}
+    \includegraphics{skinstression/images/occlusion/summary_0.pdf}
+\end{figure*}
+\begin{figure*}
+    % \ContinuedFloat
+    \centering
+    \includegraphics{skinstression/images/occlusion/summary_1.pdf}
     \caption[Original image and attribution heat maps]{
         Original image and attribution heat maps.
-        Attibutions are blended with the original image.
+        Attributions are blended with the original image.
         Attributions were calculated using $20\times 20\unit{px}$ occlusion.
         Green and red attributions show over- and underestimated predictions, compared to output calculated from an unoccluded image.
     }
     \label{fig:skin_occlusion}
-\end{figure}
+\end{figure*}
