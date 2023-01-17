@@ -297,6 +297,8 @@ The lowest validation losses are shown in \cref{tab:skin_train_102030}.
 Overall, the model trained with 20 images shows the lowest total loss.
 This model will be used during testing.
 
+To verify performance of training, the stress-strain curves of a random training batch are plotted with the raw data in \cref{fig:skinstression-train-logistic-curves}.
+
 
 \begin{figure}
     \centering
@@ -328,6 +330,30 @@ This model will be used during testing.
         \bottomrule
     \end{tabular}
 \end{margintable}
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_6_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_10_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_12_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_15_0.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_16_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_18_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_19_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_28_0.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_30_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_32_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_35_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_37_0.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_44_1.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_46_0.pdf}
+    \caption[Training results]{
+        Results of a random training batch.
+        Raw mechanical measurement without error bars ($\times$) are shown together with the AI fit (red).
+        Performance is quantified by $R^2$.
+    }
+    \label{fig:skinstression-train-logistic-curves}
+\end{figure*}
 
 \section{Testing}
 The results of the best performing images in the test set are shown in \cref{fig:skinstression-test}.
