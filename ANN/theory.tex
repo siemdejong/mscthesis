@@ -400,3 +400,30 @@ Platykurtic distributions have thinner tails, such as the Bernoulli distribution
 
 Kurtosis can be calculated on the upper part of the power spectrum of an image \cite{Koho2016,Blokker2022}.
 If the upper part of the power spectrum is very leptokurtic compared to other images in the dataset, it may indicate that the image is an outlier and is significantly different from the mean.
+
+\section{Explainable AI}
+A significant number of users of a trained AI generally view the model as a black box that simply maps input to output.
+How this box is constructed and why it results in a particular outcome is often overlooked.\marginnote{ref!}
+Meanwhile, techniques to give insight into the black box (explainable AI, XAI) have been developed.
+These techniques fall in roughly two categories: gradient and perturbation based methods.
+Gradient based methods rely on gradients calculated during the backward pass and use these to find which parts of the input contribute to the output most.
+Perturbation methods perturb the input to see how the output changes.
+Large output changes yield large attributions.
+
+Explainability is particularly important in clinical settings where merely relying on AI output is sometimes unethical.
+AI solutions exist that predict patient outcome after new treatment given current health status [refs] or segment tumour regions in medical imaging after which the predicted region will be excised or treated with radiotherapy.
+XAI gives users and patients more confidence in the prediction so that specialists can proceed with treatment.
+
+\subsection{Occlusion}\label{subsec:occlusion}
+Occlusion \cite{Zeiler2013} is an XAI pertubation technique.
+The method replaces patches of the input with a baseline value.
+\eg for images, patches can consist of any shape and the baseline value can be 0, practically making a patch black and removing all information at the patch's location and the connections with neighbouring pixels.
+In the original paper, occlusion is used to systematically cover parts of foreground objects, to gain confidence in the AI using foreground objects to predict the output.
+If the AI still recognizes an object from an image where the object has been cut out, the AI may use background for its prediction.
+
+A generalized occlusion algorithm includes a moving patch.
+The patch, mostly a rectangle of a given size and value, is placed on the image.
+The AI computes an output, given the masked input.
+The masked output is subtracted from the original output.
+This difference divided by the patch size is assigned to the patch.
+A new patch is placed and the iterative process continues until the patches have been placed on all possible input locations.

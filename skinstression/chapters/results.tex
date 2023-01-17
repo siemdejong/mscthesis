@@ -401,3 +401,19 @@ The application does allow to only select the top $N_\mathrm{best}$ images.
 
 The model only accepts batches of two-dimensional $500x500\,\unit{px}$ images.
 The user should separate any higher-dimensional data and crop the images to fit the model.
+
+\subsection{Explainability}
+Algorithmically occluded images have been presented to the model to obtain attributions at the pixel level.
+These are shown in blended heatmaps in \cref{fig:skin_occlusion}.
+
+\begin{figure}
+    \centering
+    % \includegraphics{}
+    \caption[Original image and attribution heat maps]{
+        Original image and attribution heat maps.
+        Attibutions are blended with the original image.
+        Attributions were calculated using $20\times 20\unit{px}$ occlusion.
+        Green and red attributions show over- and underestimated predictions, compared to output calculated from an unoccluded image.
+    }
+    \label{fig:skin_occlusion}
+\end{figure}

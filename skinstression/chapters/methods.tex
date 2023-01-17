@@ -379,6 +379,11 @@ The AI learns from the training set.
 Every iteration, it is validated against the validation set.
 During inference, the AI is applied to the test set as external validation.
 
-\subsection{Model selection}
-MISSCHIEN MODEL ENSEMBLING EN VALIDATION SET GEBRUIKEN VOOR VINDEN VAN BESTE AANTAL MODELS?
-The last $N$\marginnote{How many again?} models are ensembled together
+% \subsection{Model selection}
+% MISSCHIEN MODEL ENSEMBLING EN VALIDATION SET GEBRUIKEN VOOR VINDEN VAN BESTE AANTAL MODELS?
+% The last $N$\marginnote{How many again?} models are ensembled together
+
+\section{Explainability}
+To explain the model output, occlusion \cref{subsec:occlusion} is used.
+Using the Captum Python library \cite{Kokhlikyan2020}, occlusion is done with $20\times 20$\unit{px} square patches moving with strides of 1.
+All values in the patch have been replaced with 0.
