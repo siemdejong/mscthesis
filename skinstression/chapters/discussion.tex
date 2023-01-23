@@ -1,20 +1,58 @@
 \chapter{Discussion}
 
+TODO?:
 \begin{enumerate}
-    \item Generalizability because discarding abdomen data.
-    \item Not many different people participating (low sample size).
-    \item smoking and other skin damaging things humans do to theirselves :|
-    \item data leakage when using LDS.
     \item collagen is viscoelastic and is therefore timedependent.
-    \item yeojohnson data leakage
-    \item predictor rescaling not done more than LDS.
-    \item No multivariate LDS, but parameters treated individually.
-    \item number of datapoints in curves could be used to weight the importance of a sample
-    \item noise exclusion: not only exclude slices from stacks, but also stacks from stacks
     \item discard strain-stress curve outliers (using PCA?)
     \item (random cropping has a higher probability of including pixels in the middle region)
-    \item N2V2 might increase performance compared to no noise reduction
-    \item no cross validation done. could further improve results.
     \item WHY DEEP LEARNING?
     \item train/val/test diff of 'source of data' fig
 \end{enumerate}
+
+\section{Future studies}
+\subsection{Perform cross validation and increase data variance}
+In this study, no cross validation is performed.
+Training a network on different training subsets might increase the performance on the test set.
+The test set might include patterns that were not present in the training set and therefore will not activate critical parts of the neural network.
+The split between training and test sets should be made such that the training set has high variance and is thus a reasonably good estimate of the whole population, without knowing test set images.
+
+Therefore, the training set should also include images from human skin that is damaged in any way.
+For example, damaged tissue is caused by smoking \cite{Lipa2021} or wounds that left behind scars with an increased tensile strength \cite{Wilkinson2020}.
+Moreover, aging drastically impacts skin tissue integrity.
+It is unknown if stretch of young skin tissue is predicted well by the neural network.
+Therefore, the neural network should only be used to predict from old skin tissue.
+
+Skin tissue from other body parts might show different stretch properties.
+Therefore, it is unknown if the stretch of skin tissues other than from the upper leg can be predicted.
+
+Lastly, to increase variance, more images of skin tissue from more individuals should be included.
+
+\subsection{Split dataset before image and target transformations}
+LDS should only be performed on the training set, independently from the validation and test set.
+This is to prevent leaking data to the training set.
+By design, the software constructs train, validation and test split datasets with data transformations, including target transformations such as LDS and the Yeo-Johnson transformation.
+Every split in fact contains all $N_\mathrm{best}$ images and includes transformations.
+Just before constructing a dataloader, the datasets are split by index, leaving the dataloaders with non-overlapping data.
+In future studies, the dataset should be constructed in such a way that dataset is split before performing image and target transformations\footnote{In fact, the transformations will be performed during prefetch, \ie when data is loaded into RAM or GPU memory. However, the transformations cannot be changed after assigning them to the dataset.}.
+While this increases training fairness, it is expected to decrease performance, as information from the test set is not leaked to the training set.
+
+
+\subsection{Excluding noise and denoising on stack level}
+Currently, the stacks are truncated by taking the top $N_\mathrm{best}$ images of a stack which effectively excludes noisy slices.
+However, if a full z-stack is noisy, noisy images are still included.
+These noisy images may still harm training and could be excluded, too.
+Possibly, excluding noisy stacks can for example be done by calculating the Shannon entropy of all truncated stacks and include stacks with the highest entropy.
+
+In addition to noise exclusion, denoising stacks with three-dimensional N2V or individual slices with N2V2\footnote{At the time of writing, N2V2 is not yet compatible with three-dimensional images.} could increase model performance.
+This is because noise can occlude patterns that describe stretch information.
+
+\subsection{Using three-dimensional images}
+The current model relies on single images belonging to stacks.
+All structural information in the depth direction is disregarded by the neural network.
+If the neural network is redesigned to recognize patterns in three dimensions, it is expected to better predict the skin stretch properties.
+
+\subsection{Weighting samples by goodness of target fit}
+The neural network learns from targets that are a result of logistic curves fitted to a series of datapoints.
+The goodness of fit differs between curves.
+Fits that do not describe the data well should not negatively impact the model training.
+One way to achieve this is by reweighting the loss function by dividing by $R^2$ if $R^2 >0$ or $1 / W_r$ if $R^2\leq 0$, where $W_r$ is a minimum $R^2$ weight.
