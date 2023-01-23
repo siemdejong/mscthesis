@@ -24,6 +24,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url] -->
+[![CC BY 4.0][cc-by-shield]][cc-by]
 
 
 
@@ -284,8 +285,8 @@ Move the diagrams to the `mermaid` or `plantuml` folder and import the pdf/svg w
 
 <!-- LICENSE -->
 ## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+This work is licensed under a
+[Creative Commons Attribution 4.0 International License][cc-by].
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -345,4 +346,7 @@ Skinstression: [siemdejong/shg-strain-stress](https://github.com/siemdejong/shg-
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[JQuery-url]: https://jquery.com
+[cc-by]: http://creativecommons.org/licenses/by/4.0/
+[cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
+[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg?style=for-the-badge
