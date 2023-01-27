@@ -384,6 +384,13 @@ During inference, the AI is applied to the test set as external validation.
 % The last $N$\marginnote{How many again?} models are ensembled together
 
 \section{Explainability}
+
+\subsection{Occlusion}
 To explain the model output, occlusion \cref{subsec:occlusion} is used.
-Using the Captum Python library \cite{Kokhlikyan2020}, occlusion is done with $20\times 20$\unit{px} square patches moving with strides of 1.
+Using the Captum Python library \cite{Kokhlikyan2020}, occlusion is done with $3\times 3$\unit{px} square patches moving with strides of 1.
 All values in the patch have been replaced with 0.
+
+\subsection{Adversarial attack}
+To see the importance of homogeneous tissue within the skin tissue, black patches have been filled using Fiji [ref].
+Filling is done by drawing full white ellipses on top of the original image.
+Moreover, in another attack, a black patch is copied to other locations in the image.

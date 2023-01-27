@@ -360,17 +360,17 @@ The higher $R^2$, the better the performance.
 
 \begin{figure*}
     \centering
-    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_51_0.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_52_2.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_53_1.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_54_0.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_55_1.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_56_4.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_57_3.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_58_2.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_59_1.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_60_2.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_61_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_51_11.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_52_15.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_53_12.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_54_17.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_55_10.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_56_9.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_57_19.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_58_17.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_59_16.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_60_10.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/testing/sample_61_18.pdf}
     \caption[Test results]{
         Results of the best performing image per sample are shown.
         Performance is quantified by $R^2$.
@@ -402,23 +402,81 @@ The model only accepts batches of two-dimensional $500x500\,\unit{px}$ images.
 The user should separate any higher-dimensional data and crop the images to fit the model.
 
 \subsection{Explainability}
-Algorithmically occluded images have been presented to the model to obtain attributions at the pixel level.
-These are shown in blended heatmaps in \cref{fig:skin_occlusion}.
 
-\begin{figure*}
-    \ContinuedFloat
-    \centering
-    \includegraphics[width=\linewidth]{skinstression/images/explainability/occlusion/0.pdf}
-\end{figure*}
+\subsubsection{Occlusion}
+Algorithmically occluded images have been presented to the model to obtain attributions at the pixel level.
+For a summary of the test set, they are shown in blended heatmaps in \cref{fig:skin_occlusion}.
+\cref{fig:skin_occlusion_53} shows attribution maps for all test images of sample 53.
+
+% \begin{figure*}
+%     \ContinuedFloat
+%     \centering
+%     \includegraphics[width=\linewidth]{skinstression/images/explainability/occlusion/0.pdf} \\
+%     \raggedleft Continued on next page.
+% \end{figure*}
 \begin{figure*}
     % \ContinuedFloat
     \centering
-    \includegraphics[width=\linewidth]{skinstression/images/explainability/occlusion/1.pdf}
+    \includegraphics[width=\linewidth]{skinstression/images/explainability/occlusion/summary_test_0.pdf}
     \caption[Original image and attribution heat maps]{
         Original image and attribution heat maps.
         Attributions are blended with the original image.
         Attributions were calculated using $20\times 20\unit{px}$ occlusion.
-        Green and red attributions show over- and underestimated predictions, compared to output calculated from an unoccluded image.
+        Color scale is from \numrange{-3}{3} units, and is linear from \qtyrange{-0.1}{0.1}{\mega\pascal}, \qtyrange{-0.1}{0.1}{\mega\pascal\per\stretch}, and \qtyrange{-0.001}{0.001}{\stretch}.
+        Mean $\pm$ standard deviation are inset.
+        Zoom in in the digital version for details.
     }
     \label{fig:skin_occlusion}
 \end{figure*}
+
+
+\begin{figure*}
+    \ContinuedFloat
+    \centering
+    \includegraphics[width=\linewidth]{skinstression/images/explainability/occlusion/summary_53_0.pdf} \\
+    \raggedleft Continued on next page.
+\end{figure*}
+\begin{figure*}
+    % \ContinuedFloat
+    \centering
+    \includegraphics[width=\linewidth]{skinstression/images/explainability/occlusion/summary_53_1.pdf}
+    \caption[Original image and attribution heat maps for sample 53]{
+        Original image and attribution heat maps for sample 53.
+        Attributions are blended with the original image.
+        Attributions were calculated using $20\times 20\unit{px}$ occlusion.
+        Green and red show which parts attribute to under- and overestimations, compared to output calculated from an unoccluded image.
+        Color scale is from \numrange{-1.5}{1.5} units, and is linear from \qtyrange{-0.1}{0.1}{\mega\pascal}, \qtyrange{-0.1}{0.1}{\mega\pascal\per\stretch}, and \qtyrange{-0.001}{0.001}{\stretch}.
+        Mean $\pm$ standard deviation are inset.
+        Zoom in in the digital version for details.
+    }
+    \label{fig:skin_occlusion_53}
+\end{figure*}
+
+\subsubsection{Adversarial attack}
+\Cref{fig:attack_occlusion} shows attribution maps for all outputs to compare attacked images with the original image.
+\Cref{fig:pred_output_attack} shows the predicted logistic curves for the attacked images and the original image.
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=\linewidth]{skinstression/images/attack/attack-viz.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/attack/holes-occlusion-0.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/attack/holes-occlusion-1.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/attack/holes-occlusion-2.pdf}
+    \caption[Occlusion on attacked image]{
+        Top row shows a visualization of the two attacks.
+        The middle image has holes filled with white.
+        The right image has duplicates of one hole.
+        The next rows show occlusion attribution maps for all outputs.
+        Color scales are equal to \cref{fig:skin_occlusion_53}.
+    }
+    \label{fig:attack_occlusion}
+\end{figure*}
+
+\begin{figure}
+    \centering
+    \includegraphics{skinstression/images/attack/holes.pdf}
+    \caption[Prediction output after hole attack]{
+        Prediction output after hole attack.
+    }
+    \label{fig:pred_output_attack}
+\end{figure}
