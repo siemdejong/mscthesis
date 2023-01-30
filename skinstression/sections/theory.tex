@@ -1,4 +1,4 @@
-\chapter{Theory}
+\section{Theory}
 
 In addition to the theory described in \cref{pt:theory}, this section describes theory only applicable to the \textsc{Skinstression} project.
 
@@ -6,7 +6,7 @@ In addition to the theory described in \cref{pt:theory}, this section describes 
 % Label density smoothing
 % --------------------------------------------------
 
-\section{Label density smoothing}
+\subsection{Label density smoothing}
 The targets calculated with logistic curve fitting result in a non-uniform distribution.
 Data imbalance reduces the ability of a neural network to learn outliers.
 This may have significant impact on the test results.
@@ -22,9 +22,9 @@ LDS computes the effective label density distribution,
 where $k(y,y')$ is a symmetric kernel, $p(y)$ the number of label $y$ present in the training data and \edtl the effective density of target label $y'$.
 Reweighting the loss function with the inverse (square root) of \edtl addresses target imbalance.
 
-\section{Goodness of fit}
+\subsection{Goodness of fit}
 
-\subsection{Coefficient of determination}\label{subsec:coef_det}
+\subsubsection{Coefficient of determination}\label{subsec:coef_det}
 One possible way to quantify how good a fit is, is to calculate the coefficient of determination.
 The coefficient of determination of a dataset $y$ and its prediction $f$, is calculated with
 \begin{equation}

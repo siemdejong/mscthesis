@@ -3,7 +3,7 @@
 	fontsize=10pt, % Base font size
 	twoside=false, % Use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
 	%open=any, % If twoside=true, uncomment this to force new chapters to start on any page, not only on right (odd) pages
-	secnumdepth=1, % How deep to number headings. Defaults to 1 (sections)
+	secnumdepth=2, % How deep to number headings. Defaults to 1 (sections)
 	numbers=noenddot,
 ]{kaobook}
 
@@ -78,6 +78,48 @@
 
 \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
 
+% https://github.com/fmarotta/kaobook/issues/145#issuecomment-866744813
+% \makeatletter
+% \RenewDocumentCommand{\chapterstylekao}{}{%
+%     \renewcommand*{\chapterformat}{%
+%         \mbox{\chapappifchapterprefix{\nobreakspace}\scalebox{2.85}{\thechapter\autodot}}%
+%     }%  
+%     \renewcommand\chapterlinesformat[3]{%
+%         \vspace{3.5\vscale}%
+%         \if@twoside%
+%             \Ifthispageodd{%
+%                 \smash{\makebox[0pt][l]{%
+%                     \parbox[b]{\textwidth + \marginparwidth}{\flushright{##3}}%
+%                     \makebox[\marginparsep][c]{\rule[-2\vscale]{1pt}{27.4\vscale+\f@size mm}}%
+%                     \parbox[b]{0pt}{##2}%
+%                 }}%
+%             }{
+%                 \smash{\makebox[\textwidth][r]{%
+%                     \parbox[b]{\widthOf{##2}}{\flushright{##2}}%
+%                     \makebox[\marginparsep][c]{\rule[-2\vscale]{1pt}{27.4\vscale+\f@size mm}}%
+%                     \parbox[b]{\textwidth + \marginparwidth}{\flushleft{##3}}%
+%                 }}%
+%             }
+%         \else%
+%             \smash{\makebox[0pt][l]{%
+%                 \parbox[b]{\textwidth + \marginparwidth}{\flushright{##3}}%
+%                 \makebox[\marginparsep][c]{\rule[-2\vscale]{1pt}{27.4\vscale+\f@size mm}}%
+%                 \parbox[b]{0pt}{##2}%
+%             }}%
+%         \fi%
+%     }%  
+%     \RedeclareSectionCommand[beforeskip=0cm,afterskip=10\vscale]{chapter}%
+%     \setlength{\mtocshift}{-3\vscale}%
+% }
+% \makeatother
+% \RedeclareSectionCommand[\chapterstylekao]{
+% 	\RedeclareSectionCommand[
+% 	style=part,
+% 	innerskip=0pt,
+% 	beforeskip=\fill,
+% 	afterskip=\fill
+% 	]{chapter}
+% }
 
 \begin{document}
 
@@ -122,8 +164,11 @@
 % Turn on compatibility mode for the etoc package
 \etocstandarddisplaystyle % "toc display" as if etoc was not loaded
 \etocstandardlines % "toc lines as if etoc was not loaded
+\setcounter{tocdepth}{1}
 
-\tableofcontents % Output the table of contents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\tableofcontents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
 \listoffigures % Output the list of figures
 
@@ -142,31 +187,43 @@
 \mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
 \setchapterstyle{kao} % Choose the default chapter heading style
 
+\pagelayout{wide}
+\chapter{General introduction}\label{ch:general_introduction}
+\pagelayout{margin} % Restore margins
+
 \input{general_introduction.tex}
 
-\pagelayout{wide} % No margins
-\addpart{Theory of artificial neural networks}\label{pt:theory}
+% \pagelayout{wide} % No margins
+% \addpart{Theory of artificial neural networks}\label{pt:theory}
+% \pagelayout{margin} % Restore margins
+
+\pagelayout{wide}
+\chapter{Theory of artificial neural networks}
 \pagelayout{margin} % Restore margins
 
 \input{ANN/theory.tex}
 
-\pagelayout{wide} % No margins
-% \addpart[Skinstression]{Strain-stress regression on \\ second harmonic generation images \\ using {\normalfont\textsc{Skinstression}}}
-\addpart[Skinstression]{Developing and validating a strain-stress regression model on second harmonic generation images from old adult skin tissue}
+% \pagelayout{wide} % No margins
+% % \addpart[Skinstression]{Strain-stress regression on \\ second harmonic generation images \\ using {\normalfont\textsc{Skinstression}}}
+% \addpart[Skinstression]{Developing and validating a strain-stress regression model on second harmonic generation images from old adult skin tissue}
+% \pagelayout{margin} % Restore margins
+
+\pagelayout{wide}
+\chapter[Skinstression]{Developing and validating a strain-stress regression model on second harmonic generation images from old adult skin tissue}
 \pagelayout{margin} % Restore margins
 
-\input{skinstression/chapters/introduction.tex}
-\input{skinstression/chapters/theory.tex}
-\input{skinstression/chapters/methods.tex}
-\input{skinstression/chapters/results.tex}
-\input{skinstression/chapters/discussion.tex}
-\input{skinstression/chapters/supplementary.tex}
+\input{skinstression/sections/introduction.tex}
+\input{skinstression/sections/theory.tex}
+\input{skinstression/sections/methods.tex}
+\input{skinstression/sections/results.tex}
+\input{skinstression/sections/discussion.tex}
+\input{skinstression/sections/supplementary.tex}
 
 \pagelayout{wide} % No margins
-\addpart{Pediatric brain tumours}
+\chapter{Pediatric brain tumours}
 \pagelayout{margin} % Restore margins
 
-\chapter{A chapter}
+
 
 \blindtext
 
@@ -179,6 +236,8 @@
 \pagelayout{wide} % No margins
 \addpart{Appendix}
 \pagelayout{margin} % Restore margins
+
+
 
 \input{frontbackmatter/appendix.tex}
 

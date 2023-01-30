@@ -1,8 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % INTRODUCTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\chapter[From biophysics to computer science]{From biophysics \\ to computer science}
+\section[From biophysics to computer science]{From biophysics \\ to computer science}
 
 In 1981, Hubel and Wiesel were awarded the Nobel Prize of Medicine for their discovery of visual perception \cite{NP1981}.
 They built and tested a model that describes the path of a message from eye to brain.
@@ -32,12 +31,12 @@ They combined convolutions and backpropagation into a convolutional neural netwo
 % BUILDING BLOCKS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter[CNN building blocks]{The building blocks of convolutional neural networks}
+\section[CNN building blocks]{The building blocks of convolutional neural networks}
 
-\section{Artificial neural network}
+\subsection{Artificial neural network}
 Neural network
 
-\section{Convolutional layers}
+\subsection{Convolutional layers}
 To distinguish a neural network from a convolutional neural network (CNN), at least one layer must be a convolution.
 A convolution is an operation where a kernel with width $w$ and height $h$ is moved along an input to generate an output.
 The output, or output feature map, in two dimensions, is
@@ -99,7 +98,7 @@ Examples of such operators are scaling, rotating, and flipping.\marginnote{Move 
 %     \label{fig:arbitrary_padding_no_strides}
 % \end{figure*}
 
-\section{Pooling}\label{sec:pooling}
+\subsection{Pooling}\label{sec:pooling}
 Pooling is a form of nonlinear downsampling.
 To achieve this, typically, a convolution kernel is moved over the input with a stride as big as the kernel itself.
 This ensures that the downsampling considers measures of input sub-regions.
@@ -108,7 +107,7 @@ Pooling is equivariant to any permutation under the kernel.
 This results in invariance to local translations.
 In deep learning, pooling is therefore used to quantify the presence of a pattern, as opposed to finding its position.
 
-\subsection{Max pooling}\label{subsec:maxpool}
+\subsubsection{Max pooling}\label{subsec:maxpool}
 The most common form of pooling is max pooling (ref).
 The kernel finds the maximum value in sub-regions and maps these maximum values per sub-region to a new image.
 The output
@@ -117,14 +116,14 @@ The output
 \end{equation}
 where $rw$ and $sh$ are the width and height of the input.
 
-\subsection{Average pooling}\label{subsec:avgpool}
+\subsubsection{Average pooling}\label{subsec:avgpool}
 Another popular form of pooling is the average pooling, which finds the mean value in sub-regions.
 The output
 \begin{equation}
     \mathbf{o}_{c, i, j} = \frac{1}{wh}\sum_{n=0}^{w-1}\sum_{m=0}^{h-1}\mathbf{x}_{c,si+n,rj+m}.
 \end{equation}
 
-\section{Activation functions}\label{sec:activations}
+\subsection{Activation functions}\label{sec:activations}
 
 \begin{enumerate}
     \item heaviside
@@ -132,12 +131,12 @@ The output
     \item vanishing gradient problem -> relu
 \end{enumerate}
 
-\subsection{Vanishing gradient problem}
+\subsubsection{Vanishing gradient problem}
 Over the years, neural networks have become deeper, \ie more layers are being added.
 
 Sigmoids (and other saturating curves like hyperbolical tangent) have.
 
-\subsection{Rectified linear unit}\label{subsec:relu}
+\subsubsection{Rectified linear unit}\label{subsec:relu}
 To overcome the vanishing gradient problem, non-saturating activation functions can be used.
 One such function is the rectified linear unit (ReLU).
 It is defined as
@@ -151,11 +150,11 @@ such that only the positive arguments keep their value.
 % Loss functions
 % --------------------------------------------------
 
-\section{Loss functions}
+\subsection{Loss functions}
 Backpropagation needs a loss to learn in which direction to update weights.
 There is a variety of loss functions available (ref review).
 
-\subsection{Mean absolute error}
+\subsubsection{Mean absolute error}
 One of the most straightforward techniques of calculating the loss is the mean absolute error (MAE).
 It measures the average difference between every prediction and target, like
 \begin{equation}
@@ -166,14 +165,14 @@ where $n$ is the number of targets per sample, $y$ the prediction and $y'$ the t
 The MAE loss is forgiving, i.\ e.\ outliers are weighted as much as predictions close to the target.
 In training a neural network, focusing on outliers is assumed to be beneficial, as those are the cases that the model has difficulty with (ref).
 
-\subsection{Mean square error}
+\subsubsection{Mean square error}
 To overcome the forgiving nature of the MAE loss, the mean square error (MSE) can be used.
 It measures the average squared difference between every prediction and target, like
 \begin{equation}
     \mathrm{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - y'_i)^2.
 \end{equation}
 
-\subsection{Focal MSE}
+\subsubsection{Focal MSE}
 To give even more focus on the hard targets, giving them more importance than easy targets can be done through the focal MSE loss (FL)~\cite{Lu2022}.
 To give less importance to the easier targets, FL follows
 \begin{equation}
@@ -185,13 +184,13 @@ where increasing $\gamma$ increases the number of targets regarded as easy and $
 % TRAINING A NEURAL NETWORK
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Training a neural network}
+\section{Training a neural network}
 
 % --------------------------------------------------
 % Hyperparameter optimization
 % --------------------------------------------------
 
-\section{Hyperparameter optimization}\label{sec:hparam}
+\subsection{Hyperparameter optimization}\label{sec:hparam}
 
 A machine learning model uses training data to learn parameters to map input to output data best.
 However, there are parameters that cannot be learned, but greatly influence the training outcome.
@@ -205,7 +204,7 @@ However, this can be computationally expensive.
 Moreover, when using a continuous variable, it is no long possible to exhaustively sample parameters.
 To engage this problem, various algorithms have been developed to sample hyperparameters from the high-dimensional distribution.
 
-\subsection{Grid search and random search}
+\subsubsection{Grid search and random search}
 The most straightforward technique of finding the best set of hyperparameters is grid search.
 With grid search, parameters are sampled exhaustively using equidistant spacing in each dimension.
 
@@ -225,7 +224,7 @@ This is because trials explore the whole distribution as opposed to just a few p
     \label{fig:gridrandsearch}
 \end{figure}
 
-\subsection{Tree Parzen estimator}
+\subsubsection{Tree Parzen estimator}
 Still, random search requires trials in regions that are unpromising.
 This is inefficient.
 A tree-structured Parzen estimator (TPE)~\cite{Bergstra2011} approach aims to model the probability of a hyperparameter, given a loss value.
@@ -250,7 +249,7 @@ Ref.~\cite{Bergstra2011} shows that this ratio is proportional to the expected i
 The configuration responsible for the maximum of $\mathrm{promisingness}(c)$ is used as the next trial.
 Results of that trial are now categorized as good or bad, and the iterative process continues.\marginnote{add multivariate note \cite{Falkner2018}}
 
-\subsection{Successive Halving and Hyperband}
+\subsubsection{Successive Halving and Hyperband}
 Although $\mathcal{C}$ can be sampled more efficiently with TPE, trials still use the full computational budget, even if it is apparent that the trial is unpromising early on.
 Early terminating (or pruning) these underperforming trials speeds up hyperparameter optimization.
 Pruning trials can be done using Successive Halving (SH)~\cite{Jamieson2016}.
@@ -272,12 +271,12 @@ HB invokes SH multiple times.
 Every invocation of SH is called a bracket.
 In the end, HB returns the best configuration possible just like SH, but diminishing the dependence on manually choosing a good $T$.
 
-\subsection{Parameter importances}
+\subsubsection{Parameter importances}
 Not every hyperparameter is as important as others.
 \textcite{Hutter2014} describe the fANOVA algorithm to quantitatively assess the importance of every hyperparameter.
 Knowing the importance of a variable gives more insight into interactions and relative importance between hyperparameters.
 
-\section{Training}\label{Training}
+\subsection{Training}\label{Training}
 At the start of training, a neural network has its weights and biases initialized.
 Most probably, the model is not capable of mapping input to output in a robust manner.
 To achieve this, repeatedly using backpropagation to update the model parameters aims to shape the model in the direction of minimizing the loss between target and model output.
@@ -300,13 +299,13 @@ It fails to generalize to unseen, but similar data.
 To remedy this, there are multiple possible solutions.
 Solutions include dropout, batch normalization, or more complex models (\ie deeper or wider networks).
 
-\subsection{Dropout}\label{sec:dropout}
+\subsubsection{Dropout}\label{sec:dropout}
 Overfitting can be reduced by applying methods of regularization.
 One regularization method is dropout.
 It prevents neurons from co-adapting, which would otherwise reduce the chance of the model to perform well on external validation sets \cite{Srivastava2014}.
 With dropout, individual neurons are activated with probability $p$, effectively dropping neurons randomly.
 
-\subsection{Batch normalization}\label{sec:bn}
+\subsubsection{Batch normalization}\label{sec:bn}
 Batch normalization (BN)~\cite{Ioffe2015} is a technique to shift and scale batches akin to standardization.
 It can be implemented as a layer in any neural network.
 Per minibatch and per dimension, the mean and standard deviation of the input are calculated.
@@ -324,7 +323,7 @@ where $\gamma$ and $\beta$ are learnable parameters learned in a sub-network.
 BN has been shown to have a regularizing effect (ref), although combining it with dropout is disputed.
 More often than not, using both BN and dropout leads to worse results on the test set.
 
-\subsection{Model ensembling}\label{subsec:model_ensembling}
+\subsubsection{Model ensembling}\label{subsec:model_ensembling}
 A benefit of having a cyclic learning rate is generating multiple models across cycles.
 The effectiveness of ensembling models from multiple cycles, Snapshot Ensembling, is first described by \textcite{Huang2017}.
 During model training, a model can be checkpointed at the best performing epoch for every cycle, see \.
@@ -350,7 +349,7 @@ The checkpointed models can be ensembled by choosing the last $m$\marginnote{how
 % Image quality
 % --------------------------------------------------
 
-\section{Image quality}\label{subsec:imq}
+\subsection{Image quality}\label{subsec:imq}
 A convolutional neurel network receives a stream of input images with varying quality.
 For example, microscopy images from deep inside tissue are presumably noisier and/or less bright than images taken near the surface.
 Neural networks have trouble learning from bad images, as they lack structures that trigger neurons to output predictions close to targets.
@@ -358,7 +357,7 @@ Excluding noisy images might increase performance \cite{Blokker2022}.
 \textcite{Koho2016} suggest some measures to quantify image quality.
 Here, the entropy and kurtosis are discussed.
 
-\subsection{Shannon entropy}
+\subsubsection{Shannon entropy}
 The quality of an image may be described by the amount of information that is contained within it.
 The information can be quantified by how surprising it is to contain specific content.
 For instance, knowledge that a rare event will occur has high informational value, while knowledge that a probable event will happen has low informational value.
@@ -381,7 +380,7 @@ The intuition for images with high entropy tending to carry more information is 
 the number of pixels with a certain intensity will increase.
 This may be most apparent in dark regions, which would benefit from more illumination.
 
-\subsection{Kurtosis}
+\subsubsection{Kurtosis}
 Another measure for image quality is kurtosis of the power spectrum.
 Kurtosis measures the outliers of a distribution and is given by
 \begin{equation}
@@ -401,7 +400,7 @@ Platykurtic distributions have thinner tails, such as the Bernoulli distribution
 Kurtosis can be calculated on the upper part of the power spectrum of an image \cite{Koho2016,Blokker2022}.
 If the upper part of the power spectrum is very leptokurtic compared to other images in the dataset, it may indicate that the image is an outlier and is significantly different from the mean.
 
-\section{Explainable AI}
+\subsection{Explainable AI}
 A significant number of users of a trained AI generally view the model as a black box that simply maps input to output.
 How this box is constructed and why it results in a particular outcome is often overlooked.\marginnote{ref!}
 Meanwhile, techniques to give insight into the black box (explainable AI, XAI) have been developed.
@@ -414,7 +413,7 @@ Explainability is particularly important in clinical settings where merely relyi
 AI solutions exist that predict patient outcome after new treatment given current health status [refs] or segment tumour regions in medical imaging after which the predicted region will be excised or treated with radiotherapy.
 XAI gives users and patients more confidence in the prediction so that specialists can proceed with treatment.
 
-\subsection{Occlusion}\label{subsec:occlusion}
+\subsubsection{Occlusion}\label{subsec:occlusion}
 Occlusion \cite{Zeiler2013} is an XAI pertubation technique.
 The method replaces patches of the input with a baseline value.
 \eg for images, patches can consist of any shape and the baseline value can be 0, practically making a patch black and removing all information at the patch's location and the connections with neighbouring pixels.

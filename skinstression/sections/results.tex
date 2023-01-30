@@ -1,4 +1,4 @@
-\chapter{Results}
+\section{Results}
 
 \begin{figure}
     \centering
@@ -10,7 +10,7 @@
     \label{fig:trunc_interp_curves}
 \end{figure}
 
-\section{Participants}
+\subsection{Participants}
 
 Earlier studies (refs) include 18 individuals (5 men, 4 women, and 6 unknown).
 Abdomen data was excluded, because the strain-stress curves differ significantly from the thigh.
@@ -34,8 +34,8 @@ The source of data is summarized in \cref{fig:source_of_data}.
     \label{fig:source_of_data}
 \end{figure*}
 
-\section{Predictor pre-selection}
-\subsection{Exponential}
+\subsection{Predictor pre-selection}
+\subsubsection{Exponential}
 An exponential fit to \cref{eq:exp} is shown in \cref{fig:exp_fits}.
 $R^2 = \num{0.9497}$.
 The exponent is not able to fit the plateau that is often exhibited near maximum stretch.
@@ -51,7 +51,7 @@ The exponent is not able to fit the plateau that is often exhibited near maximum
     \label{fig:exp_fits}
 \end{figure}
 
-\subsection{PCA}
+\subsubsection{PCA}
 The PCA fit for every truncated and interpolated strain-stress curve is depicted in \cref{fig:pca_fits}.
 For every fit, $R^2$ is calculated with respect to the interpolated and truncated data.
 On average, $\overline{R^2} \approx \num{0.9927 \pm 0.0022}$.
@@ -75,7 +75,7 @@ Due to the nature of PCA, the exponential part of the curves that rise later is 
     \label{fig:pca_fits}
 \end{figure*}
 
-\subsection{Logistic curve}
+\subsubsection{Logistic curve}
 The logistic curve fit for every strain-stress curve is shown in \cref{fig:logistic_fits}.
 For every fit, $R^2$ is calculated.
 On average, $\overline{R^2} \approx \num{0.9979 \pm 0.0039}$.
@@ -98,7 +98,7 @@ On average, $\overline{R^2} \approx \num{0.9979 \pm 0.0039}$.
 
 Because the logistic curve describes the stress-strain data more accurate than PCA or the exponential, it will be used from now on.
 
-\subsection{Label density smoothing}
+\subsubsection{Label density smoothing}
 The labels were smoothed using LDS using gaussian kernels.
 All kernels had a size of 30 and a standard deviation of 3.
 The distribution bins were manually set to $(\sigma_{\mathrm{max},\mathrm{min}}, \sigma_{\mathrm{max},\mathrm{max}}, s_{\sigma_\mathrm{max}}) = (0, 15, 0.01) \unit{\mega\pascal}$,
@@ -126,7 +126,7 @@ The smoothed distribution is shown in \cref{fig:skin_lds}.
 % IMAGE QUALITY
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Image quality}
+\subsection{Image quality}
 Presumably, the model will yield erroneous predictions if images of bad quality are provided.
 Moreover, the measurement was not always done in the same order, \ie from the lowest to the highest tissue or vice versa.
 Therefore, two image quality measurements were explored: Shannon entropy and kurtosis.
@@ -172,9 +172,9 @@ For reasons explained in \cref{sec:disc_ent_vs_kur}, entropy is further used to 
 % HYPERPARAMETER SEARCH
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Hyperparameter optimization}
+\subsection{Hyperparameter optimization}
 
-\subsection{Search 1}
+\subsubsection{Search 1}
 The contour plot is shown in \cref{fig:skinstression-search1-contour}.
 Only the loss curves of the best trial (71) is shown in \cref{fig:skinstression-search1-best-loss}.
 Both training and validation loss show an increase at the learning rate restarts.
@@ -201,7 +201,7 @@ Both training and validation loss show an increase at the learning rate restarts
     \label{fig:skinstression-search1-contour}
 \end{figure*}
 
-\subsection{Search 2}
+\subsubsection{Search 2}
 The contour plot is shown in \cref{fig:skinstression-search2-contour}.
 Only the loss curves of the best trial (184) is shown in \cref{fig:skinstression-search2-best-loss}.
 Both training and validation loss show an increase at the learning rate restarts.
@@ -227,7 +227,7 @@ Both training and validation loss show an increase at the learning rate restarts
     \label{fig:skinstression-search2-contour}
 \end{figure*}
 
-\subsection{Search 3}
+\subsubsection{Search 3}
 The contour plot is shown in \cref{fig:skinstression-search3-contour}.
 Only the loss curves of the best trial (73) is shown in \cref{fig:skinstression-search3-best-loss}.
 The training and validation losses diverge, showing the model overfits.
@@ -258,7 +258,7 @@ The training and validation losses diverge, showing the model overfits.
 %%%%%%%%%%%%%%%%%%
 % TRAINING
 %%%%%%%%%%%%%%%%%%
-\section{Training}
+\subsection{Training}
 Training was done on the best performing set of hyperparameters, which was found by search 1.
 Search 1 yielded the lowest validation loss.
 The corresponding hyperparameters in \cref{tab:conf_skin_final} were used for further training.
@@ -350,7 +350,7 @@ To verify performance of training, the stress-strain curves of a random training
     \label{fig:skinstression-train-logistic-curves}
 \end{figure*}
 
-\section{Testing}
+\subsection{Testing}
 The results of the best performing images in the test set are shown in \cref{fig:skinstression-test}.
 The higher $R^2$, the better the performance.
 
@@ -374,7 +374,7 @@ The higher $R^2$, the better the performance.
     \label{fig:skinstression-test}
 \end{figure*}
 
-\section{Model specification}
+\subsection{Model specification}
 The foundational neural network is described in \cref{fig:model}.
 x neural networks combined make up the final model.
 The output of the model is the average of the outputs of the individual models.
@@ -382,7 +382,7 @@ It accepts a batch of images as input and outputs a vector $(i, \sigma_\mathrm{m
 where $i$ denotes the $i$th image of the batch.
 
 
-\section{Usability}
+\subsection{Usability}
 The prediction AI may be used for three purposes.
 One purpose is to skip the mechanical measurement on skin tissue and immediately get an estimation of stretch properties.
 Another is to match stretch information to physical features present in the collagen fiber networks.
@@ -397,7 +397,7 @@ The application does allow to only select the top $N_\mathrm{best}$ images.
 The model only accepts batches of two-dimensional $500x500\,\unit{px}$ images.
 The user should separate any higher-dimensional data and crop the images to fit the model.
 
-\subsection{Explainability}
+\subsubsection{Explainability}
 
 \subsubsection{Occlusion}
 Algorithmically occluded images have been presented to the model to obtain attributions at the pixel level.

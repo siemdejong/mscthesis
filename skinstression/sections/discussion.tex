@@ -1,4 +1,4 @@
-\chapter{Discussion}
+\section{Discussion}
 
 TODO?:
 \begin{enumerate}
@@ -9,7 +9,7 @@ TODO?:
     \item train/val/test diff of 'source of data' fig
 \end{enumerate}
 
-\section{Logistic curve fits stress-strain curves better than an exponential or PCA}
+\subsection{Logistic curve fits stress-strain curves better than an exponential or PCA}
 With an $\overline{R^2} \approx \num{0.9979 \pm 0.0039}$, the logistic curve fits stress-strain data (\cref{fig:logistic_fits}) better than the exponential or PCA ($\overline{R^2} \approx \num{0.9927 \pm 0.0022}$, \cref{fig:pca_fits}).
 The exponential does not fit the plateau that is often present at the end of a stress-strain curve (\cref{fig:exp_fits}).
 This plateau is essential to the skin tissue dynamics.
@@ -20,7 +20,7 @@ Moreover, to fairly create PCA fits, PCA has to be trained on a training set and
 This may lead to generalizability problems.
 For these reasons, the logistic curve parameters are used as a predictors.
 
-\section{Shannon entropy is a better measure to exclude noise than kurtosis}\label{sec:disc_ent_vs_kur}
+\subsection{Shannon entropy is a better measure to exclude noise than kurtosis}\label{sec:disc_ent_vs_kur}
 Measures to be used to exclude noise are kurtosis (\cref{fig:skin_kurtosis_depth}) and Shannon entropy (\cref{fig:skin_entropy_depth}).
 For rather homogeneous images like stack 8, kurtosis is able to characterize the fogginess, while entropy finds images of equal quality.
 However, for well-structured tissue like stack 11, 12, 13 and 4, entropy recognizes faint images and qualifies them as bad.
@@ -29,26 +29,26 @@ Kurtosis does not succeed to distinguish dark images from bright ones.
 Kurtosis also has the tendency to fluctuate, which is unexpected between subsequent slices.
 For these reasons, Shannon entropy has been used to choose the top $N_\mathrm{best}$ images.
 
-\section{Stretch information can be extracted from SHG microscopy images}
+\subsection{Stretch information can be extracted from SHG microscopy images}
 \Cref{fig:skinstression-train-logistic-curves} shows that for most images, it is possible to extract stretch information.
 Using the model, ten images from different stacks of the train set yield a stress-strain curve with $R^2>0.9$.
 This shows that stretch information is present, even in the drastically downsized images.
 
-\section{The model does not generalize well}
+\subsection{The model does not generalize well}
 Although the train results were promising, the test results of \cref{fig:skinstression-test} show a lack of generalizability.
 Only two images from different stacks of the test set yield a stress-strain curve with $R^2=0.99$.
 This shows that the training set does not include enough features similar to the features in the test set.
 More images need to be included in the training set for the model to generalize well to held-out test cases.
 
-\section{Artificially increasing collagen density increases maximum stress prediction and stiffness and vice versa}
+\subsection{Artificially increasing collagen density increases maximum stress prediction and stiffness and vice versa}
 As shown in \cref{fig:pred_output_attack}, artificially filling holes with collagen increases the maximum stress significantly and increases the maximum Young's modulus slightly.
 This is expected, as an increase in collagen density generally is an increase in the number of springs in the system.
 Adding springs increases the stiffness.
 The increase in maximum stress is likely due to the addition of springs supporting each other dividing the load.
 On the contrary, with comparable reasoning, artificially decreasing the collagen density by duplicating a hole lowers both the maximum stress and Young's modulus.
 
-\section{Future studies}
-\subsection{Perform cross validation and increase data variance}
+\subsection{Future studies}
+\subsubsection{Perform cross validation and increase data variance}
 In this study, no cross validation is performed.
 Training a network on different training subsets might increase the performance on the test set.
 The test set might include patterns that were not present in the training set and therefore will not activate critical parts of the neural network.
@@ -65,7 +65,7 @@ Therefore, it is unknown if the stretch of skin tissues other than from the uppe
 
 Lastly, to increase variance, more images of skin tissue from more individuals should be included.
 
-\subsection{Split dataset before image and target transformations}
+\subsubsection{Split dataset before image and target transformations}
 LDS should only be performed on the training set, independently from the validation and test set.
 This is to prevent leaking data to the training set.
 By design, the software constructs train, validation and test split datasets with data transformations, including target transformations such as LDS and the Yeo-Johnson transformation.
@@ -91,7 +91,7 @@ To achieve that, \cref{eq:skin_newtest_idx} should be rewritten as
 This version of \texttt{actual test} has one major drawback, which is that the \qty{20}{\percent} highest indices are reserved for the test set, effectively excluding them from the shuffle.
 A future study should perform a train/validation split on shuffled indices after splitting off the test set.
 
-\subsection{Excluding noise and denoising on stack level}
+\subsubsection{Excluding noise and denoising on stack level}
 Currently, the stacks are truncated by taking the top $N_\mathrm{best}$ images of a stack which effectively excludes noisy slices.
 However, if a full z-stack is noisy, noisy images are still included.
 These noisy images may still harm training and could be excluded, too.
@@ -100,12 +100,12 @@ Possibly, excluding noisy stacks can for example be done by calculating the Shan
 In addition to noise exclusion, denoising stacks with three-dimensional N2V or individual slices with N2V2\footnote{At the time of writing, N2V2 is not yet compatible with three-dimensional images.} could increase model performance.
 This is because noise can occlude patterns that describe stretch information.
 
-\subsection{Using three-dimensional images}
+\subsubsection{Using three-dimensional images}
 The current model relies on single images belonging to stacks.
 All structural information in the depth direction is disregarded by the neural network.
 If the neural network is redesigned to recognize patterns in three dimensions, it is expected to better predict the skin stretch properties.
 
-\subsection{Using full-size images}
+\subsubsection{Using full-size images}
 The microscope outputting the SHG images has a much larger resolution.\marginnote{How much larger?}
 The method in this study did not make use of this resolution.
 Higher resolution images contain more information on the collagen structure, and are therefore expected to increase the performance.
@@ -113,7 +113,7 @@ The presented model has to be redesigned to accept images larger than $258\times
 Moreover, raw data is stored with a larger dynamic range (16-bit instead of 8-bit).
 Being able to see small differences in neighbouring pixel intensities increases the available information \eg in darker regions, where collagen is sparse, but still significantly present.
 
-\subsection{Weighting samples by goodness of target fit}
+\subsubsection{Weighting samples by goodness of target fit}
 The neural network learns from targets that are a result of logistic curves fitted to a series of datapoints.
 The goodness of fit differs between curves.
 Fits that do not describe the data well should not negatively impact the model training.
