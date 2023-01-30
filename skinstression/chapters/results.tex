@@ -28,6 +28,7 @@ The source of data is summarized in \cref{fig:source_of_data}.
     \caption[Source of data]{
         The selected individuals and their sex, age and number of strain-stress curves.
         Top panel: shows the age and sex distribution. Blue, pink and black denote male, female and unknown sex.
+        In fact, the age of person 12, 11, and 4 are unknown.
         Bottom panel: shows the number of curves per person.
     }
     \label{fig:source_of_data}
@@ -54,7 +55,7 @@ The exponent is not able to fit the plateau that is often exhibited near maximum
 The PCA fit for every truncated and interpolated strain-stress curve is depicted in \cref{fig:pca_fits}.
 For every fit, $R^2$ is calculated with respect to the interpolated and truncated data.
 On average, $\overline{R^2} \approx \num{0.9927 \pm 0.0022}$.
-Due to the nature of PCA, the exponential part of the slower curves is not included in the making of the fit.
+Due to the nature of PCA, the exponential part of the curves that rise later is not included in the making of the fit.
 
 \begin{figure*}
     \centering
@@ -133,12 +134,7 @@ Therefore, two image quality measurements were explored: Shannon entropy and kur
 The kurtosis of some image stacks were used to validate the image quality by eye, see \cref{fig:skin_kurtosis_depth}.
 The entropy of the same image stacks as for kurtosis were used to validate the image quality by eye, see \cref{fig:skin_entropy_depth}.
 
-For rather homogeneous images like stack 8, kurtosis is able to characterize the fogginess, while entropy finds images of equal quality.
-However, for well-structured tissue like stack 11, 12, 13 and 4, entropy recognizes faint images and qualifies them as bad.
-This is particularly useful for images that did not include any useful information (like stack 37).
-Kurtosis does not succeed to distinguish dark images from bright ones.
-Kurtosis also has the tendency to fluctuate, which is unexpected between subsequent slices.
-For these reasons, entropy is further used to choose the top quality images from every stack.
+For reasons explained in \cref{sec:disc_ent_vs_kur}, entropy is further used to choose the top quality images from every stack.
 
 \begin{figure*}
     \centering
