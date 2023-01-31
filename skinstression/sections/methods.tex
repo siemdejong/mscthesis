@@ -29,7 +29,7 @@ The SHG channel is chosen as it is assumed to only contain collagen information.
 
 The SHG images are enhanced with contrast limited adaptive histogram equalization (CLAHE) \cite{Zuiderveld1994ContrastLA} using scikit-image \cite{scikit-image} to equalize importance of dark and bright regions.
 
-The enhanced images are then transformed with a Yeo-Johnson transform such that the histogram of all images is as normal as possible.
+The enhanced images are then transformed with a Yeo-Johnson transform using Scipy \cite{2020SciPy-NMeth} such that the histogram of all images is as normal as possible.
 
 The transformed images are standardized by subtracting the total mean and total standard deviation of the complete transformed image set, like
 \begin{equation}
@@ -59,7 +59,7 @@ To counter these optical effects, inspired by \textcite{Koho2016} and \textcite{
 With this, images can be sorted to this measure and the top $k$ images with best quality can be used to train the network, thus excluding noise.
 
 Candidates for this measure are Shannon entropy, kurtosis, and skew for reasons explained in \ref{subsec:imq}
-These quality measures are calculated per image, such that the quality measure can be validated by observing manually.
+These quality measures are calculated per image using PyImageQualityRanking \cite{Koho2016}, such that the quality measure can be validated by observing manually.
 
 \subsubsection{Image denoising}
 Another optical disadvantage of multiphoton microscopy is the occurrence of noise.\marginnote{Look up sources of noise.}
@@ -86,6 +86,7 @@ To make the model more robust, data augmentation is applied.
 Before the downsampling, the preprocessed images are cropped randomly from $\qty{1000}{px}\times \qty{1000}{px}$ to $\qty{700}{px}\times \qty{700}{px}$ preserving the aspect ratio.
 The global brightness is adjusted randomly with $\pm \qty{30}{\percent}$.
 The images are then randomly mirrored horizontally and vertically with a probability of \qty{50}{\percent}.
+All data augmentations were performed with Torchvision \cite{torchvision2016}.
 
 \subsection{Outcome}
 The strain-stress response curves of individual skin tissue pieces were the outcome of interest.
@@ -153,7 +154,7 @@ This model assumes that data follows the previously described curve where there 
 The exponential model is fit to some stress-strain curves using OriginPro~\cite{OriginPro}.
 
 \paragraph{Principal component analysis}
-In an earlier study (ref A.\ Soylu), principal component analysis (PCA) is used to reduce the dimensionality of the strain-stress data.
+In an earlier study \cite{Soylu2022}, principal component analysis (PCA) is used to reduce the dimensionality of the strain-stress data.
 In summary, after PCA, every measurement $Y$ can be approximated by
 \begin{equation}\label{eq:pca}
     Y \approx Y_\mathrm{PCA} = \mathbf{A} \mathbf{V} + \bar{Y},
@@ -166,7 +167,7 @@ Using PCA to create eigenvalues to weight the eigenvectors has some caveats.
 First, the training and test sets must be treated separately.
 The test set has to be projected on the space spanned by the first $p$ eigenvectors of the training set.
 This may induce problems as the test set could contain information that does not come close to
-Second, PCA depends on interpolation, i.\ e.\ every strain-stress curve must be formed by either a set of strain or stress values.
+Second, PCA depends on interpolation, \ie every strain-stress curve must be formed by either a set of strain or stress values.
 This reduces the domain of the data.
 
 \paragraph{Logistic curve}
@@ -206,15 +207,16 @@ The statistical methods are summarized in \cref{fig:skin_stat_methods}.
 
 \begin{figure*}[p]
     \centering
-    \includegraphics[height=\dimexpr\textheight-55.89pt\relax]{mermaid/skin_analysis.pdf}
+    % \includegraphics[height=\dimexpr\textheight-55.89pt\relax]{mermaid/skin_analysis.pdf}
+    \includegraphics{mermaid/skin_analysis.pdf}
     \caption[Flowchart of statistical analysis methods for \textsc{Skinstression}]{
         Flowchart of statistical analysis methods for \textsc{Skinstression}.
         Exponentials, principal component analysis (PCA) reconstructions, and logistic curves were fit to the stress-strain curves.
         The best-fitted model was used to create training targets.
         The targets and images were used as input for further training.
-        The hyperparameter search was performed by four Hyperband studies and the best configuration was used for further training.
-        After training, Snapshot Ensembling was used to build a final model.
-        The final model is tested and interrogated using the XAI techniques integrated gradients and occlusion.
+        The hyperparameter search was performed by four Hyperband studies and the best configuration was used to train four models.
+        The best validation loss determines the final model.
+        The final model is tested and interrogated using occlusion and an adversarial attack.
     }
     \label{fig:skin_stat_methods}
 \end{figure*}
@@ -235,8 +237,8 @@ The first step to achieve this is excluding all stretch values above the stretch
 \textcite{Soylu2022} did linear interpolation on the curves and restricted both stretch and stress to minim peak value.
 PCA on two variables requires only one shared set of points.
 Moreover, results of \citeauthor{Soylu2022} show knicks in the PCA reconstructions near the end of the curves, which could originate from a limited amount of datapoints or linear interpolation.
-Therefore, in this study, a non-uniform, univariate, interpolating spline was fitted to all points and the stress was calculated from the spline at the stetch values of the curve with the lowest maximum stretch.
-After PCA on the complete dataset, the explained variance per component was calculated and used as a method to find an appropriate number of principal components.
+Therefore, in this study, a non-uniform, univariate, interpolating spline was fitted to all points using Scipy \cite{2020SciPy-NMeth} and the stress was calculated from the spline at the stetch values of the curve with the lowest maximum stretch.
+After PCA on the complete dataset using Scikit-learn \cite{Pedregosa2011}, the explained variance per component was calculated and used as a method to find an appropriate number of principal components.
 From these principal components, the curves where reconstructed using \cref{eq:pca}.
 The goodness of fit is determined by the coefficient of determination (\cref{subsec:coef_det}) and by eye.
 A fit is considered good if it passes reasonably through all data points and has few inflection points.
@@ -316,6 +318,8 @@ Search 3 includes the Yeo-Johnson transformation to see how input normalization 
 
 For a summary of the hyperparameter searches, see \cref{tab:skin_studies}.
 
+Algorithms provided by Optuna \cite{Akiba2019} were used to choose trial configurations and keep track of trials.
+
 \begin{table}
     \caption[\textsc{Skinstression} hyperparameter search studies]{
         Summary of settings for hyperparameter searches performed.
@@ -372,6 +376,10 @@ The learning rate was warmed up linearly for the first 20 epochs.
 To see the influence of image quality, the model is trained using an ordered set of images.
 The images are ordered with maximum entropy first and the model is trained on all images and the top 10, 20 and 30 images of every stack.
 Moreover, to see the effect of using the original zoom level with the greatest detail at hand, the best 20 images of every stack were centercropped to $500\times500$ and further randomly cropped randomly to $258\times258$.
+The lowest validation focal loss is used to compare model performance.
+The model with the lowest validation loss is used for testing.
+
+Pytorch \cite{Paszke2019} was used to perform automatic differentiation on NVIDIA GeForce RTX 2070 Super GPUs on the BAZIS high performance computing cluster.
 
 \subsubsection{Dataset}\label{subsec:skin_dataset}
 The thigh dataset is randomly distributed into a training (\qty{64}{\percent}), validation (\qty{16}{\percent}), and test (\qty{20}{\percent}).
