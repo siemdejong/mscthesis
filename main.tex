@@ -229,15 +229,18 @@
 
 % \defbibnote{bibnote}{Here are the references in citation order.\par\bigskip} % Prepend this text to the bibliography
 % \printbibliography[heading=bibintoc, title=Bibliography, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
-\printbibliography[heading=bibintoc, title=References] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
+\pagelayout{wide}
+\printbibheading[title=References, heading=bibintoc]
+\pagelayout{margin}
+\printbibliography[heading=none] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
 
 \appendix % From here onwards, chapters are numbered with letters, as is the appendix convention
 
-\pagelayout{wide} % No margins
-\addpart{Appendix}
-\pagelayout{margin} % Restore margins
+\addcontentsline{toc}{part}{Appendix}
 
-
+\pagelayout{wide}
+\chapter{Skinstression}
+\pagelayout{margin}
 
 \input{frontbackmatter/appendix.tex}
 
