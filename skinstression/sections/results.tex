@@ -477,7 +477,7 @@ where $i$ denotes the $i$th image of the batch.
 
 
 \subsection{Usability}
-The prediction AI may be used for three purposes.
+The prediction AI may be used for two purposes.
 One purpose is to skip the mechanical measurement on skin tissue and immediately get an estimation of stretch properties.
 Another is to match stretch information to physical features present in the collagen fiber networks.
 The model should not be used as validation for the mechanical measurement, as it is trained and tested on a dataset with small variance.
@@ -489,7 +489,7 @@ The user should experiment what measure works best.
 The application does allow to only select the top $N_\mathrm{best}$ images.
 
 The model only accepts batches of two-dimensional $500x500\,\unit{px}$ images.
-The user should separate any higher-dimensional data and crop the images to fit the model.
+Currently, the user should separate any higher-dimensional data and crop the images to fit the model.
 
 \subsubsection{Explainability}
 

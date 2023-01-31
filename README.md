@@ -218,18 +218,18 @@ Yet to be adapted to this study.
             - [x] model ensembling techniques (if used)
             - [x] detailed model description
             - [x] initialization of model parameters
-            - [ ] training approaches (hyperparameters, number of models trained, used datasets)
-            - [ ] Measures to assess model performance + model comparison
+            - [x] training approaches (hyperparameters, number of models trained, used datasets)
+            - [x] Measures to assess model performance + model comparison
             - [ ] model updating arising from validation
-            - [ ] how final model is selected
+            - [x] how final model is selected
             - [ ] explainability and interpretability
-            - [ ] software used
+            - [x] software used
     - [ ] Results
         - [x] Participants (flow, demographics, comparison train/val/test (predictor distributions and images))
-        - [ ] Model dev and per participant outcome in
-            - [ ] Hyperparameter tuning
-            - [ ] Training
-            - [ ] Testing
+        - [x] Model dev and per participant outcome in
+            - [x] Hyperparameter tuning
+            - [x] Training
+            - [x] Testing
         - [x] Model specification (present model + explain how it must be used)
         - [ ] Model performance
             - [ ] accuracy WITH confidence interval
@@ -242,7 +242,7 @@ Yet to be adapted to this study.
             - [x] any human interaction needed for data to be used with the model + expertise of users
         - [ ] Sensitivity analysis?
     - [ ] Discussion
-        - [ ] Limitations
+        - [x] Limitations
         - [ ] Interpretation (dev/val data performance + overall interpretation considering objectives/limitations/similar study results/other evidence)
         - [ ] Implications
             - [ ] potential use (also in a general way)
