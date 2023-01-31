@@ -40,16 +40,16 @@ An exponential fit to \cref{eq:exp} is shown in \cref{fig:exp_fits}.
 $R^2 = \num{0.9497}$.
 The exponent is not able to fit the plateau that is often exhibited near maximum stretch.
 
-\begin{figure}
+\begin{marginfigure}
     \centering
-    \includegraphics[width=0.5\linewidth]{skinstression/images/exp-fits/exponential.png}
+    \includegraphics[width=\linewidth]{skinstression/images/exp-fits/exponential.png}
     \caption[Exponential fit]{
         Exponential fit with \cref{eq:exp} (red) for one stress-strain curve (black).
         Fit parameters were $G_0=\qty{23.8\pm4.0}{\mega\pascal\per\stretch}$, and $\lambda=\qty{4.1\pm 1.0}{\stretch}$.
         $R^2=\num{0.9497}$.
     }
     \label{fig:exp_fits}
-\end{figure}
+\end{marginfigure}
 
 \subsubsection{PCA}
 The PCA fit for every truncated and interpolated strain-stress curve is depicted in \cref{fig:pca_fits}.
@@ -117,6 +117,7 @@ Due to the nature of PCA, the exponential part of the curves that rise later is 
         PCA is done on all available thigh data.
         Note that the vertical axes are not equal.
     }
+    \label{fig:pca_fits}
 \end{figure*}
 
 \subsubsection{Logistic curve}
