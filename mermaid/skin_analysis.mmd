@@ -12,7 +12,6 @@ flowchart TB
         best_fit{Best fit}
     end
 
-
     images[(Images)]
 
     subgraph hparam_search[Hyperparameter search]
@@ -28,19 +27,19 @@ flowchart TB
         %% train15[Model 15]
         train20[Model 20]
         train30[Model 30]
+        train1X[Model 20, 1X Zoom]
         best_val{Best validation}
     end
 
-    subgraph testing[Testing]
-        ensemble[Snapshot ensembling]
-        test[Test model]
-    end
+    inference[Inference]
 
     subgraph xai[XAI]
-        ig[Integrated gradients]
+        %%ig[Integrated gradients]
         occ[Occlusion]
+        attack[Adversarial attack]
         why{Why?}
     end
+
 
     %% Connections
 
@@ -50,8 +49,9 @@ flowchart TB
     images ----> hparam_search
     study1 & study2 & study3 --> best_config
     best_config --> training
-    train10 & train20 & train30 --> best_val
-    best_val --> testing
-    ensemble --> test
-    test --> xai
-    ig & occ --> why
+    train10 & train20 & train30 & train1X --> best_val
+    best_val --> inference & xai
+    %%best_val --> testing
+    %%ensemble --> test
+
+    occ & attack --> why
