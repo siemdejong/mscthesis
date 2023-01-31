@@ -376,7 +376,8 @@ The corresponding hyperparameters in \cref{tab:conf_skin_final} were used for fu
 \end{margintable}
 
 Three trainings were performed.
-For every training, the 10, 20, and 30 images with highest entropy were selected to exclude any noisy images.
+For every training, the 10, 20, and 30 images of every stack with highest entropy were selected to exclude any noisy images.
+Also, using the 20 best images of every stack, the model is trained without scaling of the original image.
 The loss curves are shown in \cref{fig:skinstression-training}.
 The lowest validation losses are shown in \cref{tab:skin_train_102030}.
 Overall, the model trained with 20 images shows the lowest total loss.
@@ -385,33 +386,36 @@ This model will be used during testing.
 To verify performance of training, the stress-strain curves of a random training batch are plotted with the raw data in \cref{fig:skinstression-train-logistic-curves}.
 
 
-\begin{figure}
+\begin{figure*}
     \centering
-    \includegraphics[]{skinstression/images/training/Training_10_images.pdf} \\
-    \includegraphics[]{skinstression/images/training/Training_20_images.pdf} \\
-    \includegraphics[]{skinstression/images/training/Training_30_images.pdf}
-    \caption[Training with 10 images]{
-        Training using 10, 20, and 30 images respectively.
+    \includegraphics[width=0.48\linewidth]{skinstression/images/training/Training_10_images.pdf}
+    \includegraphics[width=0.48\linewidth]{skinstression/images/training/Training_20_images.pdf} \\
+    \includegraphics[width=0.48\linewidth]{skinstression/images/training/Training_30_images.pdf}
+    \includegraphics[width=0.48\linewidth]{skinstression/images/training/Training_at_1X_zoom.pdf}
+    \caption[Training losses]{
+        Training losses when using 10, 20, and 30 images as well as a training using 20 images, but with unscaled images.
         The training loss (black) is followed by the validation loss (light green).
         The learning rate (orange) restarts explain sudden increase in loss.
     }
     \label{fig:skinstression-training}
-\end{figure}
+\end{figure*}
 
 \begin{margintable}
     \centering
     \caption[Lowest validation loss per $N_\mathrm{best}$ images]{
         Lowest validation loss per $N_\mathrm{best}$ images.
         The training using 20 images has the lowest validation loss.
+        * denotes training without rescaling.
     }
     \label{tab:skin_train_102030}
-    \begin{tabular}{c c}
+    \begin{tabular}{S[table-align-text-post=false] S}
         \toprule
-        \# Images   & Validation loss \\
+        {\# Images}  & {Validation loss} \\
         \midrule
-        10          & 0.0097          \\
-        \textbf{20} & \textbf{0.0035} \\
-        30          & 0.0040          \\
+        10           & 0.0097            \\
+        \bfseries 20 & \bfseries 0.0035  \\
+        20*          & 0.27              \\
+        30           & 0.0040            \\
         \bottomrule
     \end{tabular}
 \end{margintable}

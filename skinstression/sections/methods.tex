@@ -367,10 +367,11 @@ For a summary of the hyperparameter searches, see \cref{tab:skin_studies}.
 
 \subsubsection{Training}
 Using the best configuration for hyperparameter optimization, a model is trained further for a total of 10000 epochs.
-The learning rate scheduler was cosine annealing with warm restarts to allow for model ensembling later during inference (\cref{subsec:model_ensembling}).
+The learning rate scheduler was cosine annealing with warm restarts to allow for model ensembling later during inference (\cref{subsec:model_ensembling}), if deemed useful.
 The learning rate was warmed up linearly for the first 20 epochs.
 To see the influence of image quality, the model is trained using an ordered set of images.
-The images are ordered with maximum entropy first and the model is trained on all images and the top 5, 10, 15, and 20 images.
+The images are ordered with maximum entropy first and the model is trained on all images and the top 10, 20 and 30 images of every stack.
+Moreover, to see the effect of using the original zoom level with the greatest detail at hand, the best 20 images of every stack were centercropped to $500\times500$ and further randomly cropped randomly to $258\times258$.
 
 \subsubsection{Dataset}\label{subsec:skin_dataset}
 The thigh dataset is randomly distributed into a training (\qty{64}{\percent}), validation (\qty{16}{\percent}), and test (\qty{20}{\percent}).
