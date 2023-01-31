@@ -58,21 +58,65 @@ On average, $\overline{R^2} \approx \num{0.9927 \pm 0.0022}$.
 Due to the nature of PCA, the exponential part of the curves that rise later is not included in the making of the fit.
 
 \begin{figure*}
+    \ContinuedFloat
     \centering
-    \foreach \c in {1,2,...,61}{%
-            \IfFileExists{skinstression/images/pca-fits/sample_\c.pdf} {%
-                \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_\c.pdf}
-            }{%
-                % files do not exist, so nothing to do
-            }
-        }
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_6.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_7.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_8.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_9.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_10.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_11.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_12.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_13.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_14.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_15.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_16.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_17.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_18.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_19.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_20.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_21.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_22.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_23.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_24.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_25.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_26.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_27.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_28.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_29.pdf}
+    \raggedleft Continued on next page.
+\end{figure*}
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_30.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_31.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_32.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_33.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_34.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_45.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_46.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_47.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_48.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_49.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_50.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_51.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_52.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_53.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_54.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_55.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_56.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_57.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_58.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_59.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_60.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_61.pdf}
     \caption[PCA fits]{
         PCA fits for every truncated and interpolated strain-stress curve.
         The interpolated measurements (blue) are estimated by the PCA curve (red) along with their $R^2$.
         PCA is done on all available thigh data.
         Note that the vertical axes are not equal.
     }
-    \label{fig:pca_fits}
 \end{figure*}
 
 \subsubsection{Logistic curve}
@@ -81,14 +125,59 @@ For every fit, $R^2$ is calculated.
 On average, $\overline{R^2} \approx \num{0.9979 \pm 0.0039}$.
 
 \begin{figure*}
+    \ContinuedFloat
     \centering
-    \foreach \c in {1,2,...,61}{%
-            \IfFileExists{skinstression/images/logistic-fits/sample_\c.pdf} {%
-                \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_\c.pdf}
-            }{%
-                % files do not exist, so nothing to do
-            }
-        }
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_6}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_7.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_8.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_9.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_10.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_11.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_12.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_13.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_14.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_15.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_16.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_17.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_18.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_19.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_20.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_21.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_22.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_23.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_24.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_25.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_26.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_27.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_28.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_29.pdf}
+    \raggedleft Continued on next page.
+\end{figure*}
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_30.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_31.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_32.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_33.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_34.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_45.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_46.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_47.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_48.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_49.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_50.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_51.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_52.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_53.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_54.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_55.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_56.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_57.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_58.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_59.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_60.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_61.pdf}
     \caption[Logistic fits]{
         Logistic fits (red) and their $R^2$ for every strain-stress curve (black).
         Note that the vertical axes are not equal.
