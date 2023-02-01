@@ -491,12 +491,20 @@ The application does allow to only select the top $N_\mathrm{best}$ images.
 The model only accepts batches of two-dimensional $500x500\,\unit{px}$ images.
 Currently, the user should separate any higher-dimensional data and crop the images to fit the model.
 
-\subsubsection{Explainability}
+\subsection{Explainability}
 
 \subsubsection{Occlusion}
 Algorithmically occluded images have been presented to the model to obtain attributions at the pixel level.
 For a summary of the test set, they are shown in blended heatmaps in \cref{fig:skin_occlusion}.
 \cref{fig:skin_occlusion_53} shows attribution maps for all test images of sample 53.
+
+Attributions appear to coincide with collagen fibers.
+This is important, as the abundance of collagen is hypothesized to relate to the stretch properties.
+It is unclear how positive and negative attributions give insight into the prediction of stretch properties.
+It is important to note that attribution maps belonging to the best performing predictions give the most appropriate insight into the AI reasoning.
+
+The heatmaps give limited insight into the performance errors between samples across the test set or images within a sample.
+There is no clear relation between the attribution mean and/or standard deviation and $R^2$.
 
 % \begin{figure*}
 %     \ContinuedFloat
