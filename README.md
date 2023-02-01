@@ -190,7 +190,7 @@ Yet to be adapted to this study.
             - [x] source of data of training/val/test
             - [x] origin of data
             - [x] dates of data collection
-        - [ ] Participants (study setting + eligibility + no specific treatment)
+        - [x] Participants (study setting + eligibility + no specific treatment)
             - [x] study setting: tertiary care, VUmc
             - [x] eligibility for participants or data sources
             - [x] treatment received
@@ -200,16 +200,16 @@ Yet to be adapted to this study.
             - [x] data augmentation
         - [ ] Outcome of model
             - [x] What is predicted?
-            - [ ] How is prediction assessed?
+            - [x] How is prediction assessed?
             - [ ] (Why choosing this outcome measurement if alternatives exist?)
-        - [ ] Predictors
+        - [x] Predictors
             - [x] Alternatives for predictors
             - [x] three parameters + how they are measured
-            - [ ] source of predictors + known biases
+            - [x] source of predictors + known biases
         - [x] Sample size
         - [x] Missing data
             - [x] sex and age
-        - [ ] Statistical analysis methods
+        - [x] Statistical analysis methods
             - [x] Diagram of analytical process
             - [x] handling of predictors
             - [x] Pre-selection of predictors prior to model building (results for exp/pca/logistic)
@@ -220,9 +220,9 @@ Yet to be adapted to this study.
             - [x] initialization of model parameters
             - [x] training approaches (hyperparameters, number of models trained, used datasets)
             - [x] Measures to assess model performance + model comparison
-            - [ ] model updating arising from validation
+            - [x] model updating arising from validation
             - [x] how final model is selected
-            - [ ] explainability and interpretability
+            - [x] explainability and interpretability
             - [x] software used
     - [ ] Results
         - [x] Participants (flow, demographics, comparison train/val/test (predictor distributions and images))
@@ -233,7 +233,7 @@ Yet to be adapted to this study.
         - [x] Model specification (present model + explain how it must be used)
         - [ ] Model performance
             - [ ] accuracy WITH confidence interval
-            - [ ] results of analysis on performance errors
+            - [x] results of analysis on performance errors
         - [ ] Model updating (performance per update)
         - [ ] Usability
             - [x] how and when in the clinical pathway to use the prediction AI
@@ -243,9 +243,9 @@ Yet to be adapted to this study.
         - [ ] Sensitivity analysis?
     - [ ] Discussion
         - [x] Limitations
-        - [ ] Interpretation (dev/val data performance + overall interpretation considering objectives/limitations/similar study results/other evidence)
+        - [x] Interpretation (dev/val data performance + overall interpretation considering objectives/limitations/similar study results/other evidence)
         - [ ] Implications
-            - [ ] potential use (also in a general way)
+            - [x] potential use (also in a general way)
             - [ ] how will clinical practice be different if using the AI and how will it be used
     - [ ] Supplementary information
         - [ ] Data?
