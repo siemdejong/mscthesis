@@ -187,15 +187,19 @@ The curves only include datapoints where the skin extension is larger than zero 
 To every strain-stress curve, eq.~\ref{eq:logistic_curve} is fitted with Scipy \cite{2020SciPy-NMeth}.
 The optimal parameters were be used for training the model.
 
-BIAS\marginnote{Include density/thickness analysis of Mengyao and the gender/age analysis of myself}
-
 The AI was trained on a with LDS smoothed target variable distribution.
 The targets were weighted with the inverse square root, to limit the impact of LDS.
 
+It is important to perform a study on bias for possible explanations of varying AI performance.
+The samples were taken from individuals with varying age and gender.
+Moreover, from some individuals, more mechanical measurements were taken.
+Therefore, the age, gender, and number of samples were summarized.
+\marginnote{Ref to density/thickness/orientation analysis of Mengyao?}
+
 \subsection{Sample size}
-The sample size is arrived at taking into account all previously included subjects (ref ludo, ref mengyao, ref alperen) and excluding abdomen data.
+The sample size is arrived at taking into account all previously included subjects (ref ludo, ref mengyao, ref alperen) and excluding abdomen data and scar tissue.
 This amounts to a total of 1649 SHG images to train on.
-For a detailed summary of the number of samples, see fig. (graph with nodes and edges explaining number of images/curves).
+% For a detailed summary of the number of samples, see fig. (graph with nodes and edges explaining number of images/curves).
 
 \subsection{Missing data}
 Due to the limited amount of participants, individuals with unknown gender or age were included.
