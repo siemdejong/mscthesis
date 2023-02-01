@@ -10,7 +10,7 @@
     \label{fig:trunc_interp_curves}
 \end{figure}
 
-\subsection{Participants}
+\subsection{Participants}\label{subsec:results_participants}
 
 Earlier studies (refs) include 18 individuals (5 men, 4 women, and 6 unknown).
 Abdomen data was excluded, because the strain-stress curves differ significantly from the thigh.
@@ -384,6 +384,7 @@ Overall, the model trained with 20 images shows the lowest total loss.
 This model will be used during testing.
 
 To verify performance of training, the stress-strain curves of a random training batch are plotted with the raw data in \cref{fig:skinstression-train-logistic-curves}.
+For this batch, $\overline{R^2} = \num{0.75 \pm 0.28}$ with a \qty{95}{\per} confidence interval.
 
 
 \begin{figure*}
@@ -447,6 +448,12 @@ To verify performance of training, the stress-strain curves of a random training
 \subsection{Testing}
 The results of the best performing images in the test set are shown in \cref{fig:skinstression-test}.
 The higher $R^2$, the better the performance.
+Over the best performing images of every sample, a low $\overline{R^2} = \num{-0.36 \pm 1.3}$ with a \qty{95}{\percent} confidence interval.
+
+The performance difference between the training and test set is significant.
+The donors of the test set are both male and female with ages comparable to the training set (see \cref{subsec:results_participants}).
+However, most samples of the test set originate from the same person.
+If the skin of this donor exhibits other behaviour, it might be difficult for the AI to predict well.
 
 \begin{figure*}
     \centering
@@ -474,7 +481,6 @@ x neural networks combined make up the final model.
 The output of the model is the average of the outputs of the individual models.
 It accepts a batch of images as input and outputs a vector $(i, \sigma_\mathrm{max}, E_\mathrm{max}, \gamma_c)$,
 where $i$ denotes the $i$th image of the batch.
-
 
 \subsection{Usability}
 The prediction AI may be used for two purposes.
