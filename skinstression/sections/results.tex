@@ -264,86 +264,105 @@ For reasons explained in \cref{sec:disc_ent_vs_kur}, entropy is further used to 
 
 \subsection{Hyperparameter optimization}
 
-\subsubsection{Search 1}
-The contour plot is shown in \cref{fig:skinstression-search1-contour}.
-Only the loss curves of the best trial (71) is shown in \cref{fig:skinstression-search1-best-loss}.
+The loss curves of the best trials of every search are shown in \cref{fig:skinstression-search-best-loss}
 Both training and validation loss show an increase at the learning rate restarts.
 
-\begin{figure}
+\begin{figure*}
     \centering
-    \includegraphics[]{skinstression/images/hyperparameter-search/search-1/best-trial-loss.pdf}
-    \caption[Best loss curve of search 1]{
+    \includegraphics[width=0.33\linewidth]{skinstression/images/hyperparameter-search/search-1/best-trial-loss.pdf}
+    \includegraphics[width=0.33\linewidth]{skinstression/images/hyperparameter-search/search-2/best-trial-loss.pdf}
+    \includegraphics[width=0.33\linewidth]{skinstression/images/hyperparameter-search/search-3/best-trial-loss.pdf}
+    \caption[Hyperparameter search best losses]{
         Successive halving trial 71 of 100 has shown the best loss for search 1.
-        The training loss (black) is followed by the validation loss (light green).
-        The learning rate (orange) restarts explain sudden increase in loss.
-    }
-    \label{fig:skinstression-search1-best-loss}
-\end{figure}
-
-\begin{figure*}
-    \centering
-    \includegraphics[angle=90,width=0.9\textheight, height=\linewidth,keepaspectratio]{skinstression/images/hyperparameter-search/search-1/contour.pdf}
-    \caption[Search 1 contour plot]{
-        Contour plot of search 1.
-        Darker regions denote better results.
-        This contour plot is only constructed from trials which have not been pruned.
-    }
-    \label{fig:skinstression-search1-contour}
-\end{figure*}
-
-\subsubsection{Search 2}
-The contour plot is shown in \cref{fig:skinstression-search2-contour}.
-Only the loss curves of the best trial (184) is shown in \cref{fig:skinstression-search2-best-loss}.
-Both training and validation loss show an increase at the learning rate restarts.
-
-\begin{figure}
-    \centering
-    \includegraphics[]{skinstression/images/hyperparameter-search/search-2/best-trial-loss.pdf}
-    \caption[Best loss curve of search 2]{
         Hyperband trial 184 of 300 has shown the best loss for search 2.
-        The training loss (black) is followed by the validation loss (light green).
+        Hyperband trial 73 of 300 has shown the best loss for search 3.
+        The training loss (black) and validation loss (light green) are shown.
         The learning rate (orange) restarts explain sudden increase in loss.
     }
-    \label{fig:skinstression-search2-best-loss}
-\end{figure}
-
-\begin{figure*}
-    \includegraphics[angle=90,width=0.9\textheight, height=\linewidth,keepaspectratio]{skinstression/images/hyperparameter-search/search-2/contour.pdf}
-    \caption[Search 2 contour plot]{
-        Contour plot of search 2.
-        Darker regions denote better results.
-        This contour plot is only constructed from trials which have not been pruned.
-    }
-    \label{fig:skinstression-search2-contour}
+    \label{fig:skinstression-search-best-loss}
 \end{figure*}
 
-\subsubsection{Search 3}
-The contour plot is shown in \cref{fig:skinstression-search3-contour}.
-Only the loss curves of the best trial (73) is shown in \cref{fig:skinstression-search3-best-loss}.
-The training and validation losses diverge, showing the model overfits.
+% \subsubsection{Search 1}
+% The contour plot is shown in \cref{fig:skinstression-search1-contour}.
+% Only the loss curves of the best trial (71) is shown in \cref{fig:skinstression-search1-best-loss}.
+% Both training and validation loss show an increase at the learning rate restarts.
 
-\begin{figure}
-    \centering
-    \includegraphics[]{skinstression/images/hyperparameter-search/search-3/best-trial-loss.pdf}
-    \caption[Best loss curve of search 3]{
-        Hyperband trial 73 of 300 has shown the best loss for search 3.
-        The training loss (black) and the validation loss (light green) diverge.
-        The learning rate (orange).
-        The trial was pruned at epoch 100.
-    }
-    \label{fig:skinstression-search3-best-loss}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[]{skinstression/images/hyperparameter-search/search-1/best-trial-loss.pdf}
+%     \caption[Best loss curve of search 1]{
+%         Successive halving trial 71 of 100 has shown the best loss for search 1.
+%         The training loss (black) is followed by the validation loss (light green).
+%         The learning rate (orange) restarts explain sudden increase in loss.
+%     }
+%     \label{fig:skinstression-search1-best-loss}
+% \end{figure}
 
-\begin{figure*}
-    \centering
-    \includegraphics[angle=90,width=0.9\textheight, height=\linewidth,keepaspectratio]{skinstression/images/hyperparameter-search/search-3/contour.pdf}
-    \caption[Search 3 contour plot]{
-        Contour plot of search 3.
-        Darker regions denote better results.
-        This contour plot is only constructed from trials which have not been pruned.
-    }
-    \label{fig:skinstression-search3-contour}
-\end{figure*}
+% \begin{figure*}
+%     \centering
+%     \includegraphics[width=\linewidth]{skinstression/images/hyperparameter-search/search-1/contour.pdf}
+%     % \includegraphics[angle=90,width=0.9\textheight, height=\linewidth,keepaspectratio]{skinstression/images/hyperparameter-search/search-1/contour.pdf}
+%     \caption[Search 1 contour plot]{
+%         Contour plot of search 1.
+%         Darker regions denote better results.
+%         This contour plot is only constructed from trials which have not been pruned.
+%     }
+%     \label{fig:skinstression-search1-contour}
+% \end{figure*}
+
+% \subsubsection{Search 2}
+% The contour plot is shown in \cref{fig:skinstression-search2-contour}.
+% Only the loss curves of the best trial (184) is shown in \cref{fig:skinstression-search2-best-loss}.
+% Both training and validation loss show an increase at the learning rate restarts.
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[]{skinstression/images/hyperparameter-search/search-2/best-trial-loss.pdf}
+%     \caption[Best loss curve of search 2]{
+%         Hyperband trial 184 of 300 has shown the best loss for search 2.
+%         The training loss (black) is followed by the validation loss (light green).
+%         The learning rate (orange) restarts explain sudden increase in loss.
+%     }
+%     \label{fig:skinstression-search2-best-loss}
+% \end{figure}
+
+% \begin{figure*}
+%     \includegraphics[angle=90,width=0.9\textheight, height=\linewidth,keepaspectratio]{skinstression/images/hyperparameter-search/search-2/contour.pdf}
+%     \caption[Search 2 contour plot]{
+%         Contour plot of search 2.
+%         Darker regions denote better results.
+%         This contour plot is only constructed from trials which have not been pruned.
+%     }
+%     \label{fig:skinstression-search2-contour}
+% \end{figure*}
+
+% \subsubsection{Search 3}
+% The contour plot is shown in \cref{fig:skinstression-search3-contour}.
+% Only the loss curves of the best trial (73) is shown in \cref{fig:skinstression-search3-best-loss}.
+% The training and validation losses diverge, showing the model overfits.
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[]{skinstression/images/hyperparameter-search/search-3/best-trial-loss.pdf}
+%     \caption[Best loss curve of search 3]{
+%         Hyperband trial 73 of 300 has shown the best loss for search 3.
+%         The training loss (black) and the validation loss (light green) diverge.
+%         The learning rate (orange).
+%         The trial was pruned at epoch 100.
+%     }
+%     \label{fig:skinstression-search3-best-loss}
+% \end{figure}
+
+% \begin{figure*}
+%     \centering
+%     \includegraphics[angle=90,width=0.9\textheight, height=\linewidth,keepaspectratio]{skinstression/images/hyperparameter-search/search-3/contour.pdf}
+%     \caption[Search 3 contour plot]{
+%         Contour plot of search 3.
+%         Darker regions denote better results.
+%         This contour plot is only constructed from trials which have not been pruned.
+%     }
+%     \label{fig:skinstression-search3-contour}
+% \end{figure*}
 
 %%%%%%%%%%%%%%%%%%
 % TRAINING
