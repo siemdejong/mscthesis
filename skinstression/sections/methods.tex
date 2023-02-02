@@ -29,6 +29,7 @@ The SHG channel is chosen as it is assumed to only contain collagen information.
 The SHG images are enhanced with contrast limited adaptive histogram equalization (CLAHE) \cite{Zuiderveld1994ContrastLA} using scikit-image \cite{scikit-image} to equalize importance of dark and bright regions.
 
 The enhanced images are then transformed with a Yeo-Johnson transform using Scipy \cite{2020SciPy-NMeth} such that the histogram of all images is as normal as possible.
+Normalization generally accelerates training \cite{Huang2020}.
 
 The transformed images are standardized by subtracting the total mean and total standard deviation of the complete transformed image set, like
 \begin{equation}
