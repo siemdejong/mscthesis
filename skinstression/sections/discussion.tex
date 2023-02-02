@@ -106,9 +106,8 @@ All structural information in the depth direction is disregarded by the neural n
 If the neural network is redesigned to recognize patterns in three dimensions, it is expected to better predict the skin stretch properties.
 
 \subsubsection{Using full-size images}
-The microscope outputting the SHG images has a much larger resolution.\marginnote{How much larger?}
-The method in this study did not make use of this resolution.
-Higher resolution images contain more information on the collagen structure, and are therefore expected to increase the performance.
+The microscope outputting the SHG images has the ability to image with a resolution of \qty{0.2}{\micro\meter}, which is five times higher than the images used in this study.
+Higher resolution images contain more detailed information on the collagen structure, and are therefore expected to increase the performance.
 The presented model has to be redesigned to accept images larger than $258\times258$.
 Moreover, raw data is stored with a larger dynamic range (16-bit instead of 8-bit).
 Being able to see small differences in neighbouring pixel intensities increases the available information \eg in darker regions, where collagen is sparse, but still significantly present.

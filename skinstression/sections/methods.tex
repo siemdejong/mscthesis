@@ -20,7 +20,7 @@ It is unknown if individuals received treatment relevant for this study.
 
 \subsubsection{Preprocessing}
 
-Depth stack images with a size of $\qty{1000}{px}\times\qty{1000}{px}$of all skin tissues were kindly provided by M.\ Zhou.
+Depth stack images with a size of $1000\times 1000$ with a planar resolution of \qty{1}{\micro\meter} of all skin tissues were kindly provided by M.\ Zhou.
 All stacks were separated into slices.
 
 Images consist of three channels: third and second harmonic generation, and autofluorescence.
@@ -46,7 +46,7 @@ and
 \end{equation}
 with $N$ the total number of pixels, $k$ an individual image and $i,j$ the pixel in the horizontal and vertical dimension, respectively.
 
-The images are downsampled to $\qty{258}{px}\times \qty{258}{px}$ to fit into the neural network.
+The images are downsampled to $258\times258$ to fit into the neural network.
 
 \subsubsection{Image selection}
 SHG microscopy images from skin tissue suffer from optical phenomena.
@@ -83,7 +83,7 @@ Noise2Void2 (N2V2) \cite{Hock2022} is an extension to N2V and reduces this artif
 \subsubsection{Data augmentation}
 
 To make the model more robust, data augmentation is applied.
-Before the downsampling, the preprocessed images are cropped randomly from $\qty{1000}{px}\times \qty{1000}{px}$ to $\qty{700}{px}\times \qty{700}{px}$ preserving the aspect ratio.
+Before the downsampling, the preprocessed images are cropped randomly from $1000\times1000$ to $700\times700$ preserving the aspect ratio.
 The global brightness is adjusted randomly with $\pm \qty{30}{\percent}$.
 The images are then randomly mirrored horizontally and vertically with a probability of \qty{50}{\percent}.
 All data augmentations were performed with Torchvision \cite{torchvision2016}.
@@ -254,13 +254,13 @@ This is unlike Ref.~\cite{Soylu2022} where information leakage was not considere
 \subsubsection{Convolutional neural network}
 The basis of the model originates from Liang \emph{et al.} \cite{Liang2017} and is adapted by Soylu \cite{Soylu2022}.
 The model, a convolutional neural network, consists of five blocks.
-The first block consists of a convolutional layer with a $\qty{3}{px}\times\qty{3}{px}$ kernel, taking in one channel and have 64 channels as output.
+The first block consists of a convolutional layer with a $3\times3$ kernel, taking in one channel and have 64 channels as output.
 The output is then normalized per batch using BN (\cref{sec:bn}).
 The normalized batch is passed through a ReLU (\cref{subsec:relu}) layer.
-After activation, three $\qty{2}{px}\times\qty{2}{px}$ maxpool (\cref{subsec:maxpool}) layers are applied.
-The next second block is like the first block, but with a $\qty{5}{px}\times\qty{5}{px}$ convolution kernel en just one maxpool layer.
-The third block is like the second block, but with a $\qty{3}{px}\times\qty{3}{px}$ convolution kernel.
-The fourth block is like the second and third block, but with a $\qty{6}{px}\times\qty{6}{px}$ and without a maxpool layer.
+After activation, three $2\times2$ maxpool (\cref{subsec:maxpool}) layers are applied.
+The next second block is like the first block, but with a $5\times5$ convolution kernel en just one maxpool layer.
+The third block is like the second block, but with a $3\times3$ convolution kernel.
+The fourth block is like the second and third block, but with a $6\times6$ and without a maxpool layer.
 
 The fifth block flattens the input and consists of a two linear layers.
 The first linear layer maps 64 nodes to $N_\mathrm{nodes}$ nodes.
@@ -276,7 +276,7 @@ The model is shown in \cref{fig:model}
         The convolutional neural network consists of five blocks.
         The first four blocks contain convolution, maxpooling, and batch normalization layers.
         The last block contains a fully connected network.
-        It requires an input of $\qty{258}{px}\times\qty{258}{px}$ to get a vector of length 3 as output.
+        It requires an input of $258\times258$ to get a vector of length 3 as output.
     }
     \label{fig:model}
 \end{figure*}
@@ -400,7 +400,7 @@ During inference, the AI is applied to the test set as external validation.
 
 \subsubsection{Occlusion}
 To explain the model output, occlusion \cref{subsec:occlusion} is used.
-Using the Captum Python library \cite{Kokhlikyan2020}, occlusion is done with $3\times 3$\unit{px} square patches moving with strides of 1.
+Using the Captum Python library \cite{Kokhlikyan2020}, occlusion is done with $3\times3$ square patches moving with strides of 1.
 All values in the patch have been replaced with 0.
 
 \subsubsection{Adversarial attack}
