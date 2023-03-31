@@ -164,11 +164,15 @@ See below.
 Yet to be adapted to this study.
 
 - [ ] Title page
+
 - [ ] Abstract
+
 - [ ] General introduction
     - [ ] Link skin and brain project
     - [ ] Mention TRIPOD-AI
+
 - [ ] Theoretical background of convolutional neural networks
+
 - [ ] Skinstression
     - [ ] Abstract
     - [ ] Introduction
@@ -252,12 +256,124 @@ Yet to be adapted to this study.
         - [x] Code
     - [ ] Funding?
     - [ ] References
-- [ ] Pediatric brain tumour
-    - [ ] TBD, but probably also with a TRIPOD-like structure.
+
+- [ ] Pediatric brain tumours
+    - [ ] Abstract
+    - [ ] Introduction
+        - [ ] Background (diagnostic + rationale for dev/val + purpose)
+        - [ ] Objectives (development + validation)
+    - [ ] Theory
+      - [ ] Tumours
+      - [ ] Feature extraction
+      - [ ] MIL
+        - [ ] Classical
+        - [ ] DeepMIL
+        - [ ] VarMIL
+      - [ ] Model performance
+        - [ ] F1
+        - [ ] PR-AUC
+      - [ ] Sensitivity (recall)
+    - [ ] Methods
+        - [ ] Sources of data
+            - [ ] source of data of training/val/test
+            - [ ] origin of data
+            - [ ] dates of data collection
+        - [ ] Participants (study setting + eligibility + no specific treatment)
+            - [ ] study setting: tertiary care, Princess maxima center
+            - [ ] eligibility for participants or data sources
+            - [ ] treatment received
+        - [ ] Data preparation
+            - [ ] targets (from text to numbers)
+            - [ ] images
+              - [ ] masking
+              - [ ] tiling
+              - [ ] (optionally) denoising
+              - [ ] ...
+            - [ ] data augmentation
+        - [ ] Outcome of model
+            - [ ] What is predicted?
+            - [ ] How is prediction assessed?
+            - [ ] (Why choosing this outcome measurement if alternatives exist?)
+        - [ ] Predictors
+            - [ ] Alternatives for predictors
+              - [ ] pathologist decision
+              - [ ] genetic marker
+            - [ ] how does pathologist make decision?
+            - [ ] source of predictors + known biases
+              - [ ] age
+              - [ ] location
+              - [ ] ...
+        - [ ] Sample size
+        - [ ] Missing data
+        - [ ] Statistical analysis methods
+            - [ ] Diagram of analytical process
+            - [ ] handling of predictors
+            - [ ] Pre-selection of predictors prior to model building (choose two largest target dists)
+            - [ ] rescaling/transformation on predictors (binarize)
+            - [ ] type of model, building model + predictor selection + internal validation
+            - [ ] model ensembling techniques (if used)
+            - [ ] detailed model description
+            - [ ] initialization of model parameters
+              - [ ] simclr pretrain
+              - [ ] imagenet
+            - [ ] training approaches (hyperparameters, number of models trained, used datasets)
+              - [ ] hyperparameters trained on one split
+              - [ ] 5 splits, 5 models
+            - [ ] Measures to assess model performance + model comparison
+              - [ ] PR-AUC
+              - [ ] F1
+              - [ ] simclr init vs imagenet init vs ...
+            - [ ] model updating arising from validation
+            - [ ] how final model is selected
+              - [ ] best F1 per split
+            - [ ] explainability and interpretability
+              - [ ] multiply attention vector with input tiles
+            - [ ] software used
+              - [ ] Ray
+              - [ ] Optuna
+              - [ ] Pytorch (Lightning)
+            - [ ] setup used
+    - [ ] Results
+        - [ ] Participants (flow, demographics, comparison train/val/test (predictor distributions and images))
+        - [ ] Model dev and per participant outcome in
+            - [ ] Hyperparameter tuning
+            - [ ] Training
+            - [ ] Testing
+        - [ ] Model specification (present model + explain how it must be used)
+        - [ ] Model performance
+            - [ ] F1/PR-AUC WITH confidence interval over splits
+            - [ ] results of analysis on performance errors
+        - [ ] Model updating (performance per update)
+        - [ ] Usability
+            - [ ] how and when in the clinical pathway to use the prediction AI
+            - [ ] how will the AI be integrated into the target setting + requirements (on-/offsite)
+            - [ ] how will poor data be assessed when implementing AI model
+            - [ ] any human interaction needed for data to be used with the model + expertise of users
+        - [ ] Sensitivity analysis
+          - [ ] Multiple splits
+          - [ ] identify input that increase output uncertainty
+          - [ ] Search for reasons behind misclassifications
+          - [ ] Model simplification (imagenet init enough?)
+          - [ ] Communicate with pathologist why model (doesn't) work(s) with explainability (attention of tiles)
+          - [ ] ...
+    - [ ] Discussion
+        - [ ] Limitations
+        - [ ] Interpretation (dev/val data performance + overall interpretation considering objectives/limitations/similar study results/other evidence)
+        - [ ] Implications
+            - [ ] potential use (also in a general way)
+            - [ ] how will clinical practice be different if using the AI and how will it be used
+    - [ ] Supplementary information
+        - [ ] Data?
+        - [ ] Code
+    - [ ] Funding?
+    - [ ] References
+
 - [ ] Discussion and conclusion
     - [ ] Discussion
     - [ ] Conclusion
+
 - [ ] All references
+
 - [ ] Acknowledgments
 
 See the [open issues](https://github.com/siemdejong/mscthesis/issues) for a list of discussions (and known issues).
