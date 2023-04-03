@@ -1,0 +1,53 @@
+\section{Multi-instance learning}
+
+\subsection{Classical}
+Multi-instance learning (MIL) is a supervised learning method.
+Typically, every instance in a dataset is labelled individually.
+However, with MIL, the model receives a bag of instances, $B=\{(x_1,y_1),\ldots,(x_K,y_K)\}$, where $x$ is an instance with label $y$.
+Under the standard assumption, the label of a bag is
+\begin{align}
+    Y(B) &= 1 - \prod_{k}^{K}(1-y_k) \\
+         &= \max_k(y_k),
+\end{align}
+\ie, a bag is positive if at least one instance is positive.
+
+The standard assumption is assymetric: the meaning of the bag label changes if positive and negative labels are swapped.
+This assumption might be too restrictive in non-binary problems.
+
+\todo[noline]{describe need for newer MIL methods}
+
+\subsection{Attention-based MIL pooling}
+To overcome the restrictive nature of maximum pooling, \textcite{Ilse2018} propose DeepMIL and use a adaptive weighted average of instances.
+This weighted average includes learnable weights in an attention-based manner.
+Let $H=\{\vec{h}_1, \ldots, \vec{h}_K\}$ be a bag of $K$ embeddings.
+The weighted average of $H$ is
+\begin{equation}
+    \vec{z}=\sum_{k=1}^{K}a_k\vec{h}_k,
+\end{equation}
+where
+\begin{equation}
+    a_k = \frac{\exp\left[\mathbf{w}^T \tanh (\mathbf{V}\vec{h}_k^T)\right]}{\sum_{j=1}^{K}\exp\left[\mathbf{w}^T \tanh (\mathbf{V}\vec{h}_k^T)\right]},
+\end{equation}\todo[noline]{add bias terms}
+where $\mathbf{w} \in \mathbb{R}^{L \times 1}$ and $\mathbf{V}\in \mathbb{R}^{L \times M}$ are the learnable parameters.
+The denominator ensures the weights sum to 1.
+
+The weights allow to distinguish interesting instances from uninteresting ones.
+High weights should be assigned to instances that are likely to have a positive label.
+This is particularly important for pathology studies.
+The attention weights of specific instances (\eg, patches in an image) explain how the model comes to its diagnosis prediction that can be compared with the doctor's diagnosis.
+
+\subsection{Variance MIL pooling}
+Learning weights just for a weighted average discards any interinstance information, while that might be important for the bag prediction.
+Variance MIL (VarMIL) by \textcite{Schirris2022} propose to add a learned attention-weighted variance,
+\begin{equation}
+    \boldsymbol{\sigma} = \frac{K}{K - 1} \sum_{k=1}^{K}a_k\left(\vec{h}_k-\vec{z}\right)^2.
+\end{equation}
+In a clinical setting, this variance can model \eg the intratumour heterogeneity or tumour border shape.
+The weighted average and variance are concatenated in a single vector, such that
+\begin{equation}
+    \hat{\vec{z}} =
+    \begin{pmatrix}
+        \vec{z} \\
+        \boldsymbol{\sigma}    
+    \end{pmatrix}.
+\end{equation}
