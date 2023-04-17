@@ -265,13 +265,13 @@ Yet to be adapted to this study.
     - [ ] Theory
       - [ ] Tumours
       - [ ] Feature extraction
-      - [ ] MIL
+      - [x] MIL
         - [ ] Classical
-        - [ ] DeepMIL
-        - [ ] VarMIL
-      - [ ] Model performance
-        - [ ] F1
-        - [ ] PR-AUC
+        - [x] DeepMIL
+        - [x] VarMIL
+      - [x] Model performance
+        - [x] F1
+        - [x] PR-AUC
       - [ ] Sensitivity (recall)
     - [ ] Methods
         - [ ] Sources of data

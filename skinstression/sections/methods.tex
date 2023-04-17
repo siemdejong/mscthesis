@@ -8,7 +8,7 @@
 
 Data is obtained in previous studies by A.\ Soylu, M.\ Zhou, and L.\ van Haasterecht at the Medical Imaging center of the VUmc, Amsterdam.\marginnote{Is this true? Not in Beverwijk for Ludo?}
 Human thigh and abdomen skin tissue were excised.
-Pieces of these tissues were imaged with multiphoton microscopy and their stress-strain response curves were measured mechanically.
+Pieces of these tissues were imaged with multiphoton microscopy and their stress-strain response curves were measured mechanically.\marginnote{Ref to the imaging and stretching papers?}
 Data is acquired in batches from April 2021 until July 2022.
 Development and testing data come from the same source.
 
@@ -65,7 +65,7 @@ These quality measures are calculated per image using PyImageQualityRanking \cit
 Another optical disadvantage of multiphoton microscopy is the occurrence of noise.\marginnote{Look up sources of noise.}
 
 Unfortunately, obtaining clearer images is hard.
-Given the experimental setup as in (ref\marginnote{Actually refer to the paper describing the setup, which is written by whom?!}), one way to reduce noise in the image is to use more photons.
+One way to reduce noise in the image is to use more photons.
 Either by averaging more images or increasing the amount of photons per image.
 Increasing the amount of photons penetrating the tissue increase the risk of damaging the tissue.
 
@@ -75,7 +75,7 @@ The difficulty with this is that clean target data for supervised training is of
 To counteract this, Noise2Noise (N2N) \cite{Lehtinen2018} was developed.
 Noise2Void N2V \cite{Krull2019}, a successor of N2N, does not rely on pairs of noisy images.
 Instead it only needs one image and corrupts it to use as target and learns a mapping between the noisy image and the newly created noisy image.
-This is useful if only one biomedical image is available.\marginnote{If denoised is used, move parts of this section to a theory section and refer to it here.}
+This is useful if only one biomedical image is available.\marginnote{If denoising is used, move parts of this section to a theory section and refer to it here.}
 
 The original N2V model produces a checkerboard pattern.
 Noise2Void2 (N2V2) \cite{Hock2022} is an extension to N2V and reduces this artifact.\marginnote{Actually didn't do denoising, but if done, describe how here :)}
@@ -301,7 +301,7 @@ The search uses a few data augmentations that are assumed to not alter the physi
 That is, force is exerted on the tissue in the horizontal direction in the image.
 Therefore, flipping the image either vertically or horizontally is assumed to not change the stretch behaviour.
 Both flipping operations occur with a probability of $0.5$.
-Moreover, the images' intensity is randomly changed between x\% and x\%.\marginpar{By what fraction is the intensity changed?}
+Moreover, the images' intensity is randomly changed uniformly by \qtyrange{0.7}{1.3}{\percent}.
 
 To possibly find a more optimal set of hyperparameters, two searches with the Hyperband algorithm with 300 trials was performed.
 Trial parameters were sampled using the multivariate TPE algorithm.

@@ -1,0 +1,35 @@
+\subsection{Classification performance metrics}
+
+\subsubsection{Accuracy}
+
+The accuracy of a binary prediction can calculated as
+\begin{equation}
+    \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN},
+\end{equation}
+where $TP$, $TN$, $FP$, and $FN$ are the number of true/false positive/negative respectively.
+In other words, the accuracy is the number of correct predictions divided by the total number of predictions.
+
+In the case of imbalanced datasets, accuracy can be misleading.
+\eg if the number of positive samples is much higher than the number of negative samples and a model classifies all samples as positive, the accuracy will be close to one.
+
+\subsubsection{$F$-score}
+
+Another accuracy measure are scores depending on precision and sensitivity (recall).
+The $F_1$-score is the harmonic mean of the precision and recall:
+\begin{equation}
+    F_1 = \frac{2}{\text{recall}^{-1} + \text{precision}^{-1}} = \frac{2 TP}{2 TP + FP + FN}.
+\end{equation}
+In general, $F_\beta$ is a weighted harmonic mean where $\beta\in\mathbb{R}+$, such that recall is $\beta$ times as important as precision:
+\begin{equation}
+    F_\beta = (1+\beta^2)\frac{\text{precision}\cdot\text{recall}}{(\beta^2\cdot\text{precision}+\text{recall})}.
+\end{equation} 
+
+The $F$-score can take values from 0 (if precision or recall is 0) to 1 (for perfect precision and recall).
+
+\subsubsection{Area under the precision-recall curve}
+Another performance measure that uses precision and recall is the area under the precision-recall curve (PR-AUC).
+The precision-recall curve (PRC) shows precision and sensitivitiy pairs at all possible thresholds.
+The higher the PR-AUC, the higher precision and/or recall must be.
+
+It has been shown that PRC changes with the ratio of positive and negative examples while the receiver operator characteristic curve (another popular performance curve) does not~\cite{Takaya2015}.
+This makes PR-AUC a reasonable choice for imbalanced datasets.

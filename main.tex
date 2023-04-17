@@ -11,6 +11,13 @@
 \usepackage[english]{babel} % Load characters and hyphenation
 \usepackage[english=british]{csquotes}	% English quotes
 
+% TODO notes
+\usepackage{todonotes}
+
+% Change format of vectors to boldface without arrow.
+\usepackage{bm}
+\renewcommand\vec{\mathbf}
+
 % Load packages for testing
 \usepackage{blindtext}
 %\usepackage{showframe} % Uncomment to show boxes around the text area, margin, header and footer
@@ -223,9 +230,7 @@
 \chapter{Pediatric brain tumours}
 \pagelayout{margin} % Restore margins
 
-
-
-\blindtext
+\input{pediatric-brain-tumours/sections/theory/theory.tex}
 
 % \defbibnote{bibnote}{Here are the references in citation order.\par\bigskip} % Prepend this text to the bibliography
 % \printbibliography[heading=bibintoc, title=Bibliography, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
