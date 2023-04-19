@@ -1,0 +1,8 @@
+\subsection{Outcome}
+
+The model predicts which tumour type is mostly present in the input image.
+The prediction is assessed using PR-AUC and $F_1$ score, where the threshold is determined by highest informedness.
+
+The model also outputs an attention map explaining which tiles were important for the prediction.
+A pathologist blindly annotated all regions that were important for the actual diagnosis.
+The IoU between the pathologist's annotation and the attention map for of the target diagnosis with a lower threshold of 0.5 is used to assess the attention map accuracy.

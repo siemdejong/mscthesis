@@ -272,27 +272,32 @@ Yet to be adapted to this study.
       - [x] Model performance
         - [x] F1
         - [x] PR-AUC
+        - [x] IoU
+        - [ ] Informedness
       - [ ] Sensitivity (recall)
     - [ ] Methods
         - [ ] Sources of data
             - [ ] source of data of training/val/test
             - [ ] origin of data
-            - [ ] dates of data collection
-        - [ ] Participants (study setting + eligibility + no specific treatment)
-            - [ ] study setting: tertiary care, Princess maxima center
-            - [ ] eligibility for participants or data sources
-            - [ ] treatment received
+            - [x] dates of data collection
+        - [x] Participants (study setting + eligibility + no specific treatment)
+            - [x] study setting: tertiary care, Princess maxima center
+            - [x] eligibility for participants or data sources
+            - [x] treatment received
         - [ ] Data preparation
-            - [ ] targets (from text to numbers)
+            - [x] targets (from text to numbers)
             - [ ] images
-              - [ ] masking
-              - [ ] tiling
+              - [ ] getting images from raw data
+              - [x] scaling overview images
+              - [x] masking
+              - [x] tiling
               - [ ] (optionally) denoising
               - [ ] ...
             - [ ] data augmentation
+        - [ ] Masking (mini study)
         - [ ] Outcome of model
-            - [ ] What is predicted?
-            - [ ] How is prediction assessed?
+            - [x] What is predicted?
+            - [x] How is prediction assessed?
             - [ ] (Why choosing this outcome measurement if alternatives exist?)
         - [ ] Predictors
             - [ ] Alternatives for predictors
@@ -306,33 +311,33 @@ Yet to be adapted to this study.
         - [ ] Sample size
         - [ ] Missing data
         - [ ] Statistical analysis methods
-            - [ ] Diagram of analytical process
+            - [x] Diagram of analytical process
             - [ ] handling of predictors
-            - [ ] Pre-selection of predictors prior to model building (choose two largest target dists)
-            - [ ] rescaling/transformation on predictors (binarize)
+            - [ ] Pre-selection of predictors prior to model building
+            - [ ] rescaling/transformation on predictors
             - [ ] type of model, building model + predictor selection + internal validation
             - [ ] model ensembling techniques (if used)
             - [ ] detailed model description
             - [ ] initialization of model parameters
               - [ ] simclr pretrain
               - [ ] imagenet
-            - [ ] training approaches (hyperparameters, number of models trained, used datasets)
-              - [ ] hyperparameters trained on one split
-              - [ ] 5 splits, 5 models
-            - [ ] Measures to assess model performance + model comparison
-              - [ ] PR-AUC
-              - [ ] F1
-              - [ ] simclr init vs imagenet init vs ...
+            - [x] training approaches (hyperparameters, number of models trained, used datasets)
+              - [x] hyperparameters trained on one split
+              - [x] 5 splits, 5 models
+            - [x] Measures to assess model performance + model comparison
+              - [x] PR-AUC
+              - [x] F1
+              - [x] simclr init vs imagenet init vs ...
             - [ ] model updating arising from validation
-            - [ ] how final model is selected
-              - [ ] best F1 per split
-            - [ ] explainability and interpretability
-              - [ ] multiply attention vector with input tiles
-            - [ ] software used
-              - [ ] Ray
-              - [ ] Optuna
-              - [ ] Pytorch (Lightning)
-            - [ ] setup used
+            - [x] how final model is selected
+              - [x] best F1 per split
+            - [x] explainability and interpretability
+              - [x] multiply attention vector with input tiles
+            - [x] software used
+              - [x] Ray
+              - [x] Optuna
+              - [x] Pytorch (Lightning)
+            - [x] setup used
     - [ ] Results
         - [ ] Participants (flow, demographics, comparison train/val/test (predictor distributions and images))
         - [ ] Model dev and per participant outcome in
