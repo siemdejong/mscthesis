@@ -5,8 +5,10 @@ The model outputs a prediction in seconds.
 
 To integrate the model with the target system, the raw data needs to be converted to images of \qty{0.2}{mpp} for the model to accept it.
 A user interface should be designed with an optional user input for clinical context.
-The all tumours the model has been trained on with their probabilities should be displayed as output.
+All tumours the model has been trained on with their probabilities should be displayed as output.
 The min-max-normalized attention map should be displayed along the prediction, optionally with a variable threshold.
+The pipeline should be automated.
+In particular, the separation between feature vector creation and using them with MIL model should be closed.
 
 Data polluted with blood or a malfunctioning imaging system are not detected by the model.
 The user should proceed with caution if any of such artifacts appear.
