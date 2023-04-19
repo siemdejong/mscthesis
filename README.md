@@ -350,10 +350,10 @@ Yet to be adapted to this study.
             - [ ] results of analysis on performance errors
         - [ ] Model updating (performance per update)
         - [ ] Usability
-            - [ ] how and when in the clinical pathway to use the prediction AI
-            - [ ] how will the AI be integrated into the target setting + requirements (on-/offsite)
-            - [ ] how will poor data be assessed when implementing AI model
-            - [ ] any human interaction needed for data to be used with the model + expertise of users
+            - [x] how and when in the clinical pathway to use the prediction AI
+            - [x] how will the AI be integrated into the target setting + requirements (on-/offsite)
+            - [x] how will poor data be assessed when implementing AI model
+            - [x] any human interaction needed for data to be used with the model + expertise of users
         - [ ] Sensitivity analysis
           - [ ] Multiple splits
           - [ ] identify input that increase output uncertainty
