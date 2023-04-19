@@ -1,0 +1,13 @@
+\subsection{Usability}
+The prediction model can be used intraoperatively to predict tumour type and amount in a biopt.
+The biopt can be placed on the scanner as in [ref sylvia] and optionally the location of the tumour can be given in natural language.
+The model outputs a prediction in seconds.
+
+To integrate the model with the target system, the raw data needs to be converted to images of \qty{0.2}{mpp} for the model to accept it.
+A user interface should be designed with an optional user input for clinical context.
+The all tumours the model has been trained on with their probabilities should be displayed as output.
+The min-max-normalized attention map should be displayed along the prediction, optionally with a variable threshold.
+
+Data polluted with blood or a malfunctioning imaging system are not detected by the model.
+The user should proceed with caution if any of such artifacts appear.
+The model is shown to be accurate for images with the blood artifact where there are also regions of high quality [fig].
