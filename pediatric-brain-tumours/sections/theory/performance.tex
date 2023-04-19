@@ -12,6 +12,19 @@ In other words, the accuracy is the number of correct predictions divided by the
 In the case of imbalanced datasets, accuracy can be misleading.
 \eg if the number of positive samples is much higher than the number of negative samples and a model classifies all samples as positive, the accuracy will be close to one.
 
+\subsubsection{Informedness}
+Informedness measures the probability of a model giving an informed decision.
+If positive, the model is informed to correctly classify $\mathrm{informedness}\unit{\percent}$ of the time.
+If negative, the model is informed to incorrectly classify $-\mathrm{informedness}\unit{\percent}$ of the time.
+
+Informedness is calculated as
+\begin{align}
+    \mathrm{informedness} = \mathrm{precision} + \mathrm{recall} - 1,
+\end{align}
+and therefore $\mathrm{informedness} \in [-1, 1]$.
+
+Informedness may be used to find a prediction probability threshold by maximizing the informedness.
+
 \subsubsection{$F$-score}
 
 Another accuracy measure are scores depending on precision and sensitivity (recall).
@@ -33,3 +46,12 @@ The higher the PR-AUC, the higher precision and/or recall must be.
 
 It has been shown that PRC changes with the ratio of positive and negative examples while the receiver operator characteristic curve (another popular performance curve) does not~\cite{Takaya2015}.
 This makes PR-AUC a reasonable choice for imbalanced datasets.
+
+\subsubsection{Intersection over union}
+Image segmentations can be assessed by calculating the intersection over union (IoU) between the segmentation $A$ and a predefined ground truth $B$, as
+\begin{align}
+    \mathrm{IoU}(A, B) = \frac{|A \cap B|}{|A \cup B|},
+\end{align}
+where $0 \leq \mathrm{IoU} \leq 1$.
+If the segmentation does not intersect the ground truth, then $\mathrm{IoU} = 0$.
+

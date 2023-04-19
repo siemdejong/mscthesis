@@ -1,0 +1,16 @@
+\subsection{Data preparation}
+
+The target classification is transformed to unique numbers.
+
+From the raw HHG microscope data, images are exported\todo{Ref Sylvia thesis}.
+Overview images of \qty{1}{mpp} and close-up images of \qty{0.2}{mpp} of histologically interesting areas were made.
+To be able to use both images, the overview images were scaled to the same resolution as close-up images using Lanczos interpolation.
+
+Given the size of most images (\qty{>100}{MB}) and to be able to use MIL, the images are subdivided into non-overlapping tiles of $224 \times 224$.
+Tiles overflowing the image are skipped.
+
+Many overview images contain a large empty space without tissue.
+Tiles in these regions do not contain any useful information.
+Ideally, empty areas are masked such that only informative tiles are included.
+For this, multiple algorithms specifically written for H\&E data are evaluated on HHG data (see \cref{subsec:masking}).
+The best performing algorithm, EntropyMasker, is chosen to extract the foreground.
