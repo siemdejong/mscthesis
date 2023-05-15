@@ -18,30 +18,70 @@ The pipeline is summarized in
     }
 \end{figure*}
 
+\subsubsection{Models}
+The model consists of two stages: the feature extractor and the classifier.
+They are trained separately.
+
+\paragraph{Feature extractor}
+The feature extractor is a convolutional neural network with a ShuffleNetV2 (x1.0) backbone, provided by imgclsmob~\cite{imgclsmob2023}, outputting a vector with length 1024.
+Two backbones were used as feature extractor.
+One was pretrained on ImageNet and another feature extractor has an HE initialized ShuffleNetV2 backbone and was trained using SimCLR.
+The SimCLR projection head consisted of two linear layers with dimensions 1024 and 128.
+
+\paragraph{Classifier}
+The classifier is a MIL model applied to the features extracted by the pretrained feature extractor.
+DeepMIL, VarMIL and CCMIL are used as classifiers.
+For DeepMIL, the attention block consists of a linear layer of size 256 with dropout and a $\tanh$ activation function and another linear layer with dropout, resulting in a scalar.
+The classifier block consists of a linear layer with dropout and $\mathrm{softmax}$ activation function and has an output size of the number of classes to predict, \ie two.
+For VarMIL, the last linear layer accepts an input of twice the size, to account for the variance vector.
+For CCMIL, the last linear layer incorporates tumour locations in a 768-dimensional space.
+The embedding is done with TinyClinicalBERT~\cite{Rohanian2023}, provided by Huggingface Transformers~\cite{Wolf2020}.
+During training, BERT's parameters were frozen.
+All parameters other than BERT's were He initialized.
+
+\subsubsection{Internal validation}
+The data was split in five training and test data folds, stratified by case.
+All training splits were further split randomly, again stratified by case.
+
 \subsubsection{Pretraining}
-To extract features from the PMC-HHG input tiles, a ImageNet pretrained feature extractor is initialized.
-Another feature extractor has an ImageNet pretrained backbone, but is further trained using SimCLR.
-Both models are trained for [x] epochs with a batch size of [x].
+The latter model is trained on 1 NVIDIA A30 GPU for 2 days with a bag size of 256 with gradients accumulated over two epochs to imitate larger bags.
+The Adam optimizer was used with a learning rate of $3\times 10{-4}$ and $\beta_{1,2} = \{0.9,\, 0.999\}$ without weight decay and without a learning rate scheduler.
 
 The pretrained models are internally assessed by visualizing the extracted features in two ways.
 First, tiles corresponding to ten nearest neighbours in feature space are compared.
 Second, the features are projected with two-dimensional t-SNE after extracting the ten principal components with PCA.
 The t-SNE projections are colored by image and case identifier, and diagnosis.
 
-Pretraining is performed on [x] NVIDIA A100 GPUs for [x] days.
-
 \subsubsection{Training}
-In total, 20 models are trained using Pytorch Lightning~\cite{Falcon2019}: 4 model definitions and 5 splits.
-Using split 1, for every model definition a Successive Halving hyperparameter search is performed on 1 NVIDIA A100 GPU for [x] hours with resources managed by Ray Tune~\cite{Liaw2018} and trials suggested by the grouped multivariate TPE sampler of Optuna~\cite{Akiba2019}.
-See [TABLE] for the hyperparameter search settings.
-Using the configuration that lead to the model with the lowest validation loss is used for training on all splits for [x] epochs.
-The models were trained on [x] NVIDIA A100 GPUs for [x] hours with a bag size of 1, \ie all tiles from one image at a time.
+In total, 15 models are trained using Pytorch Lightning~\cite{Falcon2019}: 3 model definitions on 5 folds.
+For every fold and model a Successive Halving hyperparameter search is performed on 1 NVIDIA A100 GPU partitioned in 8 for a minimum of 30 epochs and a maximum of 500 epochs with resources managed by Ray Tune~\cite{Liaw2018} and 100 trials suggested by a grouped multivariate TPE sampler provided by Optuna~\cite{Akiba2019}.
+See \cref{tab:hyperparameter_search_space} for the hyperparameter search space.
+Using the configuration that lead to the model with the lowest validation loss is used for training on all splits for 2000 epochs.
+The models were trained on 1 NVIDIA A100 GPU for 2 hours with a bag size of 1, \ie all tiles from one image at a time.
+The learning rate was varied with the cosine annealing scheduler.
+
+\begin{margintable}
+    \caption[Hyperparameter search space]{
+        Hyperparameter search space with dropout, learning rate, momentum and weight decay.
+    }
+    \label{tab:hyperparameter_search_space}
+    \begin{tabular}{lcc}
+        \toprule
+        Parameter &  Min. & Max. \\
+        \midrule
+        Dropout & 0 & 1 \\
+        Learning rate & $10^{-5}$ & $10^{-2}$ \\
+        Momentum & 0 & 1 \\
+        Weight decay & $10^{-4}$ & 1 \\
+        \bottomrule
+    \end{tabular}
+\end{margintable}
 
 \subsubsection{Testing}
-All models from the same initialization are evaluated against a test set.
-Average precision and $F_1$-score based on thresholds acquired from highest informedness are reported with a \qty{95}{\percent} CI.
-The model with the highest $F_1$-score is selected as the best performing model.
-Metrics are calculated by Torchmetrics~\cite{Detlefsen2022}.
+All models from the same initialization were evaluated against a test set.
+Performance is visualized using an ROC, PR and PRG curve.
+AUC, AUPR, and AUPRG with their \qty{95}{\percent} confidence interval are reported to compare models.
+Metrics were calculated by Torchmetrics~\cite{Detlefsen2022} and pyprg~\cite{Flach2015}.
 
 \subsubsection{Attention maps}
 To verify and to gain knowledge of the inner workings of the model, attention maps are created.

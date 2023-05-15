@@ -271,14 +271,15 @@ Yet to be adapted to this study.
         - [x] VarMIL
       - [x] Model performance
         - [x] F1
-        - [x] PR-AUC
+        - [x] AUPR
+        - [ ] AUPRC
         - [x] IoU
         - [ ] Informedness
       - [ ] Sensitivity (recall)
     - [ ] Methods
-        - [ ] Sources of data
-            - [ ] source of data of training/val/test
-            - [ ] origin of data
+        - [x] Sources of data
+            - [x] source of data of training/val/test
+            - [x] origin of data
             - [x] dates of data collection
         - [x] Participants (study setting + eligibility + no specific treatment)
             - [x] study setting: tertiary care, Princess maxima center
@@ -301,7 +302,7 @@ Yet to be adapted to this study.
             - [ ] (Why choosing this outcome measurement if alternatives exist?)
         - [ ] Predictors
             - [ ] Alternatives for predictors
-              - [ ] pathologist decision
+              - [x] pathologist decision
               - [ ] genetic marker
             - [ ] how does pathologist make decision?
             - [ ] source of predictors + known biases
@@ -315,17 +316,17 @@ Yet to be adapted to this study.
             - [ ] handling of predictors
             - [ ] Pre-selection of predictors prior to model building
             - [ ] rescaling/transformation on predictors
-            - [ ] type of model, building model + predictor selection + internal validation
-            - [ ] model ensembling techniques (if used)
-            - [ ] detailed model description
-            - [ ] initialization of model parameters
-              - [ ] simclr pretrain
-              - [ ] imagenet
+            - [x] type of model, building model + predictor selection + internal validation
+            - [x] detailed model description
+            - [x] initialization of model parameters
+              - [x] simclr pretrain
+              - [x] imagenet
             - [x] training approaches (hyperparameters, number of models trained, used datasets)
               - [x] hyperparameters trained on one split
               - [x] 5 splits, 5 models
             - [x] Measures to assess model performance + model comparison
-              - [x] PR-AUC
+              - [x] AUPR
+              - [ ] AUPRG
               - [x] F1
               - [x] simclr init vs imagenet init vs ...
             - [ ] model updating arising from validation
@@ -363,6 +364,7 @@ Yet to be adapted to this study.
           - [ ] ...
     - [ ] Discussion
         - [ ] Limitations
+          - [ ] not trained on molecular code
         - [ ] Interpretation (dev/val data performance + overall interpretation considering objectives/limitations/similar study results/other evidence)
         - [ ] Implications
             - [ ] potential use (also in a general way)
