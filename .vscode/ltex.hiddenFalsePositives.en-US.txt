@@ -1,0 +1,16 @@
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe errors on the test AUPRG are 122 106 , which is most probably the result of a small dataset.\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe tiles that are presented to the model are 44.8 \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.8 .\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QFlowchart for training of Self-supervised pre-training and CLInical COntext-aware Multi-instance learning (SCLICOM).\\E$"}
+{"rule":"AN_AND","sentence":"^\\QOne was pre-trained on ImageNet and another feature extractor has an He initialized ShuffleNetV2 backbone and was trained using SimCLR.\\E$"}
+{"rule":"WERE_VBB","sentence":"^\\QAll parameters other than BERT's were He initialized.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QGitHub/Dataverse/Figshare/etc.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q[width=]pediatric-brain-tumours/images/classifier.svg [Multi-instance learning classification] Extracted features (tile features in this work) are presented to a multi-layer perceptron (MLP) with learnable weights.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q[width=]pediatric-brain-tumours/images/explainer.svg [Tile importances] Visualizing tile importances.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q[width=]pediatric-brain-tumours/images/ccmil.svg [Clinical Context Multi-Instance Learning aggregator.]\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe model is named SCLICOM (from Self-supervised pre-training and CLInical COntext-aware Multi-instance learning).\\E$"}
+{"rule":"HE_THE","sentence":"^\\QThree different masking algorithm designed for HE pathology\\E$"}
+{"rule":"COMMA_COMPOUND_SENTENCE_2","sentence":"^\\QFor every mask, the IoU is calculated and its mean is reported.\\E$"}
+{"rule":"A_NNS","sentence":"^\\QImproved FESI \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is an improvement of FESI where the input image is change to LAB color space and the L and A channels are changed to maximum intensity.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QFor EntropyMasker, the local entropy was calculated with a disk with a radius of 5 px as structure element.\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe loss function is typically the normalized-temperature cross-entropy loss (NT-Xent) and is defined as \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, where \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is the similarity , \\E(?:Dummy|Ina|Jimmy-)[0-9]+$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe loss function is typically the normalized-temperature cross-entropy loss (NT-Xent) and is defined as \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, where \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is the similarity , \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q the temperature to scale the similarity with, and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q the indicator function which maps all elements that satify it subscript to 1.\\E$"}

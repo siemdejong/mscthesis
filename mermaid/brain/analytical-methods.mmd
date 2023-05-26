@@ -6,15 +6,15 @@ flowchart TD
     cc[(Locations per case)]
     annotations[(Pathologist annotations)]
 
-    subgraph splits[Create splits]
+    subgraph splits[Create folds]
         filter_data[Filter medulloblastoma and pilocytic astrocytoma]
 
-        create_splits[Stratify on case #]
+        create_splits[Create 5 folds and stratify on case #]
 
         filter_data --> create_splits
     end
 
-    subgraph pretraining[Pretraining]
+    subgraph pretraining[Pre-training]
         SimCLR(ImageNet + SimCLR)
         ImageNet(ImageNet)
     end
@@ -23,7 +23,7 @@ flowchart TD
         features[(Features)]
 
         subgraph hps[Hyperparameter search]
-            sh[Successive Halving split 1]
+            sh[Successive Halving fold 1]
 
             sh_bv{{Lowest loss}}
 
@@ -45,21 +45,23 @@ flowchart TD
     end
 
     subgraph test[Testing]
-        inf([Informedness])
-        best_inf{{Highest informedness}}
-        F1([F1])
-        PRAUC([PR-AUC])
+        AUC([AUC])
+        AUPR([AUPR])
+        AUPRG([AUPRG])
 
-        best_model{{Highest F1}}
+        best_model{{Highest AUPRG}}
 
-        inf --> best_inf --> F1
-        F1 --> best_model
+        %%style ph1 fill:#FFFFFF00, stroke:#FFFFFF00;
+        %%style ph2 fill:#FFFFFF00, stroke:#FFFFFF00;
+        %%AUC ~~~ ph1[ ]
+        %%AUPR ~~~ ph2[ ]
 
-        PRAUC
+        AUPRG --> best_model
+
     end
 
     subgraph xai[XAI]
-        subgraph pretrained_model[Pretrained model]
+        subgraph pretrained_model[Pre-trained model]
             tsne[t-SNE]
             nn[Nearest neighbours]
             tsne ~~~ nn
@@ -76,8 +78,8 @@ flowchart TD
     create_splits --> pretraining
     images & targets --> splits
     SimCLR & ImageNet --> features
-    pretraining --> xai
-    train_bv --> test
+    pretraining ---> xai
+    train_bv ---> test
     best_model --> xai
-    annotations ---------------> xai
+    annotations -------------> xai
     cc ------> CCMIL

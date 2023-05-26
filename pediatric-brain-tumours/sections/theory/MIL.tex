@@ -11,7 +11,7 @@ Under the standard assumption, the label of a bag is
 \end{align}
 \ie, a bag is positive if at least one instance is positive.
 
-The standard assumption is assymetric: the meaning of the bag label changes if positive and negative labels are swapped.
+The standard assumption is asymmetric: the meaning of the bag label changes if positive and negative labels are swapped.
 This assumption might be too restrictive in non-binary problems.
 
 See \cref{fig:classifier} for a schematic overview of a general MIL model.
@@ -28,10 +28,10 @@ See \cref{fig:classifier} for a schematic overview of a general MIL model.
     \label{fig:classifier}
 \end{figure*}
 
-\todo[noline]{describe need for newer MIL methods}
+\todo[noline]{Describe need for newer MIL methods}
 
 \subsubsection{Attention-based MIL pooling}
-To overcome the restrictive nature of maximum pooling, \textcite{Ilse2018} propose DeepMIL and use a adaptive weighted average of instances.
+To overcome the restrictive nature of maximum pooling, \textcite{Ilse2018} propose DeepMIL and use an adaptive weighted average of instances.
 This weighted average includes learnable weights in an attention-based manner.
 Let $H=\{\vec{h}_1, \ldots, \vec{h}_K\}$ be a bag of $K$ embeddings.
 The weighted average of $H$ is
@@ -41,12 +41,12 @@ The weighted average of $H$ is
 where
 \begin{equation}
     a_k = \frac{\exp\left[\mathbf{w}^T \tanh (\mathbf{V}\vec{h}_k^T)\right]}{\sum_{j=1}^{K}\exp\left[\mathbf{w}^T \tanh (\mathbf{V}\vec{h}_k^T)\right]},
-\end{equation}\todo[noline]{add bias terms}
+\end{equation}\todo[noline]{Add bias terms}
 where $\mathbf{w} \in \mathbb{R}^{L \times 1}$ and $\mathbf{V}\in \mathbb{R}^{L \times M}$ are the learnable parameters.
 The denominator ensures the weights sum to 1.
 $\vec{z}$ is further processed in an MLP for classification.
 
-The weights allow to distinguish interesting instances from uninteresting ones, see \cref{fig:explainer}
+The weights allow distinguishing interesting instances from uninteresting ones, see \cref{fig:explainer}
 High weights should be assigned to instances that are likely to have a positive label.
 This is particularly important for pathology studies.
 The attention weights of specific instances (\eg, patches in an image) explain how the model comes to its diagnosis prediction that can be compared with the doctor's diagnosis.
@@ -64,12 +64,12 @@ The attention weights of specific instances (\eg, patches in an image) explain h
 \end{figure*}
 
 \subsubsection{Variance MIL pooling}\label{subsubsection:theory_varmil}
-Learning weights just for a weighted average discards any interinstance information, while that might be important for the bag prediction.
+Learning weights just for a weighted average discards any information between instances, while that might be important for the bag prediction.
 Variance MIL (VarMIL) by \textcite{Schirris2022} propose to add a learned attention-weighted variance,
 \begin{equation}
     \boldsymbol{\sigma} = \frac{K}{K - 1} \sum_{k=1}^{K}a_k\left(\vec{h}_k-\vec{z}\right)^2.
 \end{equation}
-In a clinical setting, this variance can model \eg the intratumour heterogeneity or tumour border shape.
+In a clinical setting, this variance can model \eg the intratumor heterogeneity or tumor border shape.
 The weighted average and variance are concatenated in a single vector, such that
 \begin{equation}
     \hat{\vec{z}} =
@@ -80,7 +80,7 @@ The weighted average and variance are concatenated in a single vector, such that
 \end{equation}
 
 \subsubsection{Clinical Context MIL}
-Clinical contexts such as locations of tumour resections are important for clinical decisions by pathologists.
+Clinical contexts such as locations of tumor resections are important for clinical decisions by pathologists.
 For example, medulloblastoma is mostly found in the fourth ventricle or cerebellar parenchyma.\todo{https://pubmed.ncbi.nlm.nih.gov/26336203/}
 This information along with the attention weighted tiles (see \cref{subsubsection:theory_varmil}) may lead to better performance.
 As pathologists also have access to this information, it is reasonable for an AI model to use the same available information.
@@ -88,7 +88,7 @@ As pathologists also have access to this information, it is reasonable for an AI
 In this work, Clinical Context MIL (CCMIL) is proposed.
 CCMIL builds on VarMIL, with the addition of clinical information as input to the classification layer.
 The clinical information is presented as a string of characters, a sentence, which can be anything clinically relevant.
-The sentence is condensed to a $H\times1$-dimensional text embedding.
+The sentence is condensed to an $H\times1$-dimensional text embedding.
 The embedding is concatenated to the output of the MIL aggregate, such that
 \begin{align}
     \tilde{\vec{z}} =

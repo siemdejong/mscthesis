@@ -169,15 +169,15 @@ Yet to be adapted to this study.
 
 - [ ] General introduction
     - [ ] Link skin and brain project
-    - [ ] Mention TRIPOD-AI
+    - [x] Mention TRIPOD-AI
 
 - [ ] Theoretical background of convolutional neural networks
 
 - [ ] Skinstression
     - [ ] Abstract
-    - [ ] Introduction
-        - [ ] Background (diagnostic + rationale for dev/val + purpose)
-        - [ ] Objectives (development + validation)
+    - [x] Introduction
+        - [x] Background (diagnostic + rationale for dev/val + purpose)
+        - [x] Objectives (development + validation)
     <!-- - [ ] Theory
         - [ ] Searching for a simple skin strain-stress model
             - [ ] Measurements
@@ -257,25 +257,22 @@ Yet to be adapted to this study.
     - [ ] Funding?
     - [ ] References
 
-- [ ] Pediatric brain tumours
+- [ ] Pediatric brain tumors
     - [ ] Abstract
     - [ ] Introduction
         - [ ] Background (diagnostic + rationale for dev/val + purpose)
         - [ ] Objectives (development + validation)
     - [ ] Theory
-      - [ ] Tumours
-      - [ ] Feature extraction
+      - [x] Feature extraction
       - [x] MIL
-        - [ ] Classical
+        - [x] Classical
         - [x] DeepMIL
         - [x] VarMIL
       - [x] Model performance
-        - [x] F1
-        - [x] AUPR
-        - [ ] AUPRC
+        - [x] ROC Curve
+        - [x] PR Curve
+        - [x] PRG Curve
         - [x] IoU
-        - [ ] Informedness
-      - [ ] Sensitivity (recall)
     - [ ] Methods
         - [x] Sources of data
             - [x] source of data of training/val/test
@@ -295,7 +292,7 @@ Yet to be adapted to this study.
               - [ ] (optionally) denoising
               - [ ] ...
             - [ ] data augmentation
-        - [ ] Masking (mini study)
+        - [x] Masking (mini study)
         - [ ] Outcome of model
             - [x] What is predicted?
             - [x] How is prediction assessed?
@@ -326,8 +323,7 @@ Yet to be adapted to this study.
               - [x] 5 splits, 5 models
             - [x] Measures to assess model performance + model comparison
               - [x] AUPR
-              - [ ] AUPRG
-              - [x] F1
+              - [x] AUPRG
               - [x] simclr init vs imagenet init vs ...
             - [ ] model updating arising from validation
             - [x] how final model is selected
@@ -340,40 +336,32 @@ Yet to be adapted to this study.
               - [x] Pytorch (Lightning)
             - [x] setup used
     - [ ] Results
-        - [ ] Participants (flow, demographics, comparison train/val/test (predictor distributions and images))
-        - [ ] Model dev and per participant outcome in
-            - [ ] Hyperparameter tuning
-            - [ ] Training
-            - [ ] Testing
+        - [x] Participants (flow, demographics, comparison train/val/test (predictor distributions and images))
         - [ ] Model specification (present model + explain how it must be used)
         - [ ] Model performance
-            - [ ] F1/PR-AUC WITH confidence interval over splits
-            - [ ] results of analysis on performance errors
-        - [ ] Model updating (performance per update)
-        - [ ] Usability
+            - [x] AUPRG WITH confidence interval over splits
+            - [x] results of analysis on performance errors
+            - [x] Attention maps
+            - [x] Loss curves
+            - [x] nearest neighbours simclr
+            - [x] tsne simclr
+        - [x] Usability
             - [x] how and when in the clinical pathway to use the prediction AI
             - [x] how will the AI be integrated into the target setting + requirements (on-/offsite)
             - [x] how will poor data be assessed when implementing AI model
             - [x] any human interaction needed for data to be used with the model + expertise of users
-        - [ ] Sensitivity analysis
-          - [ ] Multiple splits
-          - [ ] identify input that increase output uncertainty
-          - [ ] Search for reasons behind misclassifications
-          - [ ] Model simplification (imagenet init enough?)
-          - [ ] Communicate with pathologist why model (doesn't) work(s) with explainability (attention of tiles)
-          - [ ] ...
-    - [ ] Discussion
-        - [ ] Limitations
-          - [ ] not trained on molecular code
-        - [ ] Interpretation (dev/val data performance + overall interpretation considering objectives/limitations/similar study results/other evidence)
-        - [ ] Implications
-            - [ ] potential use (also in a general way)
-            - [ ] how will clinical practice be different if using the AI and how will it be used
-    - [ ] Supplementary information
+    - [x] Discussion
+        - [x] Limitations
+          - [x] bad data? noise exclusion
+          - [x] overfitting fold 1
+        - [x] Interpretation (dev/val data performance + overall interpretation considering objectives/limitations/similar study results/other evidence)
+        - [x] Implications
+            - [x] potential use (also in a general way)
+            - [x] how will clinical practice be different if using the AI and how will it be used
+    - [x] Supplementary information
         - [ ] Data?
-        - [ ] Code
-    - [ ] Funding?
-    - [ ] References
+        - [x] Code
+    - [x] References
 
 - [ ] Discussion and conclusion
     - [ ] Discussion
