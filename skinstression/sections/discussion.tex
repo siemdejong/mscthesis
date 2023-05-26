@@ -1,14 +1,5 @@
 \section{Discussion}
 
-TODO?:
-\begin{enumerate}
-    \item collagen is viscoelastic and is therefore timedependent.
-    \item discard strain-stress curve outliers (using PCA?)
-    \item (random cropping has a higher probability of including pixels in the middle region)
-    \item WHY DEEP LEARNING?
-    \item train/val/test diff of 'source of data' fig
-\end{enumerate}
-
 \subsection{Logistic curve fits stress-strain curves better than an exponential or PCA}
 With an $\overline{R^2} \approx \num{0.9979 \pm 0.0039}$, the logistic curve fits stress-strain data (\cref{fig:logistic_fits}) better than the exponential or PCA ($\overline{R^2} \approx \num{0.9927 \pm 0.0022}$, \cref{fig:pca_fits}).
 The exponential does not fit the plateau that is often present at the end of a stress-strain curve (\cref{fig:exp_fits}).

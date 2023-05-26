@@ -1,0 +1,19 @@
+%%{init: {'theme': 'neutral', "flowchart" : { "curve" : "monotoneX" } } }%%
+
+flowchart LR
+    %% nodes
+
+    tiler[Tiler]
+
+    feature_extractor[Feature extractor]
+
+    text_encoder[Text encoder]
+
+    classifier[Classifier]
+
+    explainer[Explainer]
+
+    tiler --> feature_extractor
+    feature_extractor --> classifier
+    text_encoder --> classifier
+    classifier --> explainer

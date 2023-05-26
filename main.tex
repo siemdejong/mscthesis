@@ -85,6 +85,12 @@
 
 \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
 
+% To make numbers boldface: \textbf{\num{number...}}
+\sisetup{
+text-series-to-math = true ,
+propagate-math-font = true
+}
+
 % https://github.com/fmarotta/kaobook/issues/145#issuecomment-866744813
 % \makeatletter
 % \RenewDocumentCommand{\chapterstylekao}{}{%
@@ -227,12 +233,15 @@
 \input{skinstression/sections/supplementary.tex}
 
 \pagelayout{wide} % No margins
-\chapter{Pediatric brain tumours}
+\chapter[SCLICOM]{Developing and validating a clinical context aware multi-instance learning with self-supervised pre-training model on higher harmonic generation images from medulloblastoma and pilocytic astrocytoma in children}
 \pagelayout{margin} % Restore margins
 
+\input{pediatric-brain-tumours/sections/introduction.tex}
 \input{pediatric-brain-tumours/sections/theory/theory.tex}
 \input{pediatric-brain-tumours/sections/methods/methods.tex}
-\input{pediatric-brain-tumours/sections/result/results.tex}
+\input{pediatric-brain-tumours/sections/results/results.tex}
+\input{pediatric-brain-tumours/sections/discussion/discussion.tex}
+\input{pediatric-brain-tumours/sections/supplementary_materials.tex}
 
 % \defbibnote{bibnote}{Here are the references in citation order.\par\bigskip} % Prepend this text to the bibliography
 % \printbibliography[heading=bibintoc, title=Bibliography, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note

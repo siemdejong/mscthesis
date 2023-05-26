@@ -1,0 +1,37 @@
+\subsection{Limitations}
+\subsubsection{Models of fold 1 were overfit}
+The validation loss diverges from the training loss for all models concerning fold 1.
+This indicates overfitting of the model on the training data of fold 1.
+One reason for this might be the slightly poorer data quality corresponding to the test set of fold 1.
+The lower mean entropy and higher mean kurtosis indicate images have less information and the set has more outliers compared to test sets of other folds.
+The correlation coefficients between entropy, kurtosis, and AUPRG further support this: an increase in entropy means an increase in quality, and a decrease in kurtosis means an increase in quality.
+Future studies should vary the number of training examples, discarding images of low quality determined by entropy or kurtosis, as described in \ref{subsec:image-selection}.
+
+The generalizability issue can also have its origin in images showing the disease with varying features across splits.
+That is, if some images show \eg cystic areas indicating pilocytic astrocytoma and none of them are in the training set, then it is harder for the model to find those features in the test set.
+Having a higher sample size reduces the chance of separating disease features into splits, which might improve generalizability.
+
+\subsubsection{Tile size was not varied}
+The HHG microscope can image tissue with a resolution of \qty{0.2}{mpp}.
+The tiles that are presented to the model are \qty{44.8}{\micro\meter}$\times$\qty{44.8}{\micro\meter}.
+Medulloblastomas are characterized by the absence of increased cell size (max.~$\sim\qty{32}{\micro\meter}$~\cite{Orr2020}), among others.
+This is smaller than the tile size.
+Pilocytic astrocytomas develop from astrocytes and their processes are about \qty{97.9}{\micro\meter}~\cite{Vasile2017}, which is larger than the tile size.
+It might be beneficial for the model to work with tile sizes larger than key disease features, otherwise the model may have more difficulty recognizing specific disease patterns.
+In a future study, the effect of using tiles that are about the size of disease features should be studied.
+
+\subsubsection{Different attention scaling}
+The attention weighted images seems to highlight just a few of many tiles that a pathologist would use to diagnose.
+To highlight more tiles, the attention weighted images could be scaled logistically.
+
+A future experiment could also train a model to predict an attention threshold to optimally mask interesting regions annotated by a pathologist.
+This can be used to reject all areas that are uninteresting, which can be used to accelerate diagnosis by a pathologist.
+
+\subsubsection{Clinical context embedding might benefit from fine-tuning}
+No evidence is found that embedding clinical contexts with an NLP improves performance.
+Although the AUPRG for both the validation and test set are larger for CCMIL than VarMIL, the difference is insignificant.
+The language model is frozen during training, meaning that every iteration, the loss does not influence the generation of the text embedding.
+The weights after the MIL aggregate are learnable.
+These weights are accountable for the new performance.
+The text embeddings may be more optimally clustered for this classification task.
+To possibly achieve this, the NLP can be fine-tuned while training the classifier.
