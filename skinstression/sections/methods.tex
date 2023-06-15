@@ -1,24 +1,35 @@
 \section{Methods}
-\begin{enumerate}
-    \item TODO: SQUASH SECTION BELOW INTO FEWER SECTIONS AND MAKE IT FLOW
-    \item TODO: DETAIL
-\end{enumerate}
 
-\subsection{Sources of data}
+\subsection{Data}
 
-Data is obtained in previous studies by A.\ Soylu, M.\ Zhou, and L.\ van Haasterecht at the Medical Imaging center of the VUmc, Amsterdam.\marginnote{Is this true? Not in Beverwijk for Ludo?}
-Human thigh and abdomen skin tissue were excised.
-Pieces of these tissues were imaged with multiphoton microscopy and their stress-strain response curves were measured mechanically.\marginnote{Ref to the imaging and stretching papers?}
+\subsubsection{Sources of data}
+
+Human skin tissue was excised from cadavers and healthy subjects for previous studies at the Red Cross Hospital in Beverwijk, the Netherlands~\cite{Haasterecht2023, Zhou2023}.
+Pieces of these tissues were imaged with multiphoton microscopy and their stress-strain response curves were measured mechanically, see \cref{fig:lab-setup}~\cite{Haasterecht2023, Zhou2023}.
 Data is acquired in batches from April 2021 until July 2022.
 Development and testing data come from the same source.
 
-Cadavers were eligible for thigh skin excision and abdomen skin is cut during plastic surgery.\marginnote{is this true?}
+\begin{figure*}
+    \centering
+    \includegraphics[width=\linewidth]{skinstression/images/measuring-setup.png}
+    \caption[Skin stretch setup]{
+        Skin stretch setup.
+        The schematic of the experimental setup (A) shows a femtosecond pulse laser, which central wavelength is 1050 nm with pulse duration less than 80 fs; AOM- acousto-optic modulator; SL-scan lens; TL-tube lens, focus tunable; DMP1-dichroic mirror reflecting backscattering signals from fundamental photons; DMP2 dichroic mirror splitting 2PEF and SHG channels; M- Mirror; F- bandpass filter, F520/35; L- focusing lens; PMT-photomultiplier tube detectors. 
+        The PMT signals are shown as image stacks (C) where red color represents collagen fibers and blue color represents elastin fibers.
+        A photograph of the skin stretching for \qty{150}{\percent} is shown (B).
+        Adapted with permission from \fullcite{Zhou2023} (Ref.~\cite{Zhou2023}).
+    }
+    \label{fig:lab-setup}
+\end{figure*}
+
 It is unknown if individuals received treatment relevant for this study.
 
+The sample size is arrived at taking into account all previously included subjects and excluding abdomen data and scar tissue.
+This amounts to a total of 1649 SHG images from 63 samples to train on.
+% For a detailed summary of the number of samples, see fig. (graph with nodes and edges explaining number of images/curves).
+Due to the limited amount of participants, individuals with unknown gender or age were included.
 
-\subsection{Data preparation}\label{sec:skin_data_prep}
-
-\subsubsection{Preprocessing}
+\subsubsection{Data preprocessing}\label{sec:skin_data_prep}
 
 Depth stack images with a size of $1000\times 1000$ with a planar resolution of \qty{1}{\micro\meter} of all skin tissues were kindly provided by M.\ Zhou.
 All stacks were separated into slices.
@@ -46,11 +57,11 @@ and
 \end{equation}
 with $N$ the total number of pixels, $k$ an individual image and $i,j$ the pixel in the horizontal and vertical dimension, respectively.
 
-The images are downsampled to $258\times258$ to fit into the neural network.
+The images are resized to $258\times258$ to fit into the neural network.
 
 \subsubsection{Image selection}\label{subsec:image-selection}
 SHG microscopy images from skin tissue suffer from optical phenomena.
-The most evident problem is that imaging deeper into the tissue, photons are detected with less spatial accuracy thanks to scattering.
+The most evident problem is that imaging deeper into the tissue, photons are detected with less spatial accuracy because of scattering.
 The deeper photons travel into tissue, the more possible paths photons can take to return to the detector.
 Moreover, the chance of photons getting absorbed by the tissue increases with penetration depth.
 Therefore, less photons get reflected from deeper tissue.
@@ -61,160 +72,49 @@ With this, images can be sorted to this measure and the top $k$ images with best
 Candidates for this measure are Shannon entropy, kurtosis, and skew for reasons explained in \ref{subsec:imq}
 These quality measures are calculated per image using PyImageQualityRanking \cite{Koho2016}, such that the quality measure can be validated by observing manually.
 
-\subsubsection{Image denoising}
-Another optical disadvantage of multiphoton microscopy is the occurrence of noise.\marginnote{Look up sources of noise.}
+% \subsubsection{Image denoising}
+% Another optical disadvantage of multiphoton microscopy is the occurrence of noise.\marginnote{Look up sources of noise.}
 
-Unfortunately, obtaining clearer images is hard.
-One way to reduce noise in the image is to use more photons.
-Either by averaging more images or increasing the amount of photons per image.
-Increasing the amount of photons penetrating the tissue increase the risk of damaging the tissue.
+% Unfortunately, obtaining clearer images is hard.
+% One way to reduce noise in the image is to use more photons.
+% Either by averaging more images or increasing the amount of photons per image.
+% Increasing the amount of photons penetrating the tissue increase the risk of damaging the tissue.
 
-Another way to deal with noisy images is to process the images.
-Promising denoising neural networks have been developed.
-The difficulty with this is that clean target data for supervised training is often not available in a biomedical setting.
-To counteract this, Noise2Noise (N2N) \cite{Lehtinen2018} was developed.
-Noise2Void N2V \cite{Krull2019}, a successor of N2N, does not rely on pairs of noisy images.
-Instead it only needs one image and corrupts it to use as target and learns a mapping between the noisy image and the newly created noisy image.
-This is useful if only one biomedical image is available.\marginnote{If denoising is used, move parts of this section to a theory section and refer to it here.}
+% Another way to deal with noisy images is to process the images.
+% Promising denoising neural networks have been developed.
+% The difficulty with this is that clean target data for supervised training is often not available in a biomedical setting.
+% To counteract this, Noise2Noise (N2N) \cite{Lehtinen2018} was developed.
+% Noise2Void N2V \cite{Krull2019}, a successor of N2N, does not rely on pairs of noisy images.
+% Instead it only needs one image and corrupts it to use as target and learns a mapping between the noisy image and the newly created noisy image.
+% This is useful if only one biomedical image is available.\marginnote{If denoising is used, move parts of this section to a theory section and refer to it here.}
 
-The original N2V model produces a checkerboard pattern.
-Noise2Void2 (N2V2) \cite{Hock2022} is an extension to N2V and reduces this artifact.\marginnote{Actually didn't do denoising, but if done, describe how here :)}
+% The original N2V model produces a checkerboard pattern.
+% Noise2Void2 (N2V2) \cite{Hock2022} is an extension to N2V and reduces this artifact.\marginnote{Actually didn't do denoising, but if done, describe how here :)}
 
 \subsubsection{Data augmentation}
 
 To make the model more robust, data augmentation is applied.
-Before the downsampling, the preprocessed images are cropped randomly from $1000\times1000$ to $700\times700$ preserving the aspect ratio.
+Before resizing, the preprocessed images are cropped randomly from $1000\times1000$ to $700\times700$ preserving the aspect ratio.
 The global brightness is adjusted randomly with $\pm \qty{30}{\percent}$.
 The images are then randomly mirrored horizontally and vertically with a probability of \qty{50}{\percent}.
 All data augmentations were performed with Torchvision \cite{torchvision2016}.
 
-\subsection{Outcome}
-The strain-stress response curves of individual skin tissue pieces were the outcome of interest.
-The prediction is assessed by comparing it with measured strain-stress curves where $R^2$ with a \qty{95}{\percent} confidence interval is calculated.
-The measurement is done mechanically by an experimentalist.
-The mechanical measurement itself is blind to clinical information.
 
-\subsection{Predictors}\label{sec:skin_predictors}
-
-% --------------------------------------------------
-% SEARCHING FOR A SIMPLE SKIN STRAIN-STRESS MODEL
-% --------------------------------------------------
-
-\subsubsection{Searching for a simple skin strain-stress model}
-
-Supervised learning requires targets for the model to train on.
-Ideally, individual targets allow for physical interpretation and can together describe all the available data.
-
-\paragraph{Empirical strain-stress regions}
-Although skin tissue has a complex nature, measurements to quantify skin stretch show similar features.
-Measurements always show three domains: the toe, heel and leg domain (see fig.).
-The toe region is at the very start of the curve.
-This region is seems relatively flat as the fiber network consists of mostly unstretched fibers.
-Therefore, the fibers cannot exert force as a reaction to external stretching force.
-However, in the heel region where skin tissue is stretched more, fibers can exert more force.
-When enough force is exerted on the tissue, fibers stretch maximally and fibers react with maximum force in the leg region.
-This region is observed to be roughly linear.
-Overstretching the tissue then breaks the fiber network, decreasing the possibility to exert force.
-
-\paragraph{Exponential}
-Strain-stress curves can be also be visualized by showing the log derivative of stress with respect to strain against the log of strain (fig).
-Typically, this figure has three regions.
-The first region indicates a linear relationship between small forces and small strain.
-Then, the derivative increases until it reaches a purely exponential part.
-If skin stretching follows this kind of behaviour, a simple mathematical model can be derived.
-Inspecting the figure, the linear part shows the ordinary differential equation
-\begin{equation}
-    \frac{\mathrm{d}\sigma}{\mathrm{d}\gamma} \propto \sigma,
-\end{equation}
-where $\gamma = \chi - 1$.
-Solving for $\sigma$, we get
-\begin{equation}
-    \sigma \propto e^{\lambda\gamma},
-\end{equation}
-where $\lambda$ is some factor dictating the speed with which the exponential increases.
-At no extension, i.\ e.\ $\gamma=0$, it can be assumed that there is no stress.
-Therefore,
-\begin{equation}
-    \sigma \propto e^{\lambda\gamma} - 1.
-\end{equation}
-At small extensions, i.\ e.\ $\lambda\gamma \ll 1$, $e^{\lambda\gamma} \approx (1 + \lambda\gamma + \ldots)$ using a Taylor expansion.
-So
-\begin{equation}
-    \sigma_{\lambda\gamma\ll 1} \propto 1 + \lambda\gamma + \ldots - 1 \approx G_0 \gamma,
-\end{equation}
-where $G_0$ is some linear coefficient at small extensions.
-In this work, $\gamma = \chi - 1$, where $\chi$ is the stretch.
-The full expression then becomes
-\begin{equation}\label{eq:exp}
-    \sigma = \frac{G_0}{\lambda}\left(e^{\lambda(\chi - 1)}-1\right).
-\end{equation}
-
-This model assumes that data follows the previously described curve where there is a small rise at small extensions and an indefinitely exponentially increasing stress for larger extensions.
-
-The exponential model is fit to some stress-strain curves using OriginPro~\cite{OriginPro}.
-
-\paragraph{Principal component analysis}
-In an earlier study \cite{Soylu2022}, principal component analysis (PCA) is used to reduce the dimensionality of the strain-stress data.
-In summary, after PCA, every measurement $Y$ can be approximated by
-\begin{equation}\label{eq:pca}
-    Y \approx Y_\mathrm{PCA} = \mathbf{A} \mathbf{V} + \bar{Y},
-\end{equation}
-where $\mathbf{A}$ and $\mathbf{V}$ are matrices containing respectively the eigenvalues and -vectors of the the measurement data.
-$\bar{Y}$ is the measurement mean.
-Choosing the first $p$ principal components allows for dimensionality reduction.
-
-Using PCA to create eigenvalues to weight the eigenvectors has some caveats.
-First, the training and test sets must be treated separately.
-The test set has to be projected on the space spanned by the first $p$ eigenvectors of the training set.
-This may induce problems as the test set could contain information that does not come close to
-Second, PCA depends on interpolation, \ie every strain-stress curve must be formed by either a set of strain or stress values.
-This reduces the domain of the data.
-
-\paragraph{Logistic curve}
-The empirical observations where the force response of skin tissue changes states, suggests a logistic curve, which can be written as
-\begin{equation}\label{eq:logistic_curve}
-    \sigma = \frac{\sigma_\mathrm{max}}{1+e^{-E_\mathrm{max} (\gamma - \gamma_c)}},
-\end{equation}
-where $\sigma$ and $\gamma$ are the stress and engineering strain, $\sigma_\mathrm{max}$ is the maximum stress, $E_\mathrm{max}$ is the maximum Young's modulus and $\gamma_c$ the strain offset.
-This equation assumes that there is a maximum force that the tissue can exert, in contrary to the theoretical approach above (ref).
-
-Using the logistic curve as an alternative to PCA has two major advantages.
-Every curve can be treated separately and measurements can contain data across arbitrary domains and with arbitrary intervals as no interpolation is necessary.
-
-Strain-stress curves for all individuals were kindly provided by M.\ Zhou.
-The curves only include datapoints where the skin extension is larger than zero and the force positive.
-
-To every strain-stress curve, eq.~\ref{eq:logistic_curve} is fitted with Scipy \cite{2020SciPy-NMeth}.
-The optimal parameters were be used for training the model.
-
-The AI was trained on a with LDS smoothed target variable distribution.
-The targets were weighted with the inverse square root, to limit the impact of LDS.
-
-It is important to perform a study on bias for possible explanations of varying AI performance.
-The samples were taken from individuals with varying age and gender.
-Moreover, from some individuals, more mechanical measurements were taken.
-Therefore, the age, gender, and number of samples were summarized.
-\marginnote{Ref to density/thickness/orientation analysis of Mengyao?}
-
-\subsection{Sample size}
-The sample size is arrived at taking into account all previously included subjects (ref ludo, ref mengyao, ref alperen) and excluding abdomen data and scar tissue.
-This amounts to a total of 1649 SHG images to train on.
-% For a detailed summary of the number of samples, see fig. (graph with nodes and edges explaining number of images/curves).
-
-\subsection{Missing data}
-Due to the limited amount of participants, individuals with unknown gender or age were included.
-
-\subsection{Statistical analysis methods}
+\subsection{Model}
+The outcome of interest of the model are strain-stress response curves from SHG images from individual skin tissue pieces.
+The model is named Skinstression (from skin stretch regression).
+% The measurements were done mechanically by experimentalists.
+% The measurement device itself is blind to clinical information.
 
 This section shows the methods obtain a trained model from stress-strain curves and images to use it for inference and interrogate it with XAI techniques.
-The statistical methods are summarized in \cref{fig:skin_stat_methods}.
+\Cref{fig:skin_stat_methods} shows the model development flow.
 
 \begin{figure*}[p]
     \centering
     % \includegraphics[height=\dimexpr\textheight-55.89pt\relax]{mermaid/skin_analysis.pdf}
     \includegraphics{mermaid/skin_analysis.pdf}
-    \caption[Flowchart of statistical analysis methods for \textsc{Skinstression}]{
-        Flowchart of statistical analysis methods for \textsc{Skinstression}.
+    \caption[Skinstression development flow]{
+        Skinstression development flow.
         Exponentials, principal component analysis (PCA) reconstructions, and logistic curves were fit to the stress-strain curves.
         The best-fitted model was used to create training targets.
         The targets and images were used as input for further training.
@@ -236,11 +136,11 @@ A fit is considered good if it passes reasonably through all data points.
 In particular, the exponential regime of the fit should describe the leg part of the curve.
 
 \paragraph{Principal component analysis}
-PCA requires information on at least one axis to align between every curve.
+PCA requires curves to align on at least one axis.
 The first step to achieve this is excluding all stretch values above the stretch of the maximum of the shortest curve.
 \textcite{Soylu2022} did linear interpolation on the curves and restricted both stretch and stress to minim peak value.
 PCA on two variables requires only one shared set of points.
-Moreover, results of \citeauthor{Soylu2022} show knicks in the PCA reconstructions near the end of the curves, which could originate from a limited amount of datapoints or linear interpolation.
+Moreover, results of \citeauthor{Soylu2022} show knicks in the PCA reconstructions near the end of the curves, which could originate from a limited amount of data or linear interpolation.
 Therefore, in this study, a non-uniform, univariate, interpolating spline was fitted to all points using Scipy \cite{2020SciPy-NMeth} and the stress was calculated from the spline at the stetch values of the curve with the lowest maximum stretch.
 After PCA on the complete dataset using Scikit-learn \cite{Pedregosa2011}, the explained variance per component was calculated and used as a method to find an appropriate number of principal components.
 From these principal components, the curves where reconstructed using \cref{eq:pca}.
@@ -249,7 +149,7 @@ A fit is considered good if it passes reasonably through all data points and has
 
 Only if PCA on the full dataset works reasonably well, it is possible to use PCA on a subset and use it to reconstruct another subset.
 This would be useful if PCA was used to construct predictors, as using PCA results of the full dataset introduce information leakage from the test sets to the training set, because the components describe data from both subsets.
-This is unlike Ref.~\cite{Soylu2022} where information leakage was not considered.\marginnote{Where to put PCA bias study?}
+This is unlike Ref.~\cite{Soylu2022} where information leakage was not considered.
 
 \subsubsection{Convolutional neural network}
 The basis of the model originates from Liang \emph{et al.} \cite{Liang2017} and is adapted by Soylu \cite{Soylu2022}.
@@ -258,7 +158,7 @@ The first block consists of a convolutional layer with a $3\times3$ kernel, taki
 The output is then normalized per batch using BN (\cref{sec:bn}).
 The normalized batch is passed through a ReLU (\cref{subsec:relu}) layer.
 After activation, three $2\times2$ maxpool (\cref{subsec:maxpool}) layers are applied.
-The next second block is like the first block, but with a $5\times5$ convolution kernel en just one maxpool layer.
+The next second block is like the first block, but with a $5\times5$ convolution kernel and just one maxpool layer.
 The third block is like the second block, but with a $3\times3$ convolution kernel.
 The fourth block is like the second and third block, but with a $6\times6$ and without a maxpool layer.
 
@@ -271,7 +171,6 @@ The model is shown in \cref{fig:model}
 
 \begin{figure*}
     \includegraphics{skinstression/images/skinstression.pdf}
-    % \input{PlotNeuralNet/examples/Skinstression/skinstression-new.tex}
     \caption[Network architecture]{
         The convolutional neural network consists of five blocks.
         The first four blocks contain convolution, maxpooling, and batch normalization layers.
@@ -281,7 +180,7 @@ The model is shown in \cref{fig:model}
     \label{fig:model}
 \end{figure*}
 
-The dropout layers in \cite{Soylu2022} are replaced by BN layers, as the input is unnormalized and studies report better performance with BN.
+The dropout layers in \cite{Soylu2022} are replaced by BN layers, as the input is not normalized and studies report better performance with BN.
 Bias of all layers preceding BN layers have been set to zero.
 
 The neural network weights are initialized according to the method described by \textcite{He2015a}, using a uniform transform.
@@ -289,7 +188,7 @@ The neural network weights are initialized according to the method described by 
 \subsubsection{Hyperparameter optimization}
 First, benchmark search 1 was done using Successive Halving with 100 trials.
 See \cref{app:skin_conf_search_spaces} for a summary of configuration search space $\mathcal{C}$.
-To allow trials to warmup, a minimum of 100 epochs were allowed.
+To allow trials to warm up, a minimum of 100 epochs were allowed.
 To limit the trial duration, a maximum of 3000 epochs were allowed.
 The number of trials were reduced with a reduction factor of $\eta=4$.
 Trial parameters were sampled using the non-multivariate TPE algorithm.
@@ -298,8 +197,8 @@ The optimization was performed with the Adam optimizer ($\beta_1=0.9$, $\beta_2=
 Every trial used the complete dataset after data preparation (\cref{sec:skin_data_prep}).
 
 The search uses a few data augmentations that are assumed to not alter the physical context of the image.
-That is, force is exerted on the tissue in the horizontal direction in the image.
-Therefore, flipping the image either vertically or horizontally is assumed to not change the stretch behaviour.
+That is, force is exerted on the tissue unilaterally, which is horizontal in the image.
+Therefore, flipping the image either vertically or horizontally is assumed to not change the stretch behavior.
 Both flipping operations occur with a probability of $0.5$.
 Moreover, the images' intensity is randomly changed uniformly by \qtyrange{0.7}{1.3}{\percent}.
 
@@ -325,7 +224,7 @@ For a summary of the hyperparameter searches, see \cref{tab:skin_studies}.
 Algorithms provided by Optuna \cite{Akiba2019} were used to choose trial configurations and keep track of trials.
 
 \begin{table}
-    \caption[\textsc{Skinstression} hyperparameter search studies]{
+    \caption[Skinstression hyperparameter search studies]{
         Summary of settings for hyperparameter searches performed.
         Hyperparameters are grouped by operation type (image preprocessing, image augmenting, target weighting) and in applied order.
         Every search is done with the search space described in \cref{tab:conf_skin}.
@@ -379,18 +278,19 @@ The learning rate scheduler was cosine annealing with warm restarts to allow for
 The learning rate was warmed up linearly for the first 20 epochs.
 To see the influence of image quality, the model is trained using an ordered set of images.
 The images are ordered with maximum entropy first and the model is trained on all images and the top 10, 20 and 30 images of every stack.
-Moreover, to see the effect of using the original zoom level with the greatest detail at hand, the best 20 images of every stack were centercropped to $500\times500$ and further randomly cropped randomly to $258\times258$.
+Moreover, to see the effect of using the original zoom level with the greatest detail at hand, the best 20 images of every stack were center-cropped to $500\times500$ and further randomly cropped randomly to $258\times258$.
 The lowest validation focal loss is used to compare model performance.
 The model with the lowest validation loss is used for testing.
 
 Pytorch \cite{Paszke2019} was used to perform automatic differentiation on NVIDIA GeForce RTX 2070 Super GPUs on the BAZIS high performance computing cluster.
 
-\subsubsection{Dataset}\label{subsec:skin_dataset}
+\subsubsection{Internal validation}\label{subsec:skin_dataset}
 The thigh dataset is randomly distributed into a training (\qty{64}{\percent}), validation (\qty{16}{\percent}), and test (\qty{20}{\percent}).
 The distribution is stratified by person, meaning samples corresponding to the same person cannot live in two subsets simultaneously.
 The AI learns from the training set.
 Every iteration, it is validated against the validation set.
 During inference, the AI is applied to the test set as external validation.
+The prediction is assessed by comparing it with measured strain-stress curves where $R^2$ is calculated with a \qty{95}{\percent} confidence interval.
 
 % \subsubsection{Model selection}
 % MISSCHIEN MODEL ENSEMBLING EN VALIDATION SET GEBRUIKEN VOOR VINDEN VAN BESTE AANTAL MODELS?

@@ -1,0 +1,25 @@
+\pdfbookmark[1]{Abstract}{skin_abstract}
+\section*{Abstract}
+
+\paragraph{Background and objective}
+Second harmonic generation (SHG) microscopy allows for imaging of biological tissue at micrometer scale such as collagen fibers.
+Mechanical human skin stretch experiments were done to relate HHG images to stretch properties.
+Stretch properties might be extracted by AI models to substitute mechanical measurements.
+A skin stretch regression model (Skinstression) is developed and validated to compute the stress-strain curves corresponding to SHG images of human skin tissue.
+
+\paragraph{Methods}
+A holdout study was conducted on SHG data of human skin tissue.
+Outcomes of interest were the maximum stress, strain offset and maximum Young's modulus which together construct a stress-strain logistic curve.
+A convolutional neural network was developed and validated.
+The performance of the models was assessed by the coefficient of determination $R^2$ and occlusion was used to possibly explain predictions.
+Artificially adding and removing collagen was done to attack the model.
+
+\paragraph{Results}
+SHG skin tissue images of 18 old adult (5 men, 4 women, 6 unknown, ages \qtyrange{61}{94}{yr}) were used.
+The model achieved a mean $R^2$ of \num{-0.36} (\qty{95}{\percent} CI \numrange{-1.66}{1.06}) on the test set.
+Occlusion did not give insight into stretch property predictions.
+Adversarial attacks seem to induce predictions corresponding with adding or removing collagen.
+
+\paragraph{Discussion}
+Skinstression needs further training and external validation.
+After additional training and validation, the updated model may be used to replace mechanical skin stretch measurements and ultimately analyze live microendoscope images to be used by plastic surgeons.

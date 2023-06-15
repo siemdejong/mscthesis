@@ -1,11 +1,40 @@
 \section{Introduction}
 
-Introduction...
+Cancer accounted for about \num{10000000} deaths worldwide in 2020.
+\num{246000} of those were due to brain tumors~\cite{Kocarnik2022}.
+In children, brain tumors are the leading cause of cancer mortality~\cite{Fahmideh2021}.
+Pediatric brain tumors (PBT) in the Netherlands are treated in the Princess Máxima Center for pediatric oncology (PMC).
+PMC treats many PBTs, but pilocytic astrocytoma (PA) and medulloblastoma (MB) are two of the most prevalent with an incidence of 0.91 and 0.40 per 100000 children, respectively~\cite{Fahmideh2021}.
 
-Link HE with HHG.
+Tumors need to be assessed by pathologists to determine tumor type and severity before making a treatment plan.
+Starting treatment on time gets increasingly difficult with an expected shortage of pathologists~\cite{George2019}.
+Pathologists also have access to more health data resulting from multiple imaging techniques, such as magnetic resonance imaging and positron emission tomography, and clinical records than ever before.
+All this clinical data needs to be processed to optimize patient care.
+These issues can be addressed by integrating machine learning effectively~\cite{Parwani2019}.
 
-Tell something about tumors
+One of the modalities that can benefit from machine learning is histopathology on whole-slide images (WSI).
+Biopsies are processed and usually stained with haematoxylin and eosin (HE).
+HE stained tissues are placed on glass slides and imaged with a microscope to get WSIs.
+The images are used by pathologists to make a diagnosis.
+A wide variety of disease patterns can be recognized by histopathology.
+Pathologists look at large tissue areas and frequently annotate regions of interest to make reasoned diagnoses.
 
-State goal (development and validation of the model), and purpose, and users.
+Histopathology images come with artifacts~\cite{Taqi2018} and acquiring them takes a long time and can in general only be done post-operative.
+Sometimes, intraoperative assessment is desired, as treatment may be tumor type specific.
+Utilizing higher harmonic generation (HHG) microscopy as a non-invasive and label-free imaging technique enables intraoperative resection feedback.
 
-State how to get there and other works that do something similar.
+Manual tumor diagnosis on large HHG images is time-consuming.
+Various techniques are available to automate tumor diagnosis in WSIs~\cite{Litjens2017}.
+\textcite{Blokker2022} has shown that deep learning models trained on THG data can intraoperatively distinguish glioma from epilepsy brain tissue.
+A convolutional neural network was trained end-to-end in a tile supervised manner, providing the neurosurgeon with a tile-level diagnosis.
+Another promising branch of techniques relies on multi-instance learning (MIL) where WSIs are cut in tiles.
+This allows for extraction of interesting features and limiting the amount of data per training batch.
+
+In this work, SCLICOM (from Self-supervised CLInical COntext Multi-instance learning) is proposed.
+This study includes THG data, as well as SHG, 2PEF, tumor location data, providing an AI with more context to work with.
+The model is based on DeepSMILE~\cite{Schirris2022} which was originally developed for HE images concerning breast and colorectal cancer.
+DeepSMILE is a two-stage model that consists of a feature extractor and a MIL classifier.
+The classifier is extended by including tumor location as clinical context, which is also available to pathologists.
+The purpose of the product is to intraoperatively classify pilocytic astrocytoma and medulloblastoma using HHG images and clinical context in the form of textual tumor locations.
+An attention system should give insight into which areas were relevant for classification.
+The product may be adapted and trained to account for other tumors or more diseases at once.

@@ -1,0 +1,24 @@
+\pdfbookmark[1]{Abstract}{pbt_abstract}
+\section*{Abstract}
+
+\paragraph{Background and objective}
+Higher harmonic generation (HHG) microscopy allows for intraoperative feedback.
+Interpreting the feedback is time-consuming.
+AI models might decrease the time needed for diagnosis.
+A clinical context aware multi-instance learning model with self-supervised pre-training (SCLICOM) is developed and validated to automate diagnosis on HHG images.
+
+\paragraph{Methods}
+A five-fold cross-validation study was conducted on HHG data from the Princess Máxima Center for pediatric oncology.
+Outcomes of interest were pilocytic astrocytoma (PA) and medulloblastoma (MB).
+A convolutional neural network with self-supervised pre-training (DeepSMILE) and without were validated.
+A model with clinical context embedding was developed and validated.
+The performance of the models was assessed by the area under the precision-recall-gain curve (AUPRG) and the mean average precision.\todo{THIS STILL HAS TO BE CHECKED}
+
+\paragraph{Results}
+HHG biopsy images of 25 children with PA (17) and MB (8) were used.
+The model achieved a mean average precision of \num{0.75} (\qty{95}{\percent} CI \numrange{0.5}{1}) and \num{0.41} (\qty{95}{\percent} CI \numrange{-0.15}{0.97}) AUPRG.
+The possibility to select tiles with the highest attentions per tile served useful to help diagnose medulloblastoma or pilocytic astrocytoma.
+
+\paragraph{Discussion}
+SCLICOM showed promising discrimination in predicting PA or MB, but needs further external validation.
+After additional validation, the updated model may be used to intraoperatively discriminate between pediatric patients with PA or MB or to pre-select interesting regions for diagnosis.

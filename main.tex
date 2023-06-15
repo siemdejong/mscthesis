@@ -33,6 +33,10 @@
 % Load the package for hyperreferences
 \usepackage{kaorefs}
 
+\hypersetup{
+	linkcolor=black
+}
+
 % To be able to include Tikz files
 % \usepackage{standalone}
 
@@ -171,7 +175,7 @@ propagate-math-font = true
 
 % Define the style for the TOC, LOF, and LOT
 %\setstretch{1} % Uncomment to modify line spacing in the ToC
-%\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
+% \hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
 \setlength{\textheight}{230\vscale} % Manually adjust the height of the ToC pages
 
 % Turn on compatibility mode for the etoc package
@@ -211,37 +215,51 @@ propagate-math-font = true
 % \pagelayout{margin} % Restore margins
 
 \pagelayout{wide}
-\chapter{Theory of artificial neural networks}
+\chapter{Theory of higher harmonic generation and artificial neural networks}\label{ch:theory}
 \pagelayout{margin} % Restore margins
 
+\input{ANN/hhg.tex}
 \input{ANN/theory.tex}
 
 % \pagelayout{wide} % No margins
-% % \addpart[Skinstression]{Strain-stress regression on \\ second harmonic generation images \\ using {\normalfont\textsc{Skinstression}}}
+% % \addpart[Skinstression]{Strain-stress regression on \\ second harmonic generation images \\ using {\normalfontSkinstression}}
 % \addpart[Skinstression]{Developing and validating a strain-stress regression model on second harmonic generation images from old adult skin tissue}
 % \pagelayout{margin} % Restore margins
 
 \pagelayout{wide}
-\chapter[Skinstression]{Developing and validating a strain-stress regression model on second harmonic generation images from old adult skin tissue}
+\chapter[Skinstression]{Developing and validating a strain-stress regression model on second harmonic generation images from old adult skin tissue}\label{ch:skinstression}
 \pagelayout{margin} % Restore margins
 
+\input{skinstression/sections/abstract.tex}
+\clearpage
 \input{skinstression/sections/introduction.tex}
 \input{skinstression/sections/theory.tex}
 \input{skinstression/sections/methods.tex}
 \input{skinstression/sections/results.tex}
 \input{skinstression/sections/discussion.tex}
+\input{skinstression/sections/conclusion.tex}
 \input{skinstression/sections/supplementary.tex}
 
 \pagelayout{wide} % No margins
-\chapter[SCLICOM]{Developing and validating a clinical context aware multi-instance learning with self-supervised pre-training model on higher harmonic generation images from medulloblastoma and pilocytic astrocytoma in children}
+\chapter[SCLICOM]{Developing and validating a clinical context aware multi-instance learning model with self-supervised pre-training on higher harmonic generation images of medulloblastoma and pilocytic astrocytoma in children}\label{ch:sclicom}
 \pagelayout{margin} % Restore margins
 
+
+\input{pediatric-brain-tumours/sections/abstract.tex}
+\clearpage
 \input{pediatric-brain-tumours/sections/introduction.tex}
 \input{pediatric-brain-tumours/sections/theory/theory.tex}
 \input{pediatric-brain-tumours/sections/methods/methods.tex}
 \input{pediatric-brain-tumours/sections/results/results.tex}
 \input{pediatric-brain-tumours/sections/discussion/discussion.tex}
+\input{pediatric-brain-tumours/sections/conclusion.tex}
 \input{pediatric-brain-tumours/sections/supplementary_materials.tex}
+
+\pagelayout{wide} % No margins
+\chapter[General discussion and conclusion]{General discussion and conclusion}\label{ch:general_discussion_and_conclusion}
+\pagelayout{margin} % Restore margins
+
+\input{general_discussion_and_conclusion.tex}
 
 % \defbibnote{bibnote}{Here are the references in citation order.\par\bigskip} % Prepend this text to the bibliography
 % \printbibliography[heading=bibintoc, title=Bibliography, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
@@ -259,6 +277,15 @@ propagate-math-font = true
 \pagelayout{margin}
 
 \input{frontbackmatter/appendix-skin.tex}
+
+
+\addcontentsline{toc}{part}{Appendix}
+
+\pagelayout{wide}
+\chapter{SCLICOM}
+\pagelayout{margin}
+
+\input{frontbackmatter/appendix-sclicom.tex}
 
 
 %----------------------------------------------------------------------------------------

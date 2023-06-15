@@ -20,10 +20,10 @@ Lastly, the message is stored into the brain.
 \end{figure}
 
 Inspired by this biological process, artificial neural networks have been developed.
-Later, \textcite{Fukushima1980} mimicked this neural network for two dimensional information, using convolution operations.
+Later, \textcite{Fukushima1980} mimicked this neural network for two-dimensional information, using convolution operations.
 The approach of \citeauthor{Fukushima1980} was inefficient.
 It could not learn to identify reoccurring features.
-To enable learning, \textcite{Rumelhart1986} developed backpropagation: an algorithm to learn importances at feature level.
+To enable learning, \textcite{Rumelhart1986} developed backpropagation: an algorithm optimize a model to learn general features.
 \textcite{LeCun1990} was one of the first to use backpropagation in a visual setting.
 They combined convolutions and backpropagation into a convolutional neural network to recognize handwritten digits.
 
@@ -33,8 +33,34 @@ They combined convolutions and backpropagation into a convolutional neural netwo
 
 \section[CNN building blocks]{The building blocks of convolutional neural networks}
 
-\subsection{Artificial neural network}
-Neural network and backpropagation.
+\subsection{Artificial neural networks}
+An artificial neural network (ANN) is a computational model inspired by the structure and functioning of the human brain.
+It consists of connected artificial neurons, also known as nodes or units, organized into layers.
+Each neuron takes inputs, performs a mathematical operation on them, and produces an output.
+
+ANNs typically have an input layer, one or more hidden layers, and an output layer.
+Information flows through the network from the input layer, to the hidden layers, and finally the output layer.
+The hidden layers contain neurons that transform the input data into a more useful representation.
+The transformations are dictated by weight matrices $W$.
+
+Neural networks are designed to learn from data through a process called training.
+During training, the network adjusts the strengths of connections between neurons, known as weights, based on the patterns and relationships in the input data.
+This process allows the network to recognize and generalize from examples, making it capable of solving complex problems and making predictions.
+
+Optimizing ANNs often relies on backpropagation (from backward propagation of errors)~\cite{Rumelhart1986}.
+Mathematically, an ANN $g$ with $L$ layers and activation function $f$ can be described as
+\begin{equation}
+    \hat{y} = g(x) = f^L \left\{W^L f^{L-1} \left[W^{L-1} \cdots f^1 \left(W^1 x\right) \cdots \right] \right\},
+\end{equation}
+where $\hat{y}$ is the output, given input $x$.
+To quantify the error of the model, the loss can be calculated with an appropriate error function $E(y, \hat{y})$, where $y$ is the target corresponding to input $x$.
+Calculating $\partial E / \partial w_{ij}$ allows updating individual weights of the network with \eg
+\begin{equation}
+    \Delta w_{ij} = -\eta \frac{\partial E}{\partial w_{ij}},
+\end{equation}
+where $\eta$ is the learning rate.
+This optimization algorithm is called stochastic gradient descent (SGD).
+Backpropagation and SGD form the basis of neural network optimization, but there are other optimization algorithms available such as Adam~\cite{Kingma2014AdamAM}.
 
 \subsection{Convolutional layers}
 To distinguish a neural network from a convolutional neural network (CNN), at least one layer must be a convolution.
@@ -56,13 +82,10 @@ A two-dimensional numerical convolution operation with padding and strides is vi
 The kernel with size $k=3$ moves across the input of size $i=5$ with stride $s = 2$ in both directions.
 
 Convolutions have the useful property that they are equivariant to translations.
-A function $f$ is equivariant to function $g$ if
-\begin{equation}
-    f \circ g = g \circ f.
-\end{equation}
-The equivariance of convolutions and translations implies that learned weights and biases belonging to a convolution can be reused for identifying similar features anywhere in inputs.
-Moreover, any operator that is not equivariant with convolutions may be used as a way to augment data, as the kernel perceives it is being different.
-Examples of such operators are scaling, rotating, and flipping.\marginnote{Move this to its own theory section about data augmentation?}
+The equivariance of convolutions to translations implies that learned weights and biases belonging to a convolution can be reused for identifying similar features anywhere in inputs.
+Any operator that is not equivariant to convolutions may be used as a way to augment data, as the kernel perceives it is being different.
+Examples of such operators are scaling, rotating, and flipping.
+Applying these operators on input data trains the model to be invariant to the operator, meaning transformed versions of structures can be identified.
 
 \begin{figure*}%[p]
     \centering
@@ -108,7 +131,7 @@ This results in invariance to local translations.
 In deep learning, pooling is therefore used to quantify the presence of a pattern, as opposed to finding its position.
 
 \subsubsection{Max pooling}\label{subsec:maxpool}
-The most common form of pooling is max pooling (ref).
+The most common form of pooling is max pooling.
 The kernel finds the maximum value in sub-regions and maps these maximum values per sub-region to a new image.
 The output
 \begin{equation}
@@ -125,36 +148,55 @@ The output
 
 \subsection{Activation functions}\label{sec:activations}
 
-\begin{enumerate}
-    \item heaviside
-    \item logistic curves
-    \item vanishing gradient problem -> relu
-\end{enumerate}
+\subsubsection{Saturating activation functions}
 
-\subsubsection{Vanishing gradient problem}
-Over the years, neural networks have become deeper, \ie more layers are being added.
+Neural networks require differential activation functions for backpropagation to update model weights.
+Sigmoids,
+\begin{equation}
+    \sigma(x) = \frac{e^x}{e^x + 1} = 1 - \sigma(-x),
+\end{equation}
+are such differentiable functions and often used.
 
-Sigmoids (and other saturating curves like hyperbolical tangent) have.
+Over the years, neural networks have become deeper, \ie more layers are being added, to make function approximators generalize better.
+Sigmoids and other saturating curves like the hyperbolic tangent can produce small gradients at either side.
+For deep networks, gradients resulting from the product of multiple small activation can become too small, preventing the model to learn.
+This phenomenon is called the vanishing gradient problem.
 
 \subsubsection{Rectified linear unit}\label{subsec:relu}
-To overcome the vanishing gradient problem, non-saturating activation functions can be used.
+To overcome the vanishing gradient problem, less saturating activation functions can be used.
 One such function is the rectified linear unit (ReLU).
 It is defined as
 \begin{equation}
     f(x) = x^+ = \max(0, x),
 \end{equation}
 such that only the positive arguments keep their value.
+ReLU only saturates on the left side.
 
+\subsubsection{Last layer activations}
+\paragraph{Classification}
+In classification tasks, the last layer usually contains multiple neurons where each neuron stands for a specific classification.
+To estimate probabilities summing to one, the activation function of the last layer can be replaced by the softmax function,
+\begin{align}
+    \mathrm{softmax}_i = \frac{e^{z_i}}{\sum_{j=1}^C e^{z_i}},
+\end{align}
+where $\vec{z} = \mathbf{W}\vec{h}+\vec{b}$, $C$ the number of classes and $i$ the class of interest.
+
+\paragraph{Regression}
+For regression models, no activation function should be used as the output should be unrestricted.
 
 % --------------------------------------------------
 % Loss functions
 % --------------------------------------------------
 
 \subsection{Loss functions}
-Backpropagation needs a loss to learn in which direction to update weights.
-There is a variety of loss functions available (ref review).
+Neural networks are often updated with a gradient-based optimizer such as SGD.
+SGD computes gradients of weights with respect to a loss function.
+Loss functions should be chosen depending on the target.
+Targets often fall in two categories: regression and classification.
 
-\subsubsection{Mean absolute error}
+\subsubsection{Regression}
+
+\paragraph{Mean absolute error}
 One of the most straightforward techniques of calculating the loss is the mean absolute error (MAE).
 It measures the average difference between every prediction and target, like
 \begin{equation}
@@ -162,17 +204,17 @@ It measures the average difference between every prediction and target, like
 \end{equation}
 where $n$ is the number of targets per sample, $y$ the prediction and $y'$ the target.
 
-The MAE loss is forgiving, i.\ e.\ outliers are weighted as much as predictions close to the target.
-In training a neural network, focusing on outliers is assumed to be beneficial, as those are the cases that the model has difficulty with (ref).
+The MAE loss is forgiving, \ie, outliers are weighted as much as predictions close to the target.
+In training a neural network, focusing on outliers can be beneficial, as those are the cases that the model has difficulty with.
 
-\subsubsection{Mean square error}
+\paragraph{Mean square error}
 To overcome the forgiving nature of the MAE loss, the mean square error (MSE) can be used.
 It measures the average squared difference between every prediction and target, like
 \begin{equation}
     \mathrm{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - y'_i)^2.
 \end{equation}
 
-\subsubsection{Focal MSE}
+\paragraph{Focal MSE}
 To give even more focus on the hard targets, giving them more importance than easy targets can be done through the focal MSE loss (FL)~\cite{Lu2022}.
 To give less importance to the easier targets, FL follows
 \begin{equation}
@@ -180,101 +222,29 @@ To give less importance to the easier targets, FL follows
 \end{equation}
 where increasing $\gamma$ increases the number of targets regarded as easy and $\beta$ regulates the speed with which the first part of the curve increases (make fig).
 
+\subsubsection{Classification}
+For classification, the last layer gives an estimate of class probabilities.
+Targets are often binary: probability of zero and one for the negative and positive class, respectively.
+
+\paragraph{Cross entropy}
+Cross entropy can be used to calculate the loss between probabilities and their targets.
+It is defined as
+\begin{align}\label{eq:ce}
+    CE(x, y) = \frac{1}{N}\sum_{n=1}^N [-\sum_{c=1}^C \log \frac{e^x_{n,c}}{\sum_{i=1}^C e^{x_{n,i}}} y_{n,c}],
+\end{align}
+where $x$ is the probability output, $y$ the target, $C$ the number of classes, and $N$ the number of batches used.
+
+\paragraph{Binary cross entropy}
+In the specific case where there are only two classes, \cref{eq:ce} can be reduced to
+\begin{align}
+    BCE(x, y) = \frac{1}{N}\sum_{n=1}^N [y_n \cdot \log x_n + (1 - y_n) \cdot \log (1-x_n)]
+\end{align}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TRAINING A NEURAL NETWORK
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Training a neural network}
-
-% --------------------------------------------------
-% Hyperparameter optimization
-% --------------------------------------------------
-
-\subsection{Hyperparameter optimization}\label{sec:hparam}
-
-A machine learning model uses training data to learn parameters to map input to output data best.
-However, there are parameters that cannot be learned, but greatly influence the training outcome.
-These parameters are hyperparameters.
-Examples of hyperparameters are the batch size, learning rate, learning rate scheduler and its parameters, optimizer algorithm, etc.
-These parameters span a configuration space $\mathcal{C}$.
-Parameters can be categoral (type of optimizer, learning rate scheduler, etc.) or integers (batch size, number of iterations, etc.), or continuous decimals (learning rate, weight decay, etc.).
-Ideally, parameters are sampled exhaustively.
-This way, the best possible set of parameters can be found.
-However, this can be computationally expensive.
-Moreover, when using a continuous variable, it is no long possible to exhaustively sample parameters.
-To engage this problem, various algorithms have been developed to sample hyperparameters from the high-dimensional distribution.
-
-\subsubsection{Grid search and random search}
-The most straightforward technique of finding the best set of hyperparameters is grid search.
-With grid search, parameters are sampled exhaustively using equidistant spacing in each dimension.
-
-A drawback of grid search is that optima can reside outside the hyperparameter set that grid search produces.
-Random search \cite{Bergstra2012} aims to find optima in the gaps using random search.
-With the same number of trials, random search has a higher probability for trials to find the global optimum.
-This is because trials explore the whole distribution as opposed to just a few points in individual dimensions.
-\Cref{fig:gridrandsearch} shows the differences between grid search and random search and advocates the use of the latter.
-
-\begin{figure}
-    \includegraphics[width=\linewidth]{images/gridrandsearch.png}
-    \caption[Grid and random search]{
-        Grid and random search of nine trials for optimizing a function $f(x, y) = g(x) + h(y) \approx g(x)$ with low effective dimensionality.
-        Above each square $g(x)$ is shown in green, and left of each square $h(y)$ is shown in yellow.
-        Reproduced from \fullcite{Bergstra2012} (Ref.~\cite{Bergstra2012}).
-    }
-    \label{fig:gridrandsearch}
-\end{figure}
-
-\subsubsection{Tree Parzen estimator}
-Still, random search requires trials in regions that are unpromising.
-This is inefficient.
-A tree-structured Parzen estimator (TPE)~\cite{Bergstra2011} approach aims to model the probability of a hyperparameter, given a loss value.
-That probability consists of two distributions, describing the good and bad values:
-\begin{equation}
-    p(c|L) =
-    \begin{cases}
-        p(c|L > L^*) = p(c|\mathrm{bad}) \\
-        p(c|L \leq L^*) = p(c|\mathrm{good}),
-    \end{cases}
-\end{equation}
-where $c$ is drawn from $\mathcal{C}$ and $L$ is the loss.
-$L^*$ a loss above which losses are considered bad.
-TPE chooses $L^*$ to be a fraction of observed $L$ values, such that $p(\mathrm{good}) = \gamma$.
-A promising candidate has low probability under $p(c|\mathrm{bad})$ and high probability under $p(c|\mathrm{good})$.
-Therefore, $c$ is promising if
-\begin{equation}
-    \mathrm{promisingness}(c) \propto p(c|\mathrm{good}) / p(c|\mathrm{bad})
-\end{equation}
-is high.
-Ref.~\cite{Bergstra2011} shows that this ratio is proportional to the expected improvement~\cite{Jones2001}.
-The configuration responsible for the maximum of $\mathrm{promisingness}(c)$ is used as the next trial.
-Results of that trial are now categorized as good or bad, and the iterative process continues.\marginnote{add multivariate note \cite{Falkner2018}}
-
-\subsubsection{Successive Halving and Hyperband}
-Although $\mathcal{C}$ can be sampled more efficiently with TPE, trials still use the full computational budget, even if it is apparent that the trial is unpromising early on.
-Early terminating (or pruning) these underperforming trials speeds up hyperparameter optimization.
-Pruning trials can be done using Successive Halving (SH)~\cite{Jamieson2016}.
-Given a computational budget $B$, \eg number of epochs, the number of trials $T$, and the halving rate $\gamma$, SH performs $\log_\gamma(T)$ rounds.
-The budget is distributed uniformly over the trials.
-Every round, $\qty{100}{\percent} \times 1/\gamma$ of the trials are discarded based on their performance.
-Surviving trials are allowed twice the budget and are again discarded when they have used up their budget.
-This iterative process continues until one trial remains.
-
-When using SH, two variables need to be considered, and possible manually tuned.
-The more available budget, pruning decisions are made more confident.
-Higher halving rates lead to more and more aggressive pruning with the risk of pruning good candidates early.
-
-There is a trade-off between $T$ and $B$.
-Suppose $T$ is large, then each trial gets a small amount of budget, but many configurations are explored.
-Conversely, if $T$ is small, then each trial gets much budget, at the cost of exploring the number of configurations.
-This $T/B$ trade-off is addressed by Hyperband (HB)~\cite{Li2016} by performing a grid search over feasible values of $T$.
-HB invokes SH multiple times.
-Every invocation of SH is called a bracket.
-In the end, HB returns the best configuration possible just like SH, but diminishing the dependence on manually choosing a good $T$.
-
-\subsubsection{Parameter importances}
-Not every hyperparameter is as important as others.
-\textcite{Hutter2014} describe the fANOVA algorithm to quantitatively assess the importance of every hyperparameter.
-Knowing the importance of a variable gives more insight into interactions and relative importance between hyperparameters.
 
 \subsection{Training}\label{Training}
 At the start of training, a neural network has its weights and biases initialized.
@@ -320,29 +290,120 @@ The standardized input is then mapped through
 \end{equation}
 where $\gamma$ and $\beta$ are learnable parameters learned in a sub-network.
 
-BN has been shown to have a regularizing effect (ref), although combining it with dropout is disputed.
+When batch normalization is applied after a convolutional layer, the bias term of the convolution becomes redundant and can be set to zero to avoid unnecessary operations.
+
+BN has been shown to have a regularizing effect~\cite{Bjorck2018}, although combining it with dropout is disputed.
 More often than not, using both BN and dropout leads to worse results on the test set.
 
 \subsubsection{Model ensembling}\label{subsec:model_ensembling}
 A benefit of having a cyclic learning rate is generating multiple models across cycles.
 The effectiveness of ensembling models from multiple cycles, Snapshot Ensembling, is first described by \textcite{Huang2017}.
-During model training, a model can be checkpointed at the best performing epoch for every cycle, see \.
-The checkpointed models can be ensembled by choosing the last $m$\marginnote{how many models chosen and how many models checkpointed then?!} out of $n$ models and averaging the output, as
+During model training, a model can be saved (or checkpointed) at the best performing epoch for every cycle.
+The checkpointed models can be ensembled by choosing the last $m$ out of $n$ models and averaging the output, as
 \begin{equation}
     \mathrm{output} = \frac{1}{M} \sum_{i=0}^{m-1} \mathrm{model}_{n-i}(\mathrm{input}).
 \end{equation}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.48\linewidth]{ANN/images/ensembling_huang_left.png}
+%     \includegraphics[width=0.48\linewidth]{ANN/images/ensembling_huang_right.png}
+%     \caption[Snapshot ensembling]{
+%         Left: Illustration of model optimization The model converges to a local minimum.
+%         Right: Illustration of Snapshot Ensembling.
+%         The learning rate is cyclic and annealing, allowing to converge to and escaping from local minima.
+%         Snapshots are taken at every minimum which can be used for ensembling for inference.
+%         Reproduced from \fullcite{Huang2017} (Ref.~\cite{Huang2017}).
+%     }
+% \end{figure}
+
+% --------------------------------------------------
+% Hyperparameter optimization
+% --------------------------------------------------
+
+\subsection{Hyperparameter optimization}\label{sec:hparam}
+
+A machine learning model uses training data to learn parameters to map input to output data best.
+However, there are parameters that cannot be learned, but greatly influence the training outcome.
+These parameters are hyperparameters.
+Examples of hyperparameters are the batch size, learning rate, learning rate scheduler and its parameters, optimizer algorithm, etc.
+These parameters span a configuration space $\mathcal{C}$.
+Parameters can be categoral (type of optimizer, learning rate scheduler, etc.) or integers (batch size, number of iterations, etc.), or continuous decimals (learning rate, weight decay, etc.).
+Ideally, parameters are sampled exhaustively.
+This way, the best possible set of parameters can be found.
+However, this can be computationally expensive.
+Moreover, when using a continuous variable, it is no long possible to exhaustively sample parameters.
+To engage this problem, various algorithms have been developed to sample hyperparameters from the high-dimensional distribution.
+
+\subsubsection{Grid search and random search}
+The most straightforward technique of finding the best set of hyperparameters is grid search.
+With grid search, parameters are sampled exhaustively using equidistant spacing in each dimension.
+
+A drawback of grid search is that optima can reside outside the hyperparameter set that grid search produces.
+Random search \cite{Bergstra2012} aims to find optima in the gaps using random search.
+With the same number of trials, random search has a higher probability for trials to find the global optimum.
+This is because trials explore the whole distribution as opposed to just a few points in individual dimensions.
+\Cref{fig:gridrandsearch} shows the differences between grid search and random search and advocates the use of the latter.
+
 \begin{figure}
-    \centering
-    \includegraphics[width=0.48\linewidth]{ANN/images/ensembling_huang_left.png}
-    \includegraphics[width=0.48\linewidth]{ANN/images/ensembling_huang_right.png}
-    \caption[Snapshot ensembling]{
-        Left: Illustration of model optimization The model converges to a local minimum.
-        Right: Illustration of Snapshot Ensembling.
-        The learning rate is cyclic and annealing, allowing to converge to and escaping from local minima.
-        Snapshots are taken at every minimum which can be used for ensembling for inference.
-        Reproduced from \fullcite{Huang2017} (Ref.~\cite{Huang2017}).
+    \includegraphics[width=\linewidth]{images/gridrandsearch.png}
+    \caption[Grid and random search]{
+        Grid and random search of nine trials for optimizing a function $f(x, y) = g(x) + h(y) \approx g(x)$ with low effective dimensionality.
+        Above each square $g(x)$ is shown in green, and left of each square $h(y)$ is shown in yellow.
+        Reproduced from \fullcite{Bergstra2012} (Ref.~\cite{Bergstra2012}).
     }
+    \label{fig:gridrandsearch}
 \end{figure}
+
+\subsubsection{Tree Parzen estimator}
+Still, random search requires trials in regions that are unpromising which is inefficient.
+A tree-structured Parzen estimator (TPE)~\cite{Bergstra2011} approach aims to model the probability of a hyperparameter\footnote{Or a set of hyperparameters in the case of multivariate TPE~\cite{Falkner2018}}, given a loss value.
+That probability consists of two distributions, describing the good and bad values:
+\begin{equation}
+    p(c|L) =
+    \begin{cases}
+        p(c|L > L^*) = p(c|\mathrm{bad}) \\
+        p(c|L \leq L^*) = p(c|\mathrm{good}),
+    \end{cases}
+\end{equation}
+where $c$ is drawn from configuration space $\mathcal{C}$ and $L$ is the loss.
+$L^*$ a loss above which losses are considered bad.
+TPE chooses $L^*$ to be a fraction of observed $L$ values, such that $p(\mathrm{good}) = \gamma$.
+A promising candidate has low probability under $p(c|\mathrm{bad})$ and high probability under $p(c|\mathrm{good})$.
+Therefore, $c$ is promising if
+\begin{equation}
+    \mathrm{promisingness}(c) \propto p(c|\mathrm{good}) / p(c|\mathrm{bad})
+\end{equation}
+is high.
+Ref.~\cite{Bergstra2011} shows that this ratio is proportional to the expected improvement~\cite{Jones2001}.
+The configuration responsible for the maximum of $\mathrm{promisingness}(c)$ is used as the next trial.
+Results of that trial are now categorized as good or bad, and the iterative process continues.
+
+\subsubsection{Successive Halving and Hyperband}
+Although $\mathcal{C}$ can be sampled more efficiently with TPE, trials still use the full computational budget, even if it is apparent that the trial is unpromising early on.
+Early terminating (or pruning) these underperforming trials speeds up hyperparameter optimization.
+Pruning trials can be done using Successive Halving (SH)~\cite{Jamieson2016}.
+Given a computational budget $B$, \eg number of epochs, the number of trials $T$, and the halving rate $\gamma$, SH performs $\log_\gamma(T)$ rounds.
+The budget is distributed uniformly over the trials.
+Every round, $\qty{100}{\percent} \times 1/\gamma$ of the trials are discarded based on their performance.
+Surviving trials are allowed twice the budget and are again discarded when they have used up their budget.
+This iterative process continues until one trial remains.
+
+When using SH, two variables need to be considered, and possible manually tuned.
+The more available budget, pruning decisions are made more confident.
+Higher halving rates lead to more and more aggressive pruning with the risk of pruning good candidates early.
+
+There is a trade-off between $T$ and $B$.
+Suppose $T$ is large, then each trial gets a small amount of budget, but many configurations are explored.
+Conversely, if $T$ is small, then each trial gets much budget, at the cost of exploring the number of configurations.
+This $T/B$ trade-off is addressed by Hyperband (HB)~\cite{Li2016} by performing a grid search over feasible values of $T$.
+HB invokes SH multiple times.
+Every invocation of SH is called a bracket.
+In the end, HB returns the best configuration possible just like SH, but diminishing the dependence on manually choosing a good $T$.
+
+\subsubsection{Parameter importances}
+Not every hyperparameter is as important as others.
+\textcite{Hutter2014} describe the fANOVA algorithm to quantitatively assess the importance of every hyperparameter.
+Knowing the importance of a variable gives more insight into interactions and relative importance between hyperparameters.
 
 
 % --------------------------------------------------
@@ -402,7 +463,7 @@ If the upper part of the power spectrum is very leptokurtic compared to other im
 
 \subsection{Explainable AI}
 A significant number of users of a trained AI generally view the model as a black box that simply maps input to output.
-How this box is constructed and why it results in a particular outcome is often overlooked.\marginnote{ref!}
+How this box is constructed and why it results in a particular outcome is often overlooked.
 Meanwhile, techniques to give insight into the black box (explainable AI, XAI) have been developed.
 These techniques fall in roughly two categories: gradient and perturbation based methods.
 Gradient based methods rely on gradients calculated during the backward pass and use these to find which parts of the input contribute to the output most.

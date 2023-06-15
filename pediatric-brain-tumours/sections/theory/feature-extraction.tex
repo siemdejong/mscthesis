@@ -30,7 +30,7 @@ where $s_{i,j}$ is the similarity
 \begin{align}
     s_{i,j} = \frac{\vec{z}_i \cdot \vec{z}_j }{\|\vec{z}_i\|\|\vec{z}_j\|},
 \end{align}
-$N$ the number of samples in the batch, $\tau$ the temperature to scale the similarity with, and $\mathbb{1}$ the indicator function which maps all elements that satisfy it subscript to 1.
+$N$ the number of samples in the batch, $\tau$ the temperature to scale the similarity with, and $\mathbb{1}_{[k\neq i]}=1$ if $k \neq i$ and 0 otherwise.
 SimCLR is visualized in \cref{fig:simclr}.
 
 

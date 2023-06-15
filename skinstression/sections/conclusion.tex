@@ -1,0 +1,8 @@
+\section{Conclusion}
+The goal of this study was to develop and validate a model that can construct a stress-strain curve corresponding to SHG images of old adult human skin tissue.
+The convolutional neural network achieved a mean $R^2$ of \num{-0.36} (\qty{95}{\percent} CI \numrange{-1.66}{1.06}) on the test set.
+Occlusion attribution maps hardly give any explanation to the prediction.
+Artificially adding and removing collagen seems to respectively increase and decrease the maximum tissue stress, which is expected.
+The model may benefit from more training data and must be validated on a test set that more resembles the training set distribution.
+Future studies should use nested k-fold cross validation for selecting models and measuring performance.
+An updated version of the model might replace mechanical skin stretch measurements.

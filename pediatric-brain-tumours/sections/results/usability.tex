@@ -1,6 +1,6 @@
 \subsection{Usability}
 The prediction model can be used intraoperatively to predict tumor type and amount in a biopsy.
-The biopsy can be placed on the scanner as in [ref Sylvia] and optionally the location of the tumor can be given in natural language.
+The biopsy can be placed on the scanner as described in~\cite{Spies2023} and optionally the location of the tumor can be given in natural language.
 The model outputs a prediction in seconds.
 
 To integrate the model with the target system, the raw data needs to be converted to images of \qty{0.2}{mpp} for the model to accept it.
@@ -12,4 +12,4 @@ In particular, the separation between feature vector creation and using them wit
 
 Data polluted with blood or a malfunctioning imaging system are not detected by the model.
 The user should proceed with caution if any of such artifacts appear.
-The model is shown to be accurate for images with the blood artifact where there are also regions of high quality [fig].
+% The model is shown to be accurate for images with the blood artifact where there are also regions of high quality [fig].

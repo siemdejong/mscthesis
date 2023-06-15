@@ -1,6 +1,125 @@
 \section{Theory}
 
-In addition to the theory described in \cref{pt:theory}, this section describes theory only applicable to the \textsc{Skinstression} project.
+% In addition to the theory described in \cref{ch:theory}, this section describes theory only applicable to the Skinstression project.
+\subsection{Collagen}
+TODO. How does it look like in SHG imaging?
+
+% --------------------------------------------------
+% SEARCHING FOR A SIMPLE SKIN STRAIN-STRESS MODEL
+% --------------------------------------------------
+
+\subsection{Searching for a simple skin strain-stress model}
+
+Supervised learning requires targets for the model to train on.
+Ideally, individual targets allow for physical interpretation and can together describe all the available data.
+
+\subsubsection{Empirical strain-stress regions}
+Although skin tissue has a complex nature, measurements to quantify skin stretch show similar features.
+Measurements show four domains: the toe, heel, leg and break domain (\cref{fig:stress-strain-curve-skin-tissue}A).
+The toe region is at the very start of the curve.
+This region is relatively flat as the fiber network consists of mostly straight fibers.
+Therefore, the fibers cannot exert force as a reaction to external stretching force.
+However, in the heel region where skin tissue is stretched more, fibers can exert more force.
+When enough force is exerted on the tissue, fibers stretch maximally and fibers react with maximum force in the leg region.
+This region is observed to be roughly linear.
+Overstretching the tissue then breaks the fiber network, decreasing the possibility to exert force.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{skinstression/images/stress-strain-curve.pdf}
+    \caption[Stress-strain curve of human skin tissue]{
+        Stress-strain curve of human skin tissue.
+        The curve is divided in three regions.
+        I: the toe region.
+        The fiber structure here consists of mostly straight fibers.
+        II: the heel region.
+        Fibers begin to stretch.
+        III: the leg region.
+        Fibers stretch maximally and react with maximum force.
+        IV: break region.
+        Fibers break and give up ability of applying force.
+    }
+    \label{fig:stress-strain-curve-skin-tissue}
+\end{figure}
+
+\subsubsection{Exponential}
+Strain-stress curves can also be visualized by showing the log derivative of stress with respect to strain against the log of strain as in \cref{fig:stress-strain-curve-skin-tissue}B.
+Typically, this figure has three regions.
+The first region indicates a linear relationship between small forces and small strain.
+Then, the derivative increases until it reaches a purely exponential part~\cite{Holzapfel2001}.
+If skin stretching follows this kind of behavior, a simple mathematical model can be derived.
+Inspecting the figure, the linear part shows the ordinary differential equation
+\begin{equation}
+    \frac{\mathrm{d}\sigma}{\mathrm{d}\gamma} \propto \sigma,
+\end{equation}
+where $\gamma = \chi - 1$.
+Solving for $\sigma$, we get
+\begin{equation}
+    \sigma \propto e^{\lambda\gamma},
+\end{equation}
+where $\lambda$ is some factor dictating the speed with which the exponential increases.
+At no extension, $\gamma=0$, it can be assumed that there is no stress.
+Therefore,
+\begin{equation}
+    \sigma \propto e^{\lambda\gamma} - 1.
+\end{equation}
+At small extensions, $\lambda\gamma \ll 1$, $e^{\lambda\gamma} \approx (1 + \lambda\gamma + \ldots)$ using a Taylor expansion.
+So
+\begin{equation}
+    \sigma_{\lambda\gamma\ll 1} \propto 1 + \lambda\gamma + \ldots - 1 \approx G_0 \gamma,
+\end{equation}
+where $G_0$ is some linear coefficient at small extensions.
+In this work, $\gamma = \chi - 1$, where $\chi$ is the stretch.
+The full expression then becomes
+\begin{equation}\label{eq:exp}
+    \sigma = \frac{G_0}{\lambda}\left(e^{\lambda(\chi - 1)}-1\right).
+\end{equation}
+
+This model assumes that data follows the previously described curve where there is a small rise at small extensions and an indefinitely exponentially increasing stress for larger extensions.
+
+The exponential model is fit to some stress-strain curves using OriginPro~\cite{OriginPro}.
+
+\subsubsection{Principal component analysis}
+In an earlier study \cite{Soylu2022}, principal component analysis (PCA) is used to reduce the dimensionality of the strain-stress data.
+In summary, after PCA, every measurement $Y$ can be approximated by
+\begin{equation}\label{eq:pca}
+    Y \approx Y_\mathrm{PCA} = \mathbf{A} \mathbf{V} + \bar{Y},
+\end{equation}
+where $\mathbf{A}$ and $\mathbf{V}$ are matrices containing respectively the eigenvalues and eigenvectors of the measurement data.
+$\bar{Y}$ is the measurement mean.
+Choosing the first $p$ principal components allows for dimensionality reduction.
+
+Using PCA to create eigenvalues to weight the eigenvectors has some caveats.
+First, the training and test sets must be treated separately.
+The test set has to be projected on the space spanned by the first $p$ eigenvectors of the training set.
+This may induce problems as the test set could contain information that does not come close to
+Second, PCA depends on interpolation, \ie every strain-stress curve must be formed by either a set of strain or stress values.
+This reduces the domain of the data.
+
+\paragraph{Logistic curve}
+The empirical observations where the force response of skin tissue changes states, suggests a logistic curve, which can be written as
+\begin{equation}\label{eq:logistic_curve}
+    \sigma = \frac{\sigma_\mathrm{max}}{1+e^{-E_\mathrm{max} (\gamma - \gamma_c)}},
+\end{equation}
+where $\sigma$ and $\gamma$ are the stress and engineering strain, $\sigma_\mathrm{max}$ is the maximum stress, $E_\mathrm{max}$ is the maximum Young's modulus and $\gamma_c$ the strain offset.
+This equation assumes that there is a maximum force that the tissue can exert, in contrary to the theoretical approach above (ref).
+
+Using the logistic curve as an alternative to PCA has two major advantages.
+Every curve can be treated separately and measurements can contain data across arbitrary domains and with arbitrary intervals as no interpolation is necessary.
+
+Strain-stress curves for all individuals were kindly provided by M.\ Zhou.
+The curves only include points where the skin extension is larger than zero and the force positive.
+
+To every strain-stress curve, \cref{eq:logistic_curve} is fitted with Scipy \cite{2020SciPy-NMeth}.\todo{Move methods to methods}
+The optimal parameters were used as targets for training the model.
+
+The AI was trained on a with LDS smoothed target variable distribution.
+The targets were weighted with the inverse square root, to limit the impact of LDS.
+
+It is important to perform a study on bias for possible explanations of varying AI performance.
+The samples were taken from individuals with varying age and gender.
+Moreover, from some individuals, more mechanical measurements were taken.
+Therefore, the age, gender, and number of samples were summarized.
 
 % --------------------------------------------------
 % Label density smoothing
@@ -24,7 +143,7 @@ Reweighting the loss function with the inverse (square root) of \edtl addresses 
 
 \subsection{Goodness of fit}
 
-\subsubsection{Coefficient of determination}\label{subsec:coef_det}
+% \subsubsection{Coefficient of determination}\label{subsec:coef_det}
 One possible way to quantify how good a fit is, is to calculate the coefficient of determination.
 The coefficient of determination of a dataset $y$ and its prediction $f$, is calculated with
 \begin{equation}

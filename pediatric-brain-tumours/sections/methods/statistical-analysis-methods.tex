@@ -34,18 +34,20 @@ DeepMIL, VarMIL and CCMIL are used as classifiers.
 For DeepMIL, the attention block consists of a linear layer of size 256 with dropout and a $\tanh$ activation function and another linear layer with dropout, resulting in a scalar.
 The classifier block consists of a linear layer with dropout and $\mathrm{softmax}$ activation function and has an output size of the number of classes to predict, \ie two.
 For VarMIL, the last linear layer accepts an input of twice the size, to account for the variance vector.
-For CCMIL, the last linear layer incorporates tumor locations in a 768-dimensional space.
-The embedding is done with TinyClinicalBERT~\cite{Rohanian2023}, provided by Huggingface Transformers~\cite{Wolf2020}.
+For CCMIL, the last linear layer maps textual tumor locations (\eg "fourth ventricle") to a 312-dimensional space.
+Text is embedded with TinyClinicalBERT~\cite{Rohanian2023}, provided by Huggingface Transformers~\cite{Wolf2020}, using its \texttt{[CLS]}-token.
 During training, BERT's parameters were frozen.
 All other parameters were He initialized.
+To validate BERT, the location embeddings were projected to two dimensions with t-SNE.
 
-\subsubsection{Internal validation}
+\subsubsection{Internal validation}\label{subsubsec:slicom-folds}
 The data was split in five training and test data folds, stratified by case.
 All training splits were further split randomly, again stratified by case.
+The flow of images to splits is visualized in \cref{app:folds-splits-viz}.
 
 \subsubsection{Pre-training}
 The latter model is trained on 1 NVIDIA A30 GPU for 2 days with a bag size of 256 with gradients accumulated over two epochs to imitate larger bags.
-The Adam optimizer was used with a learning rate of $3\times 10{-4}$ and $\beta_{1,2} = \{0.9,\, 0.999\}$ without weight decay and without a learning rate scheduler.
+The Adam optimizer was used with a learning rate of $3\times 10^{-4}$ and $\beta_{1,2} = \{0.9,\, 0.999\}$ without weight decay and without a learning rate scheduler.
 
 The pretrained models are internally assessed by visualizing the extracted features in two ways.
 First, tiles corresponding to ten nearest neighbors in feature space are compared.

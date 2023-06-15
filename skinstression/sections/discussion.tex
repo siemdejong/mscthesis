@@ -11,8 +11,8 @@ Moreover, to fairly create PCA fits, PCA has to be trained on a training set and
 This may lead to generalizability problems.
 For these reasons, the logistic curve parameters are used as a predictors.
 
-\subsection{Shannon entropy is a better measure to exclude noise than kurtosis}\label{sec:disc_ent_vs_kur}
-Measures to be used to exclude noise are kurtosis (\cref{fig:skin_kurtosis_depth}) and Shannon entropy (\cref{fig:skin_entropy_depth}).
+\subsection{Shannon entropy is a better measure to exclude noise in collagen images than kurtosis}\label{sec:disc_ent_vs_kur}
+Kurtosis and Shannon entropy were used to exclude noise in SHG image of collagen.
 For rather homogeneous images like stack 8, kurtosis is able to characterize the fogginess, while entropy finds images of equal quality.
 However, for well-structured tissue like stack 11, 12, 13 and 4, entropy recognizes faint images and qualifies them as bad.
 This is particularly useful for images that did not include any useful information (like stack 37).
@@ -29,6 +29,7 @@ This shows that stretch information is present, even in the drastically downsize
 Although the train results were promising, the test results of \cref{fig:skinstression-test} show a lack of generalizability.
 Only two images from different stacks of the test set yield a stress-strain curve with $R^2=0.99$.
 This shows that the training set does not include enough features similar to the features in the test set.
+As most of the images in the test set belong to one person, it may be possible that this person has exceptional skin tissue compared to samples in the training set.
 More images need to be included in the training set for the model to generalize well to held-out test cases.
 
 \subsection{Artificially increasing collagen density increases maximum stress prediction and stiffness and vice versa}
@@ -79,7 +80,7 @@ To achieve that, \cref{eq:skin_newtest_idx} should be rewritten as
 \begin{equation}
     \texttt{actual test} = \{1,\, 2,\, 3,\, \ldots,\, N_\mathrm{images}\} - (\texttt{train} \cup \texttt{validation}).
 \end{equation}
-This version of \texttt{actual test} has one major drawback, which is that the \qty{20}{\percent} highest indices are reserved for the test set, effectively excluding them from the shuffle.
+This version of \texttt{actual test} has one major drawback, which is that the \qty{20}{\percent} highest indices are reserved for the test set, effectively excluding them from the shuffle, leaving a test set with most samples from one person.
 A future study should perform a train/validation split on shuffled indices after splitting off the test set.
 
 \subsubsection{Excluding noise and denoising on stack level}
@@ -88,7 +89,7 @@ However, if a full z-stack is noisy, noisy images are still included.
 These noisy images may still harm training and could be excluded, too.
 Possibly, excluding noisy stacks can for example be done by calculating the Shannon entropy of all truncated stacks and include stacks with the highest entropy.
 
-In addition to noise exclusion, denoising stacks with three-dimensional N2V or individual slices with N2V2\footnote{At the time of writing, N2V2 is not yet compatible with three-dimensional images.} could increase model performance.
+In addition to noise exclusion, denoising stacks with three-dimensional Noise2Void~\cite{Krull2019} or individual slices with Noise2Void2~\cite{Hock2022}\footnote{At the time of writing, Noise2Void2 is not yet compatible with three-dimensional images.} could increase model performance.
 This is because noise can occlude patterns that describe stretch information.
 
 \subsubsection{Using three-dimensional images}
@@ -101,13 +102,13 @@ The microscope outputting the SHG images has the ability to image with a resolut
 Higher resolution images contain more detailed information on the collagen structure, and are therefore expected to increase the performance.
 The presented model has to be redesigned to accept images larger than $258\times258$.
 Moreover, raw data is stored with a larger dynamic range (16-bit instead of 8-bit).
-Being able to see small differences in neighbouring pixel intensities increases the available information \eg in darker regions, where collagen is sparse, but still significantly present.
+Being able to see small differences in neighboring pixel intensities increases the available information \eg in darker regions, where collagen is sparse, but still significantly present.
 
 \subsubsection{Weighting samples by goodness of target fit}
-The neural network learns from targets that are a result of logistic curves fitted to a series of datapoints.
+The neural network learns from targets that are a result of logistic curves fitted to a series of points.
 The goodness of fit differs between curves.
 Fits that do not describe the data well should not negatively impact the model training.
-One way to achieve this is by reweighting the loss function as
+One way to achieve this is by re-weighting the loss function as
 \begin{equation}
     \mathcal{L}_{R^2\,\mathrm{weighted}} =
     \begin{cases}

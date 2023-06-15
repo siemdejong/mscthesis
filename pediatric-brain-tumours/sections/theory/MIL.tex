@@ -1,5 +1,9 @@
 \subsection{Multi-instance learning}
 
+Now that a SimCLR trained backbone is trained and tiles can be compressed into feature vectors, the features can be used for classification.
+To this end, a classifier must be chosen and trained.
+Multi-instance learning (MIL) is a suitable technique to deal with multiple features concerning the same outcome.
+
 \subsubsection{Classical}
 Multi-instance learning (MIL) is a supervised learning method.
 Typically, every instance in a dataset is labelled individually.
@@ -28,11 +32,15 @@ See \cref{fig:classifier} for a schematic overview of a general MIL model.
     \label{fig:classifier}
 \end{figure*}
 
-\todo[noline]{Describe need for newer MIL methods}
-
 \subsubsection{Attention-based MIL pooling}
+For pathology studies, it is important to visualize which instances are important for classification.
+With classical MIL, this is not possible.
 To overcome the restrictive nature of maximum pooling, \textcite{Ilse2018} propose DeepMIL and use an adaptive weighted average of instances.
 This weighted average includes learnable weights in an attention-based manner.
+High weights should be assigned to instances that are likely to have a positive label.
+The weights allow distinguishing interesting instances from uninteresting ones, see \cref{fig:explainer}.
+The attention weights of specific instances (\eg, patches in an image) explain how the model comes to its diagnosis prediction which could be compared with the doctor's diagnosis.
+
 Let $H=\{\vec{h}_1, \ldots, \vec{h}_K\}$ be a bag of $K$ embeddings.
 The weighted average of $H$ is
 \begin{equation}
@@ -45,11 +53,7 @@ where
 where $\mathbf{w} \in \mathbb{R}^{L \times 1}$ and $\mathbf{V}\in \mathbb{R}^{L \times M}$ are the learnable parameters.
 The denominator ensures the weights sum to 1.
 $\vec{z}$ is further processed in an MLP for classification.
-
-The weights allow distinguishing interesting instances from uninteresting ones, see \cref{fig:explainer}
-High weights should be assigned to instances that are likely to have a positive label.
-This is particularly important for pathology studies.
-The attention weights of specific instances (\eg, patches in an image) explain how the model comes to its diagnosis prediction that can be compared with the doctor's diagnosis.
+The weights can also be multiplied by the corresponding input tiles to show which features were important for the prediction.
 
 \begin{figure*}
     \centering
@@ -64,12 +68,14 @@ The attention weights of specific instances (\eg, patches in an image) explain h
 \end{figure*}
 
 \subsubsection{Variance MIL pooling}\label{subsubsection:theory_varmil}
-Learning weights just for a weighted average discards any information between instances, while that might be important for the bag prediction.
-Variance MIL (VarMIL) by \textcite{Schirris2022} propose to add a learned attention-weighted variance,
+DeepMIL has the disadvantage of discarding any inter-tile information.
+In a clinical setting, this high-level information can model \eg the intratumor heterogeneity or tumor border shape.
+
+\textcite{Schirris2022} propose Variance MIL (VarMIL) which adds a learnable attention-weighted variance,
 \begin{equation}
-    \boldsymbol{\sigma} = \frac{K}{K - 1} \sum_{k=1}^{K}a_k\left(\vec{h}_k-\vec{z}\right)^2.
+    \boldsymbol{\sigma} = \frac{K}{K - 1} \sum_{k=1}^{K}a_k\left(\vec{h}_k-\vec{z}\right)^2,
 \end{equation}
-In a clinical setting, this variance can model \eg the intratumor heterogeneity or tumor border shape.
+to capture global features.
 The weighted average and variance are concatenated in a single vector, such that
 \begin{equation}
     \hat{\vec{z}} =
@@ -78,10 +84,11 @@ The weighted average and variance are concatenated in a single vector, such that
         \boldsymbol{\sigma}    
     \end{pmatrix}.
 \end{equation}
+As with DeepMIL, the weights can still be used to highlight tiles.
 
 \subsubsection{Clinical Context MIL}
 Clinical contexts such as locations of tumor resections are important for clinical decisions by pathologists.
-For example, medulloblastoma is mostly found in the fourth ventricle or cerebellar parenchyma.\todo{https://pubmed.ncbi.nlm.nih.gov/26336203/}
+For example, medulloblastoma is mostly found in the fourth ventricle or cerebellar parenchyma~\cite{Millard2016}.
 This information along with the attention weighted tiles (see \cref{subsubsection:theory_varmil}) may lead to better performance.
 As pathologists also have access to this information, it is reasonable for an AI model to use the same available information.
 
@@ -100,12 +107,13 @@ The embedding is concatenated to the output of the MIL aggregate, such that
 where $\boldsymbol{\mathcal{C}}$ is the clinical context text embedding.
 $\tilde{\vec{z}}$ is used as input for the trainable classifier.
 
-The text embedding can be created in various ways~\cite{Khattak2019}.
+The text embedding can be created in various ways\footnote{See \textcite{Khattak2019} for a review.}.
 The most direct way would be to create a list of possible sentences and convert the input text to a one-hot encoded vector, effectively selecting a specific sentence from the vocabulary.
 The drawback of this method is that it cannot handle out-of-vocabulary (OOV) words, which requires an extensive vocabulary that might become obsolete.
 
 One of the most promising methods for creating text embeddings for use in downstream tasks are transformer based methods~\cite{Vaswani2017}.
 Attention-based models such as BERT~\cite{Devlin2018} and ELMo~\cite{Peters2018} are able to distinguish important words and can distil the right meaning of homographs.
+With BERT's \texttt{[CLS]}-token, a sentence classification can be created to embed a sentence to a point in a high-dimensional space.
 These models can learn OOV words which enables them to be used in new contexts.
 
 The aggregator of CCMIL is visualized in \cref{fig:CCMIL_aggregator}.

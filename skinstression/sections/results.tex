@@ -1,6 +1,6 @@
 \section{Results}
 
-\begin{figure}
+\begin{figure*}
     \centering
     \includegraphics[width=\linewidth]{skinstression/images/truncated-and-interpolated-curves.pdf}
     \caption[Truncated and spline interpolated curves]{
@@ -8,7 +8,7 @@
         using non-uniform, interpolating splines on the stretch values of the curve with the lowest maximum stretch.
     }
     \label{fig:trunc_interp_curves}
-\end{figure}
+\end{figure*}
 
 \subsection{Participants}\label{subsec:results_participants}
 
@@ -17,8 +17,7 @@ Abdomen data was excluded, because the strain-stress curves differ significantly
 All thigh data is included, which is different from the original study, where only the 48 latest samples were used.
 These considerations result in data including 15 individuals (5 men, 4 women, 3 unknown).
 Ages range from 61 to 94.
-Skin tissue is cut from the thigh and cut in multiple pieces of roughly the same shape.\marginpar{protocol?}
-From every skin tissue piece, strain-stress curves are measured.
+From every skin tissue piece, measured strain-stress curves are shown in \cref{fig:trunc_interp_curves}.
 The number of measured strain-stress curves range from 1 to 13.
 The source of data is summarized in \cref{fig:source_of_data}.
 
@@ -53,138 +52,43 @@ The exponent is not able to fit the plateau that is often exhibited near maximum
 
 \subsubsection{PCA}
 The PCA fit for every truncated and interpolated strain-stress curve is depicted in \cref{fig:pca_fits}.
+An example is shown in \cref{fig:pca-fit-and-r2-histogram}.
 For every fit, $R^2$ is calculated with respect to the interpolated and truncated data.
 On average, $\overline{R^2} \approx \num{0.9927 \pm 0.0022}$.
 Due to the nature of PCA, the exponential part of the curves that rise later is not included in the making of the fit.
 
-\begin{figure*}
-    \ContinuedFloat
+\begin{marginfigure}
     \centering
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_6.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_7.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_8.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_9.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_10.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_11.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_12.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_13.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_14.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_15.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_16.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_17.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_18.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_19.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_20.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_21.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_22.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_23.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_24.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_25.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_26.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_27.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_28.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_29.pdf}
-    \raggedleft Continued on next page.
-\end{figure*}
-
-\begin{figure*}
-    \centering
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_30.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_31.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_32.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_33.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_34.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_45.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_46.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_47.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_48.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_49.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_50.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_51.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_52.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_53.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_54.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_55.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_56.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_57.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_58.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_59.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_60.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/pca-fits/sample_61.pdf}
-    \caption[PCA fits]{
-        PCA fits for every truncated and interpolated strain-stress curve.
-        The interpolated measurements (blue) are estimated by the PCA curve (red) along with their $R^2$.
-        PCA is done on all available thigh data.
-        Note that the vertical axes are not equal.
+    \includegraphics[width=\linewidth]{skinstression/images/pca-fits/sample_6.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/pca-fits/r2_hist.pdf}
+    \caption[Logistic curve fits to stress-strain curves]{
+        Top panel: PCA fit (red) to one stress-strain curve (black).
+        $R^2 = 0.993$.
+        Bottom panel: distribution of $R^2$ on all stress-strain curves.
+        Mean $R^2 = 0.9927$ (red) with a standard deviation of \num{0.0022}.
     }
-    \label{fig:pca_fits}
-\end{figure*}
+    \label{fig:pca-fit-and-r2-histogram}
+\end{marginfigure}
+
 
 \subsubsection{Logistic curve}
 The logistic curve fit for every strain-stress curve is shown in \cref{fig:logistic_fits}.
+An example is shown in \cref{fig:logistic-fit-and-r2-histogram}.
 For every fit, $R^2$ is calculated.
 On average, $\overline{R^2} \approx \num{0.9979 \pm 0.0039}$.
 
-\begin{figure*}
-    \ContinuedFloat
+\begin{marginfigure}
     \centering
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_6}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_7.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_8.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_9.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_10.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_11.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_12.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_13.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_14.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_15.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_16.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_17.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_18.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_19.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_20.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_21.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_22.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_23.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_24.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_25.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_26.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_27.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_28.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_29.pdf}
-    \raggedleft Continued on next page.
-\end{figure*}
-
-\begin{figure*}
-    \centering
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_30.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_31.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_32.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_33.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_34.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_45.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_46.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_47.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_48.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_49.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_50.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_51.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_52.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_53.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_54.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_55.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_56.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_57.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_58.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_59.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_60.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/logistic-fits/sample_61.pdf}
-    \caption[Logistic fits]{
-        Logistic fits (red) and their $R^2$ for every strain-stress curve (black).
-        Note that the vertical axes are not equal.
+    \includegraphics[width=\linewidth]{skinstression/images/logistic-fits/sample_6.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/logistic-fits/r2_hist.pdf}
+    \caption[Logistic curve fits to stress-strain curves]{
+        Top panel: Logistic curve fit (red) to one stress-strain curve (black).
+        $R^2 = 0.9983$.
+        Bottom panel: distribution of $R^2$ on all stress-strain curves.
+        Mean $R^2 = 0.9980$ (red) with a standard deviation of \num{0.0036}.
     }
-    \label{fig:logistic_fits}
-\end{figure*}
+    \label{fig:logistic-fit-and-r2-histogram}
+\end{marginfigure}
 
 Because the logistic curve describes the stress-strain data more accurate than PCA or the exponential, it will be used from now on.
 
@@ -197,20 +101,20 @@ $(\gamma_{c,\mathrm{min}}, \gamma_{\mathrm{max},\mathrm{max}}, s_{\gamma_\mathrm
 where $s$ is the bin width.
 The smoothed distribution is shown in \cref{fig:skin_lds}.
 
-\begin{figure*}
+\begin{figure}
     \centering
-    \includegraphics{skinstression/images/lds/a.pdf} \\
-    \includegraphics{skinstression/images/lds/k.pdf} \\
-    \includegraphics{skinstression/images/lds/xc.pdf}
-    \caption[Original target and LDS distrutions]{
-        Empirical target distribution (red) and LDS distribution (blue) for $\sigma_\mathrm{max}$, $E_\mathrm{max}$, and $\gamma_c$.
+    \includegraphics[width=\linewidth]{skinstression/images/lds/a.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/lds/k.pdf} \\
+    \includegraphics[width=\linewidth]{skinstression/images/lds/xc.pdf}
+    \caption[Label density smoothed target distributions]{
+        Empirical target distribution (red) and label density smoothed (LDS) target distribution (blue) for $\sigma_\mathrm{max}$, $E_\mathrm{max}$, and $\chi_c$.
         LDS aims to fill the gaps between the actual measurements.
         LDS also extrapolates target distributions.
         For all targets, the kernel size was 30 units, and the standard deviation 3 units.
-        The bin width were \num{0.01}, \num{0.1}, and \num{0.001} units for $\sigma_\mathrm{max}$, $E_\mathrm{max}$, and $\gamma_c$, respectively.
+        The bin width were \num{0.01}, \num{0.1}, and \num{0.001} units for $\sigma_\mathrm{max}$, $E_\mathrm{max}$, and $\chi_c$, respectively.
     }
     \label{fig:skin_lds}
-\end{figure*}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % IMAGE QUALITY
@@ -374,8 +278,8 @@ The corresponding hyperparameters in \cref{tab:conf_skin_final} were used for fu
 
 \begin{margintable}
     \centering
-    \caption[\textsc{Skinstression} configuration]{
-        \textsc{Skinstression} configuration used during training.
+    \caption[Skinstression configuration]{
+        Skinstression configuration used during training.
         Parameters are ordered by their importance, calculated with fANOVA.
         LR, WD, and BS are learning rate, weight decay and batch size, respectively.
     }

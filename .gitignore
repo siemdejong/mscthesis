@@ -2,6 +2,8 @@
 notes
 main.pdf
 texmf
+.vscode
+feedback
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

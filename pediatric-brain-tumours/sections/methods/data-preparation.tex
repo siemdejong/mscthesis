@@ -2,11 +2,11 @@
 
 The target classification is transformed to unique numbers.
 
-From the raw HHG microscope data, images are exported\todo{Ref Sylvia thesis}.
+Images are exported from the raw HHG microscope data by \textcite{Spies2023}.
 Overview images of \qty{1}{mpp} and close-up images of \qty{0.2}{mpp} of histologically interesting areas were made.
 To be able to use both images, the overview images were scaled to the same resolution as close-up images using Lanczos interpolation.
 
-Given the size of most images (\qty{>100}{MB}) and to be able to use MIL, the images are subdivided into non-overlapping tiles of $224 \times 224$.
+Given the size of the images (\qty{200}{MB} and $7700\times7900$ 8-bit RGB pixels on average) and to be able to use MIL, the images are subdivided into non-overlapping tiles of $224 \times 224$.
 Tiles overflowing the image are skipped.
 
 Many overview images contain a large empty space without tissue.

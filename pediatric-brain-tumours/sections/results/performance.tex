@@ -116,9 +116,9 @@ Based on the ROC curve, one might conclude that the model of fold 2 only perform
         \cmidrule{2-4} \cmidrule{5-7}
         & AUC & AUPR & AUPRG & AUC & AUPR & AUPRG \\
         \midrule
-        ImageNet + VarMIL & \num{0.59 \pm 0.33} & \num{0.80 \pm 0.16} & \num{0.21 \pm 0.60} & \num{0.86 \pm 0.15} & \num{0.96 \pm 0.04} & \num{0.57 \pm 0.43} \\
-        SimCLR + VarMIL & \num{0.73 \pm 0.17} & \num{0.88 \pm 0.10} & \num{0.39 \pm 0.37} & \num{0.69 \pm 0.24} & \num{0.89 \pm 0.08} & \num{0.28 \pm 0.37} \\
-        SimCLR + CCMIL & \num{0.75 \pm 0.25} & \num{0.89 \pm 0.14} & \num{0.41 \pm 0.56} & \num{0.71 \pm 0.28} & \num{0.90 \pm 0.10} & \num{0.34 \pm 0.54} \\
+        ImageNet + VarMIL & \num{0.86 \pm 0.15} & \num{0.96 \pm 0.04} & \num{0.57 \pm 0.43} & \num{0.59 \pm 0.33} & \num{0.80 \pm 0.16} & \num{0.21 \pm 0.60} \\
+        SimCLR + VarMIL & \num{0.69 \pm 0.24} & \num{0.89 \pm 0.08} & \num{0.28 \pm 0.37} & \num{0.73 \pm 0.17} & \num{0.88 \pm 0.10} & \num{0.39 \pm 0.37} \\
+        SimCLR + CCMIL & \num{0.71 \pm 0.28} & \num{0.90 \pm 0.10} & \num{0.34 \pm 0.54} & \num{0.75 \pm 0.25} & \num{0.89 \pm 0.14} & \num{0.41 \pm 0.56} \\
         \bottomrule
     \end{tabular*}
 \end{table*}
@@ -147,27 +147,46 @@ Entropy and kurtosis have a small correlation with test AUPRG of 0.19 and -0.15,
 \end{figure*}
 
 \subsection{Explainability}
+\subsubsection{Attention weighted images}
 Attention weighted images are shown in \cref{fig:a-weighted-images}.
 They are created from medulloblastoma and pilocytic astrocytoma data from the test set of fold 0 using the corresponding model.
 Only a small portion of the tiles is weighted with a substantial attention weight, resulting in rather dark images.
 
 \begin{figure*}
     \centering
-    \begin{tabular}[\linewidth]{c}
+    \begin{tabularx}{\linewidth}{c}
         \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_36_Hersenen_I-05_8x8_200slow-summary.png} \\
         \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_36_Hersenen_I-05_8x8_200slow-tiles.png} \\
+        \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_36_Hersenen_I-05_8x8_200slow-tiles-low-a.png} \\
         \midrule
-        \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_32_Hersenen_I-05_5x7_200slow_II-summary.png} \\
-        \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_32_Hersenen_I-05_5x7_200slow_II-tiles.png}
-    \end{tabular}
+        \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_32_Hersenen_I-05_5x7_200slow-summary.png} \\
+        \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_32_Hersenen_I-05_5x7_200slow-tiles.png} \\
+        \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_32_Hersenen_I-05_5x7_200slow-tiles-low-a.png}
+    \end{tabularx}
     \caption[Attention weighted images]{
         Attention weighted images.
         Tiles are multiplied with min-max-normalized attention weights.
         Top: medulloblastoma (prediction score = 0.76).
-        Bottom: pilocytic astrocytoma (prediction score = 0.86).
-        Odd rows show the original image (A), the attention weighted image (B) and the pathologist annotations (C).
-        Even rows show the tiles with the highest attention weight.
-        The corresponding normalized attention weight is shown.
+        Bottom: pilocytic astrocytoma (prediction score = 0.81).
+        First rows show the original image (A), the attention weighted image (B) and the local attentions (linear grayscale) compared with pathologist annotations (green) (C).
+        Second and third rows show the tiles with the highest and lowest attention weights, respectively.
+        The corresponding normalized attention weight is printed.
     }
     \label{fig:a-weighted-images}
 \end{figure*}
+
+\subsubsection{Location embeddings}
+A t-SNE projection of the location embeddings is shown in \cref{fig:tsne-cc}.
+Texts seem grouped (\eg, "ventricle", "posterior cranial fossa", "cereb-", "brainstem", "lobe").
+The groupings are visualized by fitting a Gaussian mixture model with six components to the t-SNE projections.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/tsne-cc.pdf}
+    \caption[T-SNE projections of location embeddings]{
+        T-SNE projections (perplexity $= 8$, $10^4$ iterations) of location embeddings.
+        Texts are connected to points with arrows.
+        A contour plot of a six-component Gaussian mixture model to show groups of text embeddings.
+    }
+    \label{fig:tsne-cc}
+\end{figure}

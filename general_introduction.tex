@@ -1,9 +1,31 @@
 \section{Deep learning for higher harmonic microscopy}
-Insert some text relating the two projects to each other and introduce the overall challenges.
+Visualizing living tissue and cells is of vital importance in life sciences and health care.
+Standard, non-invasive techniques such as magnetic resonance imaging, ultrasound imaging, and computed tomography fail to image structures at resolutions high enough to distinguish structures as individual cells or connective tissue.
+These structures are interesting for pathologists or skin stretch experts.
+Higher harmonic generation (HHG) microscopy can image cells and tissue at resolutions of \qty{0.2}{\micro\meter} per pixel (mpp) in seconds.
+These high resolution images %can be large (sometimes \num{3e8} 24-bit pixels) and
+can contain complex structures and features.
+
+Interesting features are collagen and elastin fibers oriented in all directions when determining stretch properties of skin tissue.
+Mechanically stretching the tissue to get stress-strain curves is time-expensive and could break the tissue.
+Tissue images may have all information needed to determine stretch properties such as Young's modulus or maximum stress.
+\Cref{ch:skinstression} studies the possibility of acquiring stress-strain curves from second harmonic generation (SHG) images alone.
+This may be a step forward to find out skin properties \emph{in vivo} with an endoscope to aid plastic surgery.
+
+Other interesting features are disease patterns in the study of pathology.
+Current clinical practice includes analysis of histopathological data.
+However, making this data takes a long time, mainly caused by tissue processing.
+HHG imaging can do this in seconds, allowing for intraoperative feedback.
+Feedback can \eg include amount of resected tumor tissue or tumor type.
+This would still require intraoperative image analysis, while time is scarce.
+\Cref{ch:sclicom} studies the possibility to classify two pediatric brain tumors, medulloblastoma or pilocytic astrocytoma, from HHG images and explaining which regions were important for the classifications.
+
+The experiments are preceded by an introduction on HHG imaging and deep learning concepts used by the two projects in \cref{ch:theory}.
+\Cref{ch:general_discussion_and_conclusion} discusses overarching challenges and gives recommendations for advancing AI for HHG imaging.
 
 \section{Reporting of clinical artificial intelligence}
-The prediction models described here may aid health care providers in estimating the probability of risk that an outcome is present.
-The Transparent Reporting of a multivariable prediction model for Individual Prognosis Or Diagnosis (TRIPOD) Initiative developed guidelines to report on such diagnostic models \cite{Collins2015, Moons2015}.
+The prediction models described in this work may eventually aid health care providers in acquiring clinically relevant parameters or estimating the probability of risk that an outcome is present.
+The Transparent Reporting of a multivariable prediction model for Individual Prognosis Or Diagnosis (TRIPOD) Initiative developed guidelines to report on such diagnostic models \cite{Collins2015, Moons2015, Heus2020}.
 Recent advances in artificial intelligence (AI) apply AI as black box predictive models in health care, often not sufficiently well reported.
 Transparent reporting on these black box models builds confidence in using and further developing the models.
 This is especially important in health care, where there is a need for automation while trust in AI is yet to be earned.
@@ -14,6 +36,3 @@ These patterns are then used in inference to make a prediction, possibly of clin
 A clinician should then be explained how the model came to its conclusion, along with its confidence.
 To account for these challenges, an extension for the TRIPOD statement, TRIPOD-AI is currently being developed \cite{Collins2021,Collins2020}.
 Reports on the diagnostic models developed in this study aim to adhere to TRIPOD-AI as well as possible\footnote{The reader is invited to use the TRIPOD-AI accompanying PROBAST-AI \cite{Wolff2019a, Wolff2019b, Collins2021} checklist to assess the risk of bias of the predictive models.}.
-
-\section{Structure}
-Quick explanation of thesis structure.
