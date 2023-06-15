@@ -7,12 +7,12 @@ Skipping over these areas can be achieved with masking.
 In this study, three masking algorithms designed for pathology are considered.
 
 \subsubsection{FESI}
-Foreground Extraction from Structure Information (FESI)~\cite{Bug2015} is an algorithm that relies on the distance transform of a Laplacian transformed grayscale image and flood filling from the point with the highest distance.
-Improved FESI~\cite{Riasatian2020} is an improvement of FESI where the input image is change to LAB color space and the L and A channels are changed to maximum intensity.
+Foreground Extraction from Structure Information (FESI)~\sidecite{Bug2015} is an algorithm that relies on the distance transform of a Laplacian transformed grayscale image and flood filling from the point with the highest distance.
+Improved FESI~\sidecite{Riasatian2020} is an improvement of FESI where the input image is change to LAB color space and the L and A channels are changed to maximum intensity.
 It further uses a Gaussian filter instead of the absolute value of the Laplacian.
 
 \subsubsection{EntropyMasker}
-Another way to use structure information in pathology images is by looking at the entropy profile as done in EntropyMasker~\cite{Song2023}.
+Another way to use structure information in pathology images is by looking at the entropy profile as done in EntropyMasker~\sidecite{Song2023}.
 EntropyMasker works by converting the input image to grayscale and calculating the local entropy.
 Then, the entropy is binned, and a threshold is determined from the minimum in the histogram.
 Lastly, the threshold is applied to the entropy image to end up with a binary mask.

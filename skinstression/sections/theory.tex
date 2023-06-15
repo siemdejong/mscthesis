@@ -46,7 +46,7 @@ Overstretching the tissue then breaks the fiber network, decreasing the possibil
 Strain-stress curves can also be visualized by showing the log derivative of stress with respect to strain against the log of strain as in \cref{fig:stress-strain-curve-skin-tissue}B.
 Typically, this figure has three regions.
 The first region indicates a linear relationship between small forces and small strain.
-Then, the derivative increases until it reaches a purely exponential part~\cite{Holzapfel2001}.
+Then, the derivative increases until it reaches a purely exponential part~\sidecite{Holzapfel2001}.
 If skin stretching follows this kind of behavior, a simple mathematical model can be derived.
 Inspecting the figure, the linear part shows the ordinary differential equation
 \begin{equation}
@@ -77,10 +77,10 @@ The full expression then becomes
 
 This model assumes that data follows the previously described curve where there is a small rise at small extensions and an indefinitely exponentially increasing stress for larger extensions.
 
-The exponential model is fit to some stress-strain curves using OriginPro~\cite{OriginPro}.
+The exponential model is fit to some stress-strain curves using OriginPro~\sidecite{OriginPro}.
 
 \subsubsection{Principal component analysis}
-In an earlier study \cite{Soylu2022}, principal component analysis (PCA) is used to reduce the dimensionality of the strain-stress data.
+In an earlier study \sidecite{Soylu2022}, principal component analysis (PCA) is used to reduce the dimensionality of the strain-stress data.
 In summary, after PCA, every measurement $Y$ can be approximated by
 \begin{equation}\label{eq:pca}
     Y \approx Y_\mathrm{PCA} = \mathbf{A} \mathbf{V} + \bar{Y},
@@ -110,7 +110,7 @@ Every curve can be treated separately and measurements can contain data across a
 Strain-stress curves for all individuals were kindly provided by M.\ Zhou.
 The curves only include points where the skin extension is larger than zero and the force positive.
 
-To every strain-stress curve, \cref{eq:logistic_curve} is fitted with Scipy \cite{2020SciPy-NMeth}.\todo{Move methods to methods}
+To every strain-stress curve, \cref{eq:logistic_curve} is fitted with Scipy \sidecite{2020SciPy-NMeth}.\todo{Move methods to methods}
 The optimal parameters were used as targets for training the model.
 
 The AI was trained on a with LDS smoothed target variable distribution.
@@ -130,7 +130,7 @@ The targets calculated with logistic curve fitting result in a non-uniform distr
 Data imbalance reduces the ability of a neural network to learn outliers.
 This may have significant impact on the test results.
 To deal with imbalanced data, various techniques have been developed.
-One of those techniques is label density smoothing (LDS)~\cite{yang2021delving}.
+One of those techniques is label density smoothing (LDS)~\sidecite{yang2021delving}.
 It is specifically designed for deep neural networks to learn from imbalanced continuous targets.
 
 \newcommand{\edtl}{$\tilde{p}(y')$ }

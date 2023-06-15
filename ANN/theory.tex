@@ -47,7 +47,7 @@ Neural networks are designed to learn from data through a process called trainin
 During training, the network adjusts the strengths of connections between neurons, known as weights, based on the patterns and relationships in the input data.
 This process allows the network to recognize and generalize from examples, making it capable of solving complex problems and making predictions.
 
-Optimizing ANNs often relies on backpropagation (from backward propagation of errors)~\cite{Rumelhart1986}.
+Optimizing ANNs often relies on backpropagation (from backward propagation of errors)~\sidecite{Rumelhart1986}.
 Mathematically, an ANN $g$ with $L$ layers and activation function $f$ can be described as
 \begin{equation}
     \hat{y} = g(x) = f^L \left\{W^L f^{L-1} \left[W^{L-1} \cdots f^1 \left(W^1 x\right) \cdots \right] \right\},
@@ -60,7 +60,7 @@ Calculating $\partial E / \partial w_{ij}$ allows updating individual weights of
 \end{equation}
 where $\eta$ is the learning rate.
 This optimization algorithm is called stochastic gradient descent (SGD).
-Backpropagation and SGD form the basis of neural network optimization, but there are other optimization algorithms available such as Adam~\cite{Kingma2014AdamAM}.
+Backpropagation and SGD form the basis of neural network optimization, but there are other optimization algorithms available such as Adam~\sidecite{Kingma2014AdamAM}.
 
 \subsection{Convolutional layers}
 To distinguish a neural network from a convolutional neural network (CNN), at least one layer must be a convolution.
@@ -215,7 +215,7 @@ It measures the average squared difference between every prediction and target, 
 \end{equation}
 
 \paragraph{Focal MSE}
-To give even more focus on the hard targets, giving them more importance than easy targets can be done through the focal MSE loss (FL)~\cite{Lu2022}.
+To give even more focus on the hard targets, giving them more importance than easy targets can be done through the focal MSE loss (FL)~\sidecite{Lu2022}.
 To give less importance to the easier targets, FL follows
 \begin{equation}
     FL = \left(\frac{2}{1 + e^{-\beta |y - y'|}} - 1 \right)^\gamma (y_i - y'_i)^2,
@@ -272,11 +272,11 @@ Solutions include dropout, batch normalization, or more complex models (\ie deep
 \subsubsection{Dropout}\label{sec:dropout}
 Overfitting can be reduced by applying methods of regularization.
 One regularization method is dropout.
-It prevents neurons from co-adapting, which would otherwise reduce the chance of the model to perform well on external validation sets \cite{Srivastava2014}.
+It prevents neurons from co-adapting, which would otherwise reduce the chance of the model to perform well on external validation sets \sidecite{Srivastava2014}.
 With dropout, individual neurons are activated with probability $p$, effectively dropping neurons randomly.
 
 \subsubsection{Batch normalization}\label{sec:bn}
-Batch normalization (BN)~\cite{Ioffe2015} is a technique to shift and scale batches akin to standardization.
+Batch normalization (BN)~\sidecite{Ioffe2015} is a technique to shift and scale batches akin to standardization.
 It can be implemented as a layer in any neural network.
 Per minibatch and per dimension, the mean and standard deviation of the input are calculated.
 Then, the input is standardized with
@@ -292,7 +292,7 @@ where $\gamma$ and $\beta$ are learnable parameters learned in a sub-network.
 
 When batch normalization is applied after a convolutional layer, the bias term of the convolution becomes redundant and can be set to zero to avoid unnecessary operations.
 
-BN has been shown to have a regularizing effect~\cite{Bjorck2018}, although combining it with dropout is disputed.
+BN has been shown to have a regularizing effect~\sidecite{Bjorck2018}, although combining it with dropout is disputed.
 More often than not, using both BN and dropout leads to worse results on the test set.
 
 \subsubsection{Model ensembling}\label{subsec:model_ensembling}
@@ -339,7 +339,7 @@ The most straightforward technique of finding the best set of hyperparameters is
 With grid search, parameters are sampled exhaustively using equidistant spacing in each dimension.
 
 A drawback of grid search is that optima can reside outside the hyperparameter set that grid search produces.
-Random search \cite{Bergstra2012} aims to find optima in the gaps using random search.
+Random search~\sidecite{Bergstra2012} aims to find optima in the gaps using random search.
 With the same number of trials, random search has a higher probability for trials to find the global optimum.
 This is because trials explore the whole distribution as opposed to just a few points in individual dimensions.
 \Cref{fig:gridrandsearch} shows the differences between grid search and random search and advocates the use of the latter.
@@ -356,7 +356,7 @@ This is because trials explore the whole distribution as opposed to just a few p
 
 \subsubsection{Tree Parzen estimator}
 Still, random search requires trials in regions that are unpromising which is inefficient.
-A tree-structured Parzen estimator (TPE)~\cite{Bergstra2011} approach aims to model the probability of a hyperparameter\footnote{Or a set of hyperparameters in the case of multivariate TPE~\cite{Falkner2018}}, given a loss value.
+A tree-structured Parzen estimator (TPE)~\sidecite{Bergstra2011} approach aims to model the probability of a hyperparameter\sidenote{Or a set of hyperparameters in the case of multivariate TPE~\cite{Falkner2018}}, given a loss value.
 That probability consists of two distributions, describing the good and bad values:
 \begin{equation}
     p(c|L) =
@@ -374,14 +374,14 @@ Therefore, $c$ is promising if
     \mathrm{promisingness}(c) \propto p(c|\mathrm{good}) / p(c|\mathrm{bad})
 \end{equation}
 is high.
-Ref.~\cite{Bergstra2011} shows that this ratio is proportional to the expected improvement~\cite{Jones2001}.
+Ref.~\sidecite{Bergstra2011} shows that this ratio is proportional to the expected improvement~\sidecite{Jones2001}.
 The configuration responsible for the maximum of $\mathrm{promisingness}(c)$ is used as the next trial.
 Results of that trial are now categorized as good or bad, and the iterative process continues.
 
 \subsubsection{Successive Halving and Hyperband}
 Although $\mathcal{C}$ can be sampled more efficiently with TPE, trials still use the full computational budget, even if it is apparent that the trial is unpromising early on.
 Early terminating (or pruning) these underperforming trials speeds up hyperparameter optimization.
-Pruning trials can be done using Successive Halving (SH)~\cite{Jamieson2016}.
+Pruning trials can be done using Successive Halving (SH)~\sidecite{Jamieson2016}.
 Given a computational budget $B$, \eg number of epochs, the number of trials $T$, and the halving rate $\gamma$, SH performs $\log_\gamma(T)$ rounds.
 The budget is distributed uniformly over the trials.
 Every round, $\qty{100}{\percent} \times 1/\gamma$ of the trials are discarded based on their performance.
@@ -395,7 +395,7 @@ Higher halving rates lead to more and more aggressive pruning with the risk of p
 There is a trade-off between $T$ and $B$.
 Suppose $T$ is large, then each trial gets a small amount of budget, but many configurations are explored.
 Conversely, if $T$ is small, then each trial gets much budget, at the cost of exploring the number of configurations.
-This $T/B$ trade-off is addressed by Hyperband (HB)~\cite{Li2016} by performing a grid search over feasible values of $T$.
+This $T/B$ trade-off is addressed by Hyperband (HB)~\sidecite{Li2016} by performing a grid search over feasible values of $T$.
 HB invokes SH multiple times.
 Every invocation of SH is called a bracket.
 In the end, HB returns the best configuration possible just like SH, but diminishing the dependence on manually choosing a good $T$.
@@ -414,7 +414,7 @@ Knowing the importance of a variable gives more insight into interactions and re
 A convolutional neurel network receives a stream of input images with varying quality.
 For example, microscopy images from deep inside tissue are presumably noisier and/or less bright than images taken near the surface.
 Neural networks have trouble learning from bad images, as they lack structures that trigger neurons to output predictions close to targets.
-Excluding noisy images might increase performance \cite{Blokker2022}.
+Excluding noisy images might increase performance \sidecite{Blokker2022}.
 \textcite{Koho2016} suggest some measures to quantify image quality.
 Here, the entropy and kurtosis are discussed.
 
@@ -433,7 +433,7 @@ For images, \cref{eq:entropy} can be rewritten as
 \begin{equation}
     H_I = -\sum_{i}^n P_i \log_2 P_i,
 \end{equation}
-where $P_i$ is the normalized image histogram at bin index $i$ \cite{Koho2016}.
+where $P_i$ is the normalized image histogram at bin index $i$ \sidecite{Koho2016}.
 The base of the logarithm is chosen to be two, such that the entropy is in units of bits.
 
 For images having many different intensities, the entropy is high, because of the knowledge that pixel intensities having lower probability.
@@ -458,7 +458,7 @@ A leptokurtic distribution has tails with more weight compared to the normal dis
 Negative kurtosis means that the distribution is platykurtic.
 Platykurtic distributions have thinner tails, such as the Bernoulli distribution.
 
-Kurtosis can be calculated on the upper part of the power spectrum of an image \cite{Koho2016,Blokker2022}.
+Kurtosis can be calculated on the upper part of the power spectrum of an image \sidecite{Koho2016,Blokker2022}.
 If the upper part of the power spectrum is very leptokurtic compared to other images in the dataset, it may indicate that the image is an outlier and is significantly different from the mean.
 
 \subsection{Explainable AI}
@@ -475,7 +475,7 @@ AI solutions exist that predict patient outcome after new treatment given curren
 XAI gives users and patients more confidence in the prediction so that specialists can proceed with treatment.
 
 \subsubsection{Occlusion}\label{subsec:occlusion}
-Occlusion \cite{Zeiler2013} is an XAI pertubation technique.
+Occlusion \sidecite{Zeiler2013} is an XAI pertubation technique.
 The method replaces patches of the input with a baseline value.
 \eg for images, patches can consist of any shape and the baseline value can be 0, practically making a patch black and removing all information at the patch's location and the connections with neighbouring pixels.
 In the original paper, occlusion is used to systematically cover parts of foreground objects, to gain confidence in the AI using foreground objects to predict the output.

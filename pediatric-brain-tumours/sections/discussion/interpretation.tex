@@ -14,11 +14,11 @@ This is important, as it is assumed that disease features in feature space are s
 Ideally, SimCLR maps tiles to features in as many clusters as there are target classes, such that the classes can be easily separated.
 In the t-SNE projections (\cref{fig:tsne-features}), the classes seem reasonably well separated, which is more apparent at higher t-SNE perplexities.
 However, feature projections of multiple images with the same diagnosis are rarely packed together.
-This can likely be improved by using larger feature extraction backbones or more sophisticated self-supervised training scheme like SwAV~\cite{Caron2020}.
+This can likely be improved by using larger feature extraction backbones or more sophisticated self-supervised training scheme like SwAV~\sidecite{Caron2020}.
 
 \subsection{The PMC-HHG dataset is too small to make distinguishing statements on model performance}
 The errors on the test AUPRG are \qty{122 \pm 106}{\percent}, which is most probably the result of a small dataset.
-As shown in \cite{Schirris2022}, performance metrics are expected to drastically increase when increasing the number of samples.
+As shown in \sidecite{Schirris2022}, performance metrics are expected to drastically increase when increasing the number of samples.
 With a larger number of samples, there is a higher probability that features of training and testing data are similar, which ought to improve performance.
 
 \subsection{Domain-specific and ImageNet pretrained feature extractors have comparable performance}

@@ -47,7 +47,7 @@ The test set might include patterns that were not present in the training set an
 The split between training and test sets should be made such that the training set has high variance and is thus a reasonably good estimate of the whole population, without knowing test set images.
 
 Therefore, the training set should also include images from human skin that is damaged in any way.
-For example, damaged tissue is caused by smoking \cite{Lipa2021} or wounds that left behind scars with an increased tensile strength \cite{Wilkinson2020}.
+For example, damaged tissue is caused by smoking \sidecite{Lipa2021} or wounds that left behind scars with an increased tensile strength \sidecite{Wilkinson2020}.
 Moreover, aging drastically impacts skin tissue integrity.
 It is unknown if stretch of young skin tissue is predicted well by the neural network.
 Therefore, the neural network should only be used to predict from old skin tissue.
@@ -89,7 +89,7 @@ However, if a full z-stack is noisy, noisy images are still included.
 These noisy images may still harm training and could be excluded, too.
 Possibly, excluding noisy stacks can for example be done by calculating the Shannon entropy of all truncated stacks and include stacks with the highest entropy.
 
-In addition to noise exclusion, denoising stacks with three-dimensional Noise2Void~\cite{Krull2019} or individual slices with Noise2Void2~\cite{Hock2022}\footnote{At the time of writing, Noise2Void2 is not yet compatible with three-dimensional images.} could increase model performance.
+In addition to noise exclusion, denoising stacks with three-dimensional Noise2Void~\sidecite{Krull2019} or individual slices with Noise2Void2~\sidecite{Hock2022}\sidenote{At the time of writing, Noise2Void2 is not yet compatible with three-dimensional images.} could increase model performance.
 This is because noise can occlude patterns that describe stretch information.
 
 \subsubsection{Using three-dimensional images}

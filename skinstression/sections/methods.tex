@@ -4,8 +4,8 @@
 
 \subsubsection{Sources of data}
 
-Human skin tissue was excised from cadavers and healthy subjects for previous studies at the Red Cross Hospital in Beverwijk, the Netherlands~\cite{Haasterecht2023, Zhou2023}.
-Pieces of these tissues were imaged with multiphoton microscopy and their stress-strain response curves were measured mechanically, see \cref{fig:lab-setup}~\cite{Haasterecht2023, Zhou2023}.
+Human skin tissue was excised from cadavers and healthy subjects for previous studies at the Red Cross Hospital in Beverwijk, the Netherlands~\sidecite{Haasterecht2023, Zhou2023}.
+Pieces of these tissues were imaged with multiphoton microscopy and their stress-strain response curves were measured mechanically, see \cref{fig:lab-setup}~\sidecite{Haasterecht2023, Zhou2023}.
 Data is acquired in batches from April 2021 until July 2022.
 Development and testing data come from the same source.
 
@@ -37,10 +37,10 @@ All stacks were separated into slices.
 Images consist of three channels: third and second harmonic generation, and autofluorescence.
 The SHG channel is chosen as it is assumed to only contain collagen information.
 
-The SHG images are enhanced with contrast limited adaptive histogram equalization (CLAHE) \cite{Zuiderveld1994ContrastLA} using scikit-image \cite{scikit-image} to equalize importance of dark and bright regions.
+The SHG images are enhanced with contrast limited adaptive histogram equalization (CLAHE)~\sidecite{Zuiderveld1994ContrastLA} using scikit-image~\sidecite{scikit-image} to equalize importance of dark and bright regions.
 
-The enhanced images are then transformed with a Yeo-Johnson transform using Scipy \cite{2020SciPy-NMeth} such that the histogram of all images is as normal as possible.
-Normalization generally accelerates training \cite{Huang2020}.
+The enhanced images are then transformed with a Yeo-Johnson transform using Scipy~\sidecite{2020SciPy-NMeth} such that the histogram of all images is as normal as possible.
+Normalization generally accelerates training~\sidecite{Huang2020}.
 
 The transformed images are standardized by subtracting the total mean and total standard deviation of the complete transformed image set, like
 \begin{equation}
@@ -70,7 +70,7 @@ To counter these optical effects, inspired by \textcite{Koho2016} and \textcite{
 With this, images can be sorted to this measure and the top $k$ images with best quality can be used to train the network, thus excluding noise.
 
 Candidates for this measure are Shannon entropy, kurtosis, and skew for reasons explained in \ref{subsec:imq}
-These quality measures are calculated per image using PyImageQualityRanking \cite{Koho2016}, such that the quality measure can be validated by observing manually.
+These quality measures are calculated per image using PyImageQualityRanking~\sidecite{Koho2016}, such that the quality measure can be validated by observing manually.
 
 % \subsubsection{Image denoising}
 % Another optical disadvantage of multiphoton microscopy is the occurrence of noise.\marginnote{Look up sources of noise.}
@@ -97,7 +97,7 @@ To make the model more robust, data augmentation is applied.
 Before resizing, the preprocessed images are cropped randomly from $1000\times1000$ to $700\times700$ preserving the aspect ratio.
 The global brightness is adjusted randomly with $\pm \qty{30}{\percent}$.
 The images are then randomly mirrored horizontally and vertically with a probability of \qty{50}{\percent}.
-All data augmentations were performed with Torchvision \cite{torchvision2016}.
+All data augmentations were performed with Torchvision \sidecite{torchvision2016}.
 
 
 \subsection{Model}
@@ -141,18 +141,18 @@ The first step to achieve this is excluding all stretch values above the stretch
 \textcite{Soylu2022} did linear interpolation on the curves and restricted both stretch and stress to minim peak value.
 PCA on two variables requires only one shared set of points.
 Moreover, results of \citeauthor{Soylu2022} show knicks in the PCA reconstructions near the end of the curves, which could originate from a limited amount of data or linear interpolation.
-Therefore, in this study, a non-uniform, univariate, interpolating spline was fitted to all points using Scipy \cite{2020SciPy-NMeth} and the stress was calculated from the spline at the stetch values of the curve with the lowest maximum stretch.
-After PCA on the complete dataset using Scikit-learn \cite{Pedregosa2011}, the explained variance per component was calculated and used as a method to find an appropriate number of principal components.
+Therefore, in this study, a non-uniform, univariate, interpolating spline was fitted to all points using Scipy~\sidecite{2020SciPy-NMeth} and the stress was calculated from the spline at the stetch values of the curve with the lowest maximum stretch.
+After PCA on the complete dataset using Scikit-learn~\sidecite{Pedregosa2011}, the explained variance per component was calculated and used as a method to find an appropriate number of principal components.
 From these principal components, the curves where reconstructed using \cref{eq:pca}.
 The goodness of fit is determined by the coefficient of determination (\cref{subsec:coef_det}) and by eye.
 A fit is considered good if it passes reasonably through all data points and has few inflection points.
 
 Only if PCA on the full dataset works reasonably well, it is possible to use PCA on a subset and use it to reconstruct another subset.
 This would be useful if PCA was used to construct predictors, as using PCA results of the full dataset introduce information leakage from the test sets to the training set, because the components describe data from both subsets.
-This is unlike Ref.~\cite{Soylu2022} where information leakage was not considered.
+This is unlike Ref.~\sidecite{Soylu2022} where information leakage was not considered.
 
 \subsubsection{Convolutional neural network}
-The basis of the model originates from Liang \emph{et al.} \cite{Liang2017} and is adapted by Soylu \cite{Soylu2022}.
+The basis of the model originates from Liang \emph{et al.} \sidecite{Liang2017} and is adapted by Soylu \sidecite{Soylu2022}.
 The model, a convolutional neural network, consists of five blocks.
 The first block consists of a convolutional layer with a $3\times3$ kernel, taking in one channel and have 64 channels as output.
 The output is then normalized per batch using BN (\cref{sec:bn}).
@@ -180,7 +180,7 @@ The model is shown in \cref{fig:model}
     \label{fig:model}
 \end{figure*}
 
-The dropout layers in \cite{Soylu2022} are replaced by BN layers, as the input is not normalized and studies report better performance with BN.
+The dropout layers in \sidecite{Soylu2022} are replaced by BN layers, as the input is not normalized and studies report better performance with BN.
 Bias of all layers preceding BN layers have been set to zero.
 
 The neural network weights are initialized according to the method described by \textcite{He2015a}, using a uniform transform.
@@ -221,7 +221,7 @@ Search 3 includes the Yeo-Johnson transformation to see how input normalization 
 
 For a summary of the hyperparameter searches, see \cref{tab:skin_studies}.
 
-Algorithms provided by Optuna \cite{Akiba2019} were used to choose trial configurations and keep track of trials.
+Algorithms provided by Optuna \sidecite{Akiba2019} were used to choose trial configurations and keep track of trials.
 
 \begin{table}
     \caption[Skinstression hyperparameter search studies]{
@@ -282,7 +282,7 @@ Moreover, to see the effect of using the original zoom level with the greatest d
 The lowest validation focal loss is used to compare model performance.
 The model with the lowest validation loss is used for testing.
 
-Pytorch \cite{Paszke2019} was used to perform automatic differentiation on NVIDIA GeForce RTX 2070 Super GPUs on the BAZIS high performance computing cluster.
+Pytorch~\sidecite{Paszke2019} was used to perform automatic differentiation on NVIDIA GeForce RTX 2070 Super GPUs on the BAZIS high performance computing cluster.
 
 \subsubsection{Internal validation}\label{subsec:skin_dataset}
 The thigh dataset is randomly distributed into a training (\qty{64}{\percent}), validation (\qty{16}{\percent}), and test (\qty{20}{\percent}).
@@ -300,10 +300,10 @@ The prediction is assessed by comparing it with measured strain-stress curves wh
 
 \subsubsection{Occlusion}
 To explain the model output, occlusion \cref{subsec:occlusion} is used.
-Using the Captum Python library \cite{Kokhlikyan2020}, occlusion is done with $3\times3$ square patches moving with strides of 1.
+Using the Captum Python library~\sidecite{Kokhlikyan2020}, occlusion is done with $3\times3$ square patches moving with strides of 1.
 All values in the patch have been replaced with 0.
 
 \subsubsection{Adversarial attack}
-To see the importance of homogeneous tissue within the skin tissue, black patches have been filled using Fiji \cite{Schindelin2012}.
+To see the importance of homogeneous tissue within the skin tissue, black patches have been filled using Fiji \sidecite{Schindelin2012}.
 Filling is done by drawing full white ellipses on top of the original image.
 Moreover, in another attack, a black patch is copied to other locations in the image.

@@ -1,3 +1,39 @@
+\section{Derivation of ROC and PR curve baselines}
+\subsection{ROC curve baseline}\label{subsec:roc-curve-baseline-derivation}
+Given that accuracy
+\begin{align}
+    \text{acc} &= \pi \cdot\text{TPR} + (1 - \pi) (1 - \text{FPR}),
+\end{align}
+which can be rewritten to $\text{TPR}$ in terms of $\text{FPR}$,
+\begin{align}
+    \text{TPR} &= \frac{\text{acc}}{\pi} - \frac{(1-\pi)}{\pi}(1 - \text{FPR}) \\
+               &= \frac{\text{acc}}{\pi} - \frac{(1-\pi)}{\pi} + \frac{1-\pi}{\pi}\text{FPR} \\ 
+               &= \frac{\text{acc} - 1 + \pi}{\pi} + \frac{1-\pi}{\pi}\text{FPR}.
+\end{align}
+In the case of an always positive classifier that is right for $\pi$ of the time,
+\begin{align}
+    \text{TPR}(\text{acc} = \pi) = \frac{1-\pi}{\pi}\text{FPR} + 2 - \frac{1}{\pi}.
+\end{align}
+
+\subsection{PR curve baseline}\label{subsec:pr-curve-baseline-derivation}
+Given that the $F_1$-score is
+\begin{align}
+    F_1 &= \frac{2}{\text{prec}^{-1} + \text{rec}^{-1}},
+\end{align}
+which can be rewritten as
+\begin{align}\label{eq:prec-in-terms-of-rec}
+    \text{prec} = \frac{F_1 \cdot \text{rec}}{2\cdot \text{rec} - F_1}.
+\end{align}
+The $F_1$-score of an always positive classifier is
+\begin{align}
+    F_{1, +} &= \frac{2 \cdot \text{prec}}{\text{prec} + 1},
+\end{align}
+since in this case $\text{prec} = \pi$ and $\text{rec} = 1$.
+Substituting $F_1$ in \cref{eq:prec-in-terms-of-rec} for $F_{1, +}$, we get
+\begin{align}
+    \text{prec} = \frac{F_{1, +} \cdot \text{rec}}{2\cdot \text{rec} - F_{1, +}}.
+\end{align}
+
 \section{Flow of images to splits}\label{app:folds-splits-viz}
 The splits are created as described in \cref{subsubsec:slicom-folds}.
 The process is visualized in \cref{fig:folds-splits-viz}.
@@ -15,3 +51,5 @@ The process is visualized in \cref{fig:folds-splits-viz}.
     }
     \label{fig:folds-splits-viz}
 \end{figure*}
+
+\

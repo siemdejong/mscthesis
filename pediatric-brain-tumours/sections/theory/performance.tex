@@ -3,7 +3,7 @@
 \subsubsection{Receiver operating characteristic curve}
 
 To compare the performance of different models, it is common practice to compare their receiver operating characteristic (ROC) curve.
-The true positive rate, $TPR = \frac{\text{true positives}}{\text{true positives} + \text{fales negatives}} = TP / (TP + FN)$, is plotted against the false positive rate, $FPR = \frac{\text{false positives}}{\text{false positives} + \text{true negatives}} = FP / (FP + TN)$, at different thresholds for a prediction score to be counted as positive or negative.
+The true positive rate, $TPR = TP / (TP + FN)$,\marginnote{TP: True Positive \\ FN: False Negative \\ FP: False Positive \\ TN: True Negative} is plotted against the false positive rate, $FPR = FP / (FP + TN)$, at different thresholds for a prediction score to be counted as positive or negative.
 The ROC curve always starts at (0, 0) and ends at (1, 1).
 The diagonal shows the values above which a classifier performs better than a classifier with an accuracy of 0.5, where accuracy is
 \begin{align}
@@ -15,11 +15,11 @@ The corresponding baseline is determined by the function
 \begin{align}
     TPR = \frac{1 - \pi}{\pi} FPR + 2 - \frac{1}{\pi},
 \end{align}
-see [ref appendix] for a derivation.
+see \cref{subsec:roc-curve-baseline-derivation} for a derivation.
 A perfect classifier has an ROC curve that goes from (0, 0) to (0, 1) to (1, 1), such that the area under the ROC curve (AUROC) is the highest.
 
 \subsubsection{Precision-Recall curve}
-The ROC curve is not well-suited for imbalanced datasets~\cite{Takaya2015}.
+The ROC curve is not well-suited for imbalanced datasets~\sidecite{Takaya2015}.
 Another way to visualize model performance is plotting precision, $\mathrm{prec} = TP / (TP + FP)$, against $TPR$ (recall, rec), at different thresholds for a prediction score.
 The Precision-Recall (PR) curve ignores true negatives and always starts at (0, 1) and ends at (1, 0).
 The random classifier has its baseline at $\mathrm{prec} = \pi$.
@@ -40,12 +40,12 @@ The iso-$F_1$ curve with the $F_1$-score of the always positive classifier can b
 \begin{align}
     \mathrm{prec}_\text{always positive classifier} = \frac{F_{1,\,\text{always positive classifier}} \cdot \mathrm{rec}}{2\cdot\mathrm{rec} - F_{1,\,\text{always positive classifier}}},
 \end{align}
-see [ref appendix] for a derivation.
+see \cref{subsec:pr-curve-baseline-derivation} for a derivation.
 
 A perfect classifier has a PR curve that goes from (0, 1) to (1, 1), to (1, 0), such that the area under the PR curve (AUPR) is the highest.
 
 \subsubsection{Precision-Recall-Gain curve}
-The PR curve has some major problems~\cite{Flach2015}.
+The PR curve has some major problems~\sidecite{Flach2015}.
 Firstly, all baselines are non-universal.
 They depend on the distribution of positives.
 Secondly, the arithmetic mean of the $F_1$ scores are often reported, while this is not meaningful.

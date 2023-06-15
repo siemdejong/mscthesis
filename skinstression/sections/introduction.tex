@@ -15,9 +15,9 @@ Retrieving complex features from labelled images can be done using supervised de
 Supervised deep learning is considered a black-box technique that aims to learn a mapping from input to output.
 With the SHG images and corresponding stress-strain measurements at hand, Skinstression (from skin stretch regression) is developed with the ultimate goal to replace mechanical measurements on skin tissue to quantify skin stretch.
 Possibly, the model can be used to non-invasively investigate physical parameters to aid plastic surgery.
-For example, the prior flexibility of skin tissue determines the amount of manual continuous or cyclic stretching needed to close a gap after excision~\cite{Verhaegen2012}.
+For example, the prior flexibility of skin tissue determines the amount of manual continuous or cyclic stretching needed to close a gap after excision~\sidecite{Verhaegen2012}.
 
-Efforts to develop such a model have already been made by Soylu~\cite{Soylu2022}.
+Efforts to develop such a model have already been made by Soylu~\sidecite{Soylu2022}.
 However, those methods do not consider complete separation of training and test sets in both inference and label creation, possibly leading to biased results.
 Moreover, only one slice of larger image stacks have been used.
 The original model does not incorporate physical properties of the strain-stress curves but relies on principal component analysis.
@@ -25,7 +25,7 @@ The original model does not incorporate physical properties of the strain-stress
 Frequently, machine learning models and neural networks in particular lack the ability to explain how the model comes to its conclusions.
 Meanwhile, explainable artificial intelligence (XAI) techniques exist to shed light on the inner workings of algorithms, but are used sparingly.
 In the context of skin tissue, XAI could give insight into where the strength and elasticity comes from.
-A human expert might recognize straight collagen fibrils as a stiff network~\cite{Holzapfel2001}, but it is interesting to see if an AI explains stiffness in the same manner.
+A human expert might recognize straight collagen fibrils as a stiff network~\sidecite{Holzapfel2001}, but it is interesting to see if an AI explains stiffness in the same manner.
 
 The objective of this study is to extend Soylu's model.
 To this end, an application, Skinstression, will be developed and validated with separate training and validation data.

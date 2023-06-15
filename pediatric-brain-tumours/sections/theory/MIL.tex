@@ -88,7 +88,7 @@ As with DeepMIL, the weights can still be used to highlight tiles.
 
 \subsubsection{Clinical Context MIL}
 Clinical contexts such as locations of tumor resections are important for clinical decisions by pathologists.
-For example, medulloblastoma is mostly found in the fourth ventricle or cerebellar parenchyma~\cite{Millard2016}.
+For example, medulloblastoma is mostly found in the fourth ventricle or cerebellar parenchyma~\sidecite{Millard2016}.
 This information along with the attention weighted tiles (see \cref{subsubsection:theory_varmil}) may lead to better performance.
 As pathologists also have access to this information, it is reasonable for an AI model to use the same available information.
 
@@ -107,12 +107,12 @@ The embedding is concatenated to the output of the MIL aggregate, such that
 where $\boldsymbol{\mathcal{C}}$ is the clinical context text embedding.
 $\tilde{\vec{z}}$ is used as input for the trainable classifier.
 
-The text embedding can be created in various ways\footnote{See \textcite{Khattak2019} for a review.}.
+The text embedding can be created in various ways\sidenote{See \textcite{Khattak2019} for a review.}.
 The most direct way would be to create a list of possible sentences and convert the input text to a one-hot encoded vector, effectively selecting a specific sentence from the vocabulary.
 The drawback of this method is that it cannot handle out-of-vocabulary (OOV) words, which requires an extensive vocabulary that might become obsolete.
 
-One of the most promising methods for creating text embeddings for use in downstream tasks are transformer based methods~\cite{Vaswani2017}.
-Attention-based models such as BERT~\cite{Devlin2018} and ELMo~\cite{Peters2018} are able to distinguish important words and can distil the right meaning of homographs.
+One of the most promising methods for creating text embeddings for use in downstream tasks are transformer based methods~\sidecite{Vaswani2017}.
+Attention-based models such as BERT~\sidecite{Devlin2018} and ELMo~\sidecite{Peters2018} are able to distinguish important words and can distil the right meaning of homographs.
 With BERT's \texttt{[CLS]}-token, a sentence classification can be created to embed a sentence to a point in a high-dimensional space.
 These models can learn OOV words which enables them to be used in new contexts.
 

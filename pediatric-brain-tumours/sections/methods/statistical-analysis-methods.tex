@@ -23,7 +23,7 @@ The model consists of two stages: the feature extractor and the classifier.
 They are trained separately.
 
 \subsubsection{Feature extractor}
-The feature extractor is a convolutional neural network with a ShuffleNetV2 (x1.0) backbone, provided by imgclsmob~\cite{imgclsmob2023}, outputting a vector with length 1024.
+The feature extractor is a convolutional neural network with a ShuffleNetV2 (x1.0)~\sidecite{Ma2018} backbone, provided by imgclsmob~\sidecite{imgclsmob2023}, outputting a vector with length 1024.
 Two backbones were used as feature extractor.
 One was pre-trained on ImageNet and another feature extractor has an He initialized ShuffleNetV2 backbone and was trained using SimCLR.
 The SimCLR projection head consisted of two linear layers with dimensions 1024 and 128.
@@ -35,7 +35,7 @@ For DeepMIL, the attention block consists of a linear layer of size 256 with dro
 The classifier block consists of a linear layer with dropout and $\mathrm{softmax}$ activation function and has an output size of the number of classes to predict, \ie two.
 For VarMIL, the last linear layer accepts an input of twice the size, to account for the variance vector.
 For CCMIL, the last linear layer maps textual tumor locations (\eg "fourth ventricle") to a 312-dimensional space.
-Text is embedded with TinyClinicalBERT~\cite{Rohanian2023}, provided by Huggingface Transformers~\cite{Wolf2020}, using its \texttt{[CLS]}-token.
+Text is embedded with TinyClinicalBERT~\sidecite{Rohanian2023}, provided by Huggingface Transformers~\sidecite{Wolf2020}, using its \texttt{[CLS]}-token.
 During training, BERT's parameters were frozen.
 All other parameters were He initialized.
 To validate BERT, the location embeddings were projected to two dimensions with t-SNE.
@@ -55,8 +55,8 @@ Second, the features are projected with two-dimensional t-SNE after extracting t
 The t-SNE projections are colored by image and case identifier, and diagnosis.
 
 \subsubsection{Training}
-In total, 15 models are trained using PyTorch Lightning~\cite{Falcon2019}: 3 model definitions on 5 folds.
-For every fold and model a Successive Halving hyperparameter search is performed on 1 NVIDIA A100 GPU partitioned in 8 for a minimum of 30 epochs and a maximum of 500 epochs with resources managed by Ray Tune~\cite{Liaw2018} and 100 trials suggested by a grouped multivariate TPE sampler provided by Optuna~\cite{Akiba2019}.
+In total, 15 models are trained using PyTorch Lightning~\sidecite{Falcon2019}: 3 model definitions on 5 folds.
+For every fold and model a Successive Halving hyperparameter search is performed on 1 NVIDIA A100 GPU partitioned in 8 for a minimum of 30 epochs and a maximum of 500 epochs with resources managed by Ray Tune~\sidecite{Liaw2018} and 100 trials suggested by a grouped multivariate TPE sampler provided by Optuna~\sidecite{Akiba2019}.
 See \cref{tab:hyperparameter_search_space} for the hyperparameter search space.
 Using the configuration that lead to the model with the lowest validation loss is used for training on all splits for 2000 epochs.
 The models were trained on 1 NVIDIA A100 GPU for 2 hours with a bag size of 1, \ie all tiles from one image at a time.
@@ -83,7 +83,7 @@ The learning rate was varied with the cosine annealing scheduler.
 All models from the same initialization were evaluated against a test set.
 Performance is visualized using an ROC, PR and PRG curve.
 AUC, AUPR, and AUPRG with their \qty{95}{\percent} confidence interval are reported to compare models.
-Metrics were calculated by Torchmetrics~\cite{Detlefsen2022} and pyprg~\cite{Flach2015}.
+Metrics were calculated by Torchmetrics~\sidecite{Detlefsen2022} and pyprg~\sidecite{Flach2015}.
 
 \subsubsection{Attention maps}
 To verify and to gain knowledge of the inner workings of the model, attention maps are created.
