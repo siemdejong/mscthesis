@@ -230,7 +230,7 @@ Targets are often binary: probability of zero and one for the negative and posit
 Cross entropy can be used to calculate the loss between probabilities and their targets.
 It is defined as
 \begin{align}\label{eq:ce}
-    CE(x, y) = \frac{1}{N}\sum_{n=1}^N [-\sum_{c=1}^C \log \frac{e^x_{n,c}}{\sum_{i=1}^C e^{x_{n,i}}} y_{n,c}],
+    CE(x, y) = \frac{1}{N}\sum_{n=1}^N \left[-\sum_{c=1}^C \log \frac{e^x_{n,c}}{\sum_{i=1}^C e^{x_{n,i}}} y_{n,c}\right],
 \end{align}
 where $x$ is the probability output, $y$ the target, $C$ the number of classes, and $N$ the number of batches used.
 
