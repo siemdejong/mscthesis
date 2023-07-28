@@ -1,7 +1,7 @@
 % Load the kaobook class
 \documentclass[
 	fontsize=10pt, % Base font size
-	twoside=true, % Use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
+	twoside=false, % Use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
 	% open=any, % If twoside=true, uncomment this to force new chapters to start on any page, not only on right (odd) pages
 	secnumdepth=2, % How deep to number headings. Defaults to 1 (sections)
 	numbers=noenddot,
@@ -158,7 +158,7 @@ propagate-math-font = true
 %	OUTPUT TITLE PAGE AND FRONTMATTER
 %----------------------------------------------------------------------------------------
 
-% \includepdf[pages=-]{images/cover.pdf}
+\includepdf[pages=-]{images/cover.pdf}
 
 \input{frontbackmatter/titlepage.tex}
 \input{frontbackmatter/titleback.tex}
