@@ -12,17 +12,30 @@ The nearest neighbors in image space calculated from the feature representations
 This is important, as it is assumed that disease features in feature space are similar in the same way they are similar in image space.
 
 Ideally, SimCLR maps tiles to features in as many clusters as there are target classes, such that the classes can be easily separated.
-In the t-SNE projections (\cref{fig:tsne-features}), the classes seem reasonably well separated, which is more apparent at higher t-SNE perplexities.
-However, feature projections of multiple images with the same diagnosis are rarely packed together.
+In the t-SNE projections (\cref{fig:tsne-features}), the classes seem reasonably well separated.
+However, feature projection clusters belonging to the same diagnosis seem to correlate with case number or image number, showing that this self-supervised approach is not able to generalize well.
 This can likely be improved by using larger feature extraction backbones or more sophisticated self-supervised training scheme like SwAV~\sidecite{Caron2020}.
+Also, the influence of the transformation distribution is not investigated.
+Possibly, some transformations obfuscate important tumor information while others generate no contrast.
 
-\subsection{The PMC-HHG dataset is too small to make distinguishing statements on model performance}
-The errors on the test AUPRG are \qty{122 \pm 106}{\percent}, which is most probably the result of a small dataset.
-As shown in \sidecite{Schirris2022}, performance metrics are expected to drastically increase when increasing the number of samples.
+\subsection{The dataset is too small to distinguish model performance}
+The standard errors on the test AUPRG are \qty{62}{\percent} (SE \qty{22}{\percent}), which is most probably the result of a small dataset.
+Ref.~\sidecite{Schirris2022} has shown a \qty{130}{\percent} increase in AUC when including five times as much data.
 With a larger number of samples, there is a higher probability that features of training and testing data are similar, which ought to improve performance.
+
+Future studies could investigate if multiple imaging modalities can be combined via transfer learning \sidecite{Zhuang2019}.
+Comparable with synthesizing CT images from MRI with deep learning \sidecite{Li2021b}, HE images might be synthesized from HHG images.
+With transfer learning, HE pretrained models can be further fine-tuned on HE transformed HHG data.
 
 \subsection{Domain-specific and ImageNet pretrained feature extractors have comparable performance}
 No evidence is found that domain-specific feature extractors perform better than ImageNet pretrained feature extractors.
 Model performance on the test and validation set is comparable as the AUC, AUPR, and AUPRG are not significantly different.
-It is expensive (in terms of time, price and environmental) to train a domain-specific feature extractor.
+It is expensive (in terms of time, price and environment) to train a domain-specific feature extractor.
 Therefore, it is striking that a SimCLR pretrained backbone does not outperform the ImageNet pretrained backbone.
+
+\subsection{High and low attention seems to be given to appropriate features}
+High attention medulloblastoma tiles seem to show high cellularity, as expected.
+High attention pilocytic astrocytoma tiles seem to hardly contain any piloid cells, except maybe in the 0.36 tile.
+The 0.79 attention tile might contain Rosenthal fibers.
+All low attention tiles contain very bright structures in THG signal, supposedly mostly produced by blood.
+Practically discarding these tiles seems reasonable.

@@ -1,0 +1,18 @@
+@startuml System context diagram
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include FONTAWESOME/user.puml
+!include FONTAWESOME/microscope.puml
+!include FONTAWESOME/cube.puml
+
+Person(neurosurgeon, "Neurosurgeon", "Wants to know what tumor type is being resected.", $sprite="user")
+System(HHG_microscope, "HHG microscope", "Images brain tissue tissue at subcellular resolution.", $sprite="microscope")
+System(SCLICOM, "SCLICOM", "A two-stage convolutional neural network for predicting brain tumor type.", $sprite="cube", $link="https://github.com/siemdejong/sclicom")
+
+Rel_D(neurosurgeon, HHG_microscope, "Uses")
+Rel_R(HHG_microscope, SCLICOM, "Sends image to")
+Rel_U(SCLICOM, neurosurgeon, "Uses")
+
+SHOW_LEGEND()
+@enduml

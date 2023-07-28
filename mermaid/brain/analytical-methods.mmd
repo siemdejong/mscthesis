@@ -4,7 +4,6 @@ flowchart TD
     images[(Overview + close-up images)]
     targets[(Case # and diagnosis)]
     cc[(Locations per case)]
-    annotations[(Pathologist annotations)]
 
     subgraph splits[Create folds]
         filter_data[Filter medulloblastoma and pilocytic astrocytoma]
@@ -70,8 +69,6 @@ flowchart TD
         subgraph final[Final model]
             direction LR
             A[Attention map]
-            IoU([Intersection over union])
-            A --> IoU
         end
     end
 
@@ -81,5 +78,4 @@ flowchart TD
     pretraining ---> xai
     train_bv ---> test
     best_model --> xai
-    annotations -------------> xai
     cc ------> CCMIL

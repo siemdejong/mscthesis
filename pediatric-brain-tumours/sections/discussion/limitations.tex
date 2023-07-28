@@ -14,7 +14,7 @@ Having a higher sample size reduces the chance of separating disease features in
 \subsubsection{Tile size was not varied}
 The HHG microscope can image tissue with a resolution of \qty{0.2}{mpp}.
 The tiles that are presented to the model are \qty{44.8}{\micro\meter}$\times$\qty{44.8}{\micro\meter}.
-Medulloblastomas are characterized by the absence of increased cell size (max.~$\sim\qty{32}{\micro\meter}$~\sidecite{Orr2020}), among others.
+Medulloblastomas are characterized by the absence of increased cell size (max.~$\sim$$\qty{32}{\micro\meter}$~\sidecite{Orr2020}), among others.
 This is smaller than the tile size.
 Pilocytic astrocytomas develop from astrocytes and their processes are about \qty{97.9}{\micro\meter}~\sidecite{Vasile2017}, which is larger than the tile size.
 It might be beneficial for the model to work with tile sizes larger than key disease features, otherwise the model may have more difficulty recognizing specific disease patterns.
@@ -35,3 +35,14 @@ The weights after the MIL aggregate are learnable.
 These weights are accountable for the new performance.
 The text embeddings may be more optimally clustered for this classification task.
 To possibly achieve this, the NLP can be fine-tuned while training the classifier.
+
+\subsubsection{Classifier training batch size of one}
+The classifier is trained with a batch size of one.
+However, \sidecite{Schirris2022} managed to train VarMIL with a batch size larger than one using padding of the images to overcome the differences in image size.
+A larger batch size supposedly improves training speed and convergence.
+
+\subsubsection{High and low attention tiles were not reviewed by a pathologist}
+CCMIL outputs attention weights corresponding to input tiles.
+Tiles with the highest attention should show tumor features while low attention tiles should contain normal tissue or features not important for tumor classification.
+No pathologist has verified this.
+Future studies should investigate the association between tumor features found by multiple pathologists and the tile attention.

@@ -51,7 +51,7 @@ They depend on the distribution of positives.
 Secondly, the arithmetic mean of the $F_1$ scores are often reported, while this is not meaningful.
 It is only meaningful to take the harmonic mean.
 
-For more considerations, see \textcite{Flach2015}, which proposes the Precision-Recall-Gain (PRG) curve.
+For more considerations, see \citeauthor{Flach2015} \sidecite{Flach2015}, which proposes the Precision-Recall-Gain (PRG) curve.
 This curve is a harmonic transformation of the PR curve, such that the random baseline is at $\mathrm{prec}$-Gain $ = PG = 0$ for all $\mathrm{rec}$-Gain $ = RG$ and the always positive classifier is at (1, 0).
 The transformed $F_\beta$-score, the $FG_\beta$-score is defined as
 \begin{align}
@@ -71,7 +71,7 @@ This shows that the PRG curve is better suited to compare models as opposed to t
 \begin{figure*}
     \centering
     \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/roc-pr-prg-curves.jpg}
-    \caption{
+    \caption[ROC, PR, and PRG curve comparison]{
         Receiver operating characteristic (ROC) curve, Precision-Recall (PR) curve, and Precision-Recall-Gain curve of two models.
         The random (dotted, purple) and always positive classifier (dashed, yellow) baselines are shown, as well as the $\mathrm{precision} = \mathrm{recall}$ lines.
         The area under the PR curve wrongly suggests that the model with the dashed line performs better, while the area under the PRG curve suggests it's the worst.

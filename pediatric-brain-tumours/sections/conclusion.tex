@@ -1,5 +1,5 @@
 \section{Conclusion}
 The goal of this study was to develop a classifier to distinguish pilocytic astrocytoma and medulloblastoma in higher harmonic generation images while also providing resection location as clinical context.
-An attention-based multi-instance learning classifier pretrained with SimCLR and using BERT for clinical context embedding achieved a mean average precision of \num{0.89\pm 0.14} and \num{0.41\pm 0.56} AUPRG.
+An attention-based multi-instance learning classifier pretrained with SimCLR and using BERT for clinical context embedding achieved a mean average precision of \num{0.89} (SE \num{0.05}) and \num{0.41} (SE \num{0.20}) AUPRG.
 More data is needed to test if the proposed model performs better than an ImageNet pretrained model or a model without clinical context embedding performed.
 Although the model could benefit from more data and may be fine-tuned on a broader range of tumors, the model may be used intraoperatively to validate medulloblastoma or pilocytic astrocytoma diagnoses or to pre-select interesting regions for diagnosis.

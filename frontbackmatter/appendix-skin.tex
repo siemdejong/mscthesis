@@ -1,5 +1,5 @@
 \section{Fits to stress-strain curves}
-PCA and logistic curve fits to the skin stress-strain curves are shown in \cref{fig:pca_fits, fig:logistic_fits}, respectively.
+PCA and logistic curve fits to the skin stress-strain curves are shown in \cref{fig:pca_fits,fig:logistic_fits}, respectively.
 
 \begin{figure*}
     \ContinuedFloat
@@ -123,6 +123,32 @@ PCA and logistic curve fits to the skin stress-strain curves are shown in \cref{
         Note that the vertical axes are not equal.
     }
     \label{fig:logistic_fits}
+\end{figure*}
+
+\section{Training prediction}
+Results of a random training batch are shown in \cref{fig:skinstression-train-logistic-curves}.
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_6_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_10_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_12_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_15_0.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_16_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_18_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_19_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_28_0.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_30_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_32_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_35_0.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_37_0.pdf} \\
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_44_1.pdf}
+    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_46_0.pdf}
+    \caption[Training results]{
+        Results of a random training batch.
+        Raw mechanical measurement without error bars ($\times$) are shown together with the AI fit (red).
+        Performance is quantified by $R^2$.
+    }
+    \label{fig:skinstression-train-logistic-curves}
 \end{figure*}
 
 \section{Configuration spaces}\label{app:skin_conf_search_spaces}

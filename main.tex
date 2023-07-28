@@ -158,6 +158,8 @@ propagate-math-font = true
 %	OUTPUT TITLE PAGE AND FRONTMATTER
 %----------------------------------------------------------------------------------------
 
+\includepdf[pages=-]{images/cover.pdf}
+
 \input{frontbackmatter/titlepage.tex}
 \input{frontbackmatter/titleback.tex}
 
@@ -166,6 +168,9 @@ propagate-math-font = true
 %----------------------------------------------------------------------------------------
 
 % \input{preface.tex}
+\clearpage
+\pagelayout{margin}
+\input{abstract.tex}
 
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS & LIST OF FIGURES/TABLES
@@ -260,6 +265,9 @@ propagate-math-font = true
 \pagelayout{margin} % Restore margins
 
 \input{general_discussion_and_conclusion.tex}
+\clearpage
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\input{acknowledgements.tex}
 
 % \defbibnote{bibnote}{Here are the references in citation order.\par\bigskip} % Prepend this text to the bibliography
 % \printbibliography[heading=bibintoc, title=Bibliography, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
@@ -277,9 +285,6 @@ propagate-math-font = true
 \pagelayout{margin}
 
 \input{frontbackmatter/appendix-skin.tex}
-
-
-\addcontentsline{toc}{part}{Appendix}
 
 \pagelayout{wide}
 \chapter{SCLICOM}

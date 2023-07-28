@@ -1,6 +1,6 @@
-\subsection{Models}
+\subsection{Models}\label{subsec:models}
 This section shows the methods to obtain a model trained on HHG images, diagnoses and clinical context.
-The final model, a combination of two models together named SCLICOM (from Self-supervised pre-training and CLInical COntext-aware Multi-instance learning), should be able to explain itself via attention maps, which are compared with pathologist annotations.
+The final model, a combination of two models together named SCLICOM (from Self-supervised pre-training and CLInical COntext-aware Multi-instance learning), should be able to explain itself via attention maps.
 The pipeline is summarized in \cref{fig:flowchart-sclicom}.
 
 \begin{figure*}
@@ -14,7 +14,7 @@ The pipeline is summarized in \cref{fig:flowchart-sclicom}.
         The extracted features are used to train VarMIL and CCMIL models.
         One fold for every model is used to search for hyperparameters with which the models are further trained.
         The models are tested on the test set and AUC, AUPR, and AUPRG are reported.
-        Attention maps are made from the best performing model and compared with pathologist annotations.
+        Attention maps are made from the best performing model.
     }
     \label{fig:flowchart-sclicom}
 \end{figure*}
@@ -23,7 +23,7 @@ The model consists of two stages: the feature extractor and the classifier.
 They are trained separately.
 
 \subsubsection{Feature extractor}
-The feature extractor is a convolutional neural network with a ShuffleNetV2 (x1.0)~\sidecite{Ma2018} backbone, provided by imgclsmob~\sidecite{imgclsmob2023}, outputting a vector with length 1024.
+The feature extractor is a convolutional neural network with a {ShuffleNetV2} (x1.0)~\sidecite{Ma2018} backbone, provided by imgclsmob~\sidecite{imgclsmob2023}, outputting a vector with length 1024.
 Two backbones were used as feature extractor.
 One was pre-trained on ImageNet and another feature extractor has an He initialized ShuffleNetV2 backbone and was trained using SimCLR.
 The SimCLR projection head consisted of two linear layers with dimensions 1024 and 128.
@@ -35,12 +35,12 @@ For DeepMIL, the attention block consists of a linear layer of size 256 with dro
 The classifier block consists of a linear layer with dropout and $\mathrm{softmax}$ activation function and has an output size of the number of classes to predict, \ie two.
 For VarMIL, the last linear layer accepts an input of twice the size, to account for the variance vector.
 For CCMIL, the last linear layer maps textual tumor locations (\eg "fourth ventricle") to a 312-dimensional space.
-Text is embedded with TinyClinicalBERT~\sidecite{Rohanian2023}, provided by Huggingface Transformers~\sidecite{Wolf2020}, using its \texttt{[CLS]}-token.
+Text is embedded with TinyClinicalBERT~\sidecite{Rohanian2023}, provided by Huggingface Transformers~\sidecite{Wolf2020}, using its \texttt{[CLS]}-token.\sidenote{TinyClinicalBERT is trained on the critical care MIMIC-III database \cite{Johnson2016}}
 During training, BERT's parameters were frozen.
 All other parameters were He initialized.
 To validate BERT, the location embeddings were projected to two dimensions with t-SNE.
 
-\subsubsection{Internal validation}\label{subsubsec:slicom-folds}
+\subsubsection{Internal validation}
 The data was split in five training and test data folds, stratified by case.
 All training splits were further split randomly, again stratified by case.
 The flow of images to splits is visualized in \cref{app:folds-splits-viz}.

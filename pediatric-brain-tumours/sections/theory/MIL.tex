@@ -35,7 +35,7 @@ See \cref{fig:classifier} for a schematic overview of a general MIL model.
 \subsubsection{Attention-based MIL pooling}
 For pathology studies, it is important to visualize which instances are important for classification.
 With classical MIL, this is not possible.
-To overcome the restrictive nature of maximum pooling, \textcite{Ilse2018} propose DeepMIL and use an adaptive weighted average of instances.
+To overcome the restrictive nature of maximum pooling, \citeauthor{Ilse2018} \sidecite{Ilse2018} propose DeepMIL and use an adaptive weighted average of instances.
 This weighted average includes learnable weights in an attention-based manner.
 High weights should be assigned to instances that are likely to have a positive label.
 The weights allow distinguishing interesting instances from uninteresting ones, see \cref{fig:explainer}.
@@ -49,7 +49,7 @@ The weighted average of $H$ is
 where
 \begin{equation}
     a_k = \frac{\exp\left[\mathbf{w}^T \tanh (\mathbf{V}\vec{h}_k^T)\right]}{\sum_{j=1}^{K}\exp\left[\mathbf{w}^T \tanh (\mathbf{V}\vec{h}_k^T)\right]},
-\end{equation}\todo[noline]{Add bias terms}
+\end{equation}
 where $\mathbf{w} \in \mathbb{R}^{L \times 1}$ and $\mathbf{V}\in \mathbb{R}^{L \times M}$ are the learnable parameters.
 The denominator ensures the weights sum to 1.
 $\vec{z}$ is further processed in an MLP for classification.
@@ -71,7 +71,7 @@ The weights can also be multiplied by the corresponding input tiles to show whic
 DeepMIL has the disadvantage of discarding any inter-tile information.
 In a clinical setting, this high-level information can model \eg the intratumor heterogeneity or tumor border shape.
 
-\textcite{Schirris2022} propose Variance MIL (VarMIL) which adds a learnable attention-weighted variance,
+\citeauthor{Schirris2022} \sidecite{Schirris2022} propose Variance MIL (VarMIL) which adds a learnable attention-weighted variance,
 \begin{equation}
     \boldsymbol{\sigma} = \frac{K}{K - 1} \sum_{k=1}^{K}a_k\left(\vec{h}_k-\vec{z}\right)^2,
 \end{equation}

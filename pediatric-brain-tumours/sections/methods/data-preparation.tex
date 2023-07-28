@@ -2,7 +2,7 @@
 
 The target classification is transformed to unique numbers.
 
-Images are exported from the raw HHG microscope data by \textcite{Spies2023}.
+Images are exported from the raw HHG microscope data by \citeauthor{Spies2023} \sidecite{Spies2023}.
 Overview images of \qty{1}{mpp} and close-up images of \qty{0.2}{mpp} of histologically interesting areas were made.
 To be able to use both images, the overview images were scaled to the same resolution as close-up images using Lanczos interpolation.
 
@@ -15,4 +15,4 @@ Ideally, empty areas are masked such that only informative tiles are included.
 For this, multiple algorithms specifically written for H\&E data are evaluated on HHG data (see \cref{subsec:masking}).
 The best performing algorithm, EntropyMasker, is chosen to extract the foreground.
 
-Rescaling, tiling and masking has been done with a fork\sidenote{\href{https://github.com/siemdejong/dlup/tree/entropy_masker}{\faIcon{github} siemdejong/dlup@entropy\_masker}} of the Deep Learning Utilities for Pathology project~\sidecite{Teuwen2023} that includes a reimplementation of the EntropyMasker~\sidecite{Laan2022}.
+Rescaling, tiling and masking has been done with a fork \sidecite{dlupentropymasker} of the Deep Learning Utilities for Pathology project~\sidecite{Teuwen2023} that includes a reimplementation of the EntropyMasker.

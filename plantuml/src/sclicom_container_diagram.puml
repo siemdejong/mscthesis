@@ -1,0 +1,44 @@
+@startuml Container diagram
+' https://github.com/plantuml-stdlib/C4-PlantUML#c4-plantuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include FONTAWESOME/user.puml
+!include FONTAWESOME/microscope.puml
+!include FONTAWESOME/cube.puml
+
+UpdateElementStyle(external_container, $legendText="external container")
+
+Person(neurosurgeon, "Neurosurgeon", "Wants to know what tumor type is being resected.", $sprite="user")
+System(HHG_microscope, "HHG microscope", "Images brain tissue tissue at subcellular resolution.", $sprite="microscope")
+System_Boundary(SCLICOM, "SCLICOM", $link=https://github.com/siemdejong/sclicom) {
+    Container(notebooks, "Notebooks", "IPython", "Explore data, create masks.")
+    Container(application, "Application", "Python", "Tune hyperparameters, and train model stage 1 and 2")
+    ContainerDb(model_zoo, "Model zoo", "Pytorch", "Training checkpoints.")
+    ContainerDb(config, "Configurations", "YAML", "Hyperparameter and training configurations.")
+    ContainerDb(logs, "Logs", "txt")
+    Container(RayTune, "Ray Tune", "Hyperparameter optimization resource manager.", $link="https://www.ray.io/ray-tune")
+    Container(Lightning, "Pytorch Lightning", "Training framework and resource manager.", $link="https://lightning.ai/docs/pytorch/stable/")
+    Container_Ext(tensorboard, "Tensorboard", "Pytorch/Tensorflow", "Training visualization", $link="https://www.tensorflow.org/tensorboard")
+    ContainerDb_Ext(img_db, "Images", "TIF", "Microscope output to learn from.")
+}
+
+Rel(neurosurgeon, HHG_microscope, "Uses")
+Rel(neurosurgeon, notebooks, "Uses")
+Rel(config, application, "Uses")
+Rel(Lightning, application, "Uses")
+Rel(notebooks, img_db, "Reads from and writes to")
+Rel(notebooks, model_zoo, "Reads from and writes to")
+Rel(neurosurgeon, application, "Uses")
+Rel(application, model_zoo, "Reads from and writes to")
+Rel(HHG_microscope, img_db, "Writes to")
+Rel(application, tensorboard, "Writes to")
+Rel(RayTune, application, "Manages hyperparameter optimization resources")
+Rel(application, logs, "Writes to")
+
+' Lay_D(notebooks, application)
+
+SHOW_FLOATING_LEGEND()
+Lay_Distance(HHG_microscope, LEGEND(), 0)
+Lay_D(HHG_microscope, LEGEND())
+@enduml

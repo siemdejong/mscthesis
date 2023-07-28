@@ -66,7 +66,7 @@ The deeper photons travel into tissue, the more possible paths photons can take 
 Moreover, the chance of photons getting absorbed by the tissue increases with penetration depth.
 Therefore, less photons get reflected from deeper tissue.
 
-To counter these optical effects, inspired by \textcite{Koho2016} and \textcite{Blokker2022}, measures to quantify image quality can be obtained.
+To counter these optical effects, inspired by \citeauthor{Koho2016} \sidecite{Koho2016} and \citeauthor{Blokker2022} \sidecite{Blokker2022}, measures to quantify image quality can be obtained.
 With this, images can be sorted to this measure and the top $k$ images with best quality can be used to train the network, thus excluding noise.
 
 Candidates for this measure are Shannon entropy, kurtosis, and skew for reasons explained in \ref{subsec:imq}
@@ -126,19 +126,23 @@ This section shows the methods obtain a trained model from stress-strain curves 
 \end{figure*}
 
 \subsubsection{Predictor pre-selection}
-As discussed in \cref{sec:skin_predictors}, there are three predictor candidates.
+As discussed in \cref{subsec:skin_predictors}, there are three predictor candidates.
 These candidates are tested against the original strain-stress curves.
 
+Strain-stress curves for all individuals were kindly provided by M.\ Zhou.
+The curves only include points where the skin extension is larger than zero and the force positive.
+
 \paragraph{Exponential and logistic curve}
-The exponential and logistic models are fitted to all raw strain-stress curves.
-The goodness of fit is determined by the coefficient of determination (\cref{subsec:coef_det}) and by eye.
-A fit is considered good if it passes reasonably through all data points.
+The exponential and logistic models are fitted to all raw strain-stress curves with Scipy \sidecite{2020SciPy-NMeth}.
+The optimal parameters were used as targets for training the model.
+The goodness of fit is determined by the coefficient of determination (\cref{subsec:coef_det}).
+A fit is considered good if $R^2 \approx 1$ and it passes reasonably through all data points.
 In particular, the exponential regime of the fit should describe the leg part of the curve.
 
 \paragraph{Principal component analysis}
 PCA requires curves to align on at least one axis.
 The first step to achieve this is excluding all stretch values above the stretch of the maximum of the shortest curve.
-\textcite{Soylu2022} did linear interpolation on the curves and restricted both stretch and stress to minim peak value.
+\citeauthor{Soylu2022} \sidecite{Soylu2022} did linear interpolation on the curves and restricted both stretch and stress to minim peak value.
 PCA on two variables requires only one shared set of points.
 Moreover, results of \citeauthor{Soylu2022} show knicks in the PCA reconstructions near the end of the curves, which could originate from a limited amount of data or linear interpolation.
 Therefore, in this study, a non-uniform, univariate, interpolating spline was fitted to all points using Scipy~\sidecite{2020SciPy-NMeth} and the stress was calculated from the spline at the stetch values of the curve with the lowest maximum stretch.
@@ -167,7 +171,7 @@ The first linear layer maps 64 nodes to $N_\mathrm{nodes}$ nodes.
 After the first linear layer, BN and ReLU activation is applied.
 The second linear layer maps $N_\mathrm{nodes}$ nodes to 3 nodes.
 A linear activation function ensures the output is continuous and unaltered.
-The model is shown in \cref{fig:model}
+The model is shown in \cref{fig:model}.
 
 \begin{figure*}
     \includegraphics{skinstression/images/skinstression.pdf}
@@ -181,9 +185,9 @@ The model is shown in \cref{fig:model}
 \end{figure*}
 
 The dropout layers in \sidecite{Soylu2022} are replaced by BN layers, as the input is not normalized and studies report better performance with BN.
-Bias of all layers preceding BN layers have been set to zero.
+Bias of all layers preceding BN layers have been set to zero to remove redundancy.
 
-The neural network weights are initialized according to the method described by \textcite{He2015a}, using a uniform transform.
+The neural network weights are initialized according to the method described by \citeauthor{He2015a} \sidecite{He2015a}, using a uniform transform.
 
 \subsubsection{Hyperparameter optimization}
 First, benchmark search 1 was done using Successive Halving with 100 trials.
@@ -273,12 +277,14 @@ Algorithms provided by Optuna \sidecite{Akiba2019} were used to choose trial con
 \end{table}
 
 \subsubsection{Training}
-Using the best configuration for hyperparameter optimization, a model is trained further for a total of 10000 epochs.
-The learning rate scheduler was cosine annealing with warm restarts to allow for model ensembling later during inference (\cref{subsec:model_ensembling}), if deemed useful.
+The AI was trained on a with LDS smoothed target variable distribution.
+The targets were weighted with the inverse square root, to limit the impact of LDS.
+Using the best configuration from hyperparameter optimization, a model is trained further for a total of 10000 epochs.
+The learning rate scheduler was cosine annealing with warm restarts to allow for model ensembling later during inference\sidecite{Huang2017}, if deemed useful.
 The learning rate was warmed up linearly for the first 20 epochs.
 To see the influence of image quality, the model is trained using an ordered set of images.
 The images are ordered with maximum entropy first and the model is trained on all images and the top 10, 20 and 30 images of every stack.
-Moreover, to see the effect of using the original zoom level with the greatest detail at hand, the best 20 images of every stack were center-cropped to $500\times500$ and further randomly cropped randomly to $258\times258$.
+Moreover, to see the effect of using the original zoom level with the greatest detail at hand, the best 20 images of every stack were center-cropped to $500\times500$ and further randomly cropped to $258\times258$.
 The lowest validation focal loss is used to compare model performance.
 The model with the lowest validation loss is used for testing.
 
@@ -291,6 +297,12 @@ The AI learns from the training set.
 Every iteration, it is validated against the validation set.
 During inference, the AI is applied to the test set as external validation.
 The prediction is assessed by comparing it with measured strain-stress curves where $R^2$ is calculated with a \qty{95}{\percent} confidence interval.
+
+\subsubsection{Bias study}
+It is important to perform a study on bias for possible explanations of varying AI performance.
+The samples were taken from individuals with varying age and gender.
+Moreover, from some individuals, more mechanical measurements were taken.
+Therefore, the age, gender, and number of samples were summarized.
 
 % \subsubsection{Model selection}
 % MISSCHIEN MODEL ENSEMBLING EN VALIDATION SET GEBRUIKEN VOOR VINDEN VAN BESTE AANTAL MODELS?

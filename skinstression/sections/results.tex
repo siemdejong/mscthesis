@@ -1,6 +1,6 @@
 \section{Results}
 
-\begin{figure*}
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{skinstression/images/truncated-and-interpolated-curves.pdf}
     \caption[Truncated and spline interpolated curves]{
@@ -8,11 +8,11 @@
         using non-uniform, interpolating splines on the stretch values of the curve with the lowest maximum stretch.
     }
     \label{fig:trunc_interp_curves}
-\end{figure*}
+\end{figure}
 
 \subsection{Participants}\label{subsec:results_participants}
 
-Earlier studies (refs) include 18 individuals (5 men, 4 women, and 6 unknown).
+Earlier studies \sidecite{Haasterecht2023, Zhou2023, Soylu2022} include 18 individuals (5 men, 4 women, and 6 unknown).
 Abdomen data was excluded, because the strain-stress curves differ significantly from the thigh.
 All thigh data is included, which is different from the original study, where only the 48 latest samples were used.
 These considerations result in data including 15 individuals (5 men, 4 women, 3 unknown).
@@ -21,23 +21,17 @@ From every skin tissue piece, measured strain-stress curves are shown in \cref{f
 The number of measured strain-stress curves range from 1 to 13.
 The source of data is summarized in \cref{fig:source_of_data}.
 
-\begin{figure*}
+\begin{marginfigure}
     \centering
     \includegraphics[width=\linewidth]{skinstression/images/age_distribution.pdf}
     \caption[Source of data]{
         The selected individuals and their sex, age and number of strain-stress curves.
-        Top panel: shows the age and sex distribution. Blue, pink and black denote male, female and unknown sex.
-        In fact, the age of person 12, 11, and 4 are unknown.
-        Bottom panel: shows the number of curves per person.
+        Bubble size and centered text show number of curves.
     }
     \label{fig:source_of_data}
-\end{figure*}
+\end{marginfigure}
 
 \subsection{Predictor pre-selection}
-\subsubsection{Exponential}
-An exponential fit to \cref{eq:exp} is shown in \cref{fig:exp_fits}.
-$R^2 = \num{0.9497}$.
-The exponent is not able to fit the plateau that is often exhibited near maximum stretch.
 
 \begin{marginfigure}
     \centering
@@ -50,17 +44,23 @@ The exponent is not able to fit the plateau that is often exhibited near maximum
     \label{fig:exp_fits}
 \end{marginfigure}
 
+\subsubsection{Exponential}
+An exponential fit to \cref{eq:exp} is shown in \cref{fig:exp_fits}.
+$R^2 = \num{0.9497}$.
+The exponent is not able to fit the plateau that is often exhibited near maximum stretch.
+
+
 \subsubsection{PCA}
 The PCA fit for every truncated and interpolated strain-stress curve is depicted in \cref{fig:pca_fits}.
 An example is shown in \cref{fig:pca-fit-and-r2-histogram}.
 For every fit, $R^2$ is calculated with respect to the interpolated and truncated data.
-On average, $\overline{R^2} \approx \num{0.9927 \pm 0.0022}$.
+On average, $\overline{R^2} \approx \num{0.9926}$ (SE \num{0.0003}).
 Due to the nature of PCA, the exponential part of the curves that rise later is not included in the making of the fit.
 
-\begin{marginfigure}
+\begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{skinstression/images/pca-fits/sample_6.pdf} \\
-    \includegraphics[width=\linewidth]{skinstression/images/pca-fits/r2_hist.pdf}
+    \includegraphics[width=0.45\linewidth]{skinstression/images/pca-fits/sample_6.pdf}
+    \includegraphics[width=0.45\linewidth]{skinstression/images/pca-fits/r2_hist.pdf}
     \caption[Logistic curve fits to stress-strain curves]{
         Top panel: PCA fit (red) to one stress-strain curve (black).
         $R^2 = 0.993$.
@@ -68,19 +68,20 @@ Due to the nature of PCA, the exponential part of the curves that rise later is 
         Mean $R^2 = 0.9927$ (red) with a standard deviation of \num{0.0022}.
     }
     \label{fig:pca-fit-and-r2-histogram}
-\end{marginfigure}
+\end{figure}
 
 
 \subsubsection{Logistic curve}
 The logistic curve fit for every strain-stress curve is shown in \cref{fig:logistic_fits}.
 An example is shown in \cref{fig:logistic-fit-and-r2-histogram}.
 For every fit, $R^2$ is calculated.
-On average, $\overline{R^2} \approx \num{0.9979 \pm 0.0039}$.
+On average, $\overline{R^2} \approx \num{0.9984}$ (SE \num{0.0002}).
+Because the logistic curve describes the stress-strain data more accurate than PCA or the exponential, it will be used from now on.
 
-\begin{marginfigure}
+\begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{skinstression/images/logistic-fits/sample_6.pdf} \\
-    \includegraphics[width=\linewidth]{skinstression/images/logistic-fits/r2_hist.pdf}
+    \includegraphics[width=0.45\linewidth]{skinstression/images/logistic-fits/sample_6.pdf}
+    \includegraphics[width=0.45\linewidth]{skinstression/images/logistic-fits/r2_hist.pdf}
     \caption[Logistic curve fits to stress-strain curves]{
         Top panel: Logistic curve fit (red) to one stress-strain curve (black).
         $R^2 = 0.9983$.
@@ -88,16 +89,13 @@ On average, $\overline{R^2} \approx \num{0.9979 \pm 0.0039}$.
         Mean $R^2 = 0.9980$ (red) with a standard deviation of \num{0.0036}.
     }
     \label{fig:logistic-fit-and-r2-histogram}
-\end{marginfigure}
-
-Because the logistic curve describes the stress-strain data more accurate than PCA or the exponential, it will be used from now on.
+\end{figure}
 
 \subsubsection{Label density smoothing}
-The labels were smoothed using LDS using gaussian kernels.
+The labels were smoothed using LDS using Gaussian kernels.
 All kernels had a size of 30 and a standard deviation of 3.
 The distribution bins were manually set to $(\sigma_{\mathrm{max},\mathrm{min}}, \sigma_{\mathrm{max},\mathrm{max}}, s_{\sigma_\mathrm{max}}) = (0, 15, 0.01) \unit{\mega\pascal}$,
-$(E_{\mathrm{max},\mathrm{min}}, E_{\mathrm{max},\mathrm{max}}, s_{E_\mathrm{max}}) = (0, 50, 0.1) \unit{\mega\pascal\per\stretch}$, and
-$(\gamma_{c,\mathrm{min}}, \gamma_{\mathrm{max},\mathrm{max}}, s_{\gamma_\mathrm{max}}) = (1, 1.5, 0.001) \unit{\stretch}$,
+$(E_{\mathrm{max},\mathrm{min}}, E_{\mathrm{max},\mathrm{max}}, s_{E_\mathrm{max}}) = (0, 50, 0.1) \unit{\mega\pascal\per\stretch}$, and \\ $(\gamma_{c,\mathrm{min}}, \gamma_{\mathrm{max},\mathrm{max}}, s_{\gamma_\mathrm{max}}) = (1, 1.5, 0.001) \unit{\stretch}$,
 where $s$ is the bin width.
 The smoothed distribution is shown in \cref{fig:skin_lds}.
 
@@ -127,7 +125,6 @@ Therefore, two image quality measurements were explored: Shannon entropy and kur
 
 The kurtosis of some image stacks were used to validate the image quality by eye, see \cref{fig:skin_kurtosis_depth}.
 The entropy of the same image stacks as for kurtosis were used to validate the image quality by eye, see \cref{fig:skin_entropy_depth}.
-
 For reasons explained in \cref{sec:disc_ent_vs_kur}, entropy is further used to choose the top quality images from every stack.
 
 \begin{figure*}
@@ -176,7 +173,7 @@ Both training and validation loss show an increase at the learning rate restarts
     \includegraphics[width=0.33\linewidth]{skinstression/images/hyperparameter-search/search-1/best-trial-loss.pdf}
     \includegraphics[width=0.33\linewidth]{skinstression/images/hyperparameter-search/search-2/best-trial-loss.pdf}
     \includegraphics[width=0.33\linewidth]{skinstression/images/hyperparameter-search/search-3/best-trial-loss.pdf}
-    \caption[Hyperparameter search best losses]{
+    \caption[Hyperparameter search the best losses]{
         Successive halving trial 71 of 100 has shown the best loss for search 1.
         Hyperband trial 184 of 300 has shown the best loss for search 2.
         Hyperband trial 73 of 300 has shown the best loss for search 3.
@@ -299,7 +296,7 @@ The corresponding hyperparameters in \cref{tab:conf_skin_final} were used for fu
 \end{margintable}
 
 Three trainings were performed.
-For every training, the 10, 20, and 30 images of every stack with highest entropy were selected to exclude any noisy images.
+For every training, the 10, 20, and 30 images of every stack with the highest entropy were selected to exclude any noisy images.
 Also, using the 20 best images of every stack, the model is trained without scaling of the original image.
 The loss curves are shown in \cref{fig:skinstression-training}.
 The lowest validation losses are shown in \cref{tab:skin_train_102030}.
@@ -307,7 +304,7 @@ Overall, the model trained with 20 images shows the lowest total loss.
 This model will be used during testing.
 
 To verify performance of training, the stress-strain curves of a random training batch are plotted with the raw data in \cref{fig:skinstression-train-logistic-curves}.
-For this batch, $\overline{R^2} = \num{0.75 \pm 0.28}$ with a \qty{95}{\percent} confidence interval.
+For this batch, $\overline{R^2} = \num{0.75}$ (SE \num{0.13}).
 
 
 \begin{figure*}
@@ -326,8 +323,8 @@ For this batch, $\overline{R^2} = \num{0.75 \pm 0.28}$ with a \qty{95}{\percent}
 
 \begin{margintable}
     \centering
-    \caption[Lowest validation loss per $N_\mathrm{best}$ images]{
-        Lowest validation loss per $N_\mathrm{best}$ images.
+    \caption[The lowest validation loss per $N_\mathrm{best}$ images]{
+        The lowest validation loss per $N_\mathrm{best}$ images.
         The training using 20 images has the lowest validation loss.
         * denotes training without rescaling.
     }
@@ -344,39 +341,15 @@ For this batch, $\overline{R^2} = \num{0.75 \pm 0.28}$ with a \qty{95}{\percent}
     \end{tabular}
 \end{margintable}
 
-\begin{figure*}
-    \centering
-    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_6_0.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_10_0.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_12_0.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_15_0.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_16_0.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_18_0.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_19_0.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_28_0.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_30_0.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_32_0.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_35_0.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_37_0.pdf} \\
-    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_44_1.pdf}
-    \includegraphics[width=0.24\linewidth]{skinstression/images/training/sample_46_0.pdf}
-    \caption[Training results]{
-        Results of a random training batch.
-        Raw mechanical measurement without error bars ($\times$) are shown together with the AI fit (red).
-        Performance is quantified by $R^2$.
-    }
-    \label{fig:skinstression-train-logistic-curves}
-\end{figure*}
-
 \subsection{Testing}
 The results of the best performing images in the test set are shown in \cref{fig:skinstression-test}.
 The higher $R^2$, the better the performance.
-Over the best performing images of every sample, a low $\overline{R^2} = \num{-0.36 \pm 1.3}$ with a \qty{95}{\percent} confidence interval.
+Over the best performing images of every sample, a low $\overline{R^2} = \num{-0.36}$ (SE \num{0.60}).
 
 The performance difference between the training and test set is significant.
 The donors of the test set are both male and female with ages comparable to the training set (see \cref{subsec:results_participants}).
 However, most samples of the test set originate from the same person.
-If the skin of this donor exhibits other behaviour, it might be difficult for the AI to predict well.
+If the skin of this donor exhibits other behavior, it might be difficult for the AI to predict well.
 
 \begin{figure*}
     \centering
@@ -400,8 +373,7 @@ If the skin of this donor exhibits other behaviour, it might be difficult for th
 
 \subsection{Model specification}
 The foundational neural network is described in \cref{fig:model}.
-x neural networks combined make up the final model.
-The output of the model is the average of the outputs of the individual models.
+The model with the lowest validation loss was chosen as final model.
 It accepts a batch of images as input and outputs a vector $(i, \sigma_\mathrm{max}, E_\mathrm{max}, \gamma_c)$,
 where $i$ denotes the $i$th image of the batch.
 
@@ -409,7 +381,7 @@ where $i$ denotes the $i$th image of the batch.
 The prediction AI may be used for two purposes.
 One purpose is to skip the mechanical measurement on skin tissue and immediately get an estimation of stretch properties.
 Another is to match stretch information to physical features present in the collagen fiber networks.
-The model should not be used as validation for the mechanical measurement, as it is trained and tested on a dataset with small variance.
+The model should not be used as validation for mechanical measurements, as it is trained and tested on a small dataset.
 
 Input data should be assessed on quality.
 A measure of quality is Shannon entropy, which is used in this study.
@@ -417,8 +389,8 @@ However, the model may benefit from other quality measures.
 The user should experiment what measure works best.
 The application does allow to only select the top $N_\mathrm{best}$ images.
 
-The model only accepts batches of two-dimensional $500x500\,\unit{px}$ images.
-Currently, the user should separate any higher-dimensional data and crop the images to fit the model.
+The model only accepts batches of two-dimensional $500 \times 500\,\unit{px}$ images.
+Currently, the user should separate any higher-dimensional data and crop \qty{0.2}{mpp} images to fit the model.
 
 \subsection{Explainability}
 
@@ -451,7 +423,7 @@ There is no clear relation between the attribution mean and/or standard deviatio
         Attributions were calculated using $20\times 20\unit{px}$ occlusion.
         Color scale is from \numrange{-3}{3} units, and is linear from \qtyrange{-0.1}{0.1}{\mega\pascal}, \qtyrange{-0.1}{0.1}{\mega\pascal\per\stretch}, and \qtyrange{-0.001}{0.001}{\stretch}.
         Mean $\pm$ standard deviation are inset.
-        Zoom in in the digital version for details.
+        Zoom in the digital version for details.
     }
     \label{fig:skin_occlusion}
 \end{figure*}
@@ -474,7 +446,7 @@ There is no clear relation between the attribution mean and/or standard deviatio
         Green and red show which parts attribute to under- and overestimations, compared to output calculated from an unoccluded image.
         Color scale is from \numrange{-1.5}{1.5} units, and is linear from \qtyrange{-0.1}{0.1}{\mega\pascal}, \qtyrange{-0.1}{0.1}{\mega\pascal\per\stretch}, and \qtyrange{-0.001}{0.001}{\stretch}.
         Mean $\pm$ standard deviation are inset.
-        Zoom in in the digital version for details.
+        Zoom in the digital version for details.
     }
     \label{fig:skin_occlusion_53}
 \end{figure*}
@@ -483,6 +455,15 @@ There is no clear relation between the attribution mean and/or standard deviatio
 \Cref{fig:attack_occlusion} shows attribution maps for all outputs to compare attacked images with the original image.
 \Cref{fig:pred_output_attack} shows the predicted logistic curves for the attacked images and the original image.
 These results show that artificially filling holes increases the stiffness and resistance, while adding holes decreases stiffness and resistance.
+\begin{marginfigure}
+    \centering
+    \includegraphics{skinstression/images/attack/holes.pdf}
+    \caption[Prediction output after hole attack]{
+        Prediction output after hole attack.
+    }
+    \label{fig:pred_output_attack}
+\end{marginfigure}
+
 
 \begin{figure*}
     \centering
@@ -500,11 +481,3 @@ These results show that artificially filling holes increases the stiffness and r
     \label{fig:attack_occlusion}
 \end{figure*}
 
-\begin{figure}
-    \centering
-    \includegraphics{skinstression/images/attack/holes.pdf}
-    \caption[Prediction output after hole attack]{
-        Prediction output after hole attack.
-    }
-    \label{fig:pred_output_attack}
-\end{figure}

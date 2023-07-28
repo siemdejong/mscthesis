@@ -1,7 +1,7 @@
 \section{Discussion}
 
 \subsection{Logistic curve fits stress-strain curves better than an exponential or PCA}
-With an $\overline{R^2} \approx \num{0.9979 \pm 0.0039}$, the logistic curve fits stress-strain data (\cref{fig:logistic_fits}) better than the exponential or PCA ($\overline{R^2} \approx \num{0.9927 \pm 0.0022}$, \cref{fig:pca_fits}).
+With an $\overline{R^2} \approx \num{0.9984}$ (SE \num{0.0002}), the logistic curve fits stress-strain data (\cref{fig:logistic_fits}) better ($p < 0.01$) than the exponential or PCA ($\overline{R^2} \approx \num{0.9926}$ (SE \num{0.0003}), \cref{fig:pca_fits}).
 The exponential does not fit the plateau that is often present at the end of a stress-strain curve (\cref{fig:exp_fits}).
 This plateau is essential to the skin tissue dynamics.
 It shows at which point the integrity of the collagen matrix breaks down, \ie when the skin cannot resist the force acting on it.
@@ -20,10 +20,10 @@ Kurtosis does not succeed to distinguish dark images from bright ones.
 Kurtosis also has the tendency to fluctuate, which is unexpected between subsequent slices.
 For these reasons, Shannon entropy has been used to choose the top $N_\mathrm{best}$ images.
 
-\subsection{Stretch information can be extracted from SHG microscopy images}
-\Cref{fig:skinstression-train-logistic-curves} shows that for most images, it is possible to extract stretch information.
-Using the model, ten images from different stacks of the train set yield a stress-strain curve with $R^2>0.9$.
-This shows that stretch information is present, even in the drastically downsized images.
+% \subsection{Stretch information can be extracted from SHG microscopy images}
+% \Cref{fig:skinstression-test-logistic-curves} shows that for most images, it is possible to extract stretch information.
+% Using the model, ten images from different stacks of the train set yield a stress-strain curve with $R^2>0.9$.
+% This shows that stretch information is present, even in the drastically downsized images.
 
 \subsection{The model does not generalize well}
 Although the train results were promising, the test results of \cref{fig:skinstression-test} show a lack of generalizability.
@@ -92,12 +92,11 @@ Possibly, excluding noisy stacks can for example be done by calculating the Shan
 In addition to noise exclusion, denoising stacks with three-dimensional Noise2Void~\sidecite{Krull2019} or individual slices with Noise2Void2~\sidecite{Hock2022}\sidenote{At the time of writing, Noise2Void2 is not yet compatible with three-dimensional images.} could increase model performance.
 This is because noise can occlude patterns that describe stretch information.
 
-\subsubsection{Using three-dimensional images}
+\subsubsection{Three-dimensional and full-size images}
 The current model relies on single images belonging to stacks.
 All structural information in the depth direction is disregarded by the neural network.
 If the neural network is redesigned to recognize patterns in three dimensions, it is expected to better predict the skin stretch properties.
 
-\subsubsection{Using full-size images}
 The microscope outputting the SHG images has the ability to image with a resolution of \qty{0.2}{\micro\meter}, which is five times higher than the images used in this study.
 Higher resolution images contain more detailed information on the collagen structure, and are therefore expected to increase the performance.
 The presented model has to be redesigned to accept images larger than $258\times258$.
@@ -119,8 +118,11 @@ One way to achieve this is by re-weighting the loss function as
 where $a$ is a lower bound to $R^2$ and $b > 0$ can influence the amount of weighting.
 
 \subsection{Implications}
-\subsubsection{Clinical \emph{in vivo} skin studies}
-An example of clinical use could ultimately be to study skin tissue \emph{in vivo} by a plastic surgeon with a microendoscope as described by \textcite{Kuzmin2016}, but for SHG imaging.
+\subsubsection{Replacement of mechanical measurements}
+After training and validating on more data, Skinstression might be used to replace mechanical measurements of stress-strain curves by excising human skin tissue and imaging the dermis layer with an SHG microscope at \qty{0.2}{mpp}.
+
+\subsection{Clinical \emph{in vivo} skin studies}
+An example of clinical use could ultimately be to study skin tissue \emph{in vivo} by a plastic surgeon with a microendoscope as described by \citeauthor{Kuzmin2016} \sidecite{Kuzmin2016}, but for SHG imaging.
 Stretch information could be inferred directly from the images made by the microendoscope.
 This way, the surgeon can acquire specific patient skin information prior to surgery.
 It is important to note that the model in its current form has low predictive accuracy, and needs further research for this use case.

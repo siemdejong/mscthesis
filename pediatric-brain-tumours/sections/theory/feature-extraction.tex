@@ -31,6 +31,7 @@ where $s_{i,j}$ is the similarity
     s_{i,j} = \frac{\vec{z}_i \cdot \vec{z}_j }{\|\vec{z}_i\|\|\vec{z}_j\|},
 \end{align}
 $N$ the number of samples in the batch, $\tau$ the temperature to scale the similarity with, and $\mathbb{1}_{[k\neq i]}=1$ if $k \neq i$ and 0 otherwise.
+The final loss is calculated across all pairs coming from the same parent image in a batch.
 SimCLR is visualized in \cref{fig:simclr}.
 
 

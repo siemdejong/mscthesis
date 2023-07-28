@@ -1,6 +1,6 @@
 \subsection{Performance}
 
-\subsubsection{SimCLR}
+\subsubsection{Feature extractor}
 
 \paragraph{Nearest neighbors in image space}
 The nearest neighbors are calculated in feature space after which the ten corresponding nearest neighbors of a random tile are shown.
@@ -40,26 +40,23 @@ The results are shown in \cref{fig:nearest-neighbours-image-space}.
 \end{figure*}
 
 \paragraph{T-SNE feature embedding}
-To further see how the features are distributed, the higher dimensional feature vectors of the validation set of fold 0 are projected onto two-dimensions using t-SNE at multiple perplexities.
+To further see how the features are distributed, the higher dimensional feature vectors of the validation set of fold 0 are projected onto two-dimensions using t-SNE at a perplexity of 100.
 The t-SNE embeddings are shown three times with different colors for diagnosis, case and image in \cref{fig:tsne-features}.
 
 \begin{figure*}
     \centering
     \begin{tabular}[\linewidth]{c}
-    \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/target-tsne.png} \\
-    \midrule
-    \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/case-tsne.png} \\
-    \midrule
-    \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/img-tsne.png}
+    \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/tsne-features.pdf}
     \end{tabular}
     \caption[T-SNE projections of features]{
-        Features of the validation set of fold 0 visualized in two-dimensional t-SNE projections at perplexities $p=\{2,\,4,\,6,\,8,\,10,\,20,\,40,\,60,\,80,\,100\}$.
+        Features of the validation set of fold 0 extracted by a SimCLR pretrained ShuffleNetV2 network visualized in two-dimensional t-SNE projections at a perplexity of 100.
         Points are colored by diagnosis, case and image.
+        Colors between subplots do not necessarily correlate.
     }
     \label{fig:tsne-features}
 \end{figure*}
 
-\subsubsection{MIL}
+\subsubsection{Classifier}
 
 The cross entropy loss for all folds for the SimCLR + CCMIL classifier training is shown in \cref{fig:simclr-ccmil-loss}.
 Loss curves for the VarMIL models are similar.
@@ -107,8 +104,10 @@ Based on the ROC curve, one might conclude that the model of fold 2 only perform
 \end{figure*}
 
 \begin{table*}
-    \caption[AUC, AUPR, and AUPRG]{AUC, AUPR, and AUPRG with \qty{95}{\percent} CI of three different models applied to the validation and test set.
-    No value is significantly different.}
+    \caption[AUC, AUPR, and AUPRG]{
+        AUC, AUPR, and AUPRG with standard error of three different models applied to the validation and test set.
+        No value is statistically significant ($p < 0.05$).
+    }
     \label{tab:performance}
     \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}*{7}{c}}
         \toprule
@@ -116,9 +115,9 @@ Based on the ROC curve, one might conclude that the model of fold 2 only perform
         \cmidrule{2-4} \cmidrule{5-7}
         & AUC & AUPR & AUPRG & AUC & AUPR & AUPRG \\
         \midrule
-        ImageNet + VarMIL & \num{0.86 \pm 0.15} & \num{0.96 \pm 0.04} & \num{0.57 \pm 0.43} & \num{0.59 \pm 0.33} & \num{0.80 \pm 0.16} & \num{0.21 \pm 0.60} \\
-        SimCLR + VarMIL & \num{0.69 \pm 0.24} & \num{0.89 \pm 0.08} & \num{0.28 \pm 0.37} & \num{0.73 \pm 0.17} & \num{0.88 \pm 0.10} & \num{0.39 \pm 0.37} \\
-        SimCLR + CCMIL & \num{0.71 \pm 0.28} & \num{0.90 \pm 0.10} & \num{0.34 \pm 0.54} & \num{0.75 \pm 0.25} & \num{0.89 \pm 0.14} & \num{0.41 \pm 0.56} \\
+        ImageNet + VarMIL & \num[uncertainty-mode=compact]{0.86 \pm 0.05} & \num[uncertainty-mode=compact]{0.96 \pm 0.02} & \num[uncertainty-mode=compact]{0.57 \pm 0.16} & \num[uncertainty-mode=compact]{0.59 \pm 0.12} & \num[uncertainty-mode=compact]{0.80 \pm 0.06} & \num[uncertainty-mode=compact]{0.21 \pm 0.22} \\
+        SimCLR + VarMIL & \num[uncertainty-mode=compact]{0.69 \pm 0.09} & \num[uncertainty-mode=compact]{0.89 \pm 0.03} & \num[uncertainty-mode=compact]{0.28 \pm 0.13} & \num[uncertainty-mode=compact]{0.73 \pm 0.06} & \num[uncertainty-mode=compact]{0.88 \pm 0.04} & \num[uncertainty-mode=compact]{0.39 \pm 0.13} \\
+        SimCLR + CCMIL & \num[uncertainty-mode=compact]{0.71 \pm 0.10} & \num[uncertainty-mode=compact]{0.90 \pm 0.03} & \num[uncertainty-mode=compact]{0.34 \pm 0.19} & \num[uncertainty-mode=compact]{0.75 \pm 0.09} & \num[uncertainty-mode=compact]{0.89 \pm 0.05} & \num[uncertainty-mode=compact]{0.41 \pm 0.20} \\
         \bottomrule
     \end{tabular*}
 \end{table*}
@@ -132,7 +131,7 @@ The Pearson correlation coefficient ($\mathrm{corr}$) between the test AUPRG and
     \mathrm{correlation}_h &= \mathbb{E}\left\{[\mathrm{AUPRG} - \mathbb{E}\left(\mathrm{AUPRG} \right)][H - \mathbb{E}\left(H\right)]\right\}, \\
     \mathrm{correlation}_k &= \mathbb{E}\left\{[\mathrm{AUPRG} - \mathbb{E}\left(\mathrm{AUPRG} \right)][K - \mathbb{E}\left(K\right)]\right\}.
 \end{align}
-Entropy and kurtosis have a small correlation with test AUPRG of 0.19 and -0.15, respectively.
+Entropy and kurtosis have a small correlation with test AUPRG of 0.18 and -0.14, respectively.
 
 \begin{figure*}
     \centering
@@ -159,16 +158,16 @@ Only a small portion of the tiles is weighted with a substantial attention weigh
         \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_36_Hersenen_I-05_8x8_200slow-tiles.png} \\
         \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_36_Hersenen_I-05_8x8_200slow-tiles-low-a.png} \\
         \midrule
-        \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_32_Hersenen_I-05_5x7_200slow-summary.png} \\
-        \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_32_Hersenen_I-05_5x7_200slow-tiles.png} \\
-        \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_32_Hersenen_I-05_5x7_200slow-tiles-low-a.png}
+        \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_9_Hersenen_I-04_8x8_200slow-summary.png} \\
+        \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_9_Hersenen_I-04_8x8_200slow-tiles.png} \\
+        \includegraphics[width=\linewidth]{pediatric-brain-tumours/images/PMC_HHG_9_Hersenen_I-04_8x8_200slow-tiles-low-a.png}
     \end{tabularx}
     \caption[Attention weighted images]{
         Attention weighted images.
         Tiles are multiplied with min-max-normalized attention weights.
         Top: medulloblastoma (prediction score = 0.76).
-        Bottom: pilocytic astrocytoma (prediction score = 0.81).
-        First rows show the original image (A), the attention weighted image (B) and the local attentions (linear grayscale) compared with pathologist annotations (green) (C).
+        Bottom: pilocytic astrocytoma (prediction score = 0.60).
+        First rows show the original image (A), the attention weighted image (B) and the local attentions (linear grayscale) (C).
         Second and third rows show the tiles with the highest and lowest attention weights, respectively.
         The corresponding normalized attention weight is printed.
     }

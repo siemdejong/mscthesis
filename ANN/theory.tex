@@ -1,9 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % INTRODUCTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section[From biophysics to computer science]{From biophysics \\ to computer science}
+\section[From biophysics to computer science]{From biophysics to computer science}
 
-In 1981, Hubel and Wiesel were awarded the Nobel Prize of Medicine for their discovery of visual perception \cite{NP1981}.
+In 1981, Hubel and Wiesel were awarded the Nobel Prize of Medicine for their discovery of visual perception \sidecite{NP1981}.
 They built and tested a model that describes the path of a message from eye to brain.
 Simply put, the message is passed on from neuron to neuron (\cref{fig:synapse}), with each neuron compiling the full message from message components.
 Lastly, the message is stored into the brain.
@@ -20,11 +20,11 @@ Lastly, the message is stored into the brain.
 \end{figure}
 
 Inspired by this biological process, artificial neural networks have been developed.
-Later, \textcite{Fukushima1980} mimicked this neural network for two-dimensional information, using convolution operations.
+Later, \citeauthor{Fukushima1980} \sidecite{Fukushima1980} mimicked neural networks for two-dimensional information, using convolution operations.
 The approach of \citeauthor{Fukushima1980} was inefficient.
 It could not learn to identify reoccurring features.
-To enable learning, \textcite{Rumelhart1986} developed backpropagation: an algorithm optimize a model to learn general features.
-\textcite{LeCun1990} was one of the first to use backpropagation in a visual setting.
+To enable learning, \citeauthor{Rumelhart1986} \sidecite{Rumelhart1986} developed backpropagation: an algorithm to optimize a model to learn general features.
+\citeauthor{LeCun1990} \sidecite{LeCun1990} were one of the first to use backpropagation in a visual setting.
 They combined convolutions and backpropagation into a convolutional neural network to recognize handwritten digits.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -39,16 +39,16 @@ It consists of connected artificial neurons, also known as nodes or units, organ
 Each neuron takes inputs, performs a mathematical operation on them, and produces an output.
 
 ANNs typically have an input layer, one or more hidden layers, and an output layer.
-Information flows through the network from the input layer, to the hidden layers, and finally the output layer.
+Information flows through the network from the input layer, via the hidden layers, to the output layer.
 The hidden layers contain neurons that transform the input data into a more useful representation.
 The transformations are dictated by weight matrices $W$.
 
 Neural networks are designed to learn from data through a process called training.
-During training, the network adjusts the strengths of connections between neurons, known as weights, based on the patterns and relationships in the input data.
+During training, the network adjusts the strengths of connections between neurons, known as weights, based on the patterns in the input data.
 This process allows the network to recognize and generalize from examples, making it capable of solving complex problems and making predictions.
 
 Optimizing ANNs often relies on backpropagation (from backward propagation of errors)~\sidecite{Rumelhart1986}.
-Mathematically, an ANN $g$ with $L$ layers and activation function $f$ can be described as
+Mathematically, an ANN $g$ with $L$ layers and activation functions $f^l$ can be described as
 \begin{equation}
     \hat{y} = g(x) = f^L \left\{W^L f^{L-1} \left[W^{L-1} \cdots f^1 \left(W^1 x\right) \cdots \right] \right\},
 \end{equation}
@@ -83,7 +83,7 @@ The kernel with size $k=3$ moves across the input of size $i=5$ with stride $s =
 
 Convolutions have the useful property that they are equivariant to translations.
 The equivariance of convolutions to translations implies that learned weights and biases belonging to a convolution can be reused for identifying similar features anywhere in inputs.
-Any operator that is not equivariant to convolutions may be used as a way to augment data, as the kernel perceives it is being different.
+Any operator that is not equivariant to convolutions may be used as a way to augment data, as the kernel perceives the transformed data as different.
 Examples of such operators are scaling, rotating, and flipping.
 Applying these operators on input data trains the model to be invariant to the operator, meaning transformed versions of structures can be identified.
 
@@ -98,7 +98,7 @@ Applying these operators on input data trains the model to be invariant to the o
     \includegraphics[width=0.32\linewidth]{ANN/images/numerical_padding_strides_06.pdf}
     \includegraphics[width=0.32\linewidth]{ANN/images/numerical_padding_strides_07.pdf}
     \includegraphics[width=0.32\linewidth]{ANN/images/numerical_padding_strides_08.pdf}
-    \caption{Computing the output values
+    \caption[Convolution operation]{Computing the output values
         of a discrete convolution for two dimension, $i_1 = i_2 = 5$, $k_1 = k_2 = 3$,
         $s_1 = s_2 = 2$, and $p_1 = p_2 = 1$.
         Reproduced from \fullcite{Dumoulin2016} (Ref.~\cite{Dumoulin2016}).
@@ -124,7 +124,7 @@ Applying these operators on input data trains the model to be invariant to the o
 \subsection{Pooling}\label{sec:pooling}
 Pooling is a form of nonlinear downsampling.
 To achieve this, typically, a convolution kernel is moved over the input with a stride as big as the kernel itself.
-This ensures that the downsampling considers measures of input sub-regions.
+This ensures that the downsampling considers measures of input subregions.
 
 Pooling is equivariant to any permutation under the kernel.
 This results in invariance to local translations.
@@ -220,7 +220,7 @@ To give less importance to the easier targets, FL follows
 \begin{equation}
     FL = \left(\frac{2}{1 + e^{-\beta |y - y'|}} - 1 \right)^\gamma (y_i - y'_i)^2,
 \end{equation}
-where increasing $\gamma$ increases the number of targets regarded as easy and $\beta$ regulates the speed with which the first part of the curve increases (make fig).
+where increasing $\gamma$ increases the number of targets regarded as easy and $\beta$ regulates the speed with which the first part of the curve increases.
 
 \subsubsection{Classification}
 For classification, the last layer gives an estimate of class probabilities.
@@ -237,7 +237,7 @@ where $x$ is the probability output, $y$ the target, $C$ the number of classes, 
 \paragraph{Binary cross entropy}
 In the specific case where there are only two classes, \cref{eq:ce} can be reduced to
 \begin{align}
-    BCE(x, y) = \frac{1}{N}\sum_{n=1}^N [y_n \cdot \log x_n + (1 - y_n) \cdot \log (1-x_n)]
+    BCE(x, y) = \frac{1}{N}\sum_{n=1}^N [y_n \cdot \log x_n + (1 - y_n) \cdot \log (1-x_n)].
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -264,13 +264,12 @@ Tracking $\mathcal{L}_\mathrm{epoch}$ shows how quickly the model is learning.
 
 To see if the model generalizes, it is standard practice to have a hold-out set, that the model does not learn from, but only uses to calculate the validation loss.
 Ideally, this validation loss follows a similar trajectory as the training loss.
-If the validation loss diverges upwards from the training loss, the model is overfitting.
-It fails to generalize to unseen, but similar data.
+If the validation loss diverges upwards from the training loss, the model is overfitting: it fails to generalize to unseen, but similar data.
 To remedy this, there are multiple possible solutions.
-Solutions include dropout, batch normalization, or more complex models (\ie deeper or wider networks).
+Solutions include dropout, batch normalization, or deeper and wider networks.
 
 \subsubsection{Dropout}\label{sec:dropout}
-Overfitting can be reduced by applying methods of regularization.
+Chance of overfitting can be reduced by applying methods of regularization.
 One regularization method is dropout.
 It prevents neurons from co-adapting, which would otherwise reduce the chance of the model to perform well on external validation sets \sidecite{Srivastava2014}.
 With dropout, individual neurons are activated with probability $p$, effectively dropping neurons randomly.
@@ -278,7 +277,7 @@ With dropout, individual neurons are activated with probability $p$, effectively
 \subsubsection{Batch normalization}\label{sec:bn}
 Batch normalization (BN)~\sidecite{Ioffe2015} is a technique to shift and scale batches akin to standardization.
 It can be implemented as a layer in any neural network.
-Per minibatch and per dimension, the mean and standard deviation of the input are calculated.
+Per batch and per dimension, the mean and standard deviation of the input are calculated.
 Then, the input is standardized with
 \begin{equation}
     \hat{x}_i = \frac{x_i - \mu_\mathcal{B}}{\sqrt{\sigma_\mathcal{B}^2 + \epsilon}},
@@ -295,14 +294,14 @@ When batch normalization is applied after a convolutional layer, the bias term o
 BN has been shown to have a regularizing effect~\sidecite{Bjorck2018}, although combining it with dropout is disputed.
 More often than not, using both BN and dropout leads to worse results on the test set.
 
-\subsubsection{Model ensembling}\label{subsec:model_ensembling}
-A benefit of having a cyclic learning rate is generating multiple models across cycles.
-The effectiveness of ensembling models from multiple cycles, Snapshot Ensembling, is first described by \textcite{Huang2017}.
-During model training, a model can be saved (or checkpointed) at the best performing epoch for every cycle.
-The checkpointed models can be ensembled by choosing the last $m$ out of $n$ models and averaging the output, as
-\begin{equation}
-    \mathrm{output} = \frac{1}{M} \sum_{i=0}^{m-1} \mathrm{model}_{n-i}(\mathrm{input}).
-\end{equation}
+% \subsubsection{Model ensembling}\label{subsec:model_ensembling}
+% A benefit of having a cyclic learning rate is generating multiple models across cycles.
+% The effectiveness of ensembling models from multiple cycles, Snapshot Ensembling, is first described by \textcite{Huang2017}.
+% During model training, a model can be saved (or checkpointed) at the best performing epoch for every cycle.
+% The checkpointed models can be ensembled by choosing the last $m$ out of $n$ models and averaging the output, as
+% \begin{equation}
+%     \mathrm{output} = \frac{1}{M} \sum_{i=0}^{m-1} \mathrm{model}_{n-i}(\mathrm{input}).
+% \end{equation}
 % \begin{figure}
 %     \centering
 %     \includegraphics[width=0.48\linewidth]{ANN/images/ensembling_huang_left.png}
@@ -327,7 +326,7 @@ However, there are parameters that cannot be learned, but greatly influence the 
 These parameters are hyperparameters.
 Examples of hyperparameters are the batch size, learning rate, learning rate scheduler and its parameters, optimizer algorithm, etc.
 These parameters span a configuration space $\mathcal{C}$.
-Parameters can be categoral (type of optimizer, learning rate scheduler, etc.) or integers (batch size, number of iterations, etc.), or continuous decimals (learning rate, weight decay, etc.).
+Parameters can be categorical (type of optimizer, learning rate scheduler, etc.) or integers (batch size, number of iterations, etc.), or continuous decimals (learning rate, weight decay, etc.).
 Ideally, parameters are sampled exhaustively.
 This way, the best possible set of parameters can be found.
 However, this can be computationally expensive.
@@ -355,7 +354,7 @@ This is because trials explore the whole distribution as opposed to just a few p
 \end{figure}
 
 \subsubsection{Tree Parzen estimator}
-Still, random search requires trials in regions that are unpromising which is inefficient.
+Random search requires trials in regions that are unpromising which is inefficient.
 A tree-structured Parzen estimator (TPE)~\sidecite{Bergstra2011} approach aims to model the probability of a hyperparameter\sidenote{Or a set of hyperparameters in the case of multivariate TPE~\cite{Falkner2018}}, given a loss value.
 That probability consists of two distributions, describing the good and bad values:
 \begin{equation}
@@ -402,7 +401,7 @@ In the end, HB returns the best configuration possible just like SH, but diminis
 
 \subsubsection{Parameter importances}
 Not every hyperparameter is as important as others.
-\textcite{Hutter2014} describe the fANOVA algorithm to quantitatively assess the importance of every hyperparameter.
+\citeauthor{Hutter2014} \sidecite{Hutter2014} describe the fANOVA algorithm to quantitatively assess the importance of every hyperparameter.
 Knowing the importance of a variable gives more insight into interactions and relative importance between hyperparameters.
 
 
@@ -410,15 +409,15 @@ Knowing the importance of a variable gives more insight into interactions and re
 % Image quality
 % --------------------------------------------------
 
-\subsection{Image quality}\label{subsec:imq}
-A convolutional neurel network receives a stream of input images with varying quality.
+\section{Image quality}\label{subsec:imq}
+A convolutional neural network receives a stream of input images with varying quality.
 For example, microscopy images from deep inside tissue are presumably noisier and/or less bright than images taken near the surface.
 Neural networks have trouble learning from bad images, as they lack structures that trigger neurons to output predictions close to targets.
 Excluding noisy images might increase performance \sidecite{Blokker2022}.
-\textcite{Koho2016} suggest some measures to quantify image quality.
+\citeauthor{Koho2016} \sidecite{Koho2016} suggest some measures to quantify image quality.
 Here, the entropy and kurtosis are discussed.
 
-\subsubsection{Shannon entropy}
+\subsection{Shannon entropy}
 The quality of an image may be described by the amount of information that is contained within it.
 The information can be quantified by how surprising it is to contain specific content.
 For instance, knowledge that a rare event will occur has high informational value, while knowledge that a probable event will happen has low informational value.
@@ -441,7 +440,7 @@ The intuition for images with high entropy tending to carry more information is 
 the number of pixels with a certain intensity will increase.
 This may be most apparent in dark regions, which would benefit from more illumination.
 
-\subsubsection{Kurtosis}
+\subsection{Kurtosis}
 Another measure for image quality is kurtosis of the power spectrum.
 Kurtosis measures the outliers of a distribution and is given by
 \begin{equation}
@@ -461,23 +460,23 @@ Platykurtic distributions have thinner tails, such as the Bernoulli distribution
 Kurtosis can be calculated on the upper part of the power spectrum of an image \sidecite{Koho2016,Blokker2022}.
 If the upper part of the power spectrum is very leptokurtic compared to other images in the dataset, it may indicate that the image is an outlier and is significantly different from the mean.
 
-\subsection{Explainable AI}
+\section{Explainable AI}
 A significant number of users of a trained AI generally view the model as a black box that simply maps input to output.
 How this box is constructed and why it results in a particular outcome is often overlooked.
 Meanwhile, techniques to give insight into the black box (explainable AI, XAI) have been developed.
-These techniques fall in roughly two categories: gradient and perturbation based methods.
+These techniques fall in roughly three categories: gradient and perturbation based methods and explainable models.
 Gradient based methods rely on gradients calculated during the backward pass and use these to find which parts of the input contribute to the output most.
 Perturbation methods perturb the input to see how the output changes.
 Large output changes yield large attributions.
+Explainable models output some form of attention maps as intermediate steps to their prediction.
 
 Explainability is particularly important in clinical settings where merely relying on AI output is sometimes unethical.
-AI solutions exist that predict patient outcome after new treatment given current health status [refs] or segment tumour regions in medical imaging after which the predicted region will be excised or treated with radiotherapy.
 XAI gives users and patients more confidence in the prediction so that specialists can proceed with treatment.
 
-\subsubsection{Occlusion}\label{subsec:occlusion}
+\subsection{Occlusion}\label{subsec:occlusion}
 Occlusion \sidecite{Zeiler2013} is an XAI pertubation technique.
 The method replaces patches of the input with a baseline value.
-\eg for images, patches can consist of any shape and the baseline value can be 0, practically making a patch black and removing all information at the patch's location and the connections with neighbouring pixels.
+\eg for images, patches can consist of any shape and the baseline value can be 0, practically making a patch black and removing all information at the patch's location and the connections with neighboring pixels.
 In the original paper, occlusion is used to systematically cover parts of foreground objects, to gain confidence in the AI using foreground objects to predict the output.
 If the AI still recognizes an object from an image where the object has been cut out, the AI may use background for its prediction.
 
@@ -486,4 +485,63 @@ The patch, mostly a rectangle of a given size and value, is placed on the image.
 The AI computes an output, given the masked input.
 The masked output is subtracted from the original output.
 This difference divided by the patch size is assigned to the patch.
-A new patch is placed and the iterative process continues until the patches have been placed on all possible input locations.
+A new patch is placed, and the iterative process continues until the patches have been placed on all possible input locations.
+
+\section{Comparing model performance}
+% Following the recommendation of \sidecite{Muller2021} to discern `outperforming' from `performing comparably', performance errors are calculated with confidence levels (CL) throughout this work.
+% Assuming performance metrics $\vec{x} = \left\{x_1,\, x_2,\,\ldots,\, x_N\right\}$ follow a Student's t-distribution $t$, the error bound for the mean (EBM) of $N$ samples is calculated as
+% \begin{align}\label{eq:EBM}
+%     \text{EBM} = t_{\alpha / 2} \cdot \text{SE},
+% \end{align}
+% where $\alpha = 1 - \text{CL}$ and $\text{SE} = \sigma_x / \sqrt{N - 1}$.
+% $t_{\alpha / 2}$ can be calculated from the inverse cumulative Student's t-distribution, at $(1 + \text{CL}) / 2$ with $N - 1$ degrees of freedom.
+% $\sigma_x$ is the standard deviation of the sample,
+% \begin{align}\label{eq:sample_std}
+%     \sigma_x = \sqrt{\frac{1}{N - 1}\sum_{i=1}^{N}\left(x_i - \bar{x}\right)^2}.
+% \end{align}
+% SE includes Bessel's correction of subtracting 1 from $N$.
+% Performance metrics are reported as $\text{metric} = \bar{x} \pm \text{EMB}$.
+When testing and comparing models, it is important to discern \emph{outperform} from \emph{performing comparably}.
+To that end, a null and alternative hypothesis ($H_0$ and $H_a$, respectively) have to be formulated.
+Before testing, a confidence level $\alpha$ such as 0.05 or 0.01 has to be chosen.
+Then, $p$ is calculated, which is
+\begin{align}
+    p = P(\text{reject}\, H_0\, \text{and suggest}\, H_a | H_0\, \text{is true}).
+\end{align}
+If $p < \alpha$, $H_0$ may be rejected, suggesting $H_a$ is true.\sidenote{$p$ or the $p$-value is often misinterpreted with the reverse condition: $p = P(H_0\, \text{is true} | \text{sample statistics})$.}
+
+In practice, $p$ is calculated via a test statistic.
+The test statistic might follow \eg a Student's t-distribution or a normal distribution.
+The distribution has to reflect the assumed distribution of the sample.
+To compare two means from different samples with unequal variances, Welch's t-test can be used.
+The test statistic
+\begin{align}
+    t = \frac{\bar{\vec{X}}_A - \bar{\vec{X}}_B}{\sqrt{\sigma^2_{\bar{\vec{X}}_A} / (n_A - 1) + \sigma^2_{\bar{\vec{X}}_B} / (n_B - 1)}},
+\end{align}
+where $\bar{\vec{X}}_A$ and $\sigma_{\bar{\vec{X}}_i}$ are the $i$th sample mean and standard deviation.
+$n_i$ is the number of samples in $X_i$.
+Using $t$ and a two-sided test,
+\begin{align}
+    p &= P(|t| \geq t) \\
+    &= 1 - F_{|t|}(t),
+\end{align}
+where $F$ is the cumulative distribution function.
+
+\begin{example}
+    Two models $A$ and $B$ have been tested on three separate datasets (commonly done with cross-validation).
+    Beforehand, a significance level of $p = 0.05$ is chosen.
+    The models have accuracies
+    \begin{align}
+        \text{acc}_A &= \left\{0.5,\, 0.7,\, 0.9\right\}, \\
+        \text{acc}_B &= \left\{0.5,\, 0.6,\, 0.7\right\}.
+    \end{align}
+    The null hypothesis $H_0 : \mu_A = \mu_B$, \ie the mean of the underlying accuracy distributions are equal.
+    The alternative hypothesis $H_a : \mu_A \neq \mu_B$.
+    Welch's t-test for two samples with unequal variance gives
+    \begin{align}
+        t \approx \frac{0.7 - 0.6}{\sqrt{0.16^2 / 2 + 0.082^2 / 2}} \approx 0.77.
+    \end{align}
+    Using the inverse Student's $t$ cumulative distribution function, $p = 0.50$.
+    If $p < 0.05$, the null hypothesis could have been rejected, suggesting the alternative hypothesis.
+    But $p > 0.05$, and therefore the null hypothesis cannot be rejected, meaning both models perform comparably with a significance level of $\alpha = 0.05$.
+\end{example}

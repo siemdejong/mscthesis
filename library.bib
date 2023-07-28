@@ -76,7 +76,6 @@
   pages        = {14313--14323},
   publisher    = {{IEEE}},
   url          = {https://ieeexplore.ieee.org/document/9578683/},
-  abstract     = {We address the challenging problem of whole slide image (WSI) classification. WSIs have very high resolutions and usually lack localized annotations. WSI classification can be cast as a multiple instance learning (MIL) problem when only slide-level labels are available. We propose a MIL-based method for WSI classification and tumor detection that does not require localized annotations. Our method has three major components. First, we introduce a novel MIL aggregator that models the relations of the instances in a dual-stream architecture with trainable distance measurement. Second, since WSIs can produce large or unbalanced bags that hinder the training of MIL models, we propose to use self-supervised contrastive learning to extract good representations for MIL and alleviate the issue of prohibitive memory cost for large bags. Third, we adopt a pyramidal fusion mechanism for multiscale WSI features, and further improve the accuracy of classification and localization. Our model is evaluated on two representative WSI datasets. The classification accuracy of our model compares favorably to fully-supervised methods, with less than \2% accuracy gap across datasets. Our results also outperform all previous MIL-based methods. Additional benchmark results on standard MIL datasets further demonstrate the superior performance of our MIL aggregator on general MIL problems. GitHub repository: https://github.com/binli123/dsmil-wsi},
   groups       = {THG-XAI, MIL: multi-scale attention},
   journaltitle = {2021 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   keywords     = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Machine Learning}
@@ -137,16 +136,16 @@
   groups       = {THG-XAI, THG}
 }
 
-@misc{Huang2020,
-  doi       = {10.48550/ARXIV.2009.12836},
-  url       = {https://arxiv.org/abs/2009.12836},
-  author    = {Huang, Lei and Qin, Jie and Zhou, Yi and Zhu, Fan and Liu, Li and Shao, Ling},
-  keywords  = {Machine Learning (cs.LG), Computer Vision and Pattern Recognition (cs.CV), Machine Learning (stat.ML), FOS: Computer and information sciences, FOS: Computer and information sciences},
-  title     = {Normalization Techniques in Training DNNs: Methodology, Analysis and Application},
-  publisher = {arXiv},
-  year      = {2020},
-  copyright = {arXiv.org perpetual, non-exclusive license}
-}
+@article{Huang2020,
+  author={Huang, Lei and Qin, Jie and Zhou, Yi and Zhu, Fan and Liu, Li and Shao, Ling},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={Normalization Techniques in Training DNNs: Methodology, Analysis and Application}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-20},
+  doi={10.1109/TPAMI.2023.3250241}}
+
 
 
 @article{Zhang2019,
@@ -355,14 +354,15 @@
   publisher  = {arXiv}
 }
 
-@misc{Riasatian2020,
-      title={A Comparative Study of U-Net Topologies for Background Removal in Histopathology Images}, 
-      author={Abtin Riasatian and Maral Rasoolijaberi and Morteza Babaei and H. R. Tizhoosh},
-      year={2020},
-      eprint={2006.06531},
-      archivePrefix={arXiv},
-      primaryClass={eess.IV}
-}
+@INPROCEEDINGS{Riasatian2020,
+  author={Riasatian, Abtin and Rasoolijaberi, Maral and Babaei, Morteza and Tizhoosh, H. R.},
+  booktitle={2020 International Joint Conference on Neural Networks (IJCNN)}, 
+  title={A Comparative Study of U-Net Topologies for Background Removal in Histopathology Images}, 
+  year={2020},
+  volume={},
+  number={},
+  pages={1-8},
+  doi={10.1109/IJCNN48605.2020.9207018}}
 
 @article{Niu2019,
   author     = {Niu, Sheng-Yong and Guo, Lun-Zhang and Li, Yue and Wang, Tzung-Dau and Tsao, Yu and Liu, Tzu-Ming},
@@ -432,58 +432,58 @@
   publisher  = {arXiv}
 }
 
-@article{Peters2018,
-  author       = {Peters, Matthew E. and
-                  Neumann, Mark and
-                  Iyyer, Mohit and
-                  Gardner, Matt and
-                  Clark, Christopher and
-                  Lee, Kenton and
-                  Zettlemoyer, Luke},
-  title        = {Deep contextualized word representations},
-  journal      = {CoRR},
-  volume       = {abs/1802.05365},
-  year         = {2018},
-  url          = {http://arxiv.org/abs/1802.05365},
-  eprinttype    = {arXiv},
-  eprint       = {1802.05365},
-  timestamp    = {Mon, 13 Aug 2018 16:48:54 +0200},
-  biburl       = {https://dblp.org/rec/journals/corr/abs-1802-05365.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
+@inproceedings{Peters2018,
+    title = "Deep Contextualized Word Representations",
+    author = "Peters, Matthew E.  and
+      Neumann, Mark  and
+      Iyyer, Mohit  and
+      Gardner, Matt  and
+      Clark, Christopher  and
+      Lee, Kenton  and
+      Zettlemoyer, Luke",
+    booktitle = "Proceedings of the 2018 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers)",
+    month = jun,
+    year = "2018",
+    address = "New Orleans, Louisiana",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/N18-1202",
+    doi = "10.18653/v1/N18-1202",
+    pages = "2227--2237",
 }
+
 
 @article{Takaya2015, title={The precision-recall plot is more informative than the ROC plot when evaluating binary classifiers on imbalanced datasets}, volume={10}, DOI={10.1371/journal.pone.0118432}, number={3}, journal={PLOS ONE}, author={Saito, Takaya and Rehmsmeier, Marc}, year={2015}, month={Mar}} 
 
-@article{Devlin2018,
-  author       = {Jacob Devlin and
-                  Ming{-}Wei Chang and
-                  Kenton Lee and
-                  Kristina Toutanova},
-  title        = {{BERT:} Pre-training of Deep Bidirectional Transformers for Language
-                  Understanding},
-  journal      = {CoRR},
-  volume       = {abs/1810.04805},
-  year         = {2018},
-  url          = {http://arxiv.org/abs/1810.04805},
-  eprinttype    = {arXiv},
-  eprint       = {1810.04805},
-  timestamp    = {Tue, 30 Oct 2018 20:39:56 +0100},
-  biburl       = {https://dblp.org/rec/journals/corr/abs-1810-04805.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
+@inproceedings{Devlin2018,
+    title = "{BERT}: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+    author = "Devlin, Jacob  and
+      Chang, Ming-Wei  and
+      Lee, Kenton  and
+      Toutanova, Kristina",
+    booktitle = "Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)",
+    month = jun,
+    year = "2019",
+    address = "Minneapolis, Minnesota",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/N19-1423",
+    doi = "10.18653/v1/N19-1423",
+    pages = "4171--4186",
+    abstract = "We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications. BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5 (7.7 point absolute improvement), MultiNLI accuracy to 86.7{\%} (4.6{\%} absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).",
 }
 
-@article{Vaswani2017,
-  author     = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, Lukasz and Polosukhin, Illia},
-  date       = {2017},
-  title      = {Attention Is All You Need},
-  eprint     = {1706.03762},
-  eprinttype = {arxiv},
-  abstract   = {The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.},
-  file       = {:Vaswani2017 - Attention Is All You Need.pdf:PDF},
-  groups     = {THG-XAI, MIL: Attention-based},
-  keywords   = {Computer Science - Computation and Language, Computer Science - Machine Learning},
-  publisher  = {arXiv}
+
+@inproceedings{Vaswani2017,
+ author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, \L ukasz and Polosukhin, Illia},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {I. Guyon and U. Von Luxburg and S. Bengio and H. Wallach and R. Fergus and S. Vishwanathan and R. Garnett},
+ pages = {},
+ publisher = {Curran Associates, Inc.},
+ title = {Attention is All you Need},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf},
+ volume = {30},
+ year = {2017}
 }
+
 
 @article{He2019,
   author     = {He, Kaiming and Fan, Haoqi and Wu, Yuxin and Xie, Saining and Girshick, Ross},
@@ -498,24 +498,18 @@
   publisher  = {arXiv}
 }
 
-@article{Caron2020,
-  author       = {Mathilde Caron and
-                  Ishan Misra and
-                  Julien Mairal and
-                  Priya Goyal and
-                  Piotr Bojanowski and
-                  Armand Joulin},
-  title        = {Unsupervised Learning of Visual Features by Contrasting Cluster Assignments},
-  journal      = {CoRR},
-  volume       = {abs/2006.09882},
-  year         = {2020},
-  url          = {https://arxiv.org/abs/2006.09882},
-  eprinttype    = {arXiv},
-  eprint       = {2006.09882},
-  timestamp    = {Tue, 23 Jun 2020 17:57:22 +0200},
-  biburl       = {https://dblp.org/rec/journals/corr/abs-2006-09882.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
+@inproceedings{Caron2020,
+ author = {Caron, Mathilde and Misra, Ishan and Mairal, Julien and Goyal, Priya and Bojanowski, Piotr and Joulin, Armand},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {H. Larochelle and M. Ranzato and R. Hadsell and M.F. Balcan and H. Lin},
+ pages = {9912--9924},
+ publisher = {Curran Associates, Inc.},
+ title = {Unsupervised Learning of Visual Features by Contrasting Cluster Assignments},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2020/file/70feb62b69f16e0238f741fab228fec2-Paper.pdf},
+ volume = {33},
+ year = {2020}
 }
+
 
 @article{Chen2020c,
   author     = {Chen, Xinlei and Fan, Haoqi and Girshick, Ross and He, Kaiming},
@@ -594,6 +588,7 @@
 @unpublished{Zhou2023,
   title={Three-dimensional Characterization of Mechanical Properties and Microstructures of Human Dermal Skin},
   author={Zhou, Mengyao and González, Patrick, J. and van Haasterecht, Ludo and Soylu, Alperen and Mihailovski, Maria and van Zuijlen, Paul and Groot, Marie Louise},
+  notes={Unpublished}
 }
 
 @article{Haasterecht2023, title={Visualizing dynamic Three-dimensional changes of human reticular dermal collagen under mechanical strain}, volume={9}, DOI={10.1088/2057-1976/accc8e}, number={3}, journal={Biomedical Physics and Engineering Express}, author={van Haasterecht, L and Zhou, M and Ma, Y and Bartolini, L and Van Mourik, F and Van Zuijlen, P P and Groot, M L}, year={2023}, pages={035033}} 
@@ -605,7 +600,8 @@
   author  = {Spies, Sylvia},
   school  = {University of Amsterdam and VU Amsterdam},
   title   = {Validation of higher harmonic generation microscopy for the diagnosis of various pediatric tumors},
-  year    = {2023}
+  year    = {2023},
+  note = {Unpublished}
 }
 
 @article{Schirris2022,
@@ -651,12 +647,54 @@
 }
 
 @article{Liaw2018,
-    title={Tune: A Research Platform for Distributed Model Selection and Training},
-    author={Liaw, Richard and Liang, Eric and Nishihara, Robert
-            and Moritz, Philipp and Gonzalez, Joseph E and Stoica, Ion},
-    journal={arXiv preprint arXiv:1807.05118},
-    year={2018}
+  author       = {Richard Liaw and
+                  Eric Liang and
+                  Robert Nishihara and
+                  Philipp Moritz and
+                  Joseph E. Gonzalez and
+                  Ion Stoica},
+  title        = {Tune: {A} Research Platform for Distributed Model Selection and Training},
+  journal      = {CoRR},
+  volume       = {abs/1807.05118},
+  year         = {2018},
+  url          = {http://arxiv.org/abs/1807.05118},
+  eprinttype    = {arXiv},
+  eprint       = {1807.05118},
+  timestamp    = {Mon, 13 Aug 2018 16:46:04 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-1807-05118.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
+
+@article{Li2021b, title={Synthesizing CT images from MR images with Deep Learning: Model generalization for different datasets through transfer learning},
+volume={7},
+DOI={10.1088/2057-1976/abe3a7},
+number={2},
+journal={Biomedical Physics and Engineering Express},
+author={Li, Wen and Kazemifar, Samaneh and Bai, Ti and Nguyen, Dan and Weng, Yaochung and Li, Yafen and Xia, Jun and Xiong, Jing and Xie, Yaoqin and Owrangi, Amir and et al.},
+year={2021}, pages={025020}} 
+
+@ARTICLE{Zhuan2019,
+  author={Zhuang, Fuzhen and Qi, Zhiyuan and Duan, Keyu and Xi, Dongbo and Zhu, Yongchun and Zhu, Hengshu and Xiong, Hui and He, Qing},
+  journal={Proceedings of the IEEE}, 
+  title={A Comprehensive Survey on Transfer Learning}, 
+  year={2021},
+  volume={109},
+  number={1},
+  pages={43-76},
+  doi={10.1109/JPROC.2020.3004555}}
+
+
+@software{dlupentropymasker,
+author = {{de Jong}, Siem and {Netherlands Cancer Institute} and contributors},
+% doi = {},
+license = {Apache-2.0},
+title = {Deep Learning Utilities for Pathology, branch entropy{\_}masker},
+url = {{https://github.com/siemdejong/dlup/tree/entropy\_masker}},
+year = {2023},
+commit = {8de3c5689a1cd48cff77a0648dae6f918eae4457}
+}
+
+@article{Johnson2016, title={Mimic-III, a freely accessible Critical Care Database}, volume={3}, DOI={10.1038/sdata.2016.35}, number={1}, journal={Scientific Data}, author={Johnson, Alistair E.W. and Pollard, Tom J. and Shen, Lu and Lehman, Li-wei H. and Feng, Mengling and Ghassemi, Mohammad and Moody, Benjamin and Szolovits, Peter and Anthony Celi, Leo and Mark, Roger G.}, year={2016}} 
 
 @article{Li2021a,
   author       = {Li, Jiayun and Li, Wenyuan and Sisk, Anthony and Ye, Huihui and Wallace, W. Dean and Speier, William and Arnold, Corey W.},
@@ -670,6 +708,21 @@
   groups       = {THG-XAI, MIL: multi-scale attention, MIL: Attention-based},
   keywords     = {Convolutional neural network, Image classification prostate cancer, Multiple instance learning, Whole slide images},
   publisher    = {Pergamon}
+}
+
+@article{Muller2021,
+  author       = {Samuel G. M{\"{u}}ller and
+                  Frank Hutter},
+  title        = {TrivialAugment: Tuning-free Yet State-of-the-Art Data Augmentation},
+  journal      = {CoRR},
+  volume       = {abs/2103.10158},
+  year         = {2021},
+  url          = {https://arxiv.org/abs/2103.10158},
+  eprinttype    = {arXiv},
+  eprint       = {2103.10158},
+  timestamp    = {Wed, 24 Mar 2021 15:50:40 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2103-10158.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
 
 @article{Oliveira2021,
@@ -754,18 +807,22 @@
   publisher    = {Nature Publishing Group}
 }
 
-@misc{Ilse2018,
-  author      = {Maximilian Ilse and Jakub M. Tomczak and Max Welling},
-  date        = {2018-02-13},
-  title       = {Attention-based Deep Multiple Instance Learning},
-  eprint      = {1802.04712},
-  eprintclass = {cs.LG},
-  eprinttype  = {arXiv},
-  abstract    = {Multiple instance learning (MIL) is a variation of supervised learning where a single class label is assigned to a bag of instances. In this paper, we state the MIL problem as learning the Bernoulli distribution of the bag label where the bag label probability is fully parameterized by neural networks. Furthermore, we propose a neural network-based permutation-invariant aggregation operator that corresponds to the attention mechanism. Notably, an application of the proposed attention-based operator provides insight into the contribution of each instance to the bag label. We show empirically that our approach achieves comparable performance to the best MIL methods on benchmark MIL datasets and it outperforms other methods on a MNIST-based MIL dataset and two real-life histopathology datasets without sacrificing interpretability.},
-  file        = {:Ilse2018 - Attention Based Deep Multiple Instance Learning.pdf:PDF},
-  groups      = {THG-XAI, MIL: Attention-based},
-  keywords    = {cs.LG, stat.ML}
+
+@InProceedings{Ilse2018,
+  title = 	 {Attention-based Deep Multiple Instance Learning},
+  author =       {Ilse, Maximilian and Tomczak, Jakub and Welling, Max},
+  booktitle = 	 {Proceedings of the 35th International Conference on Machine Learning},
+  pages = 	 {2127--2136},
+  year = 	 {2018},
+  editor = 	 {Dy, Jennifer and Krause, Andreas},
+  volume = 	 {80},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {10--15 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v80/ilse18a/ilse18a.pdf},
+  url = 	 {https://proceedings.mlr.press/v80/ilse18a.html},
 }
+
 
 @misc{Lu2021,
   author       = {Ming Y. Lu and Drew F. K. Williamson and Tiffany Y. Chen and Richard J. Chen and Matteo Barbieri and Faisal Mahmood},
@@ -797,20 +854,22 @@
 
 @article{Kocarnik2022, title={Cancer incidence, mortality, years of life lost, years lived with disability, and disability-adjusted life years for 29 cancer groups from 2010 to 2019}, volume={8}, DOI={10.1001/jamaoncol.2021.6987}, number={3}, journal={JAMA Oncology}, author={Kocarnik, Jonathan M. and Compton, Kelly and Dean, Frances E. and Fu, Weijia and Gaw, Brian L. and Harvey, James D. and Henrikson, Hannah Jacqueline and Lu, Dan and Pennini, Alyssa and Xu, Rixing and et al.}, year={2022}, pages={420}} 
 
-@inproceedings{Chen2020,
-  author       = {Chen, Ting and Kornblith, Simon and Norouzi, Mohammad and Hinton, Geoffrey},
-  date         = {2020},
-  title        = {A Simple Framework for Contrastive Learning of Visual Representations},
-  eprint       = {2002.05709},
-  language     = {en},
-  pages        = {1597--1607},
-  publisher    = {PMLR},
-  url          = {http://proceedings.mlr.press/v119/chen20j/chen20j-supp.pdf},
-  abstract     = {This paper presents SimCLR: a simple framework for contrastive learning of visual representations. We simplify recently proposed contrastive self-supervised learning algorithms without requiring specialized architectures or a memory bank. In order to understand what enables the contrastive prediction tasks to learn useful representations, we systematically study the major components of our framework. We show that (1) composition of data augmentations plays a critical role in defining effective predictive tasks, (2) introducing a learnable nonlinear transformation between the representation and the contrastive loss substantially improves the quality of the learned representations, and (3) contrastive learning benefits from larger batch sizes and more training steps compared to supervised learning. By combining these findings, we are able to considerably outperform previous methods for self-supervised and semi-supervised learning on ImageNet. A linear classifier trained on self-supervised representations learned by SimCLR achieves 76.5\% top-1 accuracy, which is a 7\% relative improvement over previous state-of-the-art, matching the performance of a supervised ResNet-50. When fine-tuned on only 1\% of the labels, we achieve 85.8\% top-5 accuracy, outperforming AlexNet with 100X fewer labels.},
-  file         = {:Chen2020 - A Simple Framework for Contrastive Learning of Visual Representations.pdf:PDF},
-  groups       = {THG-XAI, Feature extraction},
-  journaltitle = {International Conference on Machine Learning}
+
+@InProceedings{Chen2020,
+  title = 	 {A Simple Framework for Contrastive Learning of Visual Representations},
+  author =       {Chen, Ting and Kornblith, Simon and Norouzi, Mohammad and Hinton, Geoffrey},
+  booktitle = 	 {Proceedings of the 37th International Conference on Machine Learning},
+  pages = 	 {1597--1607},
+  year = 	 {2020},
+  editor = 	 {III, Hal Daumé and Singh, Aarti},
+  volume = 	 {119},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {13--18 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v119/chen20j/chen20j.pdf},
+  url = 	 {https://proceedings.mlr.press/v119/chen20j.html},
 }
+
 
 @article{Saillard2021,
   author     = {Saillard, Charlie and Dehaene, Olivier and Marchand, Tanguy and Moindrot, Olivier and Kamoun, Aurélie and Schmauch, Benoit and Jegou, Simon},
@@ -874,16 +933,23 @@
   primaryclass  = {cs.LG}
 }
 
-@misc{Zeiler2013,
-  doi       = {10.48550/ARXIV.1311.2901},
-  url       = {https://arxiv.org/abs/1311.2901},
-  author    = {Zeiler, Matthew D and Fergus, Rob},
-  keywords  = {Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences, FOS: Computer and information sciences},
-  title     = {Visualizing and Understanding Convolutional Networks},
-  publisher = {arXiv},
-  year      = {2013},
-  copyright = {arXiv.org perpetual, non-exclusive license}
+@InProceedings{Zeiler2013,
+author="Zeiler, Matthew D.
+and Fergus, Rob",
+editor="Fleet, David
+and Pajdla, Tomas
+and Schiele, Bernt
+and Tuytelaars, Tinne",
+title="Visualizing and Understanding Convolutional Networks",
+booktitle="Computer Vision -- ECCV 2014",
+year="2014",
+publisher="Springer International Publishing",
+address="Cham",
+pages="818--833",
+isbn="978-3-319-10590-1"
 }
+
+
 
 @article{Wilkinson2020,
   author   = {Wilkinson, Holly N.  and Hardman, Matthew J. },
@@ -921,14 +987,39 @@ year = {2022}
 }
 
 @inproceedings{Wolf2020,
-author = {Wolf, Thomas and Debut, Lysandre and Sanh, Victor and Chaumond, Julien and Delangue, Clement and Moi, Anthony and Cistac, Perric and Ma, Clara and Jernite, Yacine and Plu, Julien and Xu, Canwen and Le Scao, Teven and Gugger, Sylvain and Drame, Mariama and Lhoest, Quentin and Rush, Alexander M.},
-month = oct,
-pages = {38--45},
-publisher = {Association for Computational Linguistics},
-title = {{Transformers: State-of-the-Art Natural Language Processing}},
-url = {https://www.aclweb.org/anthology/2020.emnlp-demos.6},
-year = {2020}
+    title = "Transformers: State-of-the-Art Natural Language Processing",
+    author = "Wolf, Thomas  and
+      Debut, Lysandre  and
+      Sanh, Victor  and
+      Chaumond, Julien  and
+      Delangue, Clement  and
+      Moi, Anthony  and
+      Cistac, Pierric  and
+      Rault, Tim  and
+      Louf, Remi  and
+      Funtowicz, Morgan  and
+      Davison, Joe  and
+      Shleifer, Sam  and
+      von Platen, Patrick  and
+      Ma, Clara  and
+      Jernite, Yacine  and
+      Plu, Julien  and
+      Xu, Canwen  and
+      Le Scao, Teven  and
+      Gugger, Sylvain  and
+      Drame, Mariama  and
+      Lhoest, Quentin  and
+      Rush, Alexander",
+    booktitle = "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing: System Demonstrations",
+    month = oct,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2020.emnlp-demos.6",
+    doi = "10.18653/v1/2020.emnlp-demos.6",
+    pages = "38--45",
 }
+
 
 @misc{imgclsmob2023,
   author = {imgclsmob contributors},
@@ -950,16 +1041,18 @@ year = {2020}
   copyright = {arXiv.org perpetual, non-exclusive license}
 }
 
-@incollection{Flach2015,
-title = {Precision-Recall-Gain Curves: PR Analysis Done Right},
-author = {Flach, Peter and Kull, Meelis},
-booktitle = {Advances in Neural Information Processing Systems 28},
-editor = {C. Cortes and N. D. Lawrence and D. D. Lee and M. Sugiyama and R. Garnett},
-pages = {838--846},
-year = {2015},
-publisher = {Curran Associates, Inc.},
-url = {http://papers.nips.cc/paper/5867-precision-recall-gain-curves-pr-analysis-done-right.pdf}
+@inproceedings{Flach2015,
+ author = {Flach, Peter and Kull, Meelis},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {C. Cortes and N. Lawrence and D. Lee and M. Sugiyama and R. Garnett},
+ pages = {},
+ publisher = {Curran Associates, Inc.},
+ title = {Precision-Recall-Gain Curves: PR Analysis Done Right},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2015/file/33e8075e9970de0cfea955afd4644bb2-Paper.pdf},
+ volume = {28},
+ year = {2015}
 }
+
 
 @software{Laan2022,
   author       = {Sander W. van der Laan and
@@ -975,7 +1068,7 @@ url = {http://papers.nips.cc/paper/5867-precision-recall-gain-curves-pr-analysis
 }
 
 @software{Teuwen2023,
-author = {Netherlands Cancer Institute and contributors},
+author = {{Netherlands Cancer Institute} and contributors},
 % doi = {},
 license = {Apache-2.0},
 month = mar,
@@ -984,30 +1077,36 @@ url = {https://github.com/NKI-AI/dlup},
 year = {2023}
 }
 
-@article{Akiba2019,
-  author     = {Takuya Akiba and
-                Shotaro Sano and
-                Toshihiko Yanase and
-                Takeru Ohta and
-                Masanori Koyama},
-  title      = {Optuna: {A} Next-generation Hyperparameter Optimization Framework},
-  journal    = {CoRR},
-  volume     = {abs/1907.10902},
-  year       = {2019},
-  url        = {http://arxiv.org/abs/1907.10902},
-  eprinttype = {arXiv},
-  eprint     = {1907.10902},
-  timestamp  = {Thu, 01 Aug 2019 08:59:33 +0200},
-  biburl     = {https://dblp.org/rec/journals/corr/abs-1907-10902.bib},
-  bibsource  = {dblp computer science bibliography, https://dblp.org}
+@inproceedings{Akiba2019,
+author = {Akiba, Takuya and Sano, Shotaro and Yanase, Toshihiko and Ohta, Takeru and Koyama, Masanori},
+title = {Optuna: A Next-Generation Hyperparameter Optimization Framework},
+year = {2019},
+isbn = {9781450362016},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3292500.3330701},
+doi = {10.1145/3292500.3330701},
+booktitle = {Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery \& Data Mining},
+pages = {2623–2631},
+numpages = {9},
+keywords = {machine learning system, hyperparameter optimization, Bayesian optimization, black-box optimization},
+location = {Anchorage, AK, USA},
+series = {KDD '19}
 }
 
-@article{Kingma2014AdamAM,
-  title={Adam: A Method for Stochastic Optimization},
-  author={Diederik P. Kingma and Jimmy Ba},
-  journal={CoRR},
-  year={2014},
-  volume={abs/1412.6980}
+@inproceedings{Kingma2014AdamAM,
+  author       = {Diederik P. Kingma and
+                  Jimmy Ba},
+  editor       = {Yoshua Bengio and
+                  Yann LeCun},
+  title        = {Adam: {A} Method for Stochastic Optimization},
+  booktitle    = {3rd International Conference on Learning Representations, {ICLR} 2015,
+                  San Diego, CA, USA, May 7-9, 2015, Conference Track Proceedings},
+  year         = {2015},
+  url          = {http://arxiv.org/abs/1412.6980},
+  timestamp    = {Thu, 25 Jul 2019 14:25:37 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/KingmaB14.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
 
 @inproceedings{Paszke2019,
@@ -1044,15 +1143,18 @@ year = {2023}
 
 @article{Verhaegen2012, title={Adaptation of the dermal collagen structure of human skin and scar tissue in response to stretch: An experimental study}, volume={20}, DOI={10.1111/j.1524-475x.2012.00827.x}, number={5}, journal={Wound Repair and Regeneration}, author={Verhaegen, Pauline D. and Schouten, Hennie J. and Tigchelaar-Gutter, Wikky and van Marle, Jan and van Noorden, Cornelis J. and Middelkoop, Esther and van Zuijlen, Paul P.}, year={2012}, pages={658–666}} 
 
-@article{Holzapfel2001,
-  title={Biomechanics of soft tissue},
-  author={Holzapfel, Gerhard A and others},
-  journal={The handbook of materials behavior models},
-  volume={3},
-  number={1},
-  pages={1049--1063},
-  year={2001},
-  publisher={Academic Press San Diego, CA, USA}
+@incollection{Holzapfel2001,
+title = {Biomechanics of Soft Tissue},
+editor = {Jean Lemaitre},
+booktitle = {Handbook of Materials Behavior Models},
+publisher = {Academic Press},
+address = {Burlington},
+pages = {1057-1071},
+year = {2001},
+isbn = {978-0-12-443341-0},
+doi = {https://doi.org/10.1016/B978-012443341-0/50107-1},
+url = {https://www.sciencedirect.com/science/article/pii/B9780124433410501071},
+author = {Gerhard A. Holzapfel}
 }
 
 @article{Lipa2021,
@@ -1090,9 +1192,7 @@ year = {2023}
   publisher = {PMLR},
   pdf       = {http://proceedings.mlr.press/v32/hutter14.pdf},
   url       = {https://proceedings.mlr.press/v32/hutter14.html},
-  abstract  = {The performance of many machine learning methods depends critically on hyperparameter settings. Sophisticated Bayesian optimization methods have recently achieved considerable successes in optimizing these hyperparameters, in several cases surpassing the performance of human experts. However, blind reliance on such methods can leave end users without insight into the relative importance of different hyperparameters and their interactions. This paper describes efficient methods that can be used to gain such insight, leveraging random forest models fit on the data already gathered by Bayesian optimization. We first introduce a novel, linear-time algorithm for computing marginals of random forest predictions and then show how to leverage these predictions within a functional ANOVA framework, to quantify the importance of both single hyperparameters and of interactions between hyperparameters. We conducted experiments with prominent machine learning frameworks and state-of-the-art solvers for combinatorial problems. We show that our methods provide insight into the relationship between hyperparameter settings and performance, and demonstrate that—even in very high-dimensional cases—most performance variation is attributable to just a few hyperparameters.}
 }
-
 
  
 @article{Selvaraju2020,
@@ -1395,19 +1495,22 @@ year = {2023}
 }
 
  
-@techreport{Huang2017,
-  author      = {Huang, Gao and Li, Yixuan and Pleiss, Geoff and Liu, Zhuang and Hopcroft, John E. and Weinberger, Kilian Q.},
-  date        = {2017-03},
-  institution = {arXiv},
-  title       = {Snapshot {Ensembles}: {Train} 1, get {M} for free},
-  note        = {arXiv:1704.00109 [cs] type: article},
-  url         = {http://arxiv.org/abs/1704.00109},
-  urldate     = {2022-11-09},
-  abstract    = {Ensembles of neural networks are known to be much more robust and accurate than individual networks. However, training multiple deep networks for model averaging is computationally expensive. In this paper, we propose a method to obtain the seemingly contradictory goal of ensembling multiple neural networks at no additional training cost. We achieve this goal by training a single neural network, converging to several local minima along its optimization path and saving the model parameters. To obtain repeated rapid convergence, we leverage recent work on cyclic learning rate schedules. The resulting technique, which we refer to as Snapshot Ensembling, is simple, yet surprisingly effective. We show in a series of experiments that our approach is compatible with diverse network architectures and learning tasks. It consistently yields lower error rates than state-of-the-art single models at no additional training cost, and compares favorably with traditional network ensembles. On CIFAR-10 and CIFAR-100 our DenseNet Snapshot Ensembles obtain error rates of 3.4\% and 17.4\% respectively.},
-  file        = {:Huang2017 - Snapshot Ensembles_ Train 1, Get M for Free.pdf:PDF},
-  groups      = {Denoising, Deep learning architectures},
-  keywords    = {Computer Science - Machine Learning},
-  shorttitle  = {Snapshot {Ensembles}}
+@inproceedings{Huang2017,
+  author       = {Gao Huang and
+                  Yixuan Li and
+                  Geoff Pleiss and
+                  Zhuang Liu and
+                  John E. Hopcroft and
+                  Kilian Q. Weinberger},
+  title        = {Snapshot Ensembles: Train 1, Get {M} for Free},
+  booktitle    = {5th International Conference on Learning Representations, {ICLR} 2017,
+                  Toulon, France, April 24-26, 2017, Conference Track Proceedings},
+  publisher    = {OpenReview.net},
+  year         = {2017},
+  url          = {https://openreview.net/forum?id=BJYwwY9ll},
+  timestamp    = {Fri, 18 Nov 2022 15:40:45 +0100},
+  biburl       = {https://dblp.org/rec/conf/iclr/HuangLP0HW17.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
 
  
@@ -1426,38 +1529,55 @@ year = {2023}
   keywords     = {Target tracking, Visualization, Training, Benchmark testing, Object tracking, Data models, Correlation, Data imbalance, shrinkage loss, regression tracking, classification tracking, Siamese tracking}
 }
 
-@inproceedings{Krull2019,
-  title     = {Noise2void-learning denoising from single noisy images},
-  author    = {Krull, Alexander and Buchholz, Tim-Oliver and Jug, Florian},
-  booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
-  pages     = {2129--2137},
-  year      = {2019}
-}
+@INPROCEEDINGS{Krull2019,
+  author={Krull, Alexander and Buchholz, Tim-Oliver and Jug, Florian},
+  booktitle={2019 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, 
+  title={Noise2Void - Learning Denoising From Single Noisy Images}, 
+  year={2019},
+  volume={},
+  number={},
+  pages={2124-2132},
+  doi={10.1109/CVPR.2019.00223}}
+
 
 @inproceedings{Hock2022,
-  author    = {Höck, Eva and Buchholz, Tim-Oliver and Brachmann, Anselm and Jug, Florian and Freytag, Alexander},
-  booktitle = {Submitted to ECCV 2022 Workshop on BioImage Computing},
-  title     = {N2V2 - Fixing Noise2Void Checkerboard Artifacts with Modified Sampling Strategies and a Tweaked Network Architecture},
-  note      = {under review},
-  url       = {https://openreview.net/forum?id=IZfQYb4lHVq},
-  groups    = {Denoising},
-  year      = {2022}
+author = {H\"{o}ck, Eva and Buchholz, Tim-Oliver and Brachmann, Anselm and Jug, Florian and Freytag, Alexander},
+title = {N2V2 - Fixing Noise2Void Checkerboard Artifacts With Modified Sampling Strategies And Tweaked Network Architecture},
+year = {2023},
+isbn = {978-3-031-25068-2},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg},
+url = {https://doi.org/10.1007/978-3-031-25069-9_33},
+doi = {10.1007/978-3-031-25069-9_33},
+booktitle = {Computer Vision - ECCV 2022 Workshops: Tel Aviv, Israel, October 23--27, 2022, Proceedings, Part IV},
+pages = {503--518},
+numpages = {16},
+location = {Tel Aviv, Israel}
 }
 
 @inproceedings{yang2021delving,
-  author    = {Yang, Yuzhe and Zha, Kaiwen and Chen, Ying-Cong and Wang, Hao and Katabi, Dina},
-  booktitle = {International Conference on Machine Learning (ICML)},
-  title     = {Delving into Deep Imbalanced Regression},
-  groups    = {imbalance},
-  year      = {2021}
+  title = 	 {Delving into Deep Imbalanced Regression},
+  author =       {Yang, Yuzhe and Zha, Kaiwen and Chen, Yingcong and Wang, Hao and Katabi, Dina},
+  booktitle = 	 {Proceedings of the 38th International Conference on Machine Learning},
+  pages = 	 {11842--11851},
+  year = 	 {2021},
+  editor = 	 {Meila, Marina and Zhang, Tong},
+  volume = 	 {139},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {18--24 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v139/yang21m/yang21m.pdf},
+  url = 	 {https://proceedings.mlr.press/v139/yang21m.html},
 }
+
 
 @mastersthesis{Soylu2022,
   author = {Soylu, Alperen},
   title  = {Developing a non-invasive approach to estimate physical parameters of skin tissue from HHG microscopy using convolutional neural networks},
   school = {Vrije Universiteit Amsterdam},
   year   = {2022},
-  type   = {MSc thesis}
+  type   = {MSc thesis},
+  note = {Unpublished}
 }
 
 @article{2020SciPy-NMeth,
@@ -1494,11 +1614,16 @@ year = {2023}
   location     = {Northampton, MA, USA}
 }
 
-@inproceedings{Zuiderveld1994ContrastLA,
-  title     = {Contrast Limited Adaptive Histogram Equalization},
-  author    = {Karel J. Zuiderveld},
-  booktitle = {Graphics gems},
-  year      = {1994}
+@inbook{Zuiderveld1994ContrastLA,
+author = {Zuiderveld, Karel},
+title = {Contrast Limited Adaptive Histogram Equalization},
+year = {1994},
+isbn = {0123361559},
+publisher = {Academic Press Professional, Inc.},
+address = {USA},
+booktitle = {Graphics Gems IV},
+pages = {474–485},
+numpages = {12}
 }
 
 @article{scikit-image,
@@ -1548,23 +1673,16 @@ year = {2023}
   series    = {ICML'15}
 }
 
-@article{He2015a,
-  author     = {Kaiming He and
-                Xiangyu Zhang and
-                Shaoqing Ren and
-                Jian Sun},
-  title      = {Delving Deep into Rectifiers: Surpassing Human-Level Performance on
-                ImageNet Classification},
-  journal    = {CoRR},
-  volume     = {abs/1502.01852},
-  year       = {2015},
-  url        = {http://arxiv.org/abs/1502.01852},
-  eprinttype = {arXiv},
-  eprint     = {1502.01852},
-  timestamp  = {Wed, 17 Apr 2019 17:23:45 +0200},
-  biburl     = {https://dblp.org/rec/journals/corr/HeZR015.bib},
-  bibsource  = {dblp computer science bibliography, https://dblp.org}
-}
+@inproceedings{He2015a,
+  author={He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  booktitle={2015 IEEE International Conference on Computer Vision (ICCV)}, 
+  title={Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification}, 
+  year={2015},
+  volume={},
+  number={},
+  pages={1026-1034},
+  doi={10.1109/ICCV.2015.123}}
+
 
 @article{Bergstra2012,
   author     = {Bergstra, James and Bengio, Yoshua},
@@ -1636,6 +1754,7 @@ year = {2023}
   abstract  = {Motivated by the task of hyperparameter optimization, we introduce the \em non-stochastic best-arm identification problem. We identify an attractive algorithm  for this setting that makes no assumptions on the convergence behavior of the arms’ losses, has no free-parameters to adjust, provably outperforms the uniform allocation baseline in favorable conditions, and performs comparably (up to \log factors) otherwise. Next, by leveraging the iterative nature of many  learning algorithms, we cast hyperparameter optimization as an instance of non-stochastic best-arm identification. Our empirical results show that, by allocating more resources to promising hyperparameter settings, our approach achieves comparable test accuracies an order of magnitude faster than the uniform strategy. The robustness and simplicity of our approach makes it well-suited to ultimately replace the uniform strategy currently used in most machine learning software packages.}
 }
 
+
 @article{Li2018,
   author     = {Li, Liam and
                 Jamieson, Kevin G. and
@@ -1657,40 +1776,40 @@ year = {2023}
 }
 
 @article{Li2016,
-  author     = {Li, Lisha and
-                Jamieson, Kevin G. and
-                DeSalvo, Giulia and
-                Rostamizadeh, Afshin and
-                Talwalkar, Ameet},
-  title      = {Efficient Hyperparameter Optimization and Infinitely Many Armed Bandits},
-  journal    = {CoRR},
-  volume     = {abs/1603.06560},
-  year       = {2016},
-  url        = {http://arxiv.org/abs/1603.06560},
-  eprinttype = {arXiv},
-  eprint     = {1603.06560},
-  timestamp  = {Mon, 13 Aug 2018 16:48:11 +0200},
-  biburl     = {https://dblp.org/rec/journals/corr/LiJDRT16.bib},
-  bibsource  = {dblp computer science bibliography, https://dblp.org}
+author = {Li, Lisha and Jamieson, Kevin and DeSalvo, Giulia and Rostamizadeh, Afshin and Talwalkar, Ameet},
+title = {Hyperband: A Novel Bandit-Based Approach to Hyperparameter Optimization},
+year = {2017},
+issue_date = {January 2017},
+publisher = {JMLR.org},
+volume = {18},
+number = {1},
+issn = {1532-4435},
+journal = {J. Mach. Learn. Res.},
+month = {jan},
+pages = {6765--6816},
+numpages = {52},
+keywords = {model selection, infinite-armed bandits, deep learning, hyperparameter optimization, online optimization}
 }
 
-@article{Ma2018,
-  author       = {Ningning Ma and
-                  Xiangyu Zhang and
-                  Hai{-}Tao Zheng and
-                  Jian Sun},
-  title        = {ShuffleNet {V2:} Practical Guidelines for Efficient {CNN} Architecture
-                  Design},
-  journal      = {CoRR},
-  volume       = {abs/1807.11164},
-  year         = {2018},
-  url          = {http://arxiv.org/abs/1807.11164},
-  eprinttype    = {arXiv},
-  eprint       = {1807.11164},
-  timestamp    = {Tue, 21 Dec 2021 10:11:08 +0100},
-  biburl       = {https://dblp.org/rec/journals/corr/abs-1807-11164.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
+@InProceedings{Ma2018,
+author="Ma, Ningning
+and Zhang, Xiangyu
+and Zheng, Hai-Tao
+and Sun, Jian",
+editor="Ferrari, Vittorio
+and Hebert, Martial
+and Sminchisescu, Cristian
+and Weiss, Yair",
+title="ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design",
+booktitle="Computer Vision -- ECCV 2018",
+year="2018",
+publisher="Springer International Publishing",
+address="Cham",
+pages="122--138",
+isbn="978-3-030-01264-9"
 }
+
+
 
 @article{Heus2020, title={Transparent reporting of multivariable prediction models in Journal and conference abstracts: Tripod for abstracts}, volume={173}, DOI={10.7326/m20-0193}, number={1}, journal={Annals of Internal Medicine}, author={Heus, Pauline and Reitsma, Johannes B. and Collins, Gary S. and Damen, Johanna A.A.G. and Scholten, Rob J.P.M. and Altman, Douglas G. and Moons, Karel G.M. and Hooft, Lotty}, year={2020}, pages={42–47}} 
 
@@ -1760,6 +1879,9 @@ abstract = {Deep learning algorithms, in particular convolutional networks, have
  @misc{NP1981,
   title   = {The nobel prize in physiology or medicine 1981},
   url     = {https://www.nobelprize.org/prizes/medicine/1981/press-release/},
+  year = {1981},
+  month = {10},
+  day = {9},
   journal = {NobelPrize.org}
 } 
 

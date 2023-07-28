@@ -1,14 +1,14 @@
 \section{Theory}
 
 % In addition to the theory described in \cref{ch:theory}, this section describes theory only applicable to the Skinstression project.
-\subsection{Collagen}
-TODO. How does it look like in SHG imaging?
+% \subsection{Collagen}
+% TODO. How does it look like in SHG imaging?
 
 % --------------------------------------------------
 % SEARCHING FOR A SIMPLE SKIN STRAIN-STRESS MODEL
 % --------------------------------------------------
 
-\subsection{Searching for a simple skin strain-stress model}
+\subsection{Searching for a simple skin strain-stress model}\label{subsec:skin_predictors}
 
 Supervised learning requires targets for the model to train on.
 Ideally, individual targets allow for physical interpretation and can together describe all the available data.
@@ -42,7 +42,7 @@ Overstretching the tissue then breaks the fiber network, decreasing the possibil
     \label{fig:stress-strain-curve-skin-tissue}
 \end{figure}
 
-\subsubsection{Exponential}
+\subsubsection{Exponential}\label{subsubsec:exp}
 Strain-stress curves can also be visualized by showing the log derivative of stress with respect to strain against the log of strain as in \cref{fig:stress-strain-curve-skin-tissue}B.
 Typically, this figure has three regions.
 The first region indicates a linear relationship between small forces and small strain.
@@ -102,24 +102,10 @@ The empirical observations where the force response of skin tissue changes state
     \sigma = \frac{\sigma_\mathrm{max}}{1+e^{-E_\mathrm{max} (\gamma - \gamma_c)}},
 \end{equation}
 where $\sigma$ and $\gamma$ are the stress and engineering strain, $\sigma_\mathrm{max}$ is the maximum stress, $E_\mathrm{max}$ is the maximum Young's modulus and $\gamma_c$ the strain offset.
-This equation assumes that there is a maximum force that the tissue can exert, in contrary to the theoretical approach above (ref).
+This equation assumes that there is a maximum force that the tissue can exert, in contrary to the theoretical approach in \cref{subsubsec:exp}.
 
 Using the logistic curve as an alternative to PCA has two major advantages.
 Every curve can be treated separately and measurements can contain data across arbitrary domains and with arbitrary intervals as no interpolation is necessary.
-
-Strain-stress curves for all individuals were kindly provided by M.\ Zhou.
-The curves only include points where the skin extension is larger than zero and the force positive.
-
-To every strain-stress curve, \cref{eq:logistic_curve} is fitted with Scipy \sidecite{2020SciPy-NMeth}.\todo{Move methods to methods}
-The optimal parameters were used as targets for training the model.
-
-The AI was trained on a with LDS smoothed target variable distribution.
-The targets were weighted with the inverse square root, to limit the impact of LDS.
-
-It is important to perform a study on bias for possible explanations of varying AI performance.
-The samples were taken from individuals with varying age and gender.
-Moreover, from some individuals, more mechanical measurements were taken.
-Therefore, the age, gender, and number of samples were summarized.
 
 % --------------------------------------------------
 % Label density smoothing
@@ -141,7 +127,7 @@ LDS computes the effective label density distribution,
 where $k(y,y')$ is a symmetric kernel, $p(y)$ the number of label $y$ present in the training data and \edtl the effective density of target label $y'$.
 Reweighting the loss function with the inverse (square root) of \edtl addresses target imbalance.
 
-\subsection{Goodness of fit}
+\subsection{Goodness of fit}\label{subsec:coef_det}
 
 % \subsubsection{Coefficient of determination}\label{subsec:coef_det}
 One possible way to quantify how good a fit is, is to calculate the coefficient of determination.
