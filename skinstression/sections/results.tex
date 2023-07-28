@@ -413,6 +413,19 @@ There is no clear relation between the attribution mean and/or standard deviatio
 %     \includegraphics[width=\linewidth]{skinstression/images/explainability/occlusion/0.pdf} \\
 %     \raggedleft Continued on next page.
 % \end{figure*}
+
+\subsubsection{Adversarial attack}
+\Cref{fig:attack_occlusion} shows attribution maps for all outputs to compare attacked images with the original image.
+\Cref{fig:pred_output_attack} shows the predicted logistic curves for the attacked images and the original image.
+These results show that artificially filling holes increases the stiffness and resistance, while adding holes decreases stiffness and resistance.
+\begin{marginfigure}[-5\baselineskip]
+    \includegraphics{skinstression/images/attack/holes.pdf}
+    \caption[Prediction output after hole attack]{
+        Prediction output after hole attack.
+    }
+    \label{fig:pred_output_attack}
+\end{marginfigure}
+
 \begin{figure*}
     % \ContinuedFloat
     \centering
@@ -450,20 +463,6 @@ There is no clear relation between the attribution mean and/or standard deviatio
     }
     \label{fig:skin_occlusion_53}
 \end{figure*}
-
-\subsubsection{Adversarial attack}
-\Cref{fig:attack_occlusion} shows attribution maps for all outputs to compare attacked images with the original image.
-\Cref{fig:pred_output_attack} shows the predicted logistic curves for the attacked images and the original image.
-These results show that artificially filling holes increases the stiffness and resistance, while adding holes decreases stiffness and resistance.
-\begin{marginfigure}
-    \centering
-    \includegraphics{skinstression/images/attack/holes.pdf}
-    \caption[Prediction output after hole attack]{
-        Prediction output after hole attack.
-    }
-    \label{fig:pred_output_attack}
-\end{marginfigure}
-
 
 \begin{figure*}
     \centering
