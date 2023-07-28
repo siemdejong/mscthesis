@@ -1,6 +1,8 @@
 name: Build and release LaTeX output PDF
 on:
+  workflow_dispatch:
   push:
+    branch: main
     tags:
       - 'v*'
 jobs:
